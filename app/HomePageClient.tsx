@@ -26,6 +26,39 @@ import Image from "next/image"
 import Link from "next/link"
 import BookingModal from "@/components/booking-modal"
 
+// ─── Scroll Animation Hook ───
+function useScrollAnimation() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement
+            const delay = el.dataset.delay || "0"
+            el.style.animationDelay = `${delay}ms`
+            el.classList.add("is-visible")
+            observer.unobserve(el)
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+    )
+    const elements = document.querySelectorAll(".animate-on-scroll")
+    elements.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+}
+
+// ─── Transfer Routes Data ───
+const highlightTransfers = [
+  { from: "Airport / Ferry", to: "Stone Town", price: 15, image: "/images/vehicles/alphard-gold.jpg" },
+  { from: "Airport / Ferry", to: "Nungwi - Kendwa", price: 35, image: "/images/vehicles/alphard-white-rear.jpg" },
+  { from: "Airport / Ferry", to: "Paje", price: 35, image: "/images/vehicles/alphard-black.jpg" },
+  { from: "Airport / Ferry", to: "Kiwengwa", price: 30, image: "/images/vehicles/alphard-black-2.jpg" },
+  { from: "Airport / Ferry", to: "Matemwe", price: 30, image: "/images/vehicles/coaster-bus.jpg" },
+  { from: "Airport / Ferry", to: "Jambiani", price: 35, image: "/images/vehicles/alphard-white.png" },
+]
+
 // ─── Translation System ───
 type Lang = "en" | "ar" | "da" | "no" | "sv" | "de" | "it" | "es" | "fr" | "ru"
 
@@ -165,6 +198,7 @@ export default function HomePageClient() {
   const [time, setTime] = useState("")
   const [openFaq, setOpenFaq] = useState<number | null>(0)
   const t = useCallback((k: string) => translations[lang]?.[k] || translations.en[k] || k, [lang])
+  useScrollAnimation()
 
   const handleBook = () => {
     const msg = `*New Taxi Booking*\n*From:* ${pickup}\n*To:* ${dropoff}\n*Passengers:* ${pax}\n*Date:* ${date}\n*Time:* ${time}`
@@ -172,14 +206,18 @@ export default function HomePageClient() {
   }
 
   const tours = [
-    { name: "Safari Blue Day Trip", price: 40, img: "/images/tours/safari-blue-day.jpg", desc: "Sail on traditional dhows to pristine sandbanks and enjoy the ultimate marine adventure with snorkeling, swimming, and a seafood feast.", link: "/zanzibar" },
-    { name: "Stone Town Tour", price: 25, img: "/images/tours/stone-town-tour.jpg", desc: "Explore the UNESCO World Heritage site with its narrow alleys, historic buildings, and vibrant markets. Discover the cultural heart of Zanzibar.", link: "/zanzibar" },
-    { name: "Prison Island Boat Trip", price: 30, img: "/images/tours/prison-island.jpg", desc: "Visit the historic Changuu Island to learn about its fascinating past and meet the famous giant Aldabra tortoises, some over 100 years old.", link: "/zanzibar" },
-    { name: "Nakupenda Sandbank", price: 49, img: "/images/tours/nakupenda-sandbank.jpg", desc: "Escape to a pristine white sand paradise in the middle of the ocean. Perfect for relaxation, swimming, and enjoying fresh seafood.", link: "/zanzibar" },
-    { name: "Spice Farm Tour", price: 25, img: "/images/tours/spice-tour.jpg", desc: "Discover why Zanzibar is called the 'Spice Island' with visits to working spice plantations where you'll see, smell, and taste exotic spices.", link: "/zanzibar" },
-    { name: "Jozani Forest Tour", price: 30, img: "/images/tours/jozani-forest.jpg", desc: "Explore Zanzibar's indigenous forest and meet the rare Red Colobus monkeys found nowhere else on Earth. A nature lover's paradise.", link: "/zanzibar" },
-    { name: "Kizimkazi Dolphins", price: 35, img: "/images/tours/kizimkazi-dolphin.jpg", desc: "Swim with wild dolphins in their natural habitat at Kizimkazi. An unforgettable wildlife encounter in the warm waters of the Indian Ocean.", link: "/zanzibar" },
-    { name: "Mnemba Island Tour", price: 42, img: "/images/tours/mnemba-island.jpg", desc: "Discover pristine coral reefs and swim in crystal-clear waters around this protected marine sanctuary. Perfect for snorkeling enthusiasts.", link: "/zanzibar" },
+    { name: "Safari Blue Day Trip", price: 55, img: "/images/tours/safari-blue-day.jpg", desc: "Sail on traditional dhows to pristine sandbanks and enjoy the ultimate marine adventure with snorkeling, swimming, and a seafood feast.", link: "/zanzibar" },
+    { name: "Stone Town Tour", price: 30, img: "/images/tours/stone-town-tour.jpg", desc: "Explore the UNESCO World Heritage site with its narrow alleys, historic buildings, and vibrant markets. Discover the cultural heart of Zanzibar.", link: "/zanzibar" },
+    { name: "Prison Island Boat Trip", price: 50, img: "/images/tours/prison-island.jpg", desc: "Visit the historic Changuu Island to learn about its fascinating past and meet the famous giant Aldabra tortoises, some over 100 years old.", link: "/zanzibar" },
+    { name: "Nakupenda Island", price: 80, img: "/images/tours/nakupenda-sandbank.jpg", desc: "Escape to a pristine white sand paradise in the middle of the ocean. Perfect for relaxation, swimming, and enjoying fresh seafood.", link: "/zanzibar" },
+    { name: "Spice Farm Tour", price: 10, img: "/images/tours/spice-tour.jpg", desc: "Discover why Zanzibar is called the 'Spice Island' with visits to working spice plantations where you'll see, smell, and taste exotic spices.", link: "/zanzibar" },
+    { name: "Jozani Forest Tour", price: 25, img: "/images/tours/jozani-forest.jpg", desc: "Explore Zanzibar's indigenous forest and meet the rare Red Colobus monkeys found nowhere else on Earth. A nature lover's paradise.", link: "/zanzibar" },
+    { name: "Salaam Cave", price: 35, img: "/images/tours/salaam-cave.jpg", desc: "Explore the mysterious underground caves of Zanzibar with stunning rock formations and crystal-clear natural pools hidden beneath the surface.", link: "/zanzibar" },
+    { name: "Kizimkazi Dolphins", price: 40, img: "/images/tours/kizimkazi-dolphin.jpg", desc: "Swim with wild dolphins in their natural habitat at Kizimkazi. An unforgettable wildlife encounter in the warm waters of the Indian Ocean.", link: "/zanzibar" },
+    { name: "Mtende Beach", price: 15, img: "/images/tours/mtende-beach.jpg", desc: "Relax on one of Zanzibar's most serene and untouched beaches. Enjoy crystal-clear waters, soft white sand, and breathtaking coastal views.", link: "/zanzibar" },
+    { name: "Maalum Cave", price: 35, img: "/images/tours/maalum-cave.jpg", desc: "Discover the enchanting natural swimming pool hidden inside a limestone cave. A magical spot surrounded by lush tropical vegetation.", link: "/zanzibar" },
+    { name: "The Rock Restaurant", price: 45, img: "/images/tours/the-rock-restaurant.jpg", desc: "Visit Zanzibar's iconic restaurant perched on a rock in the ocean. Enjoy fresh seafood and stunning panoramic views of the Indian Ocean.", link: "/zanzibar" },
+    { name: "Mnemba Island Tour", price: 55, img: "/images/tours/mnemba-island.jpg", desc: "Discover pristine coral reefs and swim in crystal-clear waters around this protected marine sanctuary. Perfect for snorkeling enthusiasts.", link: "/zanzibar" },
     { name: "Sunset Dhow Cruise", price: 35, img: "/images/tours/sunset-dhow.jpg", desc: "Sail into the golden hour aboard a traditional dhow and watch the spectacular Zanzibar sunset paint the sky in brilliant colors.", link: "/zanzibar" },
   ]
   const safaris = [
@@ -340,7 +378,7 @@ export default function HomePageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Left - car image with decorations */}
-            <div className="relative flex justify-center">
+            <div className="relative flex justify-center animate-on-scroll fade-left">
               {/* Decorative dots top-left */}
               <div className="absolute top-0 left-4 grid grid-cols-3 gap-1.5 opacity-40">
                 {[...Array(9)].map((_, i) => <div key={i} className="w-1.5 h-1.5 bg-golden rounded-full" />)}
@@ -364,7 +402,7 @@ export default function HomePageClient() {
             </div>
 
             {/* Right - text */}
-            <div>
+            <div className="animate-on-scroll fade-right" data-delay="200">
               <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-3">{t("aboutUs")}</p>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-gray-900 leading-tight mb-5">
                 {t("aboutTitle1")}<br />
@@ -392,7 +430,7 @@ export default function HomePageClient() {
       {/* ═══════ ZANZIBAR DAILY ACTIVITIES ═══════ */}
       <section className="py-12 sm:py-20 bg-[#f9f9f9]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 sm:mb-14">
+          <div className="text-center mb-10 sm:mb-14 animate-on-scroll fade-up">
             <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">{t("zanzTours")}</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-gray-900">{t("dailyAct")}</h2>
             <div className="flex justify-center gap-1 mt-4">
@@ -402,7 +440,7 @@ export default function HomePageClient() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {tours.map((tour, i) => (
-              <div key={i} className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+              <div key={i} className="animate-on-scroll fade-up bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1" data-delay={((i % 3) * 100).toString()}>
                 {/* Image container with price badge */}
                 <div className="relative p-4 pb-0">
                   <div className="relative h-52 sm:h-56 rounded-xl overflow-hidden">
@@ -429,11 +467,67 @@ export default function HomePageClient() {
         </div>
       </section>
 
+      {/* ═══════ TRANSFER SERVICES ═══════ */}
+      <section className="py-12 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-14 animate-on-scroll fade-up">
+            <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">TRANSFER SERVICES</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-gray-900">
+              Airport & Hotel <span className="text-golden italic">Transfers</span>
+            </h2>
+            <div className="flex justify-center gap-1 mt-4">
+              <div className="w-10 h-1.5 bg-blue-season rounded-full"></div>
+              <div className="w-3 h-1.5 bg-golden rounded-full"></div>
+            </div>
+            <p className="text-gray-500 text-sm sm:text-base mt-4 max-w-2xl mx-auto">Reliable, comfortable, and affordable transfers across Zanzibar Island with professional drivers and modern vehicles.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+            {highlightTransfers.map((route, i) => (
+              <div key={i} className="animate-on-scroll fade-up group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-1" data-delay={i * 100}>
+                <div className="relative h-44 sm:h-48 overflow-hidden">
+                  <Image src={route.image} alt={`Transfer to ${route.to}`} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width:768px)100vw,(max-width:1024px)50vw,33vw" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between">
+                    <div>
+                      <p className="text-white/80 text-xs">From</p>
+                      <p className="text-white font-bold text-sm">{route.from}</p>
+                    </div>
+                    <ArrowRight className="w-5 h-5 text-golden mb-1" />
+                    <div className="text-right">
+                      <p className="text-white/80 text-xs">To</p>
+                      <p className="text-white font-bold text-sm">{route.to}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-4 flex items-center justify-between">
+                  <div>
+                    <p className="text-2xl font-black text-golden">${route.price}</p>
+                    <p className="text-gray-400 text-xs">per vehicle</p>
+                  </div>
+                  <BookingModal tourName={`Transfer: ${route.from} → ${route.to}`} trigger={
+                    <button className="bg-golden hover:bg-golden/90 text-white font-bold px-5 py-2.5 rounded-full text-sm transition-colors">
+                      Book Now
+                    </button>
+                  } />
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-10 animate-on-scroll fade-up" data-delay="300">
+            <Link href="/transfers">
+              <button className="bg-blue-season hover:bg-blue-season/90 text-white font-bold px-8 py-3.5 rounded-full flex items-center gap-2.5 text-sm tracking-wide transition-colors mx-auto shadow-md">
+                See More Transfer Routes <ArrowRight className="w-4 h-4" />
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ═══════ TANZANIA SAFARI PACKAGES ═══════ */}
       <section className="py-12 sm:py-20 relative bg-cover bg-center" style={{ backgroundImage: "url(/images/safari-sunset.jpg)" }}>
         <div className="absolute inset-0 bg-[#0a1628]/92"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 sm:mb-14">
+          <div className="text-center mb-10 sm:mb-14 animate-on-scroll fade-up">
             <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">{t("tanzSafari")}</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-white">
               {t("bestPkg")} <span className="text-golden italic">{t("forYou")}</span>
@@ -445,7 +539,7 @@ export default function HomePageClient() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {safaris.map((s, i) => (
-              <div key={i} className="rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow group">
+              <div key={i} className="animate-on-scroll scale-in rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group hover:-translate-y-1" data-delay={((i % 3) * 120).toString()}>
                 {/* TOP: White section */}
                 <div className="bg-white relative pb-8">
                   {/* Padded rounded image */}
@@ -491,7 +585,7 @@ export default function HomePageClient() {
       {/* ═══════ DISCOVER TANZANIA BANNER ═══════ */}
       <section className="py-8 sm:py-12 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="relative bg-white rounded-2xl overflow-hidden shadow-xl" style={{ backgroundImage: "url('/images/safari-sunset.jpg')", backgroundSize: "cover", backgroundPosition: "right center" }}>
+          <div className="animate-on-scroll scale-in relative bg-white rounded-2xl overflow-hidden shadow-xl" style={{ backgroundImage: "url('/images/safari-sunset.jpg')", backgroundSize: "cover", backgroundPosition: "right center" }}>
             <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-transparent"></div>
             <div className="relative grid grid-cols-1 lg:grid-cols-2 min-h-[280px] sm:min-h-[320px]">
               <div className="p-8 sm:p-10 flex flex-col justify-center">
@@ -514,7 +608,7 @@ export default function HomePageClient() {
       {/* ═══════ FEATURES ═══════ */}
       <section className="py-12 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 sm:mb-14">
+          <div className="text-center mb-10 sm:mb-14 animate-on-scroll fade-up">
             <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">{t("feature")}</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-gray-900">{t("awesomeFeat")}</h2>
             <div className="flex justify-center gap-1 mt-4">
@@ -529,7 +623,7 @@ export default function HomePageClient() {
               { icon: <DollarSign className="w-10 h-10" />, title: t("affordRate"), desc: t("affordRateDesc") },
               { icon: <Headphones className="w-10 h-10" />, title: t("support247"), desc: t("support247Desc") },
             ].map((f, i) => (
-              <div key={i} className="bg-[#f5f5f5] rounded-2xl p-6 sm:p-8 text-center hover:shadow-lg transition-shadow">
+              <div key={i} className="animate-on-scroll fade-up bg-[#f5f5f5] rounded-2xl p-6 sm:p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-delay={(i * 100).toString()}>
                 <div className="w-[80px] h-[80px] mx-auto mb-5 rounded-full border-2 border-gray-800 flex items-center justify-center bg-golden/10 text-gray-800">
                   {f.icon}
                 </div>
@@ -560,7 +654,7 @@ export default function HomePageClient() {
             <div className="lg:col-span-2 flex flex-col sm:flex-row items-start sm:items-center gap-5 lg:justify-end">
               <div className="flex items-center gap-3 border-l-2 border-gray-500 pl-4">
                 <Headphones className="w-7 h-7 text-white" />
-                <span className="text-white text-xl sm:text-2xl font-black">+255 773 929 583</span>
+                <span className="text-white text-xl sm:text-2xl font-black">+255 710 885 320</span>
               </div>
               <BookingModal tourName="Airport Taxi Booking" trigger={
                 <button className="border-2 border-white text-white font-bold px-5 py-3 rounded-full hover:bg-white hover:text-[#2d3a4a] transition-colors flex items-center gap-2 text-xs sm:text-sm tracking-wider whitespace-nowrap">
@@ -575,7 +669,7 @@ export default function HomePageClient() {
       {/* ═══════ DRIVERS ═══════ */}
       <section className="py-12 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 sm:mb-14">
+          <div className="text-center mb-10 sm:mb-14 animate-on-scroll fade-up">
             <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">{t("drivers")}</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-gray-900">{t("expertTeam")}</h2>
             <div className="flex justify-center gap-1 mt-4">
@@ -585,7 +679,7 @@ export default function HomePageClient() {
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {drivers.map((d, i) => (
-              <div key={i} className="bg-white rounded-2xl shadow-md p-4 sm:p-5 text-center hover:shadow-lg transition-shadow">
+              <div key={i} className="animate-on-scroll fade-up bg-white rounded-2xl shadow-md p-4 sm:p-5 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-delay={(i * 100).toString()}>
                 <div className="relative w-full aspect-square rounded-xl overflow-hidden border-[3px] border-golden/40 mb-4">
                   <Image src={d.img} alt={d.name} fill className="object-cover" sizes="(max-width:640px)50vw,25vw" />
                 </div>
@@ -611,7 +705,7 @@ export default function HomePageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
             <div>
-              <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-3">{t("faqLabel")}</p>
+              <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-3 animate-on-scroll fade-left">{t("faqLabel")}</p>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-gray-900 leading-tight mb-5">
                 {t("faqTitle")} <span className="text-golden">{t("faqHighlight")}</span><br />{t("faqTitle2")}
               </h2>
@@ -646,7 +740,7 @@ export default function HomePageClient() {
       <section className="py-12 sm:py-20 relative bg-cover bg-center" style={{ backgroundImage: "url(/images/hero-bg.jpg)" }}>
         <div className="absolute inset-0 bg-black/85"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 sm:mb-14">
+          <div className="text-center mb-10 sm:mb-14 animate-on-scroll fade-up">
             <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">{t("testimonials")}</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-white">
               What Our Client <span className="text-golden italic">Say&apos;s</span>
@@ -654,7 +748,7 @@ export default function HomePageClient() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {reviews.map((r, i) => (
-              <div key={i} className="bg-white rounded-2xl p-5 sm:p-6 shadow-lg border-t-[3px] border-golden">
+              <div key={i} className="animate-on-scroll fade-up bg-white rounded-2xl p-5 sm:p-6 shadow-lg border-t-[3px] border-golden" data-delay={(i * 100).toString()}>
                 <div className="flex items-center gap-3 mb-4">
                   <Image src="/images/logo-zanzione.png" alt="" width={32} height={32} className="rounded-full" />
                   <div>

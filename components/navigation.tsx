@@ -32,13 +32,13 @@ export default function Navigation() {
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center text-xs sm:text-sm">
           <div className="flex items-center gap-4 sm:gap-8">
-            <a href="mailto:zanzionetoursandtravel@gmail.com" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity">
-              <Mail className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">zanzionetoursandtravel@gmail.com</span>
-            </a>
-            <a href="tel:+255773929583" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity">
+            <a href="tel:+255710885320" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity font-semibold">
               <Phone className="w-3.5 h-3.5" />
-              <span>+255 773 929 583</span>
+              <span>+255 710 885 320</span>
+            </a>
+            <a href="mailto:zanzionetoursandtravel@gmail.com" className="hidden sm:flex items-center gap-1.5 hover:opacity-80 transition-opacity">
+              <Mail className="w-3.5 h-3.5" />
+              <span className="hidden md:inline">zanzionetoursandtravel@gmail.com</span>
             </a>
             <div className="hidden lg:flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5" />
@@ -55,7 +55,7 @@ export default function Navigation() {
               <span>Register</span>
             </Link>
             <span className="hidden lg:inline text-white/80">Follow Us:</span>
-            <div className="flex items-center gap-2.5">
+            <div className="hidden sm:flex items-center gap-2.5">
               <a href="https://www.facebook.com/share/17Wn8GXrd8/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity"><Facebook className="w-4 h-4" /></a>
               <a href="/" className="hover:opacity-80 transition-opacity"><Twitter className="w-4 h-4" /></a>
               <a href="/" className="hover:opacity-80 transition-opacity"><Instagram className="w-4 h-4" /></a>
