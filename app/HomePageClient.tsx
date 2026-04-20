@@ -609,7 +609,7 @@ export default function HomePageClient() {
                 <Image src="/quad-biking-2.jpg" alt="Quad Biking Adventure" fill className="object-cover" sizes="200px" />
               </div>
               <div className="absolute -top-4 -left-4 bg-golden text-white rounded-full w-24 h-24 flex flex-col items-center justify-center shadow-xl border-4 border-white z-10">
-                <span className="text-2xl font-black leading-none">$70</span>
+                <span className="text-2xl font-black leading-none">$85</span>
                 <span className="text-[10px] text-center leading-tight mt-1">per quad<br/>up to 2 pax</span>
               </div>
             </div>
@@ -667,7 +667,7 @@ export default function HomePageClient() {
 
               <div className="flex flex-wrap items-center gap-4">
                 <div className="bg-golden/10 rounded-xl px-5 py-3">
-                  <p className="text-golden font-black text-lg">$70 <span className="text-gray-600 text-sm font-normal">/ quad bike</span></p>
+                  <p className="text-golden font-black text-lg">$85 <span className="text-gray-600 text-sm font-normal">/ quad bike</span></p>
                   <p className="text-gray-500 text-xs">Morning: 9:00 AM – 1:00 PM | Afternoon: 2:00 PM – 6:00 PM</p>
                 </div>
                 <BookingModal tourName="Quad Biking 4H Adventure" trigger={
