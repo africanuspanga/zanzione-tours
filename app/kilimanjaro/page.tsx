@@ -118,7 +118,7 @@ export default function KilimanjaroPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative h-96 bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url(/background images/istockphoto-1131949134-612x612.jpg)" }}>
+      <section className="relative h-96 bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url(/background-images/bg-safari-elephant.jpg)" }}>
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <h1 className="text-5xl md:text-6xl font-display font-bold mb-6">Kilimanjaro Climbing</h1>

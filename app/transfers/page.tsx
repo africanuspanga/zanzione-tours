@@ -25,34 +25,34 @@ interface TransferRoute {
 }
 
 const transferRoutes: TransferRoute[] = [
-  { from: "Airport / Ferry", to: "Stone Town", price: 15, image: "/Toyota Alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Chuini", price: 20, image: "/Toyota Alphard.jpeg" },
-  { from: "Airport / Ferry", to: "M/Pwani", price: 30, image: "/Toyota Alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Nungwi - Kendwa", price: 35, image: "/Toyota Alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Kiwengwa", price: 30, image: "/Toyota Alphard.jpeg" },
-  { from: "Airport / Ferry", to: "P/Mchangani", price: 30, image: "/Toyota Alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Stone Town", price: 15, image: "/toyota-alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Chuini", price: 20, image: "/toyota-alphard.jpeg" },
+  { from: "Airport / Ferry", to: "M/Pwani", price: 30, image: "/toyota-alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Nungwi - Kendwa", price: 35, image: "/toyota-alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Kiwengwa", price: 30, image: "/toyota-alphard.jpeg" },
+  { from: "Airport / Ferry", to: "P/Mchangani", price: 30, image: "/toyota-alphard.jpeg" },
   { from: "Airport / Ferry", to: "Matemwe", price: 60, image: "/images/vehicles/coaster-28seat.jpeg" },
-  { from: "Airport / Ferry", to: "Bwejuu", price: 35, image: "/Toyota Alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Michamvi", price: 35, image: "/Toyota Alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Paje", price: 35, image: "/Toyota Alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Jambiani", price: 35, image: "/Toyota Alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Bwejuu", price: 35, image: "/toyota-alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Michamvi", price: 35, image: "/toyota-alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Paje", price: 35, image: "/toyota-alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Jambiani", price: 35, image: "/toyota-alphard.jpeg" },
   { from: "Airport / Ferry", to: "Makunduchi", price: 60, image: "/images/vehicles/coaster-28seat.jpeg" },
-  { from: "Airport / Ferry", to: "Kizimkazi", price: 40, image: "/Toyota Alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Pongwe", price: 30, image: "/Toyota Alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Kizimkazi", price: 40, image: "/toyota-alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Pongwe", price: 30, image: "/toyota-alphard.jpeg" },
   {
     from: "Airport / Ferry",
     to: "Uroa / Marumbi / Chwaka",
     price: 30,
-    image: "/Toyota Alphard.jpeg",
+    image: "/toyota-alphard.jpeg",
   },
-  { from: "Jambiani", to: "Paje / Bwejuu / Dongwe", price: 15, image: "/Toyota Alphard.jpeg" },
-  { from: "Jambiani", to: "Michamvi", price: 20, image: "/Toyota Alphard.jpeg" },
-  { from: "Jambiani", to: "Makunduchi", price: 15, image: "/Toyota Alphard.jpeg" },
-  { from: "Jambiani", to: "Kizimkazi", price: 20, image: "/Toyota Alphard.jpeg" },
+  { from: "Jambiani", to: "Paje / Bwejuu / Dongwe", price: 15, image: "/toyota-alphard.jpeg" },
+  { from: "Jambiani", to: "Michamvi", price: 20, image: "/toyota-alphard.jpeg" },
+  { from: "Jambiani", to: "Makunduchi", price: 15, image: "/toyota-alphard.jpeg" },
+  { from: "Jambiani", to: "Kizimkazi", price: 20, image: "/toyota-alphard.jpeg" },
   { from: "Jambiani", to: "Stone Town", price: 60, image: "/images/vehicles/coaster-28seat.jpeg" },
-  { from: "Jambiani", to: "Uroa / Pongwe", price: 40, image: "/Toyota Alphard.jpeg" },
-  { from: "Jambiani", to: "Kiwengwa / P'Mchangani", price: 40, image: "/Toyota Alphard.jpeg" },
-  { from: "Jambiani", to: "Nungwi / Kendwa", price: 45, image: "/Toyota Alphard.jpeg" },
+  { from: "Jambiani", to: "Uroa / Pongwe", price: 40, image: "/toyota-alphard.jpeg" },
+  { from: "Jambiani", to: "Kiwengwa / P'Mchangani", price: 40, image: "/toyota-alphard.jpeg" },
+  { from: "Jambiani", to: "Nungwi / Kendwa", price: 45, image: "/toyota-alphard.jpeg" },
   { from: "Jambiani", to: "Matemwe", price: 60, image: "/images/vehicles/coaster-28seat.jpeg" },
   { from: "Airport / Ferry", to: "Fumba", price: 50, image: "/images/vehicles/hiace-van.jpeg" },
 ]
@@ -66,7 +66,7 @@ export default function TransfersPage() {
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center">
         <Image
-          src="/Toyota Alphard.jpeg"
+          src="/toyota-alphard.jpeg"
           alt="Zanzibar Transfers"
           fill
           className="object-cover"

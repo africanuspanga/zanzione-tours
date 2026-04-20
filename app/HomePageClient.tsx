@@ -51,12 +51,12 @@ function useScrollAnimation() {
 
 // ─── Transfer Routes Data ───
 const highlightTransfers = [
-  { from: "Airport / Ferry", to: "Stone Town", price: 15, image: "/Toyota Alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Nungwi - Kendwa", price: 35, image: "/Toyota Alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Paje", price: 35, image: "/Toyota Alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Stone Town", price: 15, image: "/toyota-alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Nungwi - Kendwa", price: 35, image: "/toyota-alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Paje", price: 35, image: "/toyota-alphard.jpeg" },
   { from: "Airport / Ferry", to: "Fumba", price: 50, image: "/images/vehicles/hiace-van.jpeg" },
   { from: "Airport / Ferry", to: "Matemwe", price: 60, image: "/images/vehicles/coaster-28seat.jpeg" },
-  { from: "Airport / Ferry", to: "Jambiani", price: 35, image: "/Toyota Alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Jambiani", price: 35, image: "/toyota-alphard.jpeg" },
 ]
 
 // ─── Translation System ───
@@ -209,15 +209,15 @@ export default function HomePageClient() {
     { name: "Safari Blue Day Trip", price: 55, img: "/images/tours/safari-blue-day.jpg", desc: "Sail on traditional dhows to pristine sandbanks and enjoy the ultimate marine adventure with snorkeling, swimming, and a seafood feast.", link: "/zanzibar" },
     { name: "Stone Town Tour", price: 30, img: "/images/tours/stone-town-tour.jpg", desc: "Explore the UNESCO World Heritage site with its narrow alleys, historic buildings, and vibrant markets. Discover the cultural heart of Zanzibar.", link: "/zanzibar" },
     { name: "Prison Island Boat Trip", price: 50, img: "/images/tours/prison-island.jpg", desc: "Visit the historic Changuu Island to learn about its fascinating past and meet the famous giant Aldabra tortoises, some over 100 years old.", link: "/zanzibar" },
-    { name: "Nakupenda Island", price: 80, img: "/new zanzi tours images/Nakupenda island.jpeg", desc: "Escape to a pristine white sand paradise in the middle of the ocean. Perfect for relaxation, swimming, and enjoying fresh seafood.", link: "/zanzibar" },
-    { name: "Spice Farm Tour", price: 10, img: "/new zanzi tours images/Spice Farm.jpeg", desc: "Discover why Zanzibar is called the 'Spice Island' with visits to working spice plantations where you'll see, smell, and taste exotic spices.", link: "/zanzibar" },
+    { name: "Nakupenda Island", price: 80, img: "/new-zanzi-tours-images/nakupenda-island.jpeg", desc: "Escape to a pristine white sand paradise in the middle of the ocean. Perfect for relaxation, swimming, and enjoying fresh seafood.", link: "/zanzibar" },
+    { name: "Spice Farm Tour", price: 10, img: "/new-zanzi-tours-images/spice-farm.jpeg", desc: "Discover why Zanzibar is called the 'Spice Island' with visits to working spice plantations where you'll see, smell, and taste exotic spices.", link: "/zanzibar" },
     { name: "Jozani Forest Tour", price: 25, img: "/images/tours/jozani-forest.jpg", desc: "Explore Zanzibar's indigenous forest and meet the rare Red Colobus monkeys found nowhere else on Earth. A nature lover's paradise.", link: "/zanzibar" },
-    { name: "Salaam Cave", price: 35, img: "/new zanzi tours images/Salaam Cave.jpeg", desc: "Explore the mysterious underground caves of Zanzibar with stunning rock formations and crystal-clear natural pools hidden beneath the surface.", link: "/zanzibar" },
-    { name: "Kizimkazi Dolphins", price: 40, img: "/new zanzi tours images/Kizimkazi Dolphins.jpeg", desc: "Swim with wild dolphins in their natural habitat at Kizimkazi. An unforgettable wildlife encounter in the warm waters of the Indian Ocean.", link: "/zanzibar" },
-    { name: "Mtende Beach", price: 15, img: "/new zanzi tours images/Mtende Beach.jpeg", desc: "Relax on one of Zanzibar's most serene and untouched beaches. Enjoy crystal-clear waters, soft white sand, and breathtaking coastal views.", link: "/zanzibar" },
-    { name: "Maalum Cave", price: 35, img: "/new zanzi tours images/Maalum Cave.jpeg", desc: "Discover the enchanting natural swimming pool hidden inside a limestone cave. A magical spot surrounded by lush tropical vegetation.", link: "/zanzibar" },
-    { name: "The Rock Restaurant", price: 45, img: "/new zanzi tours images/The Rock.jpeg", desc: "Visit Zanzibar's iconic restaurant perched on a rock in the ocean. Enjoy fresh seafood and stunning panoramic views of the Indian Ocean.", link: "/zanzibar" },
-    { name: "Mnemba Island Tour", price: 55, img: "/new zanzi tours images/Mnemba Islandd.jpeg", desc: "Discover pristine coral reefs and swim in crystal-clear waters around this protected marine sanctuary. Perfect for snorkeling enthusiasts.", link: "/zanzibar" },
+    { name: "Salaam Cave", price: 35, img: "/new-zanzi-tours-images/salaam-cave.jpeg", desc: "Explore the mysterious underground caves of Zanzibar with stunning rock formations and crystal-clear natural pools hidden beneath the surface.", link: "/zanzibar" },
+    { name: "Kizimkazi Dolphins", price: 40, img: "/new-zanzi-tours-images/kizimkazi-dolphins.jpeg", desc: "Swim with wild dolphins in their natural habitat at Kizimkazi. An unforgettable wildlife encounter in the warm waters of the Indian Ocean.", link: "/zanzibar" },
+    { name: "Mtende Beach", price: 15, img: "/new-zanzi-tours-images/mtende-beach.jpeg", desc: "Relax on one of Zanzibar's most serene and untouched beaches. Enjoy crystal-clear waters, soft white sand, and breathtaking coastal views.", link: "/zanzibar" },
+    { name: "Maalum Cave", price: 35, img: "/new-zanzi-tours-images/maalum-cave.jpeg", desc: "Discover the enchanting natural swimming pool hidden inside a limestone cave. A magical spot surrounded by lush tropical vegetation.", link: "/zanzibar" },
+    { name: "The Rock Restaurant", price: 45, img: "/new-zanzi-tours-images/the-rock.jpeg", desc: "Visit Zanzibar's iconic restaurant perched on a rock in the ocean. Enjoy fresh seafood and stunning panoramic views of the Indian Ocean.", link: "/zanzibar" },
+    { name: "Mnemba Island Tour", price: 55, img: "/new-zanzi-tours-images/mnemba-islandd.jpeg", desc: "Discover pristine coral reefs and swim in crystal-clear waters around this protected marine sanctuary. Perfect for snorkeling enthusiasts.", link: "/zanzibar" },
     { name: "Sunset Dhow Cruise", price: 35, img: "/images/tours/sunset-dhow.jpg", desc: "Sail into the golden hour aboard a traditional dhow and watch the spectacular Zanzibar sunset paint the sky in brilliant colors.", link: "/zanzibar" },
   ]
   const safaris = [
@@ -229,18 +229,18 @@ export default function HomePageClient() {
     { name: "7 DAYS TANZANIA SAFARI", dur: "7 Days / 6 Nights", price: 2480, img: "/images/safari/ngorongoro.jpg", desc: "Thrilling safari through Africa's most renowned national parks. Serengeti, Tarangire, Lake Manyara, and Ngorongoro Crater." },
   ]
   const waterSports = [
-    { name: "Jet Ski Adventure", fromPrice: 45, img: "/Water sports images/Jet Ski 1.jpeg", desc: "Feel the pure adrenaline rush as you race across the crystal-clear turquoise waters of Zanzibar! Our powerful jet skis deliver an unforgettable thrill with breathtaking coastal views and ocean spray.", prices: ["15 minutes — $45 (1-2 people)", "30 minutes — $60 (1-2 people)", "1 hour — $110 (1-2 people)"] },
-    { name: "Jet Car Experience", fromPrice: 100, img: "/Water sports images/Jet car.jpeg", desc: "Drive on water! Experience the ultimate aquatic adventure in our sleek jet car. Glide effortlessly across the Indian Ocean and make memories that will last a lifetime.", prices: ["15 minutes — $100"] },
-    { name: "Jet Car Rolls Royce", fromPrice: 130, img: "/Water sports images/rolls royce.png", desc: "Luxury meets the ocean. Cruise the Zanzibar coastline in style aboard our exclusive Rolls Royce jet car — the most glamorous way to experience the Indian Ocean!", prices: ["15 minutes — $130"] },
-    { name: "Kayak Exploration", fromPrice: 25, img: "/Water sports images/Kayaking 1.jpeg", desc: "Paddle through calm, shallow lagoons and explore Zanzibar's stunning shoreline at your own pace. Perfect for couples and families seeking a peaceful yet exciting ocean adventure.", prices: ["20 minutes — $25", "30 minutes — $30"] },
-    { name: "Drone Photography", fromPrice: 50, img: "/Water sports images/Kayaking 2.jpeg", desc: "Capture your once-in-a-lifetime water sports adventure from the sky! Our professional drone service films your experience in stunning quality — because every epic moment deserves to be remembered.", prices: ["Per activity — $50"] },
+    { name: "Jet Ski Adventure", fromPrice: 45, img: "/water-sports-images/jet-ski-1.jpeg", desc: "Feel the pure adrenaline rush as you race across the crystal-clear turquoise waters of Zanzibar! Our powerful jet skis deliver an unforgettable thrill with breathtaking coastal views and ocean spray.", prices: ["15 minutes — $45 (1-2 people)", "30 minutes — $60 (1-2 people)", "1 hour — $110 (1-2 people)"] },
+    { name: "Jet Car Experience", fromPrice: 100, img: "/water-sports-images/jet-car.jpeg", desc: "Drive on water! Experience the ultimate aquatic adventure in our sleek jet car. Glide effortlessly across the Indian Ocean and make memories that will last a lifetime.", prices: ["15 minutes — $100"] },
+    { name: "Jet Car Rolls Royce", fromPrice: 130, img: "/water-sports-images/rolls-royce.png", desc: "Luxury meets the ocean. Cruise the Zanzibar coastline in style aboard our exclusive Rolls Royce jet car — the most glamorous way to experience the Indian Ocean!", prices: ["15 minutes — $130"] },
+    { name: "Kayak Exploration", fromPrice: 25, img: "/water-sports-images/kayaking-1.jpeg", desc: "Paddle through calm, shallow lagoons and explore Zanzibar's stunning shoreline at your own pace. Perfect for couples and families seeking a peaceful yet exciting ocean adventure.", prices: ["20 minutes — $25", "30 minutes — $30"] },
+    { name: "Drone Photography", fromPrice: 50, img: "/water-sports-images/kayaking-2.jpeg", desc: "Capture your once-in-a-lifetime water sports adventure from the sky! Our professional drone service films your experience in stunning quality — because every epic moment deserves to be remembered.", prices: ["Per activity — $50"] },
   ]
   const carHire = [
-    { name: "Toyota Coaster", price: 50, img: "/rent a car images/Rent a Coaster.jpeg", desc: "Spacious, comfortable, and perfect for large groups. Our Toyota Coaster seats up to 28 passengers with air conditioning and ample luggage space — ideal for group tours, events, and corporate travel across Zanzibar.", seats: "Up to 28 seats" },
-    { name: "Toyota Alphard", price: 45, img: "/rent a car images/rent Alphard.jpeg", desc: "Travel in executive comfort with our premium Toyota Alphard. This luxury van offers plush leather seating, extra legroom, and a smooth ride — perfect for families and VIP transfers who demand the best.", seats: "Up to 7 seats" },
-    { name: "Toyota Voxy", price: 40, img: "/rent a car images/renta a toyota voxy.webp", desc: "Versatile, reliable, and family-friendly. The Toyota Voxy combines practicality with comfort, offering flexible seating configurations and generous cargo space for all your Zanzibar adventures.", seats: "Up to 7 seats" },
-    { name: "Toyota RAV4", price: 30, img: "/rent a car images/Toyota-RAV4-5-door-min-510x383-1.webp", desc: "Explore Zanzibar with confidence in our rugged yet refined Toyota RAV4. This compact SUV handles every terrain with ease, giving you the freedom to discover hidden beaches and off-the-beaten-path gems.", seats: "Up to 5 seats" },
-    { name: "Toyota IST", price: 30, img: "/rent a car images/rent ist.jpeg", desc: "Compact, economical, and fun to drive! The Toyota IST is perfect for solo travelers and couples who want an agile, fuel-efficient ride for cruising around Stone Town and the island's scenic coastal roads.", seats: "Up to 5 seats" },
+    { name: "Toyota Coaster", price: 50, img: "/rent-a-car-images/rent-a-coaster.jpeg", desc: "Spacious, comfortable, and perfect for large groups. Our Toyota Coaster seats up to 28 passengers with air conditioning and ample luggage space — ideal for group tours, events, and corporate travel across Zanzibar.", seats: "Up to 28 seats" },
+    { name: "Toyota Alphard", price: 45, img: "/rent-a-car-images/rent-alphard.jpeg", desc: "Travel in executive comfort with our premium Toyota Alphard. This luxury van offers plush leather seating, extra legroom, and a smooth ride — perfect for families and VIP transfers who demand the best.", seats: "Up to 7 seats" },
+    { name: "Toyota Voxy", price: 40, img: "/rent-a-car-images/renta-a-toyota-voxy.webp", desc: "Versatile, reliable, and family-friendly. The Toyota Voxy combines practicality with comfort, offering flexible seating configurations and generous cargo space for all your Zanzibar adventures.", seats: "Up to 7 seats" },
+    { name: "Toyota RAV4", price: 30, img: "/rent-a-car-images/Toyota-RAV4-5-door-min-510x383-1.webp", desc: "Explore Zanzibar with confidence in our rugged yet refined Toyota RAV4. This compact SUV handles every terrain with ease, giving you the freedom to discover hidden beaches and off-the-beaten-path gems.", seats: "Up to 5 seats" },
+    { name: "Toyota IST", price: 30, img: "/rent-a-car-images/rent-ist.jpeg", desc: "Compact, economical, and fun to drive! The Toyota IST is perfect for solo travelers and couples who want an agile, fuel-efficient ride for cruising around Stone Town and the island's scenic coastal roads.", seats: "Up to 5 seats" },
   ]
   const reviews = [
     { name: "Carlos Bazan", text: "After 3 changes in flight arrival times due to the airline, and with constant contacts with the person in charge, we had a driver waiting for us at the airport at 4 am, ten hours later than the first scheduled one. Thank you very much for all your efforts. I highly recommend them. very great professionalism.", rating: 5 },
@@ -299,7 +299,7 @@ export default function HomePageClient() {
                 <div className="absolute pointer-events-none z-20" style={{ bottom: "-12px", right: "-12px", width: "35%", height: "45%", borderBottom: "3px solid #f7a10d", borderRight: "3px solid #f7a10d", borderBottomRightRadius: "24px" }}></div>
                 {/* Car image with rounded corners */}
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-lg bg-gray-900/5">
-                  <Image src="/Toyota Alphard.jpeg" alt="Zanzione Tours Vehicle" width={520} height={380} className="w-full h-auto object-contain" priority />
+                  <Image src="/toyota-alphard.jpeg" alt="Zanzione Tours Vehicle" width={520} height={380} className="w-full h-auto object-contain" priority />
                 </div>
               </div>
             </div>
@@ -406,7 +406,7 @@ export default function HomePageClient() {
               </div>
 
               <div className="relative">
-                <Image src="/Toyota Alphard.jpeg" alt="Zanzione Tours" width={460} height={320} className="rounded-xl object-cover w-full max-w-[460px]" />
+                <Image src="/toyota-alphard.jpeg" alt="Zanzione Tours" width={460} height={320} className="rounded-xl object-cover w-full max-w-[460px]" />
                 {/* 10 Years badge */}
                 <div className="absolute -left-4 sm:-left-6 top-1/3 bg-golden text-white rounded-full w-24 h-24 sm:w-28 sm:h-28 flex flex-col items-center justify-center shadow-xl border-4 border-white z-10">
                   <span className="text-2xl sm:text-3xl font-black leading-none">10</span>
@@ -603,10 +603,10 @@ export default function HomePageClient() {
             {/* Left - Images */}
             <div className="animate-on-scroll fade-left relative">
               <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                <Image src="/quad biking.webp" alt="Quad Biking Zanzibar" width={560} height={380} className="w-full h-auto object-cover" />
+                <Image src="/quad-biking.webp" alt="Quad Biking Zanzibar" width={560} height={380} className="w-full h-auto object-cover" />
               </div>
               <div className="absolute -bottom-6 -right-6 w-48 h-36 rounded-xl overflow-hidden shadow-xl border-4 border-white hidden lg:block">
-                <Image src="/quad biking 2.jpg" alt="Quad Biking Adventure" fill className="object-cover" sizes="200px" />
+                <Image src="/quad-biking-2.jpg" alt="Quad Biking Adventure" fill className="object-cover" sizes="200px" />
               </div>
               <div className="absolute -top-4 -left-4 bg-golden text-white rounded-full w-24 h-24 flex flex-col items-center justify-center shadow-xl border-4 border-white z-10">
                 <span className="text-2xl font-black leading-none">$70</span>
@@ -911,7 +911,7 @@ export default function HomePageClient() {
               </h2>
               <p className="text-gray-500 text-[13px] sm:text-sm leading-relaxed mb-6">{t("faqDesc")}</p>
               <div className="relative h-48 sm:h-56 rounded-xl overflow-hidden">
-                <Image src="/Toyota Alphard.jpeg" alt="Taxi service" fill className="object-cover" sizes="(max-width:1024px)100vw,50vw" />
+                <Image src="/toyota-alphard.jpeg" alt="Taxi service" fill className="object-cover" sizes="(max-width:1024px)100vw,50vw" />
               </div>
             </div>
             <div className="space-y-3">

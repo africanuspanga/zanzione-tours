@@ -67,7 +67,7 @@ const zanzibarTours = [
   {
     id: 4,
     title: "Nakupenda Sandbank Tour",
-    image: "/new zanzi tours images/Nakupenda island.jpeg",
+    image: "/new-zanzi-tours-images/nakupenda-island.jpeg",
     duration: "Half Day",
     groupSize: "4-20 people",
     price: "$49",
@@ -85,7 +85,7 @@ const zanzibarTours = [
   {
     id: 5,
     title: "Spice Farm Tour",
-    image: "/new zanzi tours images/Spice Farm.jpeg",
+    image: "/new-zanzi-tours-images/spice-farm.jpeg",
     duration: "Half Day",
     groupSize: "2-15 people",
     price: "$25",
@@ -121,7 +121,7 @@ const zanzibarTours = [
   {
     id: 7,
     title: "Salaam Cave",
-    image: "/new zanzi tours images/Salaam Cave.jpeg",
+    image: "/new-zanzi-tours-images/salaam-cave.jpeg",
     duration: "Half Day",
     groupSize: "2-25 people",
     price: "$25",
@@ -139,7 +139,7 @@ const zanzibarTours = [
   {
     id: 8,
     title: "Kizimkazi Dolphins Tour",
-    image: "/new zanzi tours images/Kizimkazi Dolphins.jpeg",
+    image: "/new-zanzi-tours-images/kizimkazi-dolphins.jpeg",
     duration: "Half Day",
     groupSize: "2-12 people",
     price: "$35",
@@ -157,7 +157,7 @@ const zanzibarTours = [
   {
     id: 9,
     title: "Mtende Beach",
-    image: "/new zanzi tours images/Mtende Beach.jpeg",
+    image: "/new-zanzi-tours-images/mtende-beach.jpeg",
     duration: "Half Day",
     groupSize: "2-25 people",
     price: "$15",
@@ -175,7 +175,7 @@ const zanzibarTours = [
   {
     id: 10,
     title: "Maalum Cave",
-    image: "/new zanzi tours images/Maalum Cave.jpeg",
+    image: "/new-zanzi-tours-images/maalum-cave.jpeg",
     duration: "Half Day",
     groupSize: "2-25 people",
     price: "$27",
@@ -193,7 +193,7 @@ const zanzibarTours = [
   {
     id: 11,
     title: "The Rock Restaurant",
-    image: "/new zanzi tours images/The Rock.jpeg",
+    image: "/new-zanzi-tours-images/the-rock.jpeg",
     duration: "Half Day",
     groupSize: "2-8 people",
     price: "$45",
@@ -211,7 +211,7 @@ const zanzibarTours = [
   {
     id: 12,
     title: "Mnemba Island Tour",
-    image: "/new zanzi tours images/Mnemba Islandd.jpeg",
+    image: "/new-zanzi-tours-images/mnemba-islandd.jpeg",
     duration: "Half Day",
     groupSize: "2-12 people",
     price: "$42",
@@ -277,7 +277,7 @@ export default function ZanzibarPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative h-96 bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url(/background images/istockphoto-1252332178-612x612.jpg)" }}>
+      <section className="relative h-96 bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url(/background-images/bg-safari-sunset.jpg)" }}>
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <h1 className="text-5xl md:text-6xl font-display font-bold mb-6">Zanzibar Island Tours</h1>

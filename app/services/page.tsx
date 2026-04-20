@@ -58,7 +58,7 @@ export default function ServicesPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative h-96 bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url(/background images/istockphoto-1505391132-612x612.jpg)" }}>
+      <section className="relative h-96 bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url(/background-images/bg-water-palm.jpg)" }}>
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <h1 className="text-5xl md:text-6xl font-display font-bold mb-6">Our Services</h1>
