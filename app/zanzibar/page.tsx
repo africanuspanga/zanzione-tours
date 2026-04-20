@@ -49,7 +49,7 @@ const zanzibarTours = [
   {
     id: 3,
     title: "Prison Island Boat Trip",
-    image: "/images/tours/prison-island.jpg",
+    image: "/new-zanzi-tours-images/prison-island.jpeg",
     duration: "Half Day",
     groupSize: "2-15 people",
     price: "$30",
