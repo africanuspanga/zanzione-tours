@@ -67,7 +67,7 @@ const zanzibarTours = [
   {
     id: 4,
     title: "Nakupenda Sandbank Tour",
-    image: "/images/tours/nakupenda-sandbank.jpg",
+    image: "/new zanzi tours images/Nakupenda island.jpeg",
     duration: "Half Day",
     groupSize: "4-20 people",
     price: "$49",
@@ -85,7 +85,7 @@ const zanzibarTours = [
   {
     id: 5,
     title: "Spice Farm Tour",
-    image: "/images/tours/spice-tour.jpg",
+    image: "/new zanzi tours images/Spice Farm.jpeg",
     duration: "Half Day",
     groupSize: "2-15 people",
     price: "$25",
@@ -121,7 +121,7 @@ const zanzibarTours = [
   {
     id: 7,
     title: "Salaam Cave",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Salam%20Cave-maSMMXqzhTperq8CvQZOv47LUaKQYl.jpeg",
+    image: "/new zanzi tours images/Salaam Cave.jpeg",
     duration: "Half Day",
     groupSize: "2-25 people",
     price: "$25",
@@ -139,7 +139,7 @@ const zanzibarTours = [
   {
     id: 8,
     title: "Kizimkazi Dolphins Tour",
-    image: "/images/tours/kizimkazi-dolphin.jpg",
+    image: "/new zanzi tours images/Kizimkazi Dolphins.jpeg",
     duration: "Half Day",
     groupSize: "2-12 people",
     price: "$35",
@@ -157,7 +157,7 @@ const zanzibarTours = [
   {
     id: 9,
     title: "Mtende Beach",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Mtende%20Beach-6BjUwLXrLo6prVoiEffWsirJQT11vW.jpeg",
+    image: "/new zanzi tours images/Mtende Beach.jpeg",
     duration: "Half Day",
     groupSize: "2-25 people",
     price: "$15",
@@ -175,7 +175,7 @@ const zanzibarTours = [
   {
     id: 10,
     title: "Maalum Cave",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Maalum%20Cave-7PuunGmAhTkHZ7MtEO0Mzjuf7H5N4x.jpeg",
+    image: "/new zanzi tours images/Maalum Cave.jpeg",
     duration: "Half Day",
     groupSize: "2-25 people",
     price: "$27",
@@ -193,7 +193,7 @@ const zanzibarTours = [
   {
     id: 11,
     title: "The Rock Restaurant",
-    image: "/images/tours/the-rock-restaurant.jpg",
+    image: "/new zanzi tours images/The Rock.jpeg",
     duration: "Half Day",
     groupSize: "2-8 people",
     price: "$45",
@@ -211,7 +211,7 @@ const zanzibarTours = [
   {
     id: 12,
     title: "Mnemba Island Tour",
-    image: "/images/tours/mnemba-island.jpg",
+    image: "/new zanzi tours images/Mnemba Islandd.jpeg",
     duration: "Half Day",
     groupSize: "2-12 people",
     price: "$42",
