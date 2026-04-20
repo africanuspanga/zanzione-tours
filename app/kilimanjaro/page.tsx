@@ -118,8 +118,8 @@ export default function KilimanjaroPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative h-96 bg-gradient-to-r from-orange-600 to-red-600 flex items-center justify-center">
-        <div className="absolute inset-0 bg-black/20"></div>
+      <section className="relative h-96 bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url(/background images/istockphoto-1131949134-612x612.jpg)" }}>
+        <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <h1 className="text-5xl md:text-6xl font-display font-bold mb-6">Kilimanjaro Climbing</h1>
           <p className="text-xl md:text-2xl leading-relaxed">
