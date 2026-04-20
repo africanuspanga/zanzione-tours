@@ -51,12 +51,12 @@ function useScrollAnimation() {
 
 // ─── Transfer Routes Data ───
 const highlightTransfers = [
-  { from: "Airport / Ferry", to: "Stone Town", price: 15, image: "/images/vehicles/alphard-gold.jpg" },
-  { from: "Airport / Ferry", to: "Nungwi - Kendwa", price: 35, image: "/images/vehicles/alphard-white-rear.jpg" },
-  { from: "Airport / Ferry", to: "Paje", price: 35, image: "/images/vehicles/alphard-black.jpg" },
-  { from: "Airport / Ferry", to: "Kiwengwa", price: 30, image: "/images/vehicles/alphard-black-2.jpg" },
-  { from: "Airport / Ferry", to: "Matemwe", price: 30, image: "/images/vehicles/coaster-bus.jpg" },
-  { from: "Airport / Ferry", to: "Jambiani", price: 35, image: "/images/vehicles/alphard-white.png" },
+  { from: "Airport / Ferry", to: "Stone Town", price: 15, image: "/Toyota Alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Nungwi - Kendwa", price: 35, image: "/Toyota Alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Paje", price: 35, image: "/Toyota Alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Fumba", price: 50, image: "/images/vehicles/hiace-van.jpeg" },
+  { from: "Airport / Ferry", to: "Matemwe", price: 60, image: "/images/vehicles/coaster-28seat.jpeg" },
+  { from: "Airport / Ferry", to: "Jambiani", price: 35, image: "/Toyota Alphard.jpeg" },
 ]
 
 // ─── Translation System ───
@@ -228,6 +228,20 @@ export default function HomePageClient() {
     { name: "5 DAYS TANZANIA SAFARI", dur: "5 Days / 4 Nights", price: 1770, img: "/images/safari/tarangire.jpg", desc: "Discover vast elephant herds of Tarangire, diverse ecosystems of Lake Manyara, and breathtaking Ngorongoro Crater." },
     { name: "7 DAYS TANZANIA SAFARI", dur: "7 Days / 6 Nights", price: 2480, img: "/images/safari/ngorongoro.jpg", desc: "Thrilling safari through Africa's most renowned national parks. Serengeti, Tarangire, Lake Manyara, and Ngorongoro Crater." },
   ]
+  const waterSports = [
+    { name: "Jet Ski Adventure", fromPrice: 45, img: "/Water sports images/Jet Ski 1.jpeg", desc: "Feel the pure adrenaline rush as you race across the crystal-clear turquoise waters of Zanzibar! Our powerful jet skis deliver an unforgettable thrill with breathtaking coastal views and ocean spray.", prices: ["15 minutes — $45 (1-2 people)", "30 minutes — $60 (1-2 people)", "1 hour — $110 (1-2 people)"] },
+    { name: "Jet Car Experience", fromPrice: 100, img: "/Water sports images/Jet car.jpeg", desc: "Drive on water! Experience the ultimate aquatic adventure in our sleek jet car. Glide effortlessly across the Indian Ocean and make memories that will last a lifetime.", prices: ["15 minutes — $100"] },
+    { name: "Jet Car Rolls Royce", fromPrice: 130, img: "/Water sports images/rolls royce.png", desc: "Luxury meets the ocean. Cruise the Zanzibar coastline in style aboard our exclusive Rolls Royce jet car — the most glamorous way to experience the Indian Ocean!", prices: ["15 minutes — $130"] },
+    { name: "Kayak Exploration", fromPrice: 25, img: "/Water sports images/Kayaking 1.jpeg", desc: "Paddle through calm, shallow lagoons and explore Zanzibar's stunning shoreline at your own pace. Perfect for couples and families seeking a peaceful yet exciting ocean adventure.", prices: ["20 minutes — $25", "30 minutes — $30"] },
+    { name: "Drone Photography", fromPrice: 50, img: "/Water sports images/Kayaking 2.jpeg", desc: "Capture your once-in-a-lifetime water sports adventure from the sky! Our professional drone service films your experience in stunning quality — because every epic moment deserves to be remembered.", prices: ["Per activity — $50"] },
+  ]
+  const carHire = [
+    { name: "Toyota Coaster", price: 50, img: "/rent a car images/Rent a Coaster.jpeg", desc: "Spacious, comfortable, and perfect for large groups. Our Toyota Coaster seats up to 28 passengers with air conditioning and ample luggage space — ideal for group tours, events, and corporate travel across Zanzibar.", seats: "Up to 28 seats" },
+    { name: "Toyota Alphard", price: 45, img: "/rent a car images/rent Alphard.jpeg", desc: "Travel in executive comfort with our premium Toyota Alphard. This luxury van offers plush leather seating, extra legroom, and a smooth ride — perfect for families and VIP transfers who demand the best.", seats: "Up to 7 seats" },
+    { name: "Toyota Voxy", price: 40, img: "/rent a car images/renta a toyota voxy.webp", desc: "Versatile, reliable, and family-friendly. The Toyota Voxy combines practicality with comfort, offering flexible seating configurations and generous cargo space for all your Zanzibar adventures.", seats: "Up to 7 seats" },
+    { name: "Toyota RAV4", price: 30, img: "/rent a car images/Toyota-RAV4-5-door-min-510x383-1.webp", desc: "Explore Zanzibar with confidence in our rugged yet refined Toyota RAV4. This compact SUV handles every terrain with ease, giving you the freedom to discover hidden beaches and off-the-beaten-path gems.", seats: "Up to 5 seats" },
+    { name: "Toyota IST", price: 30, img: "/rent a car images/rent ist.jpeg", desc: "Compact, economical, and fun to drive! The Toyota IST is perfect for solo travelers and couples who want an agile, fuel-efficient ride for cruising around Stone Town and the island's scenic coastal roads.", seats: "Up to 5 seats" },
+  ]
   const reviews = [
     { name: "Carlos Bazan", text: "After 3 changes in flight arrival times due to the airline, and with constant contacts with the person in charge, we had a driver waiting for us at the airport at 4 am, ten hours later than the first scheduled one. Thank you very much for all your efforts. I highly recommend them. very great professionalism.", rating: 5 },
     { name: "Harris", text: "It was an incredibly easy process, with step by step guide for airport collection. We had some delay issues but Benjamin our driver was very understanding, we didn't feel rushed. His information was very helpful and accurate.", rating: 5 },
@@ -285,7 +299,7 @@ export default function HomePageClient() {
                 <div className="absolute pointer-events-none z-20" style={{ bottom: "-12px", right: "-12px", width: "35%", height: "45%", borderBottom: "3px solid #f7a10d", borderRight: "3px solid #f7a10d", borderBottomRightRadius: "24px" }}></div>
                 {/* Car image with rounded corners */}
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-lg bg-gray-900/5">
-                  <Image src="/images/vehicles/alphard-white.png" alt="Zanzione Tours Vehicle" width={520} height={380} className="w-full h-auto object-contain" priority />
+                  <Image src="/Toyota Alphard.jpeg" alt="Zanzione Tours Vehicle" width={520} height={380} className="w-full h-auto object-contain" priority />
                 </div>
               </div>
             </div>
@@ -392,7 +406,7 @@ export default function HomePageClient() {
               </div>
 
               <div className="relative">
-                <Image src="/images/vehicles/alphard-gold.jpg" alt="Zanzione Tours" width={460} height={320} className="rounded-xl object-cover w-full max-w-[460px]" />
+                <Image src="/Toyota Alphard.jpeg" alt="Zanzione Tours" width={460} height={320} className="rounded-xl object-cover w-full max-w-[460px]" />
                 {/* 10 Years badge */}
                 <div className="absolute -left-4 sm:-left-6 top-1/3 bg-golden text-white rounded-full w-24 h-24 sm:w-28 sm:h-28 flex flex-col items-center justify-center shadow-xl border-4 border-white z-10">
                   <span className="text-2xl sm:text-3xl font-black leading-none">10</span>
@@ -523,6 +537,150 @@ export default function HomePageClient() {
         </div>
       </section>
 
+      {/* ═══════ WATER SPORTS ═══════ */}
+      <section className="py-12 sm:py-20 bg-[#f0f7ff]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-14 animate-on-scroll fade-up">
+            <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">WATER SPORTS</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-gray-900">
+              Thrilling <span className="text-golden italic">Ocean Adventures</span>
+            </h2>
+            <div className="flex justify-center gap-1 mt-4">
+              <div className="w-10 h-1.5 bg-blue-season rounded-full"></div>
+              <div className="w-3 h-1.5 bg-golden rounded-full"></div>
+            </div>
+            <p className="text-gray-500 text-sm sm:text-base mt-4 max-w-2xl mx-auto">Dive into adrenaline-pumping water activities across Zanzibar's crystal-clear turquoise lagoons. From high-speed jet skis to luxury jet cars — make waves on your vacation!</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {waterSports.map((sport, i) => (
+              <div key={i} className="animate-on-scroll fade-up bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1" data-delay={((i % 3) * 100).toString()}>
+                <div className="relative p-4 pb-0">
+                  <div className="relative h-52 sm:h-56 rounded-xl overflow-hidden">
+                    <Image src={sport.img} alt={sport.name} fill className="object-cover" sizes="(max-width:768px)100vw,(max-width:1024px)50vw,33vw" />
+                  </div>
+                  <div className="absolute bottom-0 right-6 translate-y-1/2 w-[60px] h-[60px] bg-golden rounded-full flex items-center justify-center text-white font-black text-sm shadow-lg z-10 border-[3px] border-white">
+                    ${sport.fromPrice}
+                  </div>
+                </div>
+                <div className="p-5 pt-6 sm:p-6 sm:pt-7">
+                  <h3 className="text-lg font-display font-black text-gray-900 mb-2">{sport.name}</h3>
+                  <p className="text-gray-400 text-[13px] leading-relaxed mb-4 line-clamp-3">{sport.desc}</p>
+                  <div className="space-y-1.5 mb-5">
+                    {sport.prices.map((p, j) => (
+                      <div key={j} className="flex items-center gap-2 text-sm text-gray-600">
+                        <div className="w-1.5 h-1.5 bg-blue-season rounded-full"></div>
+                        <span>{p}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <BookingModal tourName={sport.name} trigger={
+                    <button className="bg-golden hover:bg-golden/90 text-white font-bold px-6 py-2.5 rounded-full flex items-center gap-2 text-sm tracking-wide transition-colors">
+                      Book via WhatsApp <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  } />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════ QUAD BIKING ADVENTURE ═══════ */}
+      <section className="py-12 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-14 animate-on-scroll fade-up">
+            <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">OFF-ROAD ADVENTURE</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-gray-900">
+              Explore Zanzibar by <span className="text-golden italic">Quad 4H</span>
+            </h2>
+            <div className="flex justify-center gap-1 mt-4">
+              <div className="w-10 h-1.5 bg-blue-season rounded-full"></div>
+              <div className="w-3 h-1.5 bg-golden rounded-full"></div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            {/* Left - Images */}
+            <div className="animate-on-scroll fade-left relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <Image src="/quad biking.webp" alt="Quad Biking Zanzibar" width={560} height={380} className="w-full h-auto object-cover" />
+              </div>
+              <div className="absolute -bottom-6 -right-6 w-48 h-36 rounded-xl overflow-hidden shadow-xl border-4 border-white hidden lg:block">
+                <Image src="/quad biking 2.jpg" alt="Quad Biking Adventure" fill className="object-cover" sizes="200px" />
+              </div>
+              <div className="absolute -top-4 -left-4 bg-golden text-white rounded-full w-24 h-24 flex flex-col items-center justify-center shadow-xl border-4 border-white z-10">
+                <span className="text-2xl font-black leading-none">$70</span>
+                <span className="text-[10px] text-center leading-tight mt-1">per quad<br/>up to 2 pax</span>
+              </div>
+            </div>
+
+            {/* Right - Content */}
+            <div className="animate-on-scroll fade-right" data-delay="200">
+              <p className="text-gray-500 text-[13px] sm:text-sm leading-relaxed mb-6">
+                Unleash your inner adventurer and conquer Zanzibar's stunning northern coastline on a thrilling 4-hour quad bike expedition! Feel the wind in your hair as you ride through hidden trails, untouched villages, and pristine beaches that most tourists never get to see.
+              </p>
+
+              <div className="space-y-4 mb-6">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 w-8 h-8 bg-golden rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-black text-xs">1</span>
+                  </div>
+                  <div>
+                    <h4 className="font-display font-bold text-gray-900 text-sm mb-1">Private Beach – Kaskazini</h4>
+                    <p className="text-gray-500 text-[13px] leading-relaxed">Escape to a secluded paradise where turquoise waves kiss powdery white sand. Bask in warm sunshine, listen to the soothing melody of the ocean, and let the chirping birds serenade you in this untouched haven of tranquility.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 w-8 h-8 bg-golden rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-black text-xs">2</span>
+                  </div>
+                  <div>
+                    <h4 className="font-display font-bold text-gray-900 text-sm mb-1">Authentic Village Experience – Kidotti</h4>
+                    <p className="text-gray-500 text-[13px] leading-relaxed">Immerse yourself in genuine Zanzibari culture! The warm-hearted locals of Kidotti village welcome you like family. Roll up your sleeves and join traditional cooking sessions, savoring authentic dishes that tell the story of generations.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 w-8 h-8 bg-golden rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-black text-xs">3</span>
+                  </div>
+                  <div>
+                    <h4 className="font-display font-bold text-gray-900 text-sm mb-1">World-Famous Kendwa Beach</h4>
+                    <p className="text-gray-500 text-[13px] leading-relaxed">Wind down at Kendwa — ranked among the world's most breathtaking beaches. Sip on fresh coconut juice as you watch the sun melt into the horizon, stroll past fishermen hauling their daily catch, and feel the magic of Zanzibar's coastal life.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-4 mb-6 p-4 bg-[#f8f8f8] rounded-xl">
+                <div className="flex items-center gap-2">
+                  <Clock className="w-5 h-5 text-golden" />
+                  <span className="text-gray-700 text-sm font-semibold">4 Hours</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-5 h-5 text-golden" />
+                  <span className="text-gray-700 text-sm font-semibold">Nungwi – Kendwa</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Users className="w-5 h-5 text-golden" />
+                  <span className="text-gray-700 text-sm font-semibold">Up to 2 people per quad</span>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-4">
+                <div className="bg-golden/10 rounded-xl px-5 py-3">
+                  <p className="text-golden font-black text-lg">$70 <span className="text-gray-600 text-sm font-normal">/ quad bike</span></p>
+                  <p className="text-gray-500 text-xs">Morning: 9:00 AM – 1:00 PM | Afternoon: 2:00 PM – 6:00 PM</p>
+                </div>
+                <BookingModal tourName="Quad Biking 4H Adventure" trigger={
+                  <button className="bg-golden hover:bg-golden/90 text-white font-bold px-7 py-3.5 rounded-full flex items-center gap-2 text-sm tracking-wide transition-colors shadow-md">
+                    Book via WhatsApp <ArrowRight className="w-4 h-4" />
+                  </button>
+                } />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ═══════ TANZANIA SAFARI PACKAGES ═══════ */}
       <section className="py-12 sm:py-20 relative bg-cover bg-center" style={{ backgroundImage: "url(/images/safari-sunset.jpg)" }}>
         <div className="absolute inset-0 bg-[#0a1628]/92"></div>
@@ -601,6 +759,48 @@ export default function HomePageClient() {
             <div className="absolute right-4 top-1/2 -translate-y-1/2 hidden lg:block">
               <p className="text-gray-300 text-xs tracking-[0.3em] font-bold" style={{ writingMode: "vertical-rl" }}>WWW.ZANZIONETOURS.COM</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════ CAR HIRE ═══════ */}
+      <section className="py-12 sm:py-20 bg-[#f8fafc]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-14 animate-on-scroll fade-up">
+            <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">RENTAL FLEET</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-gray-900">
+              Car <span className="text-golden italic">Hire</span> Per Day
+            </h2>
+            <div className="flex justify-center gap-1 mt-4">
+              <div className="w-10 h-1.5 bg-blue-season rounded-full"></div>
+              <div className="w-3 h-1.5 bg-golden rounded-full"></div>
+            </div>
+            <p className="text-gray-500 text-sm sm:text-base mt-4 max-w-2xl mx-auto">Explore Zanzibar at your own pace with our well-maintained, air-conditioned rental fleet. From compact city cars to spacious group vans — we have the perfect ride for every adventure.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {carHire.map((car, i) => (
+              <div key={i} className="animate-on-scroll fade-up bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1" data-delay={((i % 3) * 100).toString()}>
+                <div className="relative p-4 pb-0">
+                  <div className="relative h-48 sm:h-52 rounded-xl overflow-hidden bg-gray-100">
+                    <Image src={car.img} alt={car.name} fill className="object-contain" sizes="(max-width:768px)100vw,(max-width:1024px)50vw,33vw" />
+                  </div>
+                  <div className="absolute bottom-0 right-6 translate-y-1/2 w-[64px] h-[64px] bg-golden rounded-full flex flex-col items-center justify-center text-white font-black text-sm shadow-lg z-10 border-[3px] border-white">
+                    <span className="text-lg leading-none">${car.price}</span>
+                    <span className="text-[9px] font-semibold">/ day</span>
+                  </div>
+                </div>
+                <div className="p-5 pt-7 sm:p-6 sm:pt-8">
+                  <h3 className="text-lg font-display font-black text-gray-900 mb-1">{car.name}</h3>
+                  <p className="text-golden text-xs font-semibold mb-3">{car.seats}</p>
+                  <p className="text-gray-400 text-[13px] leading-relaxed mb-5 line-clamp-3">{car.desc}</p>
+                  <BookingModal tourName={`Car Hire: ${car.name}`} trigger={
+                    <button className="w-full bg-golden hover:bg-golden/90 text-white font-bold px-6 py-2.5 rounded-full flex items-center justify-center gap-2 text-sm tracking-wide transition-colors">
+                      Rent This Car <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  } />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -711,7 +911,7 @@ export default function HomePageClient() {
               </h2>
               <p className="text-gray-500 text-[13px] sm:text-sm leading-relaxed mb-6">{t("faqDesc")}</p>
               <div className="relative h-48 sm:h-56 rounded-xl overflow-hidden">
-                <Image src="/images/vehicles/alphard-black-2.jpg" alt="Taxi service" fill className="object-cover" sizes="(max-width:1024px)100vw,50vw" />
+                <Image src="/Toyota Alphard.jpeg" alt="Taxi service" fill className="object-cover" sizes="(max-width:1024px)100vw,50vw" />
               </div>
             </div>
             <div className="space-y-3">
