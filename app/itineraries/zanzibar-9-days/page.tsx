@@ -9,11 +9,6 @@ import Footer from "@/components/footer"
 import BookingModal from "@/components/booking-modal"
 
 export default function Zanzibar9DaysPackage() {
-  const whatsappNumber = "255718881882"
-  const packageName = "Zanzibar 9 Days 8 Nights Package"
-  const whatsappMessage = `Hi, I'm interested in booking the ${packageName} ($1,430). Can you provide more details?`
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
-
   return (
     <>
       <Navigation />
@@ -204,11 +199,10 @@ export default function Zanzibar9DaysPackage() {
                 <Card className="border-2 border-blue-500">
                   <CardContent className="p-6">
                     <div className="text-center mb-6">
-                      <p className="text-gray-600 text-sm mb-2">Starting from</p>
-                      <p className="text-5xl font-bold text-blue-600">$1,430</p>
-                      <p className="text-gray-500 text-sm mt-2">per person</p>
+                      <p className="text-blue-season font-semibold mb-2">Contact for Current Pricing</p>
+                      <p className="text-gray-500 text-sm">Price on request</p>
                     </div>
-                    
+
                     <div className="space-y-3 mb-6">
                       <div className="flex items-center gap-2 text-gray-700">
                         <Calendar className="w-5 h-5 text-blue-500" />

@@ -63,7 +63,7 @@ export default function KizimkaziDolphinsTourPage() {
               <span>Kizimkazi, South Coast</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-golden font-bold text-xl">From $35</span>
+              <span className="text-golden font-bold text-xl">Contact for Pricing</span>
             </div>
           </div>
         </div>
@@ -127,34 +127,15 @@ export default function KizimkaziDolphinsTourPage() {
 
               {/* Inclusions Section */}
               <div>
-                <h2 className="text-3xl font-display font-bold text-blue-season mb-6">Price & Inclusions</h2>
+                <h2 className="text-3xl font-display font-bold text-blue-season mb-6">Tour Inclusions</h2>
 
                 <div className="mb-6">
                   <h3 className="text-xl font-bold text-blue-season mb-4">Tour Pricing</h3>
-                  <div className="overflow-x-auto">
-                    <table className="w-full border-collapse">
-                      <thead>
-                        <tr className="bg-blue-season text-white">
-                          <th className="border border-blue-700 px-4 py-3 text-left">Group Size</th>
-                          <th className="border border-blue-700 px-4 py-3 text-left">Price per Person</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="bg-white hover:bg-blue-50">
-                          <td className="border border-gray-300 px-4 py-3">1 - 5 persons</td>
-                          <td className="border border-gray-300 px-4 py-3 font-bold text-blue-season">$40</td>
-                        </tr>
-                        <tr className="bg-gray-50 hover:bg-blue-50">
-                          <td className="border border-gray-300 px-4 py-3">6 - 10 persons</td>
-                          <td className="border border-gray-300 px-4 py-3 font-bold text-blue-season">$35</td>
-                        </tr>
-                        <tr className="bg-white hover:bg-blue-50">
-                          <td className="border border-gray-300 px-4 py-3">11 - 28 persons</td>
-                          <td className="border border-gray-300 px-4 py-3 font-bold text-blue-season">$30</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                  <Card className="bg-blue-50 border-blue-200">
+                    <CardContent className="p-6">
+                      <p className="text-gray-700">Please contact us for current pricing based on your group size.</p>
+                    </CardContent>
+                  </Card>
                 </div>
 
                 <Card className="bg-blue-50 border-blue-200">
@@ -212,7 +193,7 @@ export default function KizimkaziDolphinsTourPage() {
                 <CardContent className="p-6 space-y-6">
                   <div>
                     <h3 className="text-2xl font-display font-bold text-blue-season mb-2">Book This Experience</h3>
-                    <div className="text-3xl font-bold text-golden mb-4">From $35</div>
+                    <div className="text-2xl font-bold text-golden mb-2">Contact for Pricing</div>
                     <p className="text-gray-600 text-sm">per person</p>
                   </div>
 

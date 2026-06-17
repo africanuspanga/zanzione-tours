@@ -10,18 +10,12 @@ import type { Metadata } from "next"
 import BookingModal from "@/components/booking-modal"
 
 export const metadata: Metadata = {
-  title: "Mikumi Day Trip Safari from Zanzibar - $430 | ZANZIONE TOURS",
+  title: "Mikumi Day Trip Safari from Zanzibar | ZANZIONE TOURS",
   description:
     "Experience incredible wildlife in Mikumi National Park on this day trip from Zanzibar. Round-trip flights included. Spot lions, elephants, giraffes, zebras, and more in Tanzania's accessible park.",
 }
 
 export default function MikumiDayTripPage() {
-  const whatsappNumber = "255628734126"
-  const message = encodeURIComponent(
-    "Hello! I'm interested in booking the Mikumi Day Trip Safari from Zanzibar ($430 per person). Can you provide more details?"
-  )
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`
-
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -70,8 +64,8 @@ export default function MikumiDayTripPage() {
               <span className="text-gray-600">5 Stars Rated</span>
             </div>
             <div className="text-center sm:text-right">
-              <p className="text-3xl sm:text-4xl font-bold text-golden">$430</p>
-              <p className="text-gray-600">Per Person (Sharing Vehicle)</p>
+              <p className="text-lg font-semibold text-blue-season">Contact for Current Pricing</p>
+              <p className="text-gray-600">Price on request</p>
             </div>
           </div>
         </div>
@@ -195,20 +189,13 @@ export default function MikumiDayTripPage() {
                 {/* Pricing Card */}
                 <Card className="border-2 border-golden">
                   <CardContent className="p-6">
-                    <h3 className="text-2xl font-bold text-blue-season mb-4">Tour Prices</h3>
-                    <div className="space-y-3 mb-6">
-                      <div className="flex justify-between items-center pb-3 border-b">
-                        <span className="text-gray-600">Sharing Vehicle</span>
-                        <span className="text-2xl font-bold text-golden">$430</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-gray-600">Private Vehicle</span>
-                        <span className="text-2xl font-bold text-golden">$680</span>
-                      </div>
+                    <h3 className="text-2xl font-bold text-blue-season mb-4">Tour Pricing</h3>
+                    <div className="text-center mb-6">
+                      <p className="text-lg font-semibold text-blue-season mb-2">Contact for Current Pricing</p>
+                      <p className="text-gray-600">Price on request</p>
                     </div>
-                    <p className="text-sm text-gray-500 mb-6">Price per person</p>
-                    <BookingModal 
-                      tourName="Mikumi Day Trip Safari" 
+                    <BookingModal
+                      tourName="Mikumi Day Trip Safari"
                       className="w-full bg-green-600 hover:bg-green-700 text-white text-lg py-6"
                     />
                   </CardContent>

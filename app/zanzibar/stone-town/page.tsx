@@ -12,7 +12,7 @@ import BookingModal from "@/components/booking-modal"
 export const metadata: Metadata = {
   title: "Stone Town Walking Tour - UNESCO Heritage Site | ZANZIONE TOURS",
   description:
-    "Explore Zanzibar's UNESCO World Heritage Stone Town with expert local guides. Half-day walking tour featuring historic sites, House of Wonders, Sultans' Palace, Freddie Mercury House, and bustling Darajani Market. $25 per person.",
+    "Explore Zanzibar's UNESCO World Heritage Stone Town with expert local guides. Half-day walking tour featuring historic sites, House of Wonders, Sultans' Palace, Freddie Mercury House, and bustling Darajani Market.",
   alternates: {
     canonical: "https://www.zanzionetours.com/zanzibar/stone-town",
   },
@@ -56,11 +56,7 @@ export default function StoneTownTourPage() {
               <Clock className="w-5 h-5" />
               <span>Half Day</span>
             </div>
-            <div className="hidden sm:block">•</div>
-            <div className="flex items-center gap-2">
-              <Users className="w-5 h-5" />
-              <span>$25 Per Person</span>
-            </div>
+
           </div>
         </div>
       </section>
@@ -168,9 +164,8 @@ export default function StoneTownTourPage() {
               <Card className="sticky top-24">
                 <CardContent className="p-6">
                   <div className="text-center mb-6">
-                    <p className="text-gray-500 text-sm mb-1">From</p>
-                    <p className="text-4xl font-bold text-golden mb-2">$25</p>
-                    <p className="text-gray-600">Per Person</p>
+                    <p className="text-golden font-bold text-xl mb-2">Contact for Pricing</p>
+                    <p className="text-gray-600 text-sm mb-2">Reach out for current rates</p>
                     <div className="flex items-center justify-center gap-1 mt-2">
                       <div className="flex text-golden">
                         {[...Array(5)].map((_, i) => (

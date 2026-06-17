@@ -186,38 +186,15 @@ export default function JozaniForestTourPage() {
 
           {/* Inclusions & Pricing */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-            <h2 className="text-3xl font-display font-bold text-ocean mb-6">Price & Inclusions</h2>
+            <h2 className="text-3xl font-display font-bold text-ocean mb-6">Tour Inclusions</h2>
 
             <div className="mb-8">
               <h3 className="text-xl font-bold text-ocean mb-4">Tour Pricing</h3>
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse">
-                  <thead>
-                    <tr className="bg-green-600 text-white">
-                      <th className="border border-green-700 px-4 py-3 text-left">Group Size</th>
-                      <th className="border border-green-700 px-4 py-3 text-left">Price per Person</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="bg-white hover:bg-green-50">
-                      <td className="border border-gray-300 px-4 py-3">1 - 2 persons</td>
-                      <td className="border border-gray-300 px-4 py-3 font-bold text-green-600">$25</td>
-                    </tr>
-                    <tr className="bg-gray-50 hover:bg-green-50">
-                      <td className="border border-gray-300 px-4 py-3">3 - 5 persons</td>
-                      <td className="border border-gray-300 px-4 py-3 font-bold text-green-600">$24</td>
-                    </tr>
-                    <tr className="bg-white hover:bg-green-50">
-                      <td className="border border-gray-300 px-4 py-3">6 - 10 persons</td>
-                      <td className="border border-gray-300 px-4 py-3 font-bold text-green-600">$22</td>
-                    </tr>
-                    <tr className="bg-gray-50 hover:bg-green-50">
-                      <td className="border border-gray-300 px-4 py-3">11 - 25 persons</td>
-                      <td className="border border-gray-300 px-4 py-3 font-bold text-green-600">$20</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              <Card className="bg-green-50 border-green-200">
+                <CardContent className="p-6">
+                  <p className="text-gray-700">Please contact us for current pricing.</p>
+                </CardContent>
+              </Card>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">

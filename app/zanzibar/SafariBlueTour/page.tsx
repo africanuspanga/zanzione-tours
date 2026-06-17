@@ -126,40 +126,14 @@ export default function SafariBlueTourPage() {
           {/* Pricing Section */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">Pricing</h2>
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="bg-blue-600 text-white">
-                    <th className="py-4 px-6 text-left font-semibold">Group Size</th>
-                    <th className="py-4 px-6 text-left font-semibold">Price per Person</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b border-gray-200 hover:bg-blue-50 transition-colors">
-                    <td className="py-4 px-6 font-medium text-gray-700">1 - 2 persons</td>
-                    <td className="py-4 px-6 text-gray-900 font-bold">$55.00 p.p</td>
-                  </tr>
-                  <tr className="border-b border-gray-200 hover:bg-blue-50 transition-colors">
-                    <td className="py-4 px-6 font-medium text-gray-700">3 - 5 persons</td>
-                    <td className="py-4 px-6 text-gray-900 font-bold">$50.00 p.p</td>
-                  </tr>
-                  <tr className="border-b border-gray-200 hover:bg-blue-50 transition-colors">
-                    <td className="py-4 px-6 font-medium text-gray-700">6 - 10 persons</td>
-                    <td className="py-4 px-6 text-gray-900 font-bold">$44.00 p.p</td>
-                  </tr>
-                  <tr className="border-b border-gray-200 hover:bg-blue-50 transition-colors">
-                    <td className="py-4 px-6 font-medium text-gray-700">11 - 25 persons</td>
-                    <td className="py-4 px-6 text-gray-900 font-bold">$40.00 p.p</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className="mt-6 bg-amber-50 p-4 rounded-lg border-l-4 border-golden">
-              <p className="text-gray-700 text-sm">
-                <strong>Note:</strong> Transport costs are excluded from the prices shown above. 
-                The final price will depend on your hotel location. Please contact us via WhatsApp for a complete quote including transfers.
-              </p>
-            </div>
+            <Card className="bg-blue-50 border-blue-200">
+              <CardContent className="p-6">
+                <p className="text-gray-700 mb-4">Please contact us for current pricing.</p>
+                <p className="text-gray-700 text-sm">
+                  <strong>Note:</strong> Transport costs depend on your hotel location. Please contact us via WhatsApp for a complete quote including transfers.
+                </p>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Inclusions Section */}

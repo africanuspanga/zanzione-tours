@@ -51,12 +51,12 @@ function useScrollAnimation() {
 
 // ─── Transfer Routes Data ───
 const highlightTransfers = [
-  { from: "Airport / Ferry", to: "Stone Town", price: 15, image: "/toyota-alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Nungwi - Kendwa", price: 35, image: "/toyota-alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Paje", price: 35, image: "/toyota-alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Fumba", price: 50, image: "/images/vehicles/hiace-van.jpeg" },
-  { from: "Airport / Ferry", to: "Matemwe", price: 60, image: "/images/vehicles/coaster-28seat.jpeg" },
-  { from: "Airport / Ferry", to: "Jambiani", price: 35, image: "/toyota-alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Stone Town", price: 20, image: "/toyota-alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Nungwi - Kendwa", price: 40, image: "/toyota-alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Paje", price: 40, image: "/toyota-alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Fumba", price: 55, image: "/images/vehicles/hiace-van.jpeg" },
+  { from: "Airport / Ferry", to: "Matemwe", price: 65, image: "/images/vehicles/coaster-28seat.jpeg" },
+  { from: "Airport / Ferry", to: "Jambiani", price: 40, image: "/toyota-alphard.jpeg" },
 ]
 
 // ─── Translation System ───
@@ -206,34 +206,34 @@ export default function HomePageClient() {
   }
 
   const tours = [
-    { name: "Safari Blue Day Trip", price: 55, img: "/images/tours/safari-blue-day.jpg", desc: "Sail on traditional dhows to pristine sandbanks and enjoy the ultimate marine adventure with snorkeling, swimming, and a seafood feast.", link: "/zanzibar" },
-    { name: "Stone Town Tour", price: 30, img: "/images/tours/stone-town-tour.jpg", desc: "Explore the UNESCO World Heritage site with its narrow alleys, historic buildings, and vibrant markets. Discover the cultural heart of Zanzibar.", link: "/zanzibar" },
-    { name: "Prison Island Boat Trip", price: 50, img: "/new-zanzi-tours-images/prison-island.jpeg", desc: "Visit the historic Changuu Island to learn about its fascinating past and meet the famous giant Aldabra tortoises, some over 100 years old.", link: "/zanzibar" },
-    { name: "Nakupenda Island", price: 80, img: "/new-zanzi-tours-images/nakupenda-island.jpeg", desc: "Escape to a pristine white sand paradise in the middle of the ocean. Perfect for relaxation, swimming, and enjoying fresh seafood.", link: "/zanzibar" },
-    { name: "Spice Farm Tour", price: 10, img: "/new-zanzi-tours-images/spice-farm.jpeg", desc: "Discover why Zanzibar is called the 'Spice Island' with visits to working spice plantations where you'll see, smell, and taste exotic spices.", link: "/zanzibar" },
-    { name: "Jozani Forest Tour", price: 25, img: "/images/tours/jozani-forest.jpg", desc: "Explore Zanzibar's indigenous forest and meet the rare Red Colobus monkeys found nowhere else on Earth. A nature lover's paradise.", link: "/zanzibar" },
-    { name: "Salaam Cave", price: 35, img: "/new-zanzi-tours-images/salaam-cave.jpeg", desc: "Explore the mysterious underground caves of Zanzibar with stunning rock formations and crystal-clear natural pools hidden beneath the surface.", link: "/zanzibar" },
-    { name: "Kizimkazi Dolphins", price: 40, img: "/new-zanzi-tours-images/kizimkazi-dolphins.jpeg", desc: "Swim with wild dolphins in their natural habitat at Kizimkazi. An unforgettable wildlife encounter in the warm waters of the Indian Ocean.", link: "/zanzibar" },
-    { name: "Mtende Beach", price: 15, img: "/new-zanzi-tours-images/mtende-beach.jpeg", desc: "Relax on one of Zanzibar's most serene and untouched beaches. Enjoy crystal-clear waters, soft white sand, and breathtaking coastal views.", link: "/zanzibar" },
-    { name: "Maalum Cave", price: 35, img: "/new-zanzi-tours-images/maalum-cave.jpeg", desc: "Discover the enchanting natural swimming pool hidden inside a limestone cave. A magical spot surrounded by lush tropical vegetation.", link: "/zanzibar" },
-    { name: "The Rock Restaurant", price: 45, img: "/new-zanzi-tours-images/the-rock.jpeg", desc: "Visit Zanzibar's iconic restaurant perched on a rock in the ocean. Enjoy fresh seafood and stunning panoramic views of the Indian Ocean.", link: "/zanzibar" },
-    { name: "Mnemba Island Tour", price: 55, img: "/new-zanzi-tours-images/mnemba-islandd.jpeg", desc: "Discover pristine coral reefs and swim in crystal-clear waters around this protected marine sanctuary. Perfect for snorkeling enthusiasts.", link: "/zanzibar" },
-    { name: "Sunset Dhow Cruise", price: 35, img: "/images/tours/sunset-dhow.jpg", desc: "Sail into the golden hour aboard a traditional dhow and watch the spectacular Zanzibar sunset paint the sky in brilliant colors.", link: "/zanzibar" },
+    { name: "Safari Blue Day Trip", img: "/images/tours/safari-blue-day.jpg", desc: "Sail on traditional dhows to pristine sandbanks and enjoy the ultimate marine adventure with snorkeling, swimming, and a seafood feast.", link: "/zanzibar" },
+    { name: "Stone Town Tour", img: "/images/tours/stone-town-tour.jpg", desc: "Explore the UNESCO World Heritage site with its narrow alleys, historic buildings, and vibrant markets. Discover the cultural heart of Zanzibar.", link: "/zanzibar" },
+    { name: "Prison Island Boat Trip", img: "/new-zanzi-tours-images/prison-island.jpeg", desc: "Visit the historic Changuu Island to learn about its fascinating past and meet the famous giant Aldabra tortoises, some over 100 years old.", link: "/zanzibar" },
+    { name: "Nakupenda Island", img: "/new-zanzi-tours-images/nakupenda-island.jpeg", desc: "Escape to a pristine white sand paradise in the middle of the ocean. Perfect for relaxation, swimming, and enjoying fresh seafood.", link: "/zanzibar" },
+    { name: "Spice Farm Tour", img: "/new-zanzi-tours-images/spice-farm.jpeg", desc: "Discover why Zanzibar is called the 'Spice Island' with visits to working spice plantations where you'll see, smell, and taste exotic spices.", link: "/zanzibar" },
+    { name: "Jozani Forest Tour", img: "/images/tours/jozani-forest.jpg", desc: "Explore Zanzibar's indigenous forest and meet the rare Red Colobus monkeys found nowhere else on Earth. A nature lover's paradise.", link: "/zanzibar" },
+    { name: "Salaam Cave", img: "/new-zanzi-tours-images/salaam-cave.jpeg", desc: "Explore the mysterious underground caves of Zanzibar with stunning rock formations and crystal-clear natural pools hidden beneath the surface.", link: "/zanzibar" },
+    { name: "Kizimkazi Dolphins", img: "/new-zanzi-tours-images/kizimkazi-dolphins.jpeg", desc: "Swim with wild dolphins in their natural habitat at Kizimkazi. An unforgettable wildlife encounter in the warm waters of the Indian Ocean.", link: "/zanzibar" },
+    { name: "Mtende Beach", img: "/new-zanzi-tours-images/mtende-beach.jpeg", desc: "Relax on one of Zanzibar's most serene and untouched beaches. Enjoy crystal-clear waters, soft white sand, and breathtaking coastal views.", link: "/zanzibar" },
+    { name: "Maalum Cave", img: "/new-zanzi-tours-images/maalum-cave.jpeg", desc: "Discover the enchanting natural swimming pool hidden inside a limestone cave. A magical spot surrounded by lush tropical vegetation.", link: "/zanzibar" },
+    { name: "The Rock Restaurant", img: "/new-zanzi-tours-images/the-rock.jpeg", desc: "Visit Zanzibar's iconic restaurant perched on a rock in the ocean. Enjoy fresh seafood and stunning panoramic views of the Indian Ocean.", link: "/zanzibar" },
+    { name: "Mnemba Island Tour", img: "/new-zanzi-tours-images/mnemba-islandd.jpeg", desc: "Discover pristine coral reefs and swim in crystal-clear waters around this protected marine sanctuary. Perfect for snorkeling enthusiasts.", link: "/zanzibar" },
+    { name: "Sunset Dhow Cruise", img: "/images/tours/sunset-dhow.jpg", desc: "Sail into the golden hour aboard a traditional dhow and watch the spectacular Zanzibar sunset paint the sky in brilliant colors.", link: "/zanzibar" },
   ]
   const safaris = [
-    { name: "MIKUMI DAY TRIP SAFARI", dur: "1 Day", price: 430, img: "/images/packages/mikumi-safari.jpg", desc: "Full-day flying safari to Mikumi National Park. Experience incredible wildlife viewing including elephants, giraffes, lions, zebras." },
-    { name: "SERENGETI 2 DAYS SAFARI", dur: "2 Days / 1 Night", price: 1676, img: "/images/packages/serengeti-safari.jpg", desc: "Experience the magic of Serengeti with a fly-in safari. Witness the Great Migration, spot the Big Five across endless plains." },
-    { name: "SELOUS DAY TRIP SAFARI", dur: "1 Day", price: 450, img: "/images/safari/selous.jpg", desc: "Day trip to Selous Game Reserve (Nyerere National Park), Africa's largest reserve. Experience remarkable wildlife diversity." },
-    { name: "3 DAYS SERENGETI SAFARI", dur: "3 Days / 2 Nights", price: 2048, img: "/images/safari/serengeti.jpg", desc: "Experience the magic of Serengeti National Park with multiple game drives across diverse ecosystems. Big Five viewing." },
-    { name: "5 DAYS TANZANIA SAFARI", dur: "5 Days / 4 Nights", price: 1770, img: "/images/safari/tarangire.jpg", desc: "Discover vast elephant herds of Tarangire, diverse ecosystems of Lake Manyara, and breathtaking Ngorongoro Crater." },
-    { name: "7 DAYS TANZANIA SAFARI", dur: "7 Days / 6 Nights", price: 2480, img: "/images/safari/ngorongoro.jpg", desc: "Thrilling safari through Africa's most renowned national parks. Serengeti, Tarangire, Lake Manyara, and Ngorongoro Crater." },
+    { name: "MIKUMI DAY TRIP SAFARI", dur: "1 Day", img: "/images/packages/mikumi-safari.jpg", desc: "Full-day flying safari to Mikumi National Park. Experience incredible wildlife viewing including elephants, giraffes, lions, zebras." },
+    { name: "SERENGETI 2 DAYS SAFARI", dur: "2 Days / 1 Night", img: "/images/packages/serengeti-safari.jpg", desc: "Experience the magic of Serengeti with a fly-in safari. Witness the Great Migration, spot the Big Five across endless plains." },
+    { name: "SELOUS DAY TRIP SAFARI", dur: "1 Day", img: "/images/safari/selous.jpg", desc: "Day trip to Selous Game Reserve (Nyerere National Park), Africa's largest reserve. Experience remarkable wildlife diversity." },
+    { name: "3 DAYS SERENGETI SAFARI", dur: "3 Days / 2 Nights", img: "/images/safari/serengeti.jpg", desc: "Experience the magic of Serengeti National Park with multiple game drives across diverse ecosystems. Big Five viewing." },
+    { name: "5 DAYS TANZANIA SAFARI", dur: "5 Days / 4 Nights", img: "/images/safari/tarangire.jpg", desc: "Discover vast elephant herds of Tarangire, diverse ecosystems of Lake Manyara, and breathtaking Ngorongoro Crater." },
+    { name: "7 DAYS TANZANIA SAFARI", dur: "7 Days / 6 Nights", img: "/images/safari/ngorongoro.jpg", desc: "Thrilling safari through Africa's most renowned national parks. Serengeti, Tarangire, Lake Manyara, and Ngorongoro Crater." },
   ]
   const waterSports = [
-    { name: "Jet Ski Adventure", fromPrice: 45, img: "/water-sports-images/jet-ski-1.jpeg", desc: "Feel the pure adrenaline rush as you race across the crystal-clear turquoise waters of Zanzibar! Our powerful jet skis deliver an unforgettable thrill with breathtaking coastal views and ocean spray.", prices: ["15 minutes — $45 (1-2 people)", "30 minutes — $60 (1-2 people)", "1 hour — $110 (1-2 people)"] },
-    { name: "Jet Car Experience", fromPrice: 100, img: "/water-sports-images/jet-car.jpeg", desc: "Drive on water! Experience the ultimate aquatic adventure in our sleek jet car. Glide effortlessly across the Indian Ocean and make memories that will last a lifetime.", prices: ["15 minutes — $100"] },
-    { name: "Jet Car Rolls Royce", fromPrice: 130, img: "/water-sports-images/rolls-royce.png", desc: "Luxury meets the ocean. Cruise the Zanzibar coastline in style aboard our exclusive Rolls Royce jet car — the most glamorous way to experience the Indian Ocean!", prices: ["15 minutes — $130"] },
-    { name: "Kayak Exploration", fromPrice: 25, img: "/water-sports-images/kayaking-1.jpeg", desc: "Paddle through calm, shallow lagoons and explore Zanzibar's stunning shoreline at your own pace. Perfect for couples and families seeking a peaceful yet exciting ocean adventure.", prices: ["20 minutes — $25", "30 minutes — $30"] },
-    { name: "Drone Photography", fromPrice: 50, img: "/water-sports-images/kayaking-2.jpeg", desc: "Capture your once-in-a-lifetime water sports adventure from the sky! Our professional drone service films your experience in stunning quality — because every epic moment deserves to be remembered.", prices: ["Per activity — $50"] },
+    { name: "Jet Ski Adventure", img: "/water-sports-images/jet-ski-1.jpeg", desc: "Feel the pure adrenaline rush as you race across the crystal-clear turquoise waters of Zanzibar! Our powerful jet skis deliver an unforgettable thrill with breathtaking coastal views and ocean spray." },
+    { name: "Jet Car Experience", img: "/water-sports-images/jet-car.jpeg", desc: "Drive on water! Experience the ultimate aquatic adventure in our sleek jet car. Glide effortlessly across the Indian Ocean and make memories that will last a lifetime." },
+    { name: "Jet Car Rolls Royce", img: "/water-sports-images/rolls-royce.png", desc: "Luxury meets the ocean. Cruise the Zanzibar coastline in style aboard our exclusive Rolls Royce jet car — the most glamorous way to experience the Indian Ocean!" },
+    { name: "Kayak Exploration", img: "/water-sports-images/kayaking-1.jpeg", desc: "Paddle through calm, shallow lagoons and explore Zanzibar's stunning shoreline at your own pace. Perfect for couples and families seeking a peaceful yet exciting ocean adventure." },
+    { name: "Drone Photography", img: "/water-sports-images/kayaking-2.jpeg", desc: "Capture your once-in-a-lifetime water sports adventure from the sky! Our professional drone service films your experience in stunning quality — because every epic moment deserves to be remembered." },
   ]
   const carHire = [
     { name: "Toyota Coaster", price: 50, img: "/rent-a-car-images/rent-a-coaster.jpeg", desc: "Spacious, comfortable, and perfect for large groups. Our Toyota Coaster seats up to 28 passengers with air conditioning and ample luggage space — ideal for group tours, events, and corporate travel across Zanzibar.", seats: "Up to 28 seats" },
@@ -455,14 +455,10 @@ export default function HomePageClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {tours.map((tour, i) => (
               <div key={i} className="animate-on-scroll fade-up bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1" data-delay={((i % 3) * 100).toString()}>
-                {/* Image container with price badge */}
+                {/* Image container */}
                 <div className="relative p-4 pb-0">
                   <div className="relative h-52 sm:h-56 rounded-xl overflow-hidden">
                     <Image src={tour.img} alt={tour.name} fill className="object-cover" sizes="(max-width:768px)100vw,(max-width:1024px)50vw,33vw" />
-                  </div>
-                  {/* Orange price circle - overlapping bottom-right of image */}
-                  <div className="absolute bottom-0 right-6 translate-y-1/2 w-[60px] h-[60px] bg-golden rounded-full flex items-center justify-center text-white font-black text-base shadow-lg z-10 border-[3px] border-white">
-                    ${tour.price}
                   </div>
                 </div>
                 {/* Content */}
@@ -558,21 +554,10 @@ export default function HomePageClient() {
                   <div className="relative h-52 sm:h-56 rounded-xl overflow-hidden">
                     <Image src={sport.img} alt={sport.name} fill className="object-cover" sizes="(max-width:768px)100vw,(max-width:1024px)50vw,33vw" />
                   </div>
-                  <div className="absolute bottom-0 right-6 translate-y-1/2 w-[60px] h-[60px] bg-golden rounded-full flex items-center justify-center text-white font-black text-sm shadow-lg z-10 border-[3px] border-white">
-                    ${sport.fromPrice}
-                  </div>
                 </div>
                 <div className="p-5 pt-6 sm:p-6 sm:pt-7">
                   <h3 className="text-lg font-display font-black text-gray-900 mb-2">{sport.name}</h3>
-                  <p className="text-gray-400 text-[13px] leading-relaxed mb-4 line-clamp-3">{sport.desc}</p>
-                  <div className="space-y-1.5 mb-5">
-                    {sport.prices.map((p, j) => (
-                      <div key={j} className="flex items-center gap-2 text-sm text-gray-600">
-                        <div className="w-1.5 h-1.5 bg-blue-season rounded-full"></div>
-                        <span>{p}</span>
-                      </div>
-                    ))}
-                  </div>
+                  <p className="text-gray-400 text-[13px] leading-relaxed mb-5 line-clamp-3">{sport.desc}</p>
                   <BookingModal tourName={sport.name} trigger={
                     <button className="bg-golden hover:bg-golden/90 text-white font-bold px-6 py-2.5 rounded-full flex items-center gap-2 text-sm tracking-wide transition-colors">
                       Book via WhatsApp <ArrowRight className="w-3.5 h-3.5" />
@@ -608,10 +593,7 @@ export default function HomePageClient() {
               <div className="absolute -bottom-6 -right-6 w-48 h-36 rounded-xl overflow-hidden shadow-xl border-4 border-white hidden lg:block">
                 <Image src="/quad-biking-2.jpg" alt="Quad Biking Adventure" fill className="object-cover" sizes="200px" />
               </div>
-              <div className="absolute -top-4 -left-4 bg-golden text-white rounded-full w-24 h-24 flex flex-col items-center justify-center shadow-xl border-4 border-white z-10">
-                <span className="text-2xl font-black leading-none">$85</span>
-                <span className="text-[10px] text-center leading-tight mt-1">per quad<br/>up to 2 pax</span>
-              </div>
+
             </div>
 
             {/* Right - Content */}
@@ -667,8 +649,7 @@ export default function HomePageClient() {
 
               <div className="flex flex-wrap items-center gap-4">
                 <div className="bg-golden/10 rounded-xl px-5 py-3">
-                  <p className="text-golden font-black text-lg">$85 <span className="text-gray-600 text-sm font-normal">/ quad bike</span></p>
-                  <p className="text-gray-500 text-xs">Morning: 9:00 AM – 1:00 PM | Afternoon: 2:00 PM – 6:00 PM</p>
+                  <p className="text-gray-700 text-sm font-semibold">Morning: 9:00 AM – 1:00 PM | Afternoon: 2:00 PM – 6:00 PM</p>
                 </div>
                 <BookingModal tourName="Quad Biking 4H Adventure" trigger={
                   <button className="bg-golden hover:bg-golden/90 text-white font-bold px-7 py-3.5 rounded-full flex items-center gap-2 text-sm tracking-wide transition-colors shadow-md">
@@ -707,19 +688,13 @@ export default function HomePageClient() {
                     </div>
                   </div>
                   {/* Title & Duration centered */}
-                  <div className="text-center px-5">
+                  <div className="text-center px-5 pb-4">
                     <h3 className="font-display font-black text-gray-900 text-base sm:text-lg tracking-wide">{s.name}</h3>
                     <p className="text-golden font-semibold text-sm mt-1">{s.dur}</p>
                   </div>
-                  {/* Golden price circle with dashed border - straddling white/dark sections */}
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-10">
-                    <div className="w-[72px] h-[72px] rounded-full border-[3px] border-dashed border-golden bg-golden flex items-center justify-center shadow-lg">
-                      <span className="text-white font-black text-lg">${s.price.toLocaleString()}</span>
-                    </div>
-                  </div>
                 </div>
                 {/* BOTTOM: Dark navy section */}
-                <div className="bg-[#1a2332] relative pt-12 pb-5 px-5">
+                <div className="bg-[#1a2332] relative pt-8 pb-5 px-5">
                   {/* Decorative swirl/wave SVG pattern */}
                   <div className="absolute top-0 left-0 right-0 h-8 overflow-hidden opacity-10">
                     <svg viewBox="0 0 400 30" className="w-full h-full" preserveAspectRatio="none">

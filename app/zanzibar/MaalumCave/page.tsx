@@ -58,7 +58,7 @@ export default function MaalumCavePage() {
                 <Users className="w-5 h-5" />
                 <span>2-25 People</span>
               </div>
-              <div className="bg-golden px-4 py-2 rounded-full font-bold">From $27 per person</div>
+              <div className="bg-golden px-4 py-2 rounded-full font-bold">Contact for Pricing</div>
             </div>
           </div>
         </div>
@@ -124,32 +124,13 @@ export default function MaalumCavePage() {
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">Pricing Overview</h2>
             <p className="text-gray-600 mb-6">
-              The price per person decreases as your group size increases, offering excellent value for shared
-              experiences.
+              Please contact us for current pricing. We offer excellent value for shared experiences.
             </p>
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="bg-ocean text-white">
-                    <th className="p-4 text-left border border-gray-300">Group Size</th>
-                    <th className="p-4 text-left border border-gray-300">Price Per Person</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    { size: "1 - 2 persons", price: "$35.00 p.p" },
-                    { size: "3 - 6 persons", price: "$33.00 p.p" },
-                    { size: "7 - 10 persons", price: "$30.00 p.p" },
-                    { size: "11 - 25 persons", price: "$27.00 p.p" },
-                  ].map((item, index) => (
-                    <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}>
-                      <td className="p-4 border border-gray-300 font-semibold">{item.size}</td>
-                      <td className="p-4 border border-gray-300 text-golden font-bold text-lg">{item.price}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <Link href="/contact" className="inline-block">
+              <Button className="bg-golden hover:bg-golden/90 text-white font-semibold px-8">
+                Contact Us
+              </Button>
+            </Link>
           </div>
 
           {/* Inclusions Section */}

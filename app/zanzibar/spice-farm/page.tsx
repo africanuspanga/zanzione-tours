@@ -11,7 +11,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Zanzibar Spice Farm Tour - Experience the Spice Island | ZANZIONE TOURS",
   description:
-    "Discover why Zanzibar is the Spice Island. Half-day walking tour through spice plantations to taste, smell, and learn about turmeric, cardamom, cinnamon, cloves, and nutmeg. Includes spiced rice lunch. $25 per person.",
+    "Discover why Zanzibar is the Spice Island. Half-day walking tour through spice plantations to taste, smell, and learn about turmeric, cardamom, cinnamon, cloves, and nutmeg. Includes spiced rice lunch.",
   alternates: {
     canonical: "https://www.zanzionetours.com/zanzibar/spice-farm",
   },
@@ -55,11 +55,7 @@ export default function SpiceFarmPage() {
               <Clock className="w-5 h-5" />
               <span>Half Day</span>
             </div>
-            <div className="hidden sm:block">•</div>
-            <div className="flex items-center gap-2">
-              <Users className="w-5 h-5" />
-              <span>$25 Per Person</span>
-            </div>
+
           </div>
         </div>
       </section>
@@ -189,9 +185,8 @@ export default function SpiceFarmPage() {
               <Card className="sticky top-24">
                 <CardContent className="p-6">
                   <div className="text-center mb-6">
-                    <p className="text-gray-500 text-sm mb-1">From</p>
-                    <p className="text-4xl font-bold text-golden mb-2">$25</p>
-                    <p className="text-gray-600">Per Person</p>
+                    <p className="text-golden font-bold text-xl mb-2">Contact for Pricing</p>
+                    <p className="text-gray-600 text-sm mb-2">Reach out for current rates</p>
                     <div className="flex items-center justify-center gap-1 mt-2">
                       <div className="flex text-golden">
                         {[...Array(5)].map((_, i) => (

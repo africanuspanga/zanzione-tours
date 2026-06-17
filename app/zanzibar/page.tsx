@@ -16,8 +16,7 @@ const zanzibarTours = [
     image: "/images/tours/safari-blue-day.jpg",
     duration: "Full Day",
     groupSize: "4-20 people",
-    price: "$40",
-    slug: "SafariBlueTour", // Added slug for Safari Blue detail page
+    slug: "SafariBlueTour",
     description:
       "Sail on traditional dhows to pristine sandbanks and enjoy the ultimate marine adventure with snorkeling, swimming, and a seafood feast.",
     highlights: [
@@ -34,7 +33,6 @@ const zanzibarTours = [
     image: "/images/tours/stone-town-tour.jpg",
     duration: "Half Day",
     groupSize: "2-12 people",
-    price: "$25",
     slug: "StoneTownTour",
     description:
       "Explore the UNESCO World Heritage site with its narrow alleys, historic buildings, and vibrant markets. Discover the cultural heart of Zanzibar.",
@@ -52,7 +50,6 @@ const zanzibarTours = [
     image: "/new-zanzi-tours-images/prison-island.jpeg",
     duration: "Half Day",
     groupSize: "2-15 people",
-    price: "$30",
     slug: "PrisonIslandTour",
     description:
       "Visit the historic Changuu Island to learn about its fascinating past and meet the famous giant Aldabra tortoises, some over 100 years old.",
@@ -70,7 +67,6 @@ const zanzibarTours = [
     image: "/new-zanzi-tours-images/nakupenda-island.jpeg",
     duration: "Half Day",
     groupSize: "4-20 people",
-    price: "$49",
     slug: "NakupendaSandbankTour",
     description:
       "Escape to a pristine white sand paradise in the middle of the ocean. Perfect for relaxation, swimming, and enjoying fresh seafood.",
@@ -88,7 +84,6 @@ const zanzibarTours = [
     image: "/new-zanzi-tours-images/spice-farm.jpeg",
     duration: "Half Day",
     groupSize: "2-15 people",
-    price: "$25",
     slug: "SpiceFarmTour",
     description:
       "Discover why Zanzibar is called the 'Spice Island' with visits to working spice plantations where you'll see, smell, and taste exotic spices.",
@@ -106,8 +101,7 @@ const zanzibarTours = [
     image: "/images/tours/jozani-forest.jpg",
     duration: "Half Day",
     groupSize: "2-15 people",
-    price: "$30",
-    slug: "JozaniForestTour", // Added slug for Jozani Forest detail page
+    slug: "JozaniForestTour",
     description:
       "Explore Zanzibar's indigenous forest and meet the rare Red Colobus monkeys found nowhere else on Earth. A nature lover's paradise with guided forest walks.",
     highlights: [
@@ -124,8 +118,7 @@ const zanzibarTours = [
     image: "/new-zanzi-tours-images/salaam-cave.jpeg",
     duration: "Half Day",
     groupSize: "2-25 people",
-    price: "$25",
-    slug: "SalaamCave", // Added slug for detail page
+    slug: "SalaamCave",
     description:
       "Experience the unique sea turtle sanctuary in this natural coral grotto. Swim alongside rescued sea turtles in crystal-clear saltwater pools and support vital conservation efforts.",
     highlights: [
@@ -142,7 +135,6 @@ const zanzibarTours = [
     image: "/new-zanzi-tours-images/kizimkazi-dolphins.jpeg",
     duration: "Half Day",
     groupSize: "2-12 people",
-    price: "$35",
     slug: "KizimkaziDolphinsTour",
     description:
       "Swim with wild dolphins in their natural habitat at Kizimkazi. An unforgettable wildlife encounter in the warm waters of the Indian Ocean.",
@@ -160,7 +152,6 @@ const zanzibarTours = [
     image: "/new-zanzi-tours-images/mtende-beach.jpeg",
     duration: "Half Day",
     groupSize: "2-25 people",
-    price: "$15",
     slug: "MtendeBeach",
     description:
       "Discover Zanzibar's secret, picturesque cove with dramatic rock formations and extreme tidal displays. Perfect for those seeking authentic, tranquil atmosphere away from the crowds.",
@@ -178,8 +169,7 @@ const zanzibarTours = [
     image: "/new-zanzi-tours-images/maalum-cave.jpeg",
     duration: "Half Day",
     groupSize: "2-25 people",
-    price: "$27",
-    slug: "MaalumCave", // Added slug for detail page
+    slug: "MaalumCave",
     description:
       "Discover Zanzibar's hidden oasis featuring a stunning natural limestone cave with crystal-clear freshwater pools. Perfect for swimming and geological exploration in a serene jungle setting.",
     highlights: [
@@ -196,8 +186,7 @@ const zanzibarTours = [
     image: "/new-zanzi-tours-images/the-rock.jpeg",
     duration: "Half Day",
     groupSize: "2-8 people",
-    price: "$45",
-    slug: "TheRockRestaurant", // Added slug for The Rock Restaurant detail page
+    slug: "TheRockRestaurant",
     description:
       "Dine at the world-famous restaurant built on a rock in the Indian Ocean. An iconic Zanzibar experience combining great food with stunning views.",
     highlights: [
@@ -214,7 +203,6 @@ const zanzibarTours = [
     image: "/new-zanzi-tours-images/mnemba-islandd.jpeg",
     duration: "Half Day",
     groupSize: "2-12 people",
-    price: "$42",
     slug: "MnembaIslandTour",
     description:
       "Discover pristine coral reefs and swim in crystal-clear waters around this protected marine sanctuary. Perfect for snorkeling enthusiasts and marine life lovers.",
@@ -232,7 +220,6 @@ const zanzibarTours = [
     image: "/images/tours/sunset-dhow.jpg",
     duration: "Half Day",
     groupSize: "2-20 people",
-    price: "$35",
     slug: "SunsetDhowCruise",
     description:
       "Sail into the golden hour aboard a traditional dhow and watch the spectacular Zanzibar sunset paint the sky in brilliant colors.",
@@ -242,6 +229,57 @@ const zanzibarTours = [
       "Romantic atmosphere",
       "Light refreshments",
       "Photography opportunities",
+    ],
+  },
+  {
+    id: 14,
+    title: "Village Tour",
+    image: "/village-tour-zanzibar.jpeg",
+    duration: "Half Day / Full Day",
+    groupSize: "2-20 people",
+    slug: "VillageTour",
+    description:
+      "Experience authentic Swahili village life beyond the beaches. Meet locals, learn traditional crafts, cooking, and daily customs in a respectful, meaningful cultural immersion.",
+    highlights: [
+      "Authentic village walking tour",
+      "Visit a local Swahili home",
+      "Traditional cooking and crafts",
+      "Coconut husking and weaving",
+      "Support local communities",
+    ],
+  },
+  {
+    id: 15,
+    title: "Kendwa Sea Walk",
+    image: "/kendwa-seawalk.jpeg",
+    duration: "1 Hour",
+    groupSize: "Ages 10+",
+    slug: "KendwaSeawalk",
+    description:
+      "Walk on the ocean floor with a specially designed underwater helmet. No swimming or diving needed — perfect for non-swimmers, families, and couples to explore Zanzibar's marine life.",
+    highlights: [
+      "Underwater helmet walk",
+      "No swimming experience needed",
+      "Safe for families and non-swimmers",
+      "See colorful fish and coral",
+      "Keep glasses or contacts on",
+    ],
+  },
+  {
+    id: 16,
+    title: "Traditional Cooking Class",
+    image: "/cooking-class-zanzibar.jpeg",
+    duration: "3-4 Hours",
+    groupSize: "All ages welcome",
+    slug: "CookingClass",
+    description:
+      "Cook authentic Swahili dishes in Dole village. Tour Darajani market, harvest organic spices and vegetables from the farm, and prepare a 4-course meal with a professional chef.",
+    highlights: [
+      "Darajani market tour",
+      "Spice farm harvesting",
+      "Hands-on Swahili cooking",
+      "4-course meal included",
+      "Learn medicinal uses of spices",
     ],
   },
 ]
@@ -322,11 +360,6 @@ export default function ZanzibarPage() {
                       <span>{tour.groupSize}</span>
                     </div>
                   </div>
-                  {tour.price && (
-                    <div className="mb-3">
-                      <p className="text-lg font-semibold text-golden">From {tour.price}</p>
-                    </div>
-                  )}
                   <p className="text-gray-600 mb-4 text-sm leading-relaxed">{tour.description}</p>
 
                   <div className="mb-4">

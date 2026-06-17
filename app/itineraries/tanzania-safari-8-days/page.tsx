@@ -16,10 +16,6 @@ export const metadata: Metadata = {
 }
 
 export default function TanzaniaSafari8Days() {
-  const whatsappMessage = encodeURIComponent(
-    "Hello! I'm interested in booking the 8 Days Tanzania Safari Package ($2,600 per person). Can you provide more details?"
-  )
-
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -64,9 +60,9 @@ export default function TanzaniaSafari8Days() {
               <p className="text-gray-600">4 Parks + Cultural Tour</p>
             </div>
             <div className="flex flex-col items-center">
-              <div className="text-3xl font-bold text-golden mb-2">$2,600</div>
+              <p className="text-lg font-semibold text-blue-season mb-1">Contact for Pricing</p>
               <p className="font-semibold text-gray-900">Price</p>
-              <p className="text-gray-600">Per Person</p>
+              <p className="text-gray-600">On Request</p>
             </div>
           </div>
         </div>
@@ -207,40 +203,24 @@ export default function TanzaniaSafari8Days() {
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <Card>
-              <CardContent className="p-6">
+              <CardContent className="p-6 text-center">
                 <h3 className="text-xl font-bold text-blue-season mb-4">Lodge Safari</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center border-b pb-2">
-                    <span className="text-gray-600">Price per Adult</span>
-                    <span className="text-2xl font-bold text-golden">$2,600</span>
-                  </div>
-                  <div className="flex justify-between items-center border-b pb-2">
-                    <span className="text-gray-600">Price per Child (3-9 yrs)</span>
-                    <span className="text-xl font-bold text-golden">$1,830</span>
-                  </div>
-                  <p className="text-sm text-gray-500 italic mt-4">
-                    *Price is per person for a group of two. Rate decreases as group size increases.
-                  </p>
-                </div>
+                <p className="text-lg font-semibold text-blue-season mb-2">Contact for Current Pricing</p>
+                <p className="text-gray-600 mb-4">Price on request</p>
+                <p className="text-sm text-gray-500 italic">
+                  Rates vary by group size and season. Contact us for a personalized quote.
+                </p>
               </CardContent>
             </Card>
 
             <Card>
-              <CardContent className="p-6">
+              <CardContent className="p-6 text-center">
                 <h3 className="text-xl font-bold text-blue-season mb-4">Camping Safari</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center border-b pb-2">
-                    <span className="text-gray-600">Price per Adult</span>
-                    <span className="text-2xl font-bold text-golden">$1,980</span>
-                  </div>
-                  <div className="flex justify-between items-center border-b pb-2">
-                    <span className="text-gray-600">Price per Child (3-9 yrs)</span>
-                    <span className="text-xl font-bold text-golden">$1,410</span>
-                  </div>
-                  <p className="text-sm text-gray-500 italic mt-4">
-                    *Price is per person for a group of two. Rate decreases as group size increases.
-                  </p>
-                </div>
+                <p className="text-lg font-semibold text-blue-season mb-2">Contact for Current Pricing</p>
+                <p className="text-gray-600 mb-4">Price on request</p>
+                <p className="text-sm text-gray-500 italic">
+                  Rates vary by group size and season. Contact us for a personalized quote.
+                </p>
               </CardContent>
             </Card>
           </div>

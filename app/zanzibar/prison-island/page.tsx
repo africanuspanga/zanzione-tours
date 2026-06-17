@@ -11,7 +11,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Prison Island Tour - Giant Tortoises & Beach Relaxation | ZANZIONE TOURS",
   description:
-    "Visit Prison Island (Changuu Island) to meet 200-year-old Giant Aldabra Tortoises. Half-day tour from Stone Town includes boat transfer, tortoise sanctuary, swimming, and beach time. $30 per person.",
+    "Visit Prison Island (Changuu Island) to meet 200-year-old Giant Aldabra Tortoises. Half-day tour from Stone Town includes boat transfer, tortoise sanctuary, swimming, and beach time.",
   alternates: {
     canonical: "https://www.zanzionetours.com/zanzibar/prison-island",
   },
@@ -55,11 +55,7 @@ export default function PrisonIslandPage() {
               <Clock className="w-5 h-5" />
               <span>Half Day</span>
             </div>
-            <div className="hidden sm:block">•</div>
-            <div className="flex items-center gap-2">
-              <Users className="w-5 h-5" />
-              <span>$30 Per Person</span>
-            </div>
+
           </div>
         </div>
       </section>
@@ -179,9 +175,8 @@ export default function PrisonIslandPage() {
               <Card className="sticky top-24">
                 <CardContent className="p-6">
                   <div className="text-center mb-6">
-                    <p className="text-gray-500 text-sm mb-1">From</p>
-                    <p className="text-4xl font-bold text-golden mb-2">$30</p>
-                    <p className="text-gray-600">Per Person</p>
+                    <p className="text-golden font-bold text-xl mb-2">Contact for Pricing</p>
+                    <p className="text-gray-600 text-sm mb-2">Reach out for current rates</p>
                     <div className="flex items-center justify-center gap-1 mt-2">
                       <div className="flex text-golden">
                         {[...Array(5)].map((_, i) => (

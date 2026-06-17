@@ -57,7 +57,7 @@ export default function MtendeBeachPage() {
                 <Users className="w-5 h-5" />
                 <span>2-25 People</span>
               </div>
-              <div className="bg-golden px-4 py-2 rounded-full font-bold">From $5 per person</div>
+              <div className="bg-golden px-4 py-2 rounded-full font-bold">Contact for Pricing</div>
             </div>
           </div>
         </div>
@@ -122,36 +122,16 @@ export default function MtendeBeachPage() {
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">Pricing Overview</h2>
             <p className="text-gray-600 mb-6">
-              Highly group-friendly pricing with substantial savings for larger parties exploring this secluded
-              paradise.
+              Please contact us for current pricing. We offer excellent value for groups exploring this secluded paradise.
             </p>
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="bg-ocean text-white">
-                    <th className="p-4 text-left border border-gray-300">Group Size</th>
-                    <th className="p-4 text-left border border-gray-300">Price Per Person</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    { size: "1 - 2 persons", price: "$15.00 p.p" },
-                    { size: "3 - 6 persons", price: "$10.00 p.p" },
-                    { size: "7 - 10 persons", price: "$8.00 p.p" },
-                    { size: "11 - 25 persons", price: "$5.00 p.p" },
-                  ].map((item, index) => (
-                    <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}>
-                      <td className="p-4 border border-gray-300 font-semibold">{item.size}</td>
-                      <td className="p-4 border border-gray-300 text-golden font-bold text-lg">{item.price}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <Link href="/contact" className="inline-block">
+              <Button className="bg-golden hover:bg-golden/90 text-white font-semibold px-8">
+                Contact Us
+              </Button>
+            </Link>
             <div className="mt-6 bg-amber-50 p-6 rounded-lg border-l-4 border-golden">
               <p className="text-gray-700 text-sm leading-relaxed">
-                <strong>Note:</strong> The base price covers local guide services and entrance fees (approximately $1
-                USD per person).
+                <strong>Note:</strong> The base price covers local guide services and entrance fees.
                 <strong> Transport is not included</strong> - there is no public transport to Mtende Beach. Contact us
                 for full pricing including private transfer from your hotel.
               </p>
@@ -166,7 +146,7 @@ export default function MtendeBeachPage() {
                 <h3 className="font-bold text-blue-season mb-3">Inclusions</h3>
                 {[
                   "Local Guide Services",
-                  "Beach Entrance Fee (~$1 USD)",
+                  "Beach Entrance Fee",
                   "Cultural insights and local knowledge",
                   "Safety briefing about tides",
                 ].map((item, index) => (

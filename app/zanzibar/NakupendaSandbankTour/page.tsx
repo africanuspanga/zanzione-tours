@@ -75,7 +75,7 @@ export default function NakupendaSandbankPage() {
             <Users className="w-5 h-5" />
             <span className="font-semibold">4-20 People</span>
           </div>
-          <div className="text-lg font-bold">From $49 per person</div>
+          <div className="text-lg font-bold text-golden">Contact for Pricing</div>
         </div>
       </section>
 
@@ -148,7 +148,7 @@ export default function NakupendaSandbankPage() {
 
               {/* Tour Inclusions */}
               <div>
-                <h2 className="text-3xl font-display font-bold text-blue-600 mb-4">Price & Inclusions</h2>
+                <h2 className="text-3xl font-display font-bold text-blue-600 mb-4">Tour Inclusions</h2>
                 <p className="text-gray-700 mb-4">The tour price is comprehensive and includes:</p>
                 <div className="bg-blue-50 rounded-lg p-6">
                   <ul className="space-y-3">
@@ -189,38 +189,11 @@ export default function NakupendaSandbankPage() {
               {/* Tour Pricing */}
               <div>
                 <h2 className="text-3xl font-display font-bold text-blue-600 mb-4">Tour Pricing</h2>
-                <div className="overflow-x-auto">
-                  <table className="w-full border-collapse bg-white rounded-lg overflow-hidden shadow-sm">
-                    <thead>
-                      <tr className="bg-blue-600 text-white">
-                        <th className="border border-gray-300 px-4 py-3 text-left">Group Size</th>
-                        <th className="border border-gray-300 px-4 py-3 text-left">Price Per Person</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="hover:bg-gray-50">
-                        <td className="border border-gray-300 px-4 py-3">1 - 2 persons</td>
-                        <td className="border border-gray-300 px-4 py-3 font-semibold text-blue-600">$80 p.p</td>
-                      </tr>
-                      <tr className="hover:bg-gray-50">
-                        <td className="border border-gray-300 px-4 py-3">3 - 5 persons</td>
-                        <td className="border border-gray-300 px-4 py-3 font-semibold text-blue-600">$55 p.p</td>
-                      </tr>
-                      <tr className="hover:bg-gray-50">
-                        <td className="border border-gray-300 px-4 py-3">6 - 10 persons</td>
-                        <td className="border border-gray-300 px-4 py-3 font-semibold text-blue-600">$48 p.p</td>
-                      </tr>
-                      <tr className="hover:bg-gray-50">
-                        <td className="border border-gray-300 px-4 py-3">11 - 25 persons</td>
-                        <td className="border border-gray-300 px-4 py-3 font-semibold text-blue-600">$40 p.p</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <p className="text-sm text-gray-600 mt-4 italic">
-                  Prices are per person. For guests staying in Stone Town, additional transportation costs may not
-                  apply.
-                </p>
+                <Card className="bg-blue-50 border-blue-200">
+                  <CardContent className="p-6">
+                    <p className="text-gray-700">Please contact us for current pricing based on your group size and hotel location.</p>
+                  </CardContent>
+                </Card>
               </div>
 
               {/* Important Note */}
@@ -240,7 +213,7 @@ export default function NakupendaSandbankPage() {
                 <Card className="shadow-xl border-2 border-golden">
                   <CardContent className="p-6 space-y-6">
                     <div className="text-center">
-                      <div className="text-4xl font-bold text-blue-600 mb-2">$49</div>
+                      <div className="text-2xl font-bold text-blue-600 mb-2">Contact for Pricing</div>
                       <p className="text-gray-600">per person</p>
                     </div>
 

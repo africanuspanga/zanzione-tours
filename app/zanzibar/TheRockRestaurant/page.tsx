@@ -138,43 +138,16 @@ export default function TheRockRestaurantPage() {
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">Tour Pricing</h2>
             <Card className="bg-blue-50 border-blue-200">
-              <CardContent className="p-6">
-                <p className="text-lg font-semibold text-ocean mb-4">Price per Person (Tour Only):</p>
-                <div className="overflow-x-auto">
-                  <table className="w-full border-collapse">
-                    <thead>
-                      <tr className="bg-ocean text-white">
-                        <th className="py-3 px-4 text-left font-semibold">Group Size</th>
-                        <th className="py-3 px-4 text-right font-semibold">Price per Person</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="border-b border-blue-200">
-                        <td className="py-3 px-4 text-gray-700">1 - 2 persons</td>
-                        <td className="py-3 px-4 text-right font-semibold text-ocean">$45</td>
-                      </tr>
-                      <tr className="border-b border-blue-200 bg-blue-50/50">
-                        <td className="py-3 px-4 text-gray-700">3 - 6 persons</td>
-                        <td className="py-3 px-4 text-right font-semibold text-ocean">$40</td>
-                      </tr>
-                      <tr className="border-b border-blue-200">
-                        <td className="py-3 px-4 text-gray-700">7 - 10 persons</td>
-                        <td className="py-3 px-4 text-right font-semibold text-ocean">$37</td>
-                      </tr>
-                      <tr className="bg-blue-50/50">
-                        <td className="py-3 px-4 text-gray-700">11 - 28 persons</td>
-                        <td className="py-3 px-4 text-right font-semibold text-ocean">$35</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div className="mt-4 p-3 bg-amber-50 border border-amber-200 rounded">
-                  <p className="text-sm text-gray-600">
-                    <strong>Important:</strong> Restaurant meals are paid separately at The Rock Restaurant. The tour
-                    price includes transportation and snorkeling equipment only. Contact us for complete pricing based
-                    on your hotel location.
-                  </p>
-                </div>
+              <CardContent className="p-6 text-center">
+                <p className="text-lg font-semibold text-ocean mb-4">Contact us for current pricing</p>
+                <p className="text-sm text-gray-600 mb-4">
+                  Restaurant meals are paid separately at The Rock Restaurant. The tour price includes transportation and snorkeling equipment only.
+                </p>
+                <Link href="/contact">
+                  <Button className="bg-golden hover:bg-golden/90 text-white font-semibold px-8">
+                    Contact Us
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           </div>

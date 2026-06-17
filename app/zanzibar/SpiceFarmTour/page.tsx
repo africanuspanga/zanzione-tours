@@ -123,32 +123,9 @@ export default function SpiceFarmTourPage() {
                   <CardTitle className="text-2xl text-blue-season">Tour Pricing</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="overflow-x-auto">
-                    <table className="w-full border-collapse">
-                      <thead>
-                        <tr className="bg-blue-season text-white">
-                          <th className="border border-gray-300 px-4 py-3 text-left">Group Size</th>
-                          <th className="border border-gray-300 px-4 py-3 text-left">Price Per Person</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="hover:bg-gray-50">
-                          <td className="border border-gray-300 px-4 py-3">1 - 2 persons</td>
-                          <td className="border border-gray-300 px-4 py-3 font-semibold text-blue-season">$10 p.p</td>
-                        </tr>
-                        <tr className="hover:bg-gray-50">
-                          <td className="border border-gray-300 px-4 py-3">3 - 6 persons</td>
-                          <td className="border border-gray-300 px-4 py-3 font-semibold text-blue-season">$7 p.p</td>
-                        </tr>
-                        <tr className="hover:bg-gray-50">
-                          <td className="border border-gray-300 px-4 py-3">7 - 28 persons</td>
-                          <td className="border border-gray-300 px-4 py-3 font-semibold text-blue-season">$5 p.p</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <p className="text-sm text-gray-600 mt-4 italic">
-                    Prices are per person and exclude transportation costs from your hotel.
+                  <p className="text-gray-700 mb-4">Please contact us for current pricing.</p>
+                  <p className="text-sm text-gray-600 italic">
+                    Prices vary by group size and exclude transportation costs from your hotel.
                   </p>
                 </CardContent>
               </Card>
@@ -228,8 +205,7 @@ export default function SpiceFarmTourPage() {
                 <CardHeader className="bg-white">
                   <CardTitle className="text-2xl text-gray-900">Book This Tour</CardTitle>
                   <div className="flex items-center gap-2 mt-2">
-                    <span className="text-3xl font-bold text-gray-900">$25</span>
-                    <span className="text-gray-600">per person</span>
+                    <span className="text-2xl font-bold text-golden">Contact for Pricing</span>
                   </div>
                 </CardHeader>
                 <CardContent className="p-6 space-y-6">

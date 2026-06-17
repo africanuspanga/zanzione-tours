@@ -12,7 +12,7 @@ import BookingModal from "@/components/booking-modal"
 export const metadata: Metadata = {
   title: "Nakupenda Sandbank Trip - Swim & Snorkel Paradise | ZANZIONE TOURS",
   description:
-    "Visit Nakupenda 'I Love You' Sandbank near Stone Town. Half-day tour with snorkeling, seafood BBQ lunch, tropical fruits, and pristine white sand beaches. Listed among Africa's best beaches. $49 per person.",
+    "Visit Nakupenda 'I Love You' Sandbank near Stone Town. Half-day tour with snorkeling, seafood BBQ lunch, tropical fruits, and pristine white sand beaches. Listed among Africa's best beaches.",
   alternates: {
     canonical: "https://www.zanzionetours.com/zanzibar/nakupenda-sandbank",
   },
@@ -56,11 +56,7 @@ export default function NakupendaSandbankPage() {
               <Clock className="w-5 h-5" />
               <span>Half Day</span>
             </div>
-            <div className="hidden sm:block">•</div>
-            <div className="flex items-center gap-2">
-              <Users className="w-5 h-5" />
-              <span>$49 Per Person</span>
-            </div>
+
           </div>
         </div>
       </section>
@@ -167,9 +163,8 @@ export default function NakupendaSandbankPage() {
               <Card className="sticky top-24">
                 <CardContent className="p-6">
                   <div className="text-center mb-6">
-                    <p className="text-gray-500 text-sm mb-1">From</p>
-                    <p className="text-4xl font-bold text-golden mb-2">$49</p>
-                    <p className="text-gray-600">Per Person</p>
+                    <p className="text-golden font-bold text-xl mb-2">Contact for Pricing</p>
+                    <p className="text-gray-600 text-sm mb-2">Reach out for current rates</p>
                     <div className="flex items-center justify-center gap-1 mt-2">
                       <div className="flex text-golden">
                         {[...Array(5)].map((_, i) => (

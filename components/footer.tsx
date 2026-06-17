@@ -121,6 +121,30 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Payment Methods */}
+      <div className="relative border-t border-gray-700">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex flex-col items-center gap-4">
+            <h4 className="text-sm font-display font-bold uppercase tracking-wider text-gray-300">We Accept Payment</h4>
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+              {[
+                { src: "/payment logos/visa.png", alt: "Visa" },
+                { src: "/payment logos/mastercard.svg", alt: "Mastercard" },
+                { src: "/payment logos/discover.png", alt: "Discover" },
+                { src: "/payment logos/mpesa.png", alt: "M-Pesa" },
+                { src: "/payment logos/airtel-money.png", alt: "Airtel Money" },
+                { src: "/payment logos/mixx.png", alt: "Mixx by Yas" },
+                { src: "/payment logos/pesapal.png", alt: "PesaPal" },
+              ].map((logo, i) => (
+                <div key={i} className="bg-white rounded-lg px-3 py-2 flex items-center justify-center h-12 w-20 sm:h-14 sm:w-24">
+                  <Image src={logo.src} alt={logo.alt} width={80} height={40} className="max-h-full max-w-full object-contain" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Bottom bar */}
       <div className="relative border-t border-gray-700">
         {/* Orange triangle decoration */}

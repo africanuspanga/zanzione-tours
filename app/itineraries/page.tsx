@@ -3,7 +3,7 @@ import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Star, Clock, Users } from 'lucide-react'
+import { Star, Clock } from 'lucide-react'
 import Image from "next/image"
 import Link from "next/link"
 import type { Metadata } from "next"
@@ -370,15 +370,6 @@ export default function ItinerariesPage() {
                       <Clock className="w-4 h-4" />
                       <span className="text-sm">{pkg.duration}</span>
                     </div>
-                    <div className="flex items-center gap-1">
-                      <Users className="w-4 h-4" />
-                      <span className="text-sm">{pkg.priceNote}</span>
-                    </div>
-                  </div>
-
-                  <div className="mb-4">
-                    <p className="text-2xl font-bold text-golden mb-1">{pkg.price}</p>
-                    <p className="text-sm text-gray-500">{pkg.priceNote}</p>
                   </div>
 
                   <p className="text-gray-600 mb-4 text-sm leading-relaxed">{pkg.description}</p>
