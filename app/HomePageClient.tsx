@@ -54,8 +54,8 @@ const highlightTransfers = [
   { from: "Airport / Ferry", to: "Stone Town", price: 20, image: "/toyota-alphard.jpeg" },
   { from: "Airport / Ferry", to: "Nungwi - Kendwa", price: 40, image: "/toyota-alphard.jpeg" },
   { from: "Airport / Ferry", to: "Paje", price: 40, image: "/toyota-alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Fumba", price: 55, image: "/images/vehicles/hiace-van.jpeg" },
-  { from: "Airport / Ferry", to: "Matemwe", price: 65, image: "/images/vehicles/coaster-28seat.jpeg" },
+  { from: "Airport / Ferry", to: "Nungwi", price: 55, image: "/new-van-image.jpeg" },
+  { from: "Airport / Ferry", to: "Nungwi", price: 75, image: "/new-coaster-image.jpeg" },
   { from: "Airport / Ferry", to: "Jambiani", price: 40, image: "/toyota-alphard.jpeg" },
 ]
 

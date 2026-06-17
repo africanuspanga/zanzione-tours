@@ -53,8 +53,8 @@ const transferRoutes: TransferRoute[] = [
   { from: "Jambiani", to: "Uroa / Pongwe", price: 45, image: "/toyota-alphard.jpeg" },
   { from: "Jambiani", to: "Kiwengwa / P'Mchangani", price: 45, image: "/toyota-alphard.jpeg" },
   { from: "Jambiani", to: "Nungwi / Kendwa", price: 50, image: "/toyota-alphard.jpeg" },
-  { from: "Jambiani", to: "Matemwe", price: 65, image: "/images/vehicles/coaster-28seat.jpeg" },
-  { from: "Airport / Ferry", to: "Fumba", price: 55, image: "/images/vehicles/hiace-van.jpeg" },
+  { from: "Jambiani", to: "Nungwi", price: 75, image: "/new-coaster-image.jpeg" },
+  { from: "Airport / Ferry", to: "Nungwi", price: 55, image: "/new-van-image.jpeg" },
 ]
 
 export default function TransfersPage() {
