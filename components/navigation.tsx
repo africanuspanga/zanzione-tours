@@ -164,14 +164,14 @@ export default function Navigation() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4 lg:gap-8 h-[68px] sm:h-[84px]">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 flex-shrink-0" aria-label="ZANZIONE Tours & Safaris — home">
+            <Link href="/" className="flex items-center gap-2.5 flex-shrink-0 py-1.5" aria-label="ZANZIONE Tours & Safaris — home">
               <Image
                 src="/images/brand/zanzione-mark.png"
                 alt=""
-                width={104}
-                height={104}
+                width={256}
+                height={244}
                 priority
-                className="h-10 w-10 sm:h-[52px] sm:w-[52px] object-contain"
+                className="h-9 sm:h-12 w-auto object-contain"
               />
               <span className="leading-none">
                 <span className="block font-display font-extrabold text-navy text-[17px] sm:text-[22px] tracking-tight">

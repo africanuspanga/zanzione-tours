@@ -41,7 +41,7 @@ export default function AdminLoginPage() {
         <CardHeader className="space-y-3 text-center">
           <div className="mx-auto">
             <Image
-              src="/images/admin-logo.png"
+              src="/images/brand/zanzione-mark.png"
               alt="Zanzione Tours Logo"
               width={150}
               height={150}

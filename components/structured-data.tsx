@@ -19,7 +19,7 @@ export default function StructuredData() {
       "@type": "ImageObject",
       url: `${SITE_URL}/images/brand/zanzione-logo.png`,
       width: 640,
-      height: 640,
+      height: 536,
     },
     image: `${SITE_URL}/videos/hero-poster.jpg`,
     description:

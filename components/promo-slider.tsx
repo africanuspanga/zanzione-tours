@@ -127,8 +127,9 @@ export default function PromoSlider() {
             <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
 
-          {/* Dots */}
-          <div className="absolute bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-2">
+          {/* Dots. The button is padded out to a 44px tap target while the
+              visible dot stays small. */}
+          <div className="absolute bottom-1 sm:bottom-3 left-1/2 -translate-x-1/2 flex items-center">
             {slides.map((slide, i) => (
               <button
                 key={slide.src}
@@ -136,10 +137,14 @@ export default function PromoSlider() {
                 onClick={() => go(i)}
                 aria-label={`Go to slide ${i + 1}`}
                 aria-current={i === index}
-                className={`h-2.5 rounded-full transition-all ${
-                  i === index ? "w-8 bg-white" : "w-2.5 bg-white/55 hover:bg-white/80"
-                }`}
-              />
+                className="group/dot px-3 py-4 flex items-center justify-center"
+              >
+                <span
+                  className={`block h-2.5 rounded-full transition-all ${
+                    i === index ? "w-8 bg-white" : "w-2.5 bg-white/55 group-hover/dot:bg-white/80"
+                  }`}
+                />
+              </button>
             ))}
           </div>
         </div>

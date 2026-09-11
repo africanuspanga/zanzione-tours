@@ -28,7 +28,9 @@ function DisclosureButton({
       onClick={onClick}
       aria-expanded={open}
       aria-controls={controls}
-      className={`flex items-center gap-1.5 text-[13px] font-semibold transition-colors ${
+      // py-3 keeps the row a 44px tap target on touch screens; the negative
+      // margin stops that padding from stretching the card.
+      className={`flex items-center gap-1.5 py-3 -my-1 text-[13px] font-semibold transition-colors ${
         open ? "text-aqua" : "text-slate-ink hover:text-aqua"
       }`}
     >

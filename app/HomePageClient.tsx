@@ -346,10 +346,8 @@ export default function HomePageClient() {
             </p>
 
             <div className="flex flex-wrap items-center gap-3.5">
-              <Link href="/zanzibar">
-                <button className="bg-golden hover:bg-sand text-ink font-bold px-7 py-3.5 rounded-full flex items-center gap-2.5 text-[14.5px] transition-colors shadow-lg shadow-golden/20">
-                  Explore Zanzibar Tours <ArrowRight className="w-4 h-4" />
-                </button>
+              <Link href="/zanzibar" className="bg-golden hover:bg-sand text-ink font-bold px-7 py-3.5 rounded-full inline-flex items-center gap-2.5 text-[14.5px] transition-colors shadow-lg shadow-golden/20">
+                Explore Zanzibar Tours <ArrowRight className="w-4 h-4" />
               </Link>
               <BookingModal
                 tourName="Airport Taxi Booking"
@@ -391,7 +389,7 @@ export default function HomePageClient() {
             aria-expanded={showLang}
             aria-haspopup="listbox"
             aria-label={t("selectLanguage")}
-            className="bg-ink/45 hover:bg-ink/70 backdrop-blur-sm text-white pl-2.5 pr-3.5 py-2 rounded-full shadow-lg flex items-center gap-2 text-[13px] font-bold transition-colors border border-white/25"
+            className="bg-ink/45 hover:bg-ink/70 backdrop-blur-sm text-white pl-3 pr-4 min-h-[44px] rounded-full shadow-lg flex items-center gap-2 text-[13px] font-bold transition-colors border border-white/25"
           >
             <span className="text-base leading-none">{langFlags[lang]}</span>
             <span>{langNames[lang]}</span>
@@ -501,26 +499,34 @@ export default function HomePageClient() {
       <section className="py-12 sm:py-20 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Left - car image with decorations */}
+            {/* Left - car image with decorations. The decorative dots and
+                zigzags are desktop-only: at phone widths they spread to the
+                container edges and just add noise. */}
             <div className="relative flex justify-center animate-on-scroll fade-left">
-              {/* Decorative dots top-left */}
-              <div className="absolute top-0 left-4 grid grid-cols-3 gap-1.5 opacity-40">
+              <div className="hidden lg:block absolute top-0 left-4 grid-cols-3 gap-1.5 opacity-40 grid">
                 {[...Array(9)].map((_, i) => <div key={i} className="w-1.5 h-1.5 bg-golden rounded-full" />)}
               </div>
-              {/* Decorative zigzag lines */}
-              <div className="absolute top-8 left-0 text-golden text-2xl font-bold opacity-30 tracking-widest">///</div>
-              <div className="absolute bottom-8 right-4 text-golden text-2xl font-bold opacity-30 tracking-widest">///</div>
-              {/* Decorative dots bottom-right */}
-              <div className="absolute bottom-0 right-8 grid grid-cols-3 gap-1.5 opacity-40">
+              <div className="hidden lg:block absolute top-8 left-0 text-golden text-2xl font-bold opacity-30 tracking-widest">///</div>
+              <div className="hidden lg:block absolute bottom-8 right-4 text-golden text-2xl font-bold opacity-30 tracking-widest">///</div>
+              <div className="hidden lg:block absolute bottom-0 right-8 grid-cols-3 gap-1.5 opacity-40 grid">
                 {[...Array(9)].map((_, i) => <div key={i} className="w-1.5 h-1.5 bg-golden rounded-full" />)}
               </div>
 
-              <div className="relative">
-                <Image src="/toyota-alphard.jpeg" alt="Zanzione Tours" width={460} height={320} className="rounded-xl object-cover w-full max-w-[460px]" />
+              <div className="relative w-full max-w-[460px] pl-10 sm:pl-12 lg:pl-0">
+                {/* Fixed, cropped height on mobile — the source photo is a van on
+                    a white studio background, so letting it run at its natural
+                    aspect wasted most of a phone screen. */}
+                <Image
+                  src="/toyota-alphard.jpeg"
+                  alt="A Toyota Alphard from the Zanzione Tours fleet"
+                  width={460}
+                  height={320}
+                  className="rounded-xl object-cover w-full h-[180px] sm:h-[240px] lg:h-auto"
+                />
                 {/* 10 Years badge */}
-                <div className="absolute -left-4 sm:-left-6 top-1/3 bg-golden text-ink rounded-full w-24 h-24 sm:w-28 sm:h-28 flex flex-col items-center justify-center shadow-xl border-4 border-white z-10">
-                  <span className="text-2xl sm:text-3xl font-black leading-none">10</span>
-                  <span className="text-[9px] sm:text-[10px] text-center leading-tight mt-0.5 font-semibold whitespace-pre-line">{t("yearsLabel")}</span>
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 lg:-left-6 lg:top-1/3 lg:translate-y-0 bg-golden text-ink rounded-full w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 flex flex-col items-center justify-center shadow-xl border-4 border-white z-10">
+                  <span className="text-xl sm:text-2xl lg:text-3xl font-black leading-none">10</span>
+                  <span className="text-[8px] sm:text-[9px] lg:text-[10px] text-center leading-tight mt-0.5 font-semibold whitespace-pre-line">{t("yearsLabel")}</span>
                 </div>
               </div>
             </div>
@@ -541,10 +547,8 @@ export default function HomePageClient() {
                   </li>
                 ))}
               </ul>
-              <Link href="/about">
-                <button className="bg-golden hover:bg-sand text-ink font-black px-6 py-3 rounded-lg flex items-center gap-2 text-sm tracking-wide transition-colors">
-                  {t("discoverMore")} <ArrowRight className="w-4 h-4" />
-                </button>
+              <Link href="/about" className="bg-golden hover:bg-sand text-ink font-black px-6 py-3 rounded-lg inline-flex items-center gap-2 text-sm tracking-wide transition-colors">
+                {t("discoverMore")} <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -567,11 +571,9 @@ export default function HomePageClient() {
             ))}
           </div>
           <div className="text-center mt-10 animate-on-scroll fade-up" data-delay="300">
-            <Link href="/zanzibar">
-              <button className="bg-navy hover:bg-ocean text-white font-bold px-8 py-3.5 rounded-full inline-flex items-center gap-2.5 text-sm tracking-wide transition-colors shadow-md">
+            <Link href="/zanzibar" className="bg-navy hover:bg-ocean text-white font-bold px-8 py-3.5 rounded-full inline-flex items-center gap-2.5 text-sm tracking-wide transition-colors shadow-md">
                 See All {zanzibarTours.length} Excursions <ArrowRight className="w-4 h-4" />
-              </button>
-            </Link>
+              </Link>
           </div>
         </div>
       </section>
@@ -619,11 +621,9 @@ export default function HomePageClient() {
             ))}
           </div>
           <div className="text-center mt-10 animate-on-scroll fade-up" data-delay="300">
-            <Link href="/transfers">
-              <button className="bg-blue-season hover:bg-blue-season/90 text-white font-bold px-8 py-3.5 rounded-full flex items-center gap-2.5 text-sm tracking-wide transition-colors mx-auto shadow-md">
+            <Link href="/transfers" className="bg-blue-season hover:bg-blue-season/90 text-white font-bold px-8 py-3.5 rounded-full inline-flex items-center gap-2.5 text-sm tracking-wide transition-colors mx-auto shadow-md">
                 See More Transfer Routes <ArrowRight className="w-4 h-4" />
-              </button>
-            </Link>
+              </Link>
           </div>
         </div>
       </section>
@@ -792,11 +792,9 @@ export default function HomePageClient() {
                     </svg>
                   </div>
                   <p className="text-white/60 text-xs leading-relaxed text-center mb-4">{t("pkgIncludes")}</p>
-                  <Link href="/itineraries" className="block">
-                    <button className="w-full bg-golden hover:bg-sand text-ink font-bold py-3 rounded-lg flex items-center justify-center gap-2 text-sm tracking-wide transition-colors">
-                      {t("viewPkg")} <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
-                  </Link>
+                  <Link href="/itineraries" className="w-full bg-golden hover:bg-sand text-ink font-bold py-3 rounded-lg inline-flex items-center justify-center gap-2 text-sm tracking-wide transition-colors">
+                {t("viewPkg")} <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
                 </div>
               </div>
             ))}
@@ -1018,7 +1016,7 @@ export default function HomePageClient() {
             {reviews.map((r, i) => (
               <div key={i} className="animate-on-scroll fade-up bg-white rounded-2xl p-5 sm:p-6 shadow-lg border-t-[3px] border-golden" data-delay={(i * 100).toString()}>
                 <div className="flex items-center gap-3 mb-4">
-                  <Image src="/images/logo-zanzione.png" alt="" width={32} height={32} className="rounded-full" />
+                  <Image src="/images/brand/zanzione-mark.png" alt="" width={64} height={61} className="w-8 h-8 object-contain" />
                   <div>
                     <p className="font-display font-black text-ink text-sm">{r.name}</p>
                     <p className="text-sea text-xs">{t("customer")}</p>

@@ -188,7 +188,7 @@ export default function Footer() {
 
         {/* Oversized brand emblem watermark */}
         <div aria-hidden="true" className="absolute -right-24 top-1/2 -translate-y-1/2 opacity-[0.035] pointer-events-none hidden md:block">
-          <Image src="/images/brand/zanzione-mark.png" alt="" width={560} height={560} className="w-[560px] h-auto" />
+          <Image src="/images/brand/zanzione-mark.png" alt="" width={560} height={534} className="w-[560px] h-auto" />
         </div>
 
         <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
@@ -199,9 +199,9 @@ export default function Footer() {
                 <Image
                   src="/images/brand/zanzione-mark.png"
                   alt=""
-                  width={112}
-                  height={112}
-                  className="h-14 w-14 object-contain"
+                  width={256}
+                  height={244}
+                  className="h-12 sm:h-14 w-auto object-contain"
                 />
                 <span className="leading-none">
                   <span className="block font-display font-extrabold text-white text-2xl tracking-tight">ZANZIONE</span>
