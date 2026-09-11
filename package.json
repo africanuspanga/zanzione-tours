@@ -1,12 +1,13 @@
 {
-  "name": "my-v0-project",
+  "name": "zanzione-tours",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "node scripts/generate-sitemap.mjs && next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "sitemap": "node scripts/generate-sitemap.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

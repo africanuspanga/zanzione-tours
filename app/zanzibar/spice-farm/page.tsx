@@ -1,5 +1,4 @@
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -68,7 +67,7 @@ export default function SpiceFarmPage() {
               <h2 className="text-3xl sm:text-4xl font-display font-bold text-blue-season mb-6">
                 Overview & Experience
               </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-lg text-slate-ink mb-6 leading-relaxed">
                 Zanzibar is famously known as the <strong>"Spice Island"</strong> due to its rich cultivation of various
                 spices. Join us for an approximate <strong>2-hour walking trip</strong> with an expert local guide to
                 dive into the world of tropical fruits and spices.
@@ -76,7 +75,7 @@ export default function SpiceFarmPage() {
 
               <div className="bg-golden/10 border-l-4 border-golden p-6 mb-8">
                 <h3 className="text-xl font-semibold text-blue-season mb-3">What You Will Experience</h3>
-                <p className="text-gray-600 mb-4">This tour is a feast for the senses, allowing you to:</p>
+                <p className="text-slate-ink mb-4">This tour is a feast for the senses, allowing you to:</p>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-golden mt-0.5 flex-shrink-0" />
@@ -116,33 +115,33 @@ export default function SpiceFarmPage() {
               </div>
 
               <h3 className="text-2xl font-display font-bold text-blue-season mb-4">Tour Details & Inclusions</h3>
-              <div className="bg-blue-50 rounded-lg p-6 mb-6">
+              <div className="bg-aqua/5 rounded-lg p-6 mb-6">
                 <h4 className="font-semibold text-blue-season mb-3">The tour price includes:</h4>
-                <ul className="space-y-2 text-gray-600">
+                <ul className="space-y-2 text-slate-ink">
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>
                       Expert Local Guide: Services of a licensed guide (available in English, French, German, and Italian)
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>Entrances: All required entrance fees to the farm</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>Lunch: Spiced Rice Pilau lunch</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>Refreshments: Tropical fruits and coconut juice</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="bg-amber-50 border-l-4 border-amber-500 p-6 mb-8">
-                <h4 className="font-semibold text-amber-900 mb-2">Important Note on Pricing</h4>
-                <p className="text-amber-800">
+              <div className="bg-golden/10 border-l-4 border-golden p-6 mb-8">
+                <h4 className="font-semibold text-ink mb-2">Important Note on Pricing</h4>
+                <p className="text-ink/85">
                   Please be aware that the price for this tour does <strong>not</strong> include transportation costs.
                   Since the final price depends on your hotel's location, kindly reach out to us, and we will provide you
                   with the full price based on your accommodation details.
@@ -151,27 +150,27 @@ export default function SpiceFarmPage() {
 
               <div className="bg-gradient-to-r from-blue-season/10 to-golden/10 rounded-lg p-6">
                 <h3 className="text-xl font-semibold text-blue-season mb-3">Meet Your Local Guide</h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-slate-ink mb-4">
                   <strong>Experience Zanzibar like a Local:</strong> Book your half-day tour today and be guided by a
                   professional Zanzibari local.
                 </p>
-                <ul className="space-y-2 text-gray-600">
+                <ul className="space-y-2 text-slate-ink">
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">•</span>
+                    <span className="text-aqua mt-1">•</span>
                     <span>
                       <strong>Spice Experts:</strong> All our local guides are from Zanzibar and have deep, firsthand
                       knowledge of the spices and their traditional uses, which they are passionate about sharing
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">•</span>
+                    <span className="text-aqua mt-1">•</span>
                     <span>
                       <strong>Insider Access:</strong> We believe that only locals can truly show you Zanzibar as it is
                       meant to be experienced, providing unique insights that enhance your journey
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">•</span>
+                    <span className="text-aqua mt-1">•</span>
                     <span>
                       <strong>Multi-Lingual:</strong> Guides are skilled in multiple languages, including English, French,
                       German, and Italian
@@ -185,35 +184,35 @@ export default function SpiceFarmPage() {
               <Card className="sticky top-24">
                 <CardContent className="p-6">
                   <div className="text-center mb-6">
-                    <p className="text-golden font-bold text-xl mb-2">Contact for Pricing</p>
-                    <p className="text-gray-600 text-sm mb-2">Reach out for current rates</p>
+                    <p className="text-ocean font-bold text-xl mb-2">Contact for Pricing</p>
+                    <p className="text-slate-ink text-sm mb-2">Reach out for current rates</p>
                     <div className="flex items-center justify-center gap-1 mt-2">
                       <div className="flex text-golden">
                         {[...Array(5)].map((_, i) => (
                           <Star key={i} className="w-4 h-4 fill-current" />
                         ))}
                       </div>
-                      <span className="text-sm text-gray-600 ml-1">5-Star Rated</span>
+                      <span className="text-sm text-slate-ink ml-1">5-Star Rated</span>
                     </div>
                   </div>
 
                   <div className="space-y-4 mb-6">
-                    <div className="flex items-center gap-3 text-gray-600">
+                    <div className="flex items-center gap-3 text-slate-ink">
                       <Clock className="w-5 h-5 text-blue-season flex-shrink-0" />
                       <span>Half Day (2-3 hours)</span>
                     </div>
-                    <div className="flex items-center gap-3 text-gray-600">
+                    <div className="flex items-center gap-3 text-slate-ink">
                       <Users className="w-5 h-5 text-blue-season flex-shrink-0" />
                       <span>2-15 People</span>
                     </div>
-                    <div className="flex items-center gap-3 text-gray-600">
+                    <div className="flex items-center gap-3 text-slate-ink">
                       <MapPin className="w-5 h-5 text-blue-season flex-shrink-0" />
                       <span>Local Spice Farms</span>
                     </div>
                   </div>
 
                   <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                    <Button className="w-full bg-golden hover:bg-golden/90 text-white font-semibold py-6 text-lg mb-3">
+                    <Button className="w-full bg-golden hover:bg-sand text-ink font-semibold py-6 text-lg mb-3">
                       BOOK VIA WHATSAPP
                     </Button>
                   </a>
@@ -228,12 +227,12 @@ export default function SpiceFarmPage() {
                   </Link>
 
                   <div className="mt-6 pt-6 border-t">
-                    <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
-                      <CheckCircle className="w-4 h-4 text-green-600" />
+                    <div className="flex items-center gap-2 text-sm text-slate-ink mb-2">
+                      <CheckCircle className="w-4 h-4 text-island" />
                       <span>Best Price Guarantee</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-green-600" />
+                    <div className="flex items-center gap-2 text-sm text-slate-ink">
+                      <CheckCircle className="w-4 h-4 text-island" />
                       <span>Easy Online Booking</span>
                     </div>
                   </div>
@@ -250,12 +249,12 @@ export default function SpiceFarmPage() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6">
             Ready to Discover the Spice Island?
           </h2>
-          <p className="text-lg sm:text-xl text-blue-100 mb-8 leading-relaxed">
+          <p className="text-lg sm:text-xl text-white/75 mb-8 leading-relaxed">
             Book your Spice Farm tour today and experience the aromatic journey through Zanzibar's spice plantations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-golden hover:bg-golden/90 text-white font-semibold px-8 py-6 text-lg">
+              <Button size="lg" className="bg-golden hover:bg-sand text-ink font-semibold px-8 py-6 text-lg">
                 BOOK VIA WHATSAPP
               </Button>
             </a>
@@ -273,7 +272,6 @@ export default function SpiceFarmPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

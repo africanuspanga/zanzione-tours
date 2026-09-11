@@ -1,5 +1,4 @@
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -68,7 +67,7 @@ export default function PrisonIslandPage() {
               <h2 className="text-3xl sm:text-4xl font-display font-bold text-blue-season mb-6">
                 Overview & Experience
               </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-lg text-slate-ink mb-6 leading-relaxed">
                 Prison Island, also known as <strong>Changuu Island</strong>, is located a short 25-minute traditional
                 boat ride from Stone Town's beach. Originally named after the coral stone (Changuu), the island's main
                 attraction today is the colony of massive <strong>Aldabra Giant Tortoises</strong>.
@@ -100,39 +99,39 @@ export default function PrisonIslandPage() {
                 </ul>
               </div>
 
-              <div className="bg-blue-50 rounded-lg p-6 mb-6">
+              <div className="bg-aqua/5 rounded-lg p-6 mb-6">
                 <h3 className="text-xl font-semibold text-blue-season mb-3">Getting There</h3>
-                <p className="text-gray-600">
+                <p className="text-slate-ink">
                   The trip to the island involves a scenic ride in a local wooden boat from Stone Town beach.
                 </p>
               </div>
 
               <h3 className="text-2xl font-display font-bold text-blue-season mb-4">Tour Details & Inclusions</h3>
-              <div className="bg-blue-50 rounded-lg p-6 mb-6">
+              <div className="bg-aqua/5 rounded-lg p-6 mb-6">
                 <h4 className="font-semibold text-blue-season mb-3">The tour price includes:</h4>
-                <ul className="space-y-2 text-gray-600">
+                <ul className="space-y-2 text-slate-ink">
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>Expert Local Guide: Services of a licensed guide (English, French, German, Italian)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>Entrances: All required entrance fees to the island/sanctuary</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>Boat Transfer: Round-trip transport via a local boat</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>Refreshments: Drinking water</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="bg-amber-50 border-l-4 border-amber-500 p-6 mb-8">
-                <h4 className="font-semibold text-amber-900 mb-2">Important Note on Pricing</h4>
-                <p className="text-amber-800">
+              <div className="bg-golden/10 border-l-4 border-golden p-6 mb-8">
+                <h4 className="font-semibold text-ink mb-2">Important Note on Pricing</h4>
+                <p className="text-ink/85">
                   <strong>TRANSPORT IS EXCLUDED:</strong> The displayed price is exclusive of transport costs between your
                   hotel and Stone Town. The final price depends on your hotel's specific location. Please contact us and
                   we will provide you with the full, final price based on your accommodation details.
@@ -141,13 +140,13 @@ export default function PrisonIslandPage() {
 
               <div className="bg-gradient-to-r from-blue-season/10 to-golden/10 rounded-lg p-6">
                 <h3 className="text-xl font-semibold text-blue-season mb-3">Meet Your Local Guide</h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-slate-ink mb-4">
                   <strong>Experience Zanzibar with a Local:</strong> All of our guides are licensed locals, born and
                   raised in Zanzibar.
                 </p>
-                <ul className="space-y-2 text-gray-600">
+                <ul className="space-y-2 text-slate-ink">
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">•</span>
+                    <span className="text-aqua mt-1">•</span>
                     <span>
                       <strong>Deep Knowledge:</strong> They provide deep, firsthand knowledge of the island's fascinating
                       past—from its history to its vibrant Swahili culture and diverse marine life—which goes beyond any
@@ -155,14 +154,14 @@ export default function PrisonIslandPage() {
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">•</span>
+                    <span className="text-aqua mt-1">•</span>
                     <span>
                       <strong>Insider Access:</strong> We believe only locals can truly show you Zanzibar as it is meant
                       to be experienced, providing unique stories and personal connections
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">•</span>
+                    <span className="text-aqua mt-1">•</span>
                     <span>
                       <strong>Multi-Lingual:</strong> Guides are available who speak English, French, German, and Italian
                     </span>
@@ -175,35 +174,35 @@ export default function PrisonIslandPage() {
               <Card className="sticky top-24">
                 <CardContent className="p-6">
                   <div className="text-center mb-6">
-                    <p className="text-golden font-bold text-xl mb-2">Contact for Pricing</p>
-                    <p className="text-gray-600 text-sm mb-2">Reach out for current rates</p>
+                    <p className="text-ocean font-bold text-xl mb-2">Contact for Pricing</p>
+                    <p className="text-slate-ink text-sm mb-2">Reach out for current rates</p>
                     <div className="flex items-center justify-center gap-1 mt-2">
                       <div className="flex text-golden">
                         {[...Array(5)].map((_, i) => (
                           <Star key={i} className="w-4 h-4 fill-current" />
                         ))}
                       </div>
-                      <span className="text-sm text-gray-600 ml-1">5-Star Rated</span>
+                      <span className="text-sm text-slate-ink ml-1">5-Star Rated</span>
                     </div>
                   </div>
 
                   <div className="space-y-4 mb-6">
-                    <div className="flex items-center gap-3 text-gray-600">
+                    <div className="flex items-center gap-3 text-slate-ink">
                       <Clock className="w-5 h-5 text-blue-season flex-shrink-0" />
                       <span>Half Day (3-4 hours)</span>
                     </div>
-                    <div className="flex items-center gap-3 text-gray-600">
+                    <div className="flex items-center gap-3 text-slate-ink">
                       <Users className="w-5 h-5 text-blue-season flex-shrink-0" />
                       <span>2-15 People</span>
                     </div>
-                    <div className="flex items-center gap-3 text-gray-600">
+                    <div className="flex items-center gap-3 text-slate-ink">
                       <MapPin className="w-5 h-5 text-blue-season flex-shrink-0" />
                       <span>25 mins from Stone Town</span>
                     </div>
                   </div>
 
                   <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                    <Button className="w-full bg-golden hover:bg-golden/90 text-white font-semibold py-6 text-lg mb-3">
+                    <Button className="w-full bg-golden hover:bg-sand text-ink font-semibold py-6 text-lg mb-3">
                       BOOK VIA WHATSAPP
                     </Button>
                   </a>
@@ -218,12 +217,12 @@ export default function PrisonIslandPage() {
                   </Link>
 
                   <div className="mt-6 pt-6 border-t">
-                    <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
-                      <CheckCircle className="w-4 h-4 text-green-600" />
+                    <div className="flex items-center gap-2 text-sm text-slate-ink mb-2">
+                      <CheckCircle className="w-4 h-4 text-island" />
                       <span>Best Price Guarantee</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-green-600" />
+                    <div className="flex items-center gap-2 text-sm text-slate-ink">
+                      <CheckCircle className="w-4 h-4 text-island" />
                       <span>Easy Online Booking</span>
                     </div>
                   </div>
@@ -240,12 +239,12 @@ export default function PrisonIslandPage() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6">
             Ready to Meet the Giant Tortoises?
           </h2>
-          <p className="text-lg sm:text-xl text-blue-100 mb-8 leading-relaxed">
+          <p className="text-lg sm:text-xl text-white/75 mb-8 leading-relaxed">
             Book your Prison Island tour today and experience one of Zanzibar's most unique wildlife encounters.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-golden hover:bg-golden/90 text-white font-semibold px-8 py-6 text-lg">
+              <Button size="lg" className="bg-golden hover:bg-sand text-ink font-semibold px-8 py-6 text-lg">
                 BOOK VIA WHATSAPP
               </Button>
             </a>
@@ -263,7 +262,6 @@ export default function PrisonIslandPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

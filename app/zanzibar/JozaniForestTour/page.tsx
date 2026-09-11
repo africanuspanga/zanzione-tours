@@ -1,5 +1,4 @@
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -19,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function JozaniForestTourPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-mist">
       <Navigation />
 
       {/* Hero Section */}
@@ -74,7 +73,7 @@ export default function JozaniForestTourPage() {
             <CardContent className="p-8">
               <div className="text-center">
                 <h2 className="text-3xl font-display font-bold text-ocean mb-4">Book Your Jozani Forest Adventure</h2>
-                <p className="text-gray-600 mb-6 text-lg">
+                <p className="text-slate-ink mb-6 text-lg">
                   Join us for an unforgettable wildlife encounter in Zanzibar's indigenous forest
                 </p>
                 <BookingModal
@@ -82,13 +81,13 @@ export default function JozaniForestTourPage() {
                   trigger={
                     <Button
                       size="lg"
-                      className="bg-green-600 hover:bg-green-700 text-white font-bold text-lg px-12 py-6 w-full sm:w-auto"
+                      className="bg-golden hover:bg-sand text-ink font-bold text-lg px-12 py-6 w-full sm:w-auto"
                     >
                       BOOK VIA WHATSAPP
                     </Button>
                   }
                 />
-                <p className="text-sm text-gray-500 mt-4">
+                <p className="text-sm text-slate-ink mt-4">
                   ✓ Best Price Guarantee | ✓ Easy Online Booking | ✓ Expert Local Guides
                 </p>
               </div>
@@ -98,7 +97,7 @@ export default function JozaniForestTourPage() {
           {/* Overview Section */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">Overview & Experience</h2>
-            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
+            <div className="prose prose-lg max-w-none text-ink/85 leading-relaxed space-y-4">
               <p>
                 <strong>Jozani Chwaka Bay National Park</strong> is Zanzibar's biggest national park and one of its most
                 iconic natural attractions. This <strong>3-hour guided walking tour</strong> takes you deep into the
@@ -127,9 +126,9 @@ export default function JozaniForestTourPage() {
                 "Expert Guide: Local naturalist guides share forest history and conservation efforts",
                 "Photography: Capture stunning images of wildlife in their natural habitat",
               ].map((highlight, index) => (
-                <div key={index} className="flex items-start gap-3 p-4 bg-green-50 rounded-lg">
-                  <Check className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                  <span className="text-gray-700">{highlight}</span>
+                <div key={index} className="flex items-start gap-3 p-4 bg-island/8 rounded-lg">
+                  <Check className="w-6 h-6 text-island flex-shrink-0 mt-1" />
+                  <span className="text-ink/85">{highlight}</span>
                 </div>
               ))}
             </div>
@@ -141,12 +140,12 @@ export default function JozaniForestTourPage() {
             <div className="space-y-6">
               <div className="bg-white p-6 rounded-lg shadow">
                 <h3 className="font-bold text-ocean text-xl mb-3 flex items-center gap-2">
-                  <span className="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">
+                  <span className="bg-island text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">
                     1
                   </span>
                   Red Colobus Monkey Sanctuary
                 </h3>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-ink/85 leading-relaxed">
                   Enjoy a peaceful walk through the forest's towering trees where the curious and playful
                   <strong> Zanzibar Red Colobus Monkeys</strong> often come down to interact with visitors. These
                   endangered primates are found only in Zanzibar and are known for their distinctive red caps and
@@ -156,12 +155,12 @@ export default function JozaniForestTourPage() {
 
               <div className="bg-white p-6 rounded-lg shadow">
                 <h3 className="font-bold text-ocean text-xl mb-3 flex items-center gap-2">
-                  <span className="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">
+                  <span className="bg-island text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">
                     2
                   </span>
                   Mangrove Boardwalk Experience
                 </h3>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-ink/85 leading-relaxed">
                   Walk through the mangrove forest on specially built boardwalks, learning about this vital ecosystem
                   that protects Zanzibar's coastline and supports local marine life. Your guide will explain the unique
                   adaptations of mangrove trees and their importance to the island's ecology.
@@ -170,12 +169,12 @@ export default function JozaniForestTourPage() {
 
               <div className="bg-white p-6 rounded-lg shadow">
                 <h3 className="font-bold text-ocean text-xl mb-3 flex items-center gap-2">
-                  <span className="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">
+                  <span className="bg-island text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">
                     3
                   </span>
                   Indigenous Flora & Medicinal Plants
                 </h3>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-ink/85 leading-relaxed">
                   Learn about the forest's history and its rare flora, including traditional medicinal plants still used
                   by local communities today. See towering mahogany and eucalyptus trees, and discover how the forest
                   ecosystem supports biodiversity unique to Zanzibar.
@@ -190,9 +189,9 @@ export default function JozaniForestTourPage() {
 
             <div className="mb-8">
               <h3 className="text-xl font-bold text-ocean mb-4">Tour Pricing</h3>
-              <Card className="bg-green-50 border-green-200">
+              <Card className="bg-island/8 border-island/30">
                 <CardContent className="p-6">
-                  <p className="text-gray-700">Please contact us for current pricing.</p>
+                  <p className="text-ink/85">Please contact us for current pricing.</p>
                 </CardContent>
               </Card>
             </div>
@@ -209,19 +208,19 @@ export default function JozaniForestTourPage() {
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <div className="w-2 h-2 bg-golden rounded-full"></div>
-                      <span className="text-gray-700">{item}</span>
+                      <span className="text-ink/85">{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-amber-50 p-6 rounded-lg border-l-4 border-golden">
+              <div className="bg-golden/10 p-6 rounded-lg border-l-4 border-golden">
                 <h3 className="font-bold text-ocean mb-3">Important Note on Pricing</h3>
-                <p className="text-gray-700 text-sm leading-relaxed mb-4">
+                <p className="text-ink/85 text-sm leading-relaxed mb-4">
                   <strong>TRANSPORT IS EXCLUDED:</strong> The displayed price is exclusive of transport costs to Jozani
                   Forest (Chwaka Village, East Coast). The final price depends entirely on your hotel's location.
                 </p>
-                <p className="text-gray-700 text-sm leading-relaxed">
+                <p className="text-ink/85 text-sm leading-relaxed">
                   Please contact us via WhatsApp and we will provide you with the full price including hotel transfers.
                 </p>
               </div>
@@ -240,7 +239,7 @@ export default function JozaniForestTourPage() {
           </div>
 
           {/* Final CTA */}
-          <div className="bg-blue-600 text-white shadow-2xl rounded-lg p-10 text-center">
+          <div className="bg-ocean text-white shadow-2xl rounded-lg p-10 text-center">
             <h2 className="text-3xl font-display font-bold mb-4">Visit Jozani Forest Today!</h2>
             <p className="text-xl text-white mb-8">
               A must-visit for nature lovers and a unique opportunity to interact with the world's rarest primates
@@ -251,7 +250,7 @@ export default function JozaniForestTourPage() {
                 trigger={
                   <Button
                     size="lg"
-                    className="bg-green-600 hover:bg-green-700 text-white font-bold text-lg px-12 py-6 w-full sm:w-auto"
+                    className="bg-golden hover:bg-sand text-ink font-bold text-lg px-12 py-6 w-full sm:w-auto"
                   >
                     BOOK VIA WHATSAPP
                   </Button>
@@ -272,7 +271,6 @@ export default function JozaniForestTourPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

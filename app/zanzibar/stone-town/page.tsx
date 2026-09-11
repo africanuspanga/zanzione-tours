@@ -1,5 +1,4 @@
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -69,13 +68,13 @@ export default function StoneTownTourPage() {
               <h2 className="text-3xl sm:text-4xl font-display font-bold text-blue-season mb-6">
                 Overview & Experience
               </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-lg text-slate-ink mb-6 leading-relaxed">
                 Stone Town is the oldest living Swahili town in East Africa and was designated a{" "}
                 <strong>UNESCO World Heritage Site in 2000</strong>. Join our expert, licensed local guide to discover
                 the heart and soul of Zanzibar, learning about its rich history, unique architecture, and vibrant Swahili
                 culture.
               </p>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-lg text-slate-ink mb-6 leading-relaxed">
                 Our tour is conducted in the most requested languages (English, French, German, Italian) to ensure you
                 fully enjoy the beauty of Stone Town.
               </p>
@@ -85,7 +84,7 @@ export default function StoneTownTourPage() {
                   <MapPin className="w-5 h-5" />
                   What You Will See
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-slate-ink mb-4">
                   Your half-day tour covers the most important historical and cultural sites:
                 </p>
                 <ul className="space-y-2">
@@ -119,31 +118,31 @@ export default function StoneTownTourPage() {
               </div>
 
               <h3 className="text-2xl font-display font-bold text-blue-season mb-4">Tour Details & Inclusions</h3>
-              <div className="bg-blue-50 rounded-lg p-6 mb-6">
+              <div className="bg-aqua/5 rounded-lg p-6 mb-6">
                 <h4 className="font-semibold text-blue-season mb-3">The tour price includes:</h4>
-                <ul className="space-y-2 text-gray-600">
+                <ul className="space-y-2 text-slate-ink">
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>Expert Local Guide: Services of a licensed guide (English, French, German, Italian)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>Entrance Fees: Admission to the Former Slave Market</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>Refreshments: Drinking water</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>All government taxes and fees</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="bg-amber-50 border-l-4 border-amber-500 p-6 mb-8">
-                <h4 className="font-semibold text-amber-900 mb-2">Important Note on Pricing</h4>
-                <p className="text-amber-800">
+              <div className="bg-golden/10 border-l-4 border-golden p-6 mb-8">
+                <h4 className="font-semibold text-ink mb-2">Important Note on Pricing</h4>
+                <p className="text-ink/85">
                   <strong>TRANSPORT IS EXCLUDED:</strong> The price displayed is exclusive of transport costs. The final
                   price depends on the location of your hotel. Please reach out to us and we will provide you with the
                   full, final price based on your accommodation.
@@ -152,7 +151,7 @@ export default function StoneTownTourPage() {
 
               <div className="bg-gradient-to-r from-blue-season/10 to-golden/10 rounded-lg p-6">
                 <h3 className="text-xl font-semibold text-blue-season mb-3">Meet Your Local Guide</h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-slate-ink mb-4">
                   <strong>Authentic Experience:</strong> We exclusively use licensed Zanzibari local tour guides. We
                   believe they possess the best knowledge of the island and can provide you with insider access and
                   historical context that enables you to <strong>experience Stone Town like a local</strong>.
@@ -164,28 +163,28 @@ export default function StoneTownTourPage() {
               <Card className="sticky top-24">
                 <CardContent className="p-6">
                   <div className="text-center mb-6">
-                    <p className="text-golden font-bold text-xl mb-2">Contact for Pricing</p>
-                    <p className="text-gray-600 text-sm mb-2">Reach out for current rates</p>
+                    <p className="text-ocean font-bold text-xl mb-2">Contact for Pricing</p>
+                    <p className="text-slate-ink text-sm mb-2">Reach out for current rates</p>
                     <div className="flex items-center justify-center gap-1 mt-2">
                       <div className="flex text-golden">
                         {[...Array(5)].map((_, i) => (
                           <Star key={i} className="w-4 h-4 fill-current" />
                         ))}
                       </div>
-                      <span className="text-sm text-gray-600 ml-1">5-Star Rated</span>
+                      <span className="text-sm text-slate-ink ml-1">5-Star Rated</span>
                     </div>
                   </div>
 
                   <div className="space-y-4 mb-6">
-                    <div className="flex items-center gap-3 text-gray-600">
+                    <div className="flex items-center gap-3 text-slate-ink">
                       <Clock className="w-5 h-5 text-blue-season flex-shrink-0" />
                       <span>Half Day (3-4 hours)</span>
                     </div>
-                    <div className="flex items-center gap-3 text-gray-600">
+                    <div className="flex items-center gap-3 text-slate-ink">
                       <Users className="w-5 h-5 text-blue-season flex-shrink-0" />
                       <span>2-12 People</span>
                     </div>
-                    <div className="flex items-center gap-3 text-gray-600">
+                    <div className="flex items-center gap-3 text-slate-ink">
                       <MapPin className="w-5 h-5 text-blue-season flex-shrink-0" />
                       <span>Stone Town, Zanzibar</span>
                     </div>
@@ -193,7 +192,7 @@ export default function StoneTownTourPage() {
 
                   <BookingModal 
                     tourName="Stone Town Walking Tour" 
-                    className="w-full bg-golden hover:bg-golden/90 text-white font-semibold py-6 text-lg mb-3"
+                    className="w-full bg-golden hover:bg-sand text-ink font-semibold py-6 text-lg mb-3"
                   />
 
                   <Link href="/contact">
@@ -206,12 +205,12 @@ export default function StoneTownTourPage() {
                   </Link>
 
                   <div className="mt-6 pt-6 border-t">
-                    <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
-                      <CheckCircle className="w-4 h-4 text-green-600" />
+                    <div className="flex items-center gap-2 text-sm text-slate-ink mb-2">
+                      <CheckCircle className="w-4 h-4 text-island" />
                       <span>Best Price Guarantee</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-green-600" />
+                    <div className="flex items-center gap-2 text-sm text-slate-ink">
+                      <CheckCircle className="w-4 h-4 text-island" />
                       <span>Easy Online Booking</span>
                     </div>
                   </div>
@@ -228,13 +227,13 @@ export default function StoneTownTourPage() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6">
             Ready to Explore Stone Town?
           </h2>
-          <p className="text-lg sm:text-xl text-blue-100 mb-8 leading-relaxed">
+          <p className="text-lg sm:text-xl text-white/75 mb-8 leading-relaxed">
             Book your Stone Town walking tour today and discover the heart of Zanzibar with our expert local guides.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <BookingModal 
               tourName="Stone Town Walking Tour" 
-              className="bg-golden hover:bg-golden/90 text-white font-semibold px-8 py-6 text-lg"
+              className="bg-golden hover:bg-sand text-ink font-semibold px-8 py-6 text-lg"
             />
             <Link href="/zanzibar">
               <Button
@@ -250,7 +249,6 @@ export default function StoneTownTourPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

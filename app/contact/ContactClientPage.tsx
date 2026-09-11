@@ -1,6 +1,5 @@
 "use client"
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -29,7 +28,7 @@ export default function ContactClientPage() {
             {/* Contact Information */}
             <div>
               <h2 className="text-4xl font-display font-bold text-blue-season mb-8">Get in Touch</h2>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-xl text-slate-ink mb-8 leading-relaxed">
                 We're based in the heart of Shangani, Stone Town, Zanzibar, and we're always ready to help you plan your
                 perfect East African adventure. Reach out to us through any of the channels below.
               </p>
@@ -41,7 +40,7 @@ export default function ContactClientPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-display font-semibold text-blue-season mb-1">Our Location</h3>
-                    <p className="text-gray-600">
+                    <p className="text-slate-ink">
                       Shangani, Stone Town
                       <br />
                       Zanzibar, Tanzania
@@ -55,9 +54,9 @@ export default function ContactClientPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-display font-semibold text-blue-season mb-1">Phone & WhatsApp</h3>
-                    <p className="text-gray-600">WhatsApp: +255 710 885 320</p>
-                    <p className="text-gray-600">Call: +255 773 929 583</p>
-                    <p className="text-sm text-gray-500">Available 24/7 for emergencies</p>
+                    <p className="text-slate-ink">WhatsApp: +255 710 885 320</p>
+                    <p className="text-slate-ink">Call: +255 773 929 583</p>
+                    <p className="text-sm text-slate-ink">Available 24/7 for emergencies</p>
                   </div>
                 </div>
 
@@ -67,8 +66,8 @@ export default function ContactClientPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-display font-semibold text-blue-season mb-1">Email</h3>
-                    <p className="text-gray-600">zanzionetoursandtravel@gmail.com</p>
-                    <p className="text-sm text-gray-500">We respond within 2 hours</p>
+                    <p className="text-slate-ink">zanzionetoursandtravel@gmail.com</p>
+                    <p className="text-sm text-slate-ink">We respond within 2 hours</p>
                   </div>
                 </div>
 
@@ -78,8 +77,8 @@ export default function ContactClientPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-display font-semibold text-blue-season mb-1">Office Hours</h3>
-                    <p className="text-gray-600">Monday - Sunday: 7:00 AM - 9:00 PM</p>
-                    <p className="text-sm text-gray-500">East Africa Time (EAT)</p>
+                    <p className="text-slate-ink">Monday - Sunday: 7:00 AM - 9:00 PM</p>
+                    <p className="text-sm text-slate-ink">East Africa Time (EAT)</p>
                   </div>
                 </div>
 
@@ -93,11 +92,11 @@ export default function ContactClientPage() {
                       href="https://www.facebook.com/share/17Wn8GXrd8/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-golden transition-colors"
+                      className="text-ocean hover:text-aqua transition-colors"
                     >
                       Facebook: ZANZIONE TOURS
                     </a>
-                    <p className="text-sm text-gray-500">Stay updated with our latest tours</p>
+                    <p className="text-sm text-slate-ink">Stay updated with our latest tours</p>
                   </div>
                 </div>
               </div>
@@ -119,11 +118,11 @@ export default function ContactClientPage() {
       </section>
 
       {/* Google Maps */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-mist">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-display font-bold text-blue-season mb-6">Find Us</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-ink max-w-3xl mx-auto">
               Located in the heart of Shangani, Stone Town, Zanzibar
             </p>
           </div>
@@ -147,7 +146,7 @@ export default function ContactClientPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold mb-6">Prefer to Talk Directly?</h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl text-white/75 max-w-3xl mx-auto">
               Sometimes it's easier to just have a conversation. Choose your preferred way to connect with us instantly.
             </p>
           </div>
@@ -157,20 +156,20 @@ export default function ContactClientPage() {
               <CardContent className="p-8 text-center">
                 <Phone className="w-12 h-12 mx-auto mb-4 text-golden" />
                 <h3 className="text-xl font-display font-semibold mb-3">Call Us Now</h3>
-                <p className="text-blue-100 mb-4">Speak directly with our travel experts</p>
-                <Button className="bg-golden hover:bg-golden/90 text-white w-full">+255 773 929 583</Button>
+                <p className="text-white/75 mb-4">Speak directly with our travel experts</p>
+                <Button className="bg-golden hover:bg-sand text-ink w-full">+255 773 929 583</Button>
               </CardContent>
             </Card>
 
             <Card className="bg-white/10 border-white/20 text-white hover:bg-white/20 transition-colors">
               <CardContent className="p-8 text-center">
-                <div className="w-12 h-12 mx-auto mb-4 bg-green-500 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 mx-auto mb-4 bg-island/80 rounded-full flex items-center justify-center">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-display font-semibold mb-3">WhatsApp Chat</h3>
-                <p className="text-blue-100 mb-4">Quick responses via WhatsApp</p>
+                <p className="text-white/75 mb-4">Quick responses via WhatsApp</p>
                 <Button
-                  className="bg-green-500 hover:bg-green-600 text-white w-full"
+                  className="bg-[#25D366] hover:bg-[#1ebe5b] text-white w-full"
                   onClick={() => window.open("https://wa.me/255710885320", "_blank")}
                 >
                   Start WhatsApp Chat
@@ -182,9 +181,9 @@ export default function ContactClientPage() {
               <CardContent className="p-8 text-center">
                 <Mail className="w-12 h-12 mx-auto mb-4 text-golden" />
                 <h3 className="text-xl font-display font-semibold mb-3">Email Us</h3>
-                <p className="text-blue-100 mb-4">Detailed inquiries and planning</p>
+                <p className="text-white/75 mb-4">Detailed inquiries and planning</p>
                 <Button
-                  className="bg-golden hover:bg-golden/90 text-white w-full"
+                  className="bg-golden hover:bg-sand text-ink w-full"
                   onClick={() => (window.location.href = "mailto:zanzionetoursandtravel@gmail.com")}
                 >
                   Send Email
@@ -196,7 +195,6 @@ export default function ContactClientPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

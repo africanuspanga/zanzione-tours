@@ -1,6 +1,5 @@
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import ScrollToTop from "@/components/scroll-to-top"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -48,7 +47,7 @@ export default function NakupendaSandbankPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm md:text-base">
               <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                <Star className="w-5 h-5 fill-yellow-400 text-golden" />
                 <span className="font-semibold">5-Star Rated</span>
               </div>
               <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
@@ -65,7 +64,7 @@ export default function NakupendaSandbankPage() {
       </section>
 
       {/* Quick Info Bar */}
-      <section className="bg-blue-600 text-white py-4">
+      <section className="bg-ocean text-white py-4">
         <div className="max-w-6xl mx-auto px-4 flex flex-wrap justify-center gap-6 text-center">
           <div className="flex items-center gap-2">
             <Clock className="w-5 h-5" />
@@ -87,8 +86,8 @@ export default function NakupendaSandbankPage() {
             <div className="lg:col-span-2 space-y-8">
               {/* Overview */}
               <div>
-                <h2 className="text-3xl font-display font-bold text-blue-600 mb-4">Overview & Experience</h2>
-                <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
+                <h2 className="text-3xl font-display font-bold text-ocean mb-4">Overview & Experience</h2>
+                <div className="prose prose-lg max-w-none text-ink/85 space-y-4">
                   <p>
                     The Nakupenda Sandbank is a pristine slice of paradise located just 20 minutes from Stone Town via a
                     traditional local boat. The name <strong>"Nakupenda"</strong> translates to{" "}
@@ -100,16 +99,16 @@ export default function NakupendaSandbankPage() {
 
               {/* Experience Highlights */}
               <div>
-                <h2 className="text-3xl font-display font-bold text-blue-600 mb-4">What You Will Experience</h2>
-                <p className="text-gray-700 mb-6">
+                <h2 className="text-3xl font-display font-bold text-ocean mb-4">What You Will Experience</h2>
+                <p className="text-ink/85 mb-6">
                   This is the ultimate sea and sun escape, offering a spectacular mix of relaxation and marine
                   adventure:
                 </p>
                 <div className="grid md:grid-cols-2 gap-4">
                   <Card className="border-l-4 border-l-golden">
                     <CardContent className="p-6">
-                      <h3 className="font-bold text-blue-600 mb-2">🤿 Snorkeling Adventure</h3>
-                      <p className="text-gray-600 text-sm">
+                      <h3 className="font-bold text-ocean mb-2">🤿 Snorkeling Adventure</h3>
+                      <p className="text-slate-ink text-sm">
                         Explore the unbelievably spectacular underwater world. Snorkeling equipment (masks) will be
                         provided to discover countless colorful fish, coral reefs, and other sea creatures.
                       </p>
@@ -118,8 +117,8 @@ export default function NakupendaSandbankPage() {
 
                   <Card className="border-l-4 border-l-golden">
                     <CardContent className="p-6">
-                      <h3 className="font-bold text-blue-600 mb-2">🏖️ Sandbank Relaxation</h3>
-                      <p className="text-gray-600 text-sm">
+                      <h3 className="font-bold text-ocean mb-2">🏖️ Sandbank Relaxation</h3>
+                      <p className="text-slate-ink text-sm">
                         Enjoy sunbathing, swimming, and simply relaxing on the white sands of the sandbank.
                       </p>
                     </CardContent>
@@ -127,8 +126,8 @@ export default function NakupendaSandbankPage() {
 
                   <Card className="border-l-4 border-l-golden">
                     <CardContent className="p-6">
-                      <h3 className="font-bold text-blue-600 mb-2">🦞 Gourmet Lunch</h3>
-                      <p className="text-gray-600 text-sm">
+                      <h3 className="font-bold text-ocean mb-2">🦞 Gourmet Lunch</h3>
+                      <p className="text-slate-ink text-sm">
                         Indulge in a delicious <strong>Seafood BBQ Lunch</strong> featuring fresh catch like Octopus,
                         Lobsters, Squids, and Prawns, with Chicken or Vegetarian options also available.
                       </p>
@@ -137,8 +136,8 @@ export default function NakupendaSandbankPage() {
 
                   <Card className="border-l-4 border-l-golden">
                     <CardContent className="p-6">
-                      <h3 className="font-bold text-blue-600 mb-2">🍍 Tropical Treats</h3>
-                      <p className="text-gray-600 text-sm">
+                      <h3 className="font-bold text-ocean mb-2">🍍 Tropical Treats</h3>
+                      <p className="text-slate-ink text-sm">
                         Enjoy seasonal tropical fruits such as Banana, Pineapple, Mangoes, and Watermelon.
                       </p>
                     </CardContent>
@@ -148,36 +147,36 @@ export default function NakupendaSandbankPage() {
 
               {/* Tour Inclusions */}
               <div>
-                <h2 className="text-3xl font-display font-bold text-blue-600 mb-4">Tour Inclusions</h2>
-                <p className="text-gray-700 mb-4">The tour price is comprehensive and includes:</p>
-                <div className="bg-blue-50 rounded-lg p-6">
+                <h2 className="text-3xl font-display font-bold text-ocean mb-4">Tour Inclusions</h2>
+                <p className="text-ink/85 mb-4">The tour price is comprehensive and includes:</p>
+                <div className="bg-aqua/5 rounded-lg p-6">
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                      <Check className="w-5 h-5 text-island mt-1 flex-shrink-0" />
                       <span>
                         <strong>Guide:</strong> Services of an English-Speaking Guide
                       </span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                      <Check className="w-5 h-5 text-island mt-1 flex-shrink-0" />
                       <span>
                         <strong>Transport:</strong> Round-trip boat transfer in a local traditional wooden boat
                       </span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                      <Check className="w-5 h-5 text-island mt-1 flex-shrink-0" />
                       <span>
                         <strong>Equipment:</strong> Swimming/snorkeling gear
                       </span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                      <Check className="w-5 h-5 text-island mt-1 flex-shrink-0" />
                       <span>
                         <strong>Lunch:</strong> Seafood BBQ Lunch (Chicken and Vegetarian options available)
                       </span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                      <Check className="w-5 h-5 text-island mt-1 flex-shrink-0" />
                       <span>
                         <strong>Fees:</strong> All government taxes and fees
                       </span>
@@ -188,18 +187,18 @@ export default function NakupendaSandbankPage() {
 
               {/* Tour Pricing */}
               <div>
-                <h2 className="text-3xl font-display font-bold text-blue-600 mb-4">Tour Pricing</h2>
-                <Card className="bg-blue-50 border-blue-200">
+                <h2 className="text-3xl font-display font-bold text-ocean mb-4">Tour Pricing</h2>
+                <Card className="bg-aqua/5 border-aqua/25">
                   <CardContent className="p-6">
-                    <p className="text-gray-700">Please contact us for current pricing based on your group size and hotel location.</p>
+                    <p className="text-ink/85">Please contact us for current pricing based on your group size and hotel location.</p>
                   </CardContent>
                 </Card>
               </div>
 
               {/* Important Note */}
-              <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded">
-                <h3 className="font-bold text-gray-900 mb-2">💡 Important Note on Pricing</h3>
-                <p className="text-gray-700">
+              <div className="bg-golden/10 border-l-4 border-golden p-6 rounded">
+                <h3 className="font-bold text-ink mb-2">💡 Important Note on Pricing</h3>
+                <p className="text-ink/85">
                   This tour is very accessible from Stone Town's coast. If you are staying in Stone Town, you may{" "}
                   <strong>not</strong> need to pay for additional transport costs to the departure point. For guests
                   staying outside Stone Town, please inquire for the full price including transfer fees.
@@ -213,8 +212,8 @@ export default function NakupendaSandbankPage() {
                 <Card className="shadow-xl border-2 border-golden">
                   <CardContent className="p-6 space-y-6">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-blue-600 mb-2">Contact for Pricing</div>
-                      <p className="text-gray-600">per person</p>
+                      <div className="text-2xl font-bold text-ocean mb-2">Contact for Pricing</div>
+                      <p className="text-slate-ink">per person</p>
                     </div>
 
                     <BookingModal
@@ -222,38 +221,38 @@ export default function NakupendaSandbankPage() {
                       trigger={
                         <Button
                           size="lg"
-                          className="w-full bg-green-600 hover:bg-green-700 text-white font-bold text-lg py-6"
+                          className="w-full bg-golden hover:bg-sand text-ink font-bold text-lg py-6"
                         >
                           📱 BOOK VIA WHATSAPP
                         </Button>
                       }
                     />
 
-                    <div className="text-center text-sm text-gray-600">
+                    <div className="text-center text-sm text-slate-ink">
                       <p>Instant confirmation</p>
                       <p>Book now & pay later</p>
                     </div>
 
-                    <div className="border-t pt-4 space-y-3 text-sm text-gray-700">
+                    <div className="border-t pt-4 space-y-3 text-sm text-ink/85">
                       <div className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-green-600" />
+                        <Check className="w-4 h-4 text-island" />
                         <span>Free cancellation</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-green-600" />
+                        <Check className="w-4 h-4 text-island" />
                         <span>Expert local guides</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-green-600" />
+                        <Check className="w-4 h-4 text-island" />
                         <span>Best price guarantee</span>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
 
-                <div className="mt-6 bg-blue-50 rounded-lg p-4">
-                  <h4 className="font-bold text-blue-600 mb-2">Need Help?</h4>
-                  <p className="text-sm text-gray-700 mb-3">
+                <div className="mt-6 bg-aqua/5 rounded-lg p-4">
+                  <h4 className="font-bold text-ocean mb-2">Need Help?</h4>
+                  <p className="text-sm text-ink/85 mb-3">
                     Our team is available to answer any questions about this tour.
                   </p>
                   <Link href="/contact">
@@ -269,7 +268,7 @@ export default function NakupendaSandbankPage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-16 bg-blue-600 text-white">
+      <section className="py-16 bg-ocean text-white">
         <div className="max-w-4xl mx-auto text-center px-4">
           <h2 className="text-4xl font-display font-bold mb-4">Visit Nakupenda Today!</h2>
           <p className="text-xl mb-8 text-white">
@@ -279,7 +278,7 @@ export default function NakupendaSandbankPage() {
           <BookingModal
             tourName="Nakupenda Sandbank Trip"
             trigger={
-              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4">
+              <Button size="lg" className="bg-golden hover:bg-sand text-ink font-bold px-8 py-4">
                 Book This Experience Now
               </Button>
             }
@@ -288,7 +287,6 @@ export default function NakupendaSandbankPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

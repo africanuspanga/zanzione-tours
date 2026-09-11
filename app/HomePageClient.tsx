@@ -25,6 +25,9 @@ import {
 import Image from "next/image"
 import Link from "next/link"
 import BookingModal from "@/components/booking-modal"
+import TourCard from "@/components/tour-card"
+import { zanzibarTours } from "@/lib/tours"
+import { sendEnquiry, openWhatsApp } from "@/lib/send-enquiry"
 
 // ─── Scroll Animation Hook ───
 function useScrollAnimation() {
@@ -65,6 +68,12 @@ type Lang = "en" | "ar" | "da" | "no" | "sv" | "de" | "it" | "es" | "fr" | "ru"
 const translations: Record<Lang, Record<string, string>> = {
   en: {
     welcome: "WELCOME TO ZANZIONE!",
+    yourName: "Your Name",
+    yourNamePlaceholder: "Full name",
+    yourEmail: "Your Email",
+    yourEmailPlaceholder: "you@example.com",
+    yourPhone: "Phone (optional)",
+    yourPhonePlaceholder: "+255 ...",
     heroTitle1: "BOOK",
     heroHighlight: "ZANZIBAR TAXI",
     heroTitle2: "FOR YOUR RIDE",
@@ -155,7 +164,7 @@ const langFlags: Record<Lang, string> = { en: "🇬🇧", ar: "🇦🇱", da: "�
 const PLACES = ["Zanzibar International Airport (ZNZ)","Pongwe","Nungwi North Coast","Riu Jambo Nungwi","Riu Palace Nungwi","Makunduchi","Bwejuu","Zanzibar City","Paje","Uroa","Kilimani","Mangapwani","Kama","Michenzani","Forodhani","Shangani","Vuga","Mkunazini","Maisara","Darajani","Baghani","Kokoni","Kidichi Spice Farm","Ras Nungwi","Mnemba Island","Blue Safari Fumba","Fuoni","Fumba Town Bakhresa","Chukwani","Mazizini","Mlandege","Zanzibar Port","Mtoni","Maruhubi","Bububu","Matemwe","Pwani Mchangani","Kiwengwa","Kizimkazi","Jozani Forest","Fumba","Jambiani","Nungwi","Safari Blue Fumba","Michamvi","Kendwa","Malindi","Stone Town","Pongwe Beach Hotel","Flame Tree Cottages","Royal Zanzibar Beach Resort","MyBlue Hotel Zanzibar","DoubleTree Resort by Hilton Hotel Zanzibar Nungwi","Essque Zalu Zanzibar","The Z Hotel","Hideaway of Nungwi Resort & Spa Zanzibar","Gold Zanzibar Beach House & Spa","Amaan Bungalows Beach Resort","Sultan Sand Island Resort","Zanzibar White Sand Luxury Villas & Spa","Kisiwa On The Beach Zanzibar","Zanzibar Bahari Villas","Abuso Inn","Africa House Hotel","Al Johari Hotel","Alminar Hotel","Anex II Hotel","Asmin Palace Hotel","Beyt Al Salaam Hotel","Dhow Palace Hotel","Forodhani Park Hotel","Funguni Palace Hotel","Hiliki House Zanzibar","Maru Maru Hotel Stone Town","The Residence Zanzibar","Dongwe","Chwaka","Kigomane","Kigunda","Kigomani"]
 
 // ─── Autocomplete Component ───
-function LocationInput({ placeholder, value, onChange }: { placeholder: string; value: string; onChange: (v: string) => void }) {
+function LocationInput({ id, placeholder, value, onChange }: { id?: string; placeholder: string; value: string; onChange: (v: string) => void }) {
   const [suggestions, setSuggestions] = useState<string[]>([])
   const [show, setShow] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
@@ -171,13 +180,14 @@ function LocationInput({ placeholder, value, onChange }: { placeholder: string; 
   }
   return (
     <div ref={ref} className="relative">
-      <input type="text" value={value} onChange={handleChange} onFocus={() => value.length > 0 && suggestions.length > 0 && setShow(true)} placeholder={placeholder}
-        className="w-full h-[52px] pl-4 pr-10 border border-gray-200 rounded-[26px] text-sm text-gray-700 bg-white focus:outline-none focus:border-golden placeholder:text-gray-400" />
-      <MapPin className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300" />
+      <input id={id} type="text" required value={value} onChange={handleChange} onFocus={() => value.length > 0 && suggestions.length > 0 && setShow(true)} placeholder={placeholder}
+        autoComplete="off"
+        className="w-full h-[52px] pl-4 pr-10 border border-border rounded-[26px] text-sm text-ink bg-white focus:outline-none focus:border-aqua focus:ring-2 focus:ring-aqua/20 placeholder:text-slate-ink/70" />
+      <MapPin className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-ink/50" />
       {show && (
-        <ul className="absolute z-50 w-full bg-white border border-gray-100 rounded-xl mt-1 max-h-44 overflow-y-auto shadow-xl">
+        <ul className="absolute z-50 w-full bg-white border border-border rounded-xl mt-1 max-h-44 overflow-y-auto shadow-xl">
           {suggestions.map((p, i) => (
-            <li key={i} className="px-4 py-2.5 hover:bg-golden/5 cursor-pointer text-sm text-gray-700 flex items-center gap-2" onMouseDown={() => { onChange(p); setShow(false) }}>
+            <li key={i} className="px-4 py-2.5 hover:bg-golden/5 cursor-pointer text-sm text-ink/85 flex items-center gap-2" onMouseDown={() => { onChange(p); setShow(false) }}>
               <MapPin className="w-3 h-3 text-golden flex-shrink-0" />{p}
             </li>
           ))}
@@ -196,30 +206,51 @@ export default function HomePageClient() {
   const [pax, setPax] = useState("2")
   const [date, setDate] = useState("")
   const [time, setTime] = useState("")
+  const [riderName, setRiderName] = useState("")
+  const [riderEmail, setRiderEmail] = useState("")
+  const [riderPhone, setRiderPhone] = useState("")
+  const [bookStatus, setBookStatus] = useState<"idle" | "sending" | "sent" | "email-failed">("idle")
   const [openFaq, setOpenFaq] = useState<number | null>(0)
   const t = useCallback((k: string) => translations[lang]?.[k] || translations.en[k] || k, [lang])
+  const heroVideoRef = useRef<HTMLVideoElement>(null)
   useScrollAnimation()
 
-  const handleBook = () => {
-    const msg = `*New Taxi Booking*\n*From:* ${pickup}\n*To:* ${dropoff}\n*Passengers:* ${pax}\n*Date:* ${date}\n*Time:* ${time}`
-    window.open(`https://wa.me/255710885320?text=${encodeURIComponent(msg)}`, "_blank")
+  // Belt-and-braces autoplay: React does not always reflect `muted` onto the DOM
+  // property, and an unmuted video is blocked from autoplaying.
+  useEffect(() => {
+    const video = heroVideoRef.current
+    if (!video) return
+    video.muted = true
+    video.play().catch(() => {
+      /* Autoplay refused (e.g. data-saver mode) — the poster frame stands in. */
+    })
+  }, [])
+
+  const handleBook = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setBookStatus("sending")
+
+    const msg = `*New Taxi Booking*\n*Name:* ${riderName}\n*Email:* ${riderEmail}\n*Phone:* ${riderPhone || "—"}\n*From:* ${pickup}\n*To:* ${dropoff}\n*Passengers:* ${pax}\n*Date:* ${date}\n*Time:* ${time}`
+
+    // Email the office a copy; WhatsApp opens regardless so a mail failure
+    // never costs the booking.
+    const result = await sendEnquiry({
+      formType: "Taxi Booking",
+      fullName: riderName,
+      email: riderEmail,
+      phone: riderPhone,
+      pickupLocation: pickup,
+      dropoffLocation: dropoff,
+      passengers: pax,
+      pickupDate: date,
+      pickupTime: time,
+    })
+
+    openWhatsApp(msg)
+    setBookStatus(result.ok ? "sent" : "email-failed")
+    setTimeout(() => setBookStatus("idle"), 5000)
   }
 
-  const tours = [
-    { name: "Safari Blue Day Trip", img: "/images/tours/safari-blue-day.jpg", desc: "Sail on traditional dhows to pristine sandbanks and enjoy the ultimate marine adventure with snorkeling, swimming, and a seafood feast.", link: "/zanzibar" },
-    { name: "Stone Town Tour", img: "/images/tours/stone-town-tour.jpg", desc: "Explore the UNESCO World Heritage site with its narrow alleys, historic buildings, and vibrant markets. Discover the cultural heart of Zanzibar.", link: "/zanzibar" },
-    { name: "Prison Island Boat Trip", img: "/new-zanzi-tours-images/prison-island.jpeg", desc: "Visit the historic Changuu Island to learn about its fascinating past and meet the famous giant Aldabra tortoises, some over 100 years old.", link: "/zanzibar" },
-    { name: "Nakupenda Island", img: "/new-zanzi-tours-images/nakupenda-island.jpeg", desc: "Escape to a pristine white sand paradise in the middle of the ocean. Perfect for relaxation, swimming, and enjoying fresh seafood.", link: "/zanzibar" },
-    { name: "Spice Farm Tour", img: "/new-zanzi-tours-images/spice-farm.jpeg", desc: "Discover why Zanzibar is called the 'Spice Island' with visits to working spice plantations where you'll see, smell, and taste exotic spices.", link: "/zanzibar" },
-    { name: "Jozani Forest Tour", img: "/images/tours/jozani-forest.jpg", desc: "Explore Zanzibar's indigenous forest and meet the rare Red Colobus monkeys found nowhere else on Earth. A nature lover's paradise.", link: "/zanzibar" },
-    { name: "Salaam Cave", img: "/new-zanzi-tours-images/salaam-cave.jpeg", desc: "Explore the mysterious underground caves of Zanzibar with stunning rock formations and crystal-clear natural pools hidden beneath the surface.", link: "/zanzibar" },
-    { name: "Kizimkazi Dolphins", img: "/new-zanzi-tours-images/kizimkazi-dolphins.jpeg", desc: "Swim with wild dolphins in their natural habitat at Kizimkazi. An unforgettable wildlife encounter in the warm waters of the Indian Ocean.", link: "/zanzibar" },
-    { name: "Mtende Beach", img: "/new-zanzi-tours-images/mtende-beach.jpeg", desc: "Relax on one of Zanzibar's most serene and untouched beaches. Enjoy crystal-clear waters, soft white sand, and breathtaking coastal views.", link: "/zanzibar" },
-    { name: "Maalum Cave", img: "/new-zanzi-tours-images/maalum-cave.jpeg", desc: "Discover the enchanting natural swimming pool hidden inside a limestone cave. A magical spot surrounded by lush tropical vegetation.", link: "/zanzibar" },
-    { name: "The Rock Restaurant", img: "/new-zanzi-tours-images/the-rock.jpeg", desc: "Visit Zanzibar's iconic restaurant perched on a rock in the ocean. Enjoy fresh seafood and stunning panoramic views of the Indian Ocean.", link: "/zanzibar" },
-    { name: "Mnemba Island Tour", img: "/new-zanzi-tours-images/mnemba-islandd.jpeg", desc: "Discover pristine coral reefs and swim in crystal-clear waters around this protected marine sanctuary. Perfect for snorkeling enthusiasts.", link: "/zanzibar" },
-    { name: "Sunset Dhow Cruise", img: "/images/tours/sunset-dhow.jpg", desc: "Sail into the golden hour aboard a traditional dhow and watch the spectacular Zanzibar sunset paint the sky in brilliant colors.", link: "/zanzibar" },
-  ]
   const safaris = [
     { name: "MIKUMI DAY TRIP SAFARI", dur: "1 Day", img: "/images/packages/mikumi-safari.jpg", desc: "Full-day flying safari to Mikumi National Park. Experience incredible wildlife viewing including elephants, giraffes, lions, zebras." },
     { name: "SERENGETI 2 DAYS SAFARI", dur: "2 Days / 1 Night", img: "/images/packages/serengeti-safari.jpg", desc: "Experience the magic of Serengeti with a fly-in safari. Witness the Great Migration, spot the Big Five across endless plains." },
@@ -261,129 +292,189 @@ export default function HomePageClient() {
       <Navigation />
 
       {/* ═══════ HERO ═══════ */}
-      <section className="relative" style={{ background: "#fef7eb" }}>
-        {/* Orange decorative triangle top-left */}
-        <div className="absolute top-0 left-0 w-0 h-0 hidden lg:block" style={{ borderTop: "80px solid #f7a10d", borderRight: "80px solid transparent" }}></div>
+      <section className="relative min-h-[560px] sm:min-h-[640px] lg:min-h-[calc(100vh-152px)] flex items-center overflow-hidden bg-ink">
+        {/* Background video */}
+        <video
+          ref={heroVideoRef}
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/videos/hero-poster.jpg"
+          aria-hidden="true"
+          tabIndex={-1}
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 lg:pt-16 pb-20 sm:pb-28 lg:pb-36">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left text */}
-            <div className="order-2 lg:order-1">
-              <p className="text-golden font-display font-semibold tracking-[0.3em] uppercase text-xs sm:text-sm mb-5">{t("welcome")}</p>
-              <h1 className="font-display font-black text-[2.2rem] sm:text-[3rem] md:text-[3.8rem] lg:text-[4.2rem] leading-[1.08] mb-6">
-                {t("heroTitle1")}{" "}
-                <span className="text-golden italic">{t("heroHighlight")}</span>{" "}
-                {t("heroTitle2")}
-              </h1>
-              <p className="text-gray-500 text-[13.5px] sm:text-[15px] leading-[1.8] max-w-[540px] mb-8">{t("heroDesc")}</p>
-              {/* Two CTA buttons */}
-              <div className="flex flex-wrap items-center gap-4">
-                <Link href="/about">
-                  <button className="bg-golden hover:bg-golden/90 text-white font-black px-7 py-3.5 rounded-full flex items-center gap-2.5 text-sm tracking-wider transition-colors shadow-md">
-                    {t("aboutMore")} <ArrowRight className="w-4 h-4" />
-                  </button>
-                </Link>
-                <BookingModal tourName="Airport Taxi Booking" trigger={
-                  <button className="bg-white hover:bg-gray-50 text-gray-800 font-black px-7 py-3.5 rounded-full flex items-center gap-2.5 text-sm tracking-wider transition-colors shadow-md border-2 border-gray-200">
+        {/* Legibility scrims: a deep navy wash plus a stronger left-side ramp */}
+        <div className="absolute inset-0 bg-ink/55" aria-hidden="true" />
+        <div
+          className="absolute inset-0"
+          aria-hidden="true"
+          style={{
+            background:
+              "linear-gradient(100deg, rgba(2,47,106,0.92) 0%, rgba(2,47,106,0.72) 35%, rgba(7,29,53,0.30) 65%, rgba(7,29,53,0.15) 100%)",
+          }}
+        />
+
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+          <div className="max-w-[760px] animate-on-scroll fade-up is-visible">
+            <p className="inline-flex items-center gap-2 text-white/90 font-display font-semibold tracking-[0.22em] uppercase text-[11px] sm:text-xs mb-5 bg-white/10 border border-white/20 backdrop-blur-sm rounded-full px-4 py-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-lagoon" aria-hidden="true" />
+              {t("welcome")}
+            </p>
+
+            <h1 className="font-display font-extrabold text-white text-[2.15rem] sm:text-[3.1rem] lg:text-[4rem] leading-[1.06] mb-6 text-balance">
+              {t("heroTitle1")} <span className="text-gradient-ocean">{t("heroHighlight")}</span> {t("heroTitle2")}
+            </h1>
+
+            <p className="text-white/75 text-[14px] sm:text-[16px] leading-[1.75] max-w-[620px] mb-9 line-clamp-5">
+              {t("heroDesc")}
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3.5">
+              <Link href="/zanzibar">
+                <button className="bg-golden hover:bg-sand text-ink font-bold px-7 py-3.5 rounded-full flex items-center gap-2.5 text-[14.5px] transition-colors shadow-lg shadow-golden/20">
+                  Explore Zanzibar Tours <ArrowRight className="w-4 h-4" />
+                </button>
+              </Link>
+              <BookingModal
+                tourName="Airport Taxi Booking"
+                trigger={
+                  <button className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-bold px-7 py-3.5 rounded-full flex items-center gap-2.5 text-[14.5px] transition-colors">
                     {t("taxiBooking")} <ArrowRight className="w-4 h-4" />
                   </button>
-                } />
-              </div>
+                }
+              />
             </div>
-            {/* Right car image with orange L-bracket frame */}
-            <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[520px]">
-                {/* Orange frame - top segment (horizontal line + top-right rounded corner + right line going down ~60%) */}
-                <div className="absolute pointer-events-none z-20" style={{ top: "-12px", right: "-12px", width: "70%", height: "65%", borderTop: "3px solid #f7a10d", borderRight: "3px solid #f7a10d", borderTopRightRadius: "24px" }}></div>
-                {/* Orange frame - bottom-right segment (right line + bottom-right rounded corner + short bottom line) */}
-                <div className="absolute pointer-events-none z-20" style={{ bottom: "-12px", right: "-12px", width: "35%", height: "45%", borderBottom: "3px solid #f7a10d", borderRight: "3px solid #f7a10d", borderBottomRightRadius: "24px" }}></div>
-                {/* Car image with rounded corners */}
-                <div className="relative z-10 rounded-2xl overflow-hidden shadow-lg bg-gray-900/5">
-                  <Image src="/toyota-alphard.jpeg" alt="Zanzione Tours Vehicle" width={520} height={380} className="w-full h-auto object-contain" priority />
+
+            {/* Trust strip */}
+            <dl className="flex flex-wrap items-center gap-x-8 gap-y-4 mt-12 pt-8 border-t border-white/15">
+              {[
+                { value: "10+", label: "Years on the island" },
+                { value: "16", label: "Zanzibar excursions" },
+                { value: "24/7", label: "Traveller support" },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <dt className="sr-only">{stat.label}</dt>
+                  <dd>
+                    <span className="block font-display font-extrabold text-white text-2xl sm:text-3xl leading-none">
+                      {stat.value}
+                    </span>
+                    <span className="block text-white/60 text-[12.5px] mt-1.5">{stat.label}</span>
+                  </dd>
                 </div>
-              </div>
-            </div>
+              ))}
+            </dl>
           </div>
         </div>
 
-        {/* Bottom orange curve decoration */}
-        <div className="absolute bottom-0 right-0 w-[180px] sm:w-[280px] h-[50px] sm:h-[70px] bg-golden z-10" style={{ borderTopLeftRadius: "100%" }}></div>
-
-        {/* White wave transition at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 z-[5]">
-          <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto" preserveAspectRatio="none">
-            <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="white" />
-          </svg>
-        </div>
-
-        {/* Language selector - pixel-perfect golden pill */}
-        <div className="fixed right-4 sm:right-5 bottom-24 sm:bottom-28 z-[60]">
-          <button onClick={() => setShowLang(!showLang)}
-            className="bg-golden hover:bg-golden/90 text-white pl-3.5 pr-5 py-3 sm:py-3.5 rounded-xl shadow-lg flex items-center gap-2.5 text-sm sm:text-[15px] font-bold transition-all"
+        {/* Language selector — bottom-left, clear of the floating WhatsApp stack */}
+        <div className="fixed left-4 sm:left-5 bottom-5 sm:bottom-6 z-[60]">
+          <button
+            onClick={() => setShowLang(!showLang)}
+            aria-expanded={showLang}
+            aria-label={t("selectLanguage")}
+            className="bg-navy/95 hover:bg-ocean backdrop-blur-sm text-white pl-3 pr-4 py-2.5 sm:py-3 rounded-full shadow-lg flex items-center gap-2.5 text-[13px] sm:text-sm font-bold transition-colors border border-white/15"
           >
-            {/* Translate icon matching reference A文 style */}
-            <span className="w-7 h-7 sm:w-8 sm:h-8 bg-white/25 rounded-md flex items-center justify-center text-[11px] sm:text-xs font-black leading-none">
-              A<span className="text-[9px] sm:text-[10px]">文</span>
+            <span className="w-7 h-7 bg-white/20 rounded-full flex items-center justify-center text-[10px] font-black leading-none">
+              A<span className="text-[8px]">文</span>
             </span>
-            {t("selectLanguage")}
+            <span className="hidden xs:inline">{t("selectLanguage")}</span>
+            <span className="xs:hidden">{langFlags[lang]}</span>
           </button>
           {showLang && (
-            <div className="absolute right-0 bottom-full mb-2 bg-white rounded-xl shadow-2xl py-2 w-48 max-h-[400px] overflow-y-auto border border-gray-100">
-              {(Object.keys(langNames) as Lang[]).map(c => (
-                <button key={c} onClick={() => { setLang(c); setShowLang(false) }}
-                  className={`w-full text-left px-4 py-2.5 hover:bg-golden/10 flex items-center gap-3 text-sm transition-colors ${lang === c ? "bg-golden/10 text-golden font-bold" : "text-gray-700"}`}>
-                  <span className="text-base">{langFlags[c]}</span>{langNames[c]}
+            <div className="absolute left-0 bottom-full mb-2 bg-white rounded-2xl shadow-card-hover py-2 w-52 max-h-[60vh] overflow-y-auto border border-border">
+              {(Object.keys(langNames) as Lang[]).map((c) => (
+                <button
+                  key={c}
+                  onClick={() => {
+                    setLang(c)
+                    setShowLang(false)
+                  }}
+                  className={`w-full text-left px-4 py-2.5 hover:bg-mist flex items-center gap-3 text-sm transition-colors ${
+                    lang === c ? "bg-aqua/10 text-ocean font-bold" : "text-ink"
+                  }`}
+                >
+                  <span className="text-base">{langFlags[c]}</span>
+                  {langNames[c]}
                 </button>
               ))}
             </div>
           )}
         </div>
       </section>
-
       {/* ═══════ BOOKING FORM ═══════ */}
       <section className="relative z-20 -mt-10 sm:-mt-14 pb-8 sm:pb-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="bg-white rounded-[20px] shadow-2xl p-6 sm:p-8 lg:p-10">
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-display font-black text-gray-900 mb-6 sm:mb-8">{t("bookYourRide")}</h2>
+          <form onSubmit={handleBook} className="bg-white rounded-[20px] shadow-2xl p-6 sm:p-8 lg:p-10">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-display font-extrabold text-ink mb-6 sm:mb-8">{t("bookYourRide")}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4 mb-4">
               <div>
-                <label className="block text-sm font-bold text-gray-800 mb-2">{t("pickupLocation")}</label>
-                <LocationInput placeholder={t("pickupPlaceholder")} value={pickup} onChange={setPickup} />
+                <label htmlFor="taxi-pickup" className="block text-sm font-bold text-ink mb-2">{t("pickupLocation")}</label>
+                <LocationInput id="taxi-pickup" placeholder={t("pickupPlaceholder")} value={pickup} onChange={setPickup} />
               </div>
               <div>
-                <label className="block text-sm font-bold text-gray-800 mb-2">{t("dropoffLocation")}</label>
-                <LocationInput placeholder={t("dropoffPlaceholder")} value={dropoff} onChange={setDropoff} />
+                <label htmlFor="taxi-dropoff" className="block text-sm font-bold text-ink mb-2">{t("dropoffLocation")}</label>
+                <LocationInput id="taxi-dropoff" placeholder={t("dropoffPlaceholder")} value={dropoff} onChange={setDropoff} />
               </div>
               <div>
-                <label className="block text-sm font-bold text-gray-800 mb-2">{t("passengers")}</label>
+                <label htmlFor="taxi-pax" className="block text-sm font-bold text-ink mb-2">{t("passengers")}</label>
                 <div className="relative">
-                  <input type="number" min="1" max="20" value={pax} onChange={e => setPax(e.target.value)}
-                    className="w-full h-[52px] pl-4 pr-10 border border-gray-200 rounded-[26px] text-sm text-gray-700 bg-white focus:outline-none focus:border-golden" />
-                  <Users className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300" />
+                  <input id="taxi-pax" type="number" min="1" max="20" value={pax} onChange={e => setPax(e.target.value)}
+                    className="w-full h-[52px] pl-4 pr-10 border border-border rounded-[26px] text-sm text-ink bg-white focus:outline-none focus:border-aqua focus:ring-2 focus:ring-aqua/20" />
+                  <Users className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-ink/50" />
                 </div>
               </div>
             </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4 mb-4">
+              <div>
+                <label htmlFor="taxi-date" className="block text-sm font-bold text-ink mb-2">{t("pickupDate")}</label>
+                <input id="taxi-date" type="date" required value={date} onChange={e => setDate(e.target.value)}
+                  className="w-full h-[52px] pl-4 pr-4 border border-border rounded-[26px] text-sm text-ink bg-white focus:outline-none focus:border-aqua focus:ring-2 focus:ring-aqua/20" />
+              </div>
+              <div>
+                <label htmlFor="taxi-time" className="block text-sm font-bold text-ink mb-2">{t("pickupTime")}</label>
+                <input id="taxi-time" type="time" required value={time} onChange={e => setTime(e.target.value)}
+                  className="w-full h-[52px] pl-4 pr-4 border border-border rounded-[26px] text-sm text-ink bg-white focus:outline-none focus:border-aqua focus:ring-2 focus:ring-aqua/20" />
+              </div>
+              <div>
+                <label htmlFor="taxi-name" className="block text-sm font-bold text-ink mb-2">{t("yourName")}</label>
+                <input id="taxi-name" type="text" required autoComplete="name" value={riderName} onChange={e => setRiderName(e.target.value)}
+                  placeholder={t("yourNamePlaceholder")}
+                  className="w-full h-[52px] px-4 border border-border rounded-[26px] text-sm text-ink bg-white placeholder:text-slate-ink/70 focus:outline-none focus:border-aqua focus:ring-2 focus:ring-aqua/20" />
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4 items-end">
               <div>
-                <label className="block text-sm font-bold text-gray-800 mb-2">{t("pickupDate")}</label>
-                <div className="relative">
-                  <input type="date" value={date} onChange={e => setDate(e.target.value)}
-                    className="w-full h-[52px] pl-4 pr-10 border border-gray-200 rounded-[26px] text-sm text-gray-700 bg-white focus:outline-none focus:border-golden" />
-                </div>
+                <label htmlFor="taxi-email" className="block text-sm font-bold text-ink mb-2">{t("yourEmail")}</label>
+                <input id="taxi-email" type="email" required autoComplete="email" value={riderEmail} onChange={e => setRiderEmail(e.target.value)}
+                  placeholder={t("yourEmailPlaceholder")}
+                  className="w-full h-[52px] px-4 border border-border rounded-[26px] text-sm text-ink bg-white placeholder:text-slate-ink/70 focus:outline-none focus:border-aqua focus:ring-2 focus:ring-aqua/20" />
               </div>
               <div>
-                <label className="block text-sm font-bold text-gray-800 mb-2">{t("pickupTime")}</label>
-                <div className="relative">
-                  <input type="time" value={time} onChange={e => setTime(e.target.value)}
-                    className="w-full h-[52px] pl-4 pr-10 border border-gray-200 rounded-[26px] text-sm text-gray-700 bg-white focus:outline-none focus:border-golden" />
-                </div>
+                <label htmlFor="taxi-phone" className="block text-sm font-bold text-ink mb-2">{t("yourPhone")}</label>
+                <input id="taxi-phone" type="tel" autoComplete="tel" value={riderPhone} onChange={e => setRiderPhone(e.target.value)}
+                  placeholder={t("yourPhonePlaceholder")}
+                  className="w-full h-[52px] px-4 border border-border rounded-[26px] text-sm text-ink bg-white placeholder:text-slate-ink/70 focus:outline-none focus:border-aqua focus:ring-2 focus:ring-aqua/20" />
               </div>
-              <button onClick={handleBook}
-                className="h-[52px] bg-golden hover:bg-golden/90 text-white font-black rounded-[26px] flex items-center justify-center gap-2 text-sm tracking-wider transition-colors shadow-md">
-                {t("bookTaxi")} <ArrowRight className="w-4 h-4" />
+              <button type="submit" disabled={bookStatus === "sending"}
+                className="h-[52px] bg-golden hover:bg-sand disabled:opacity-70 text-ink font-extrabold rounded-[26px] flex items-center justify-center gap-2 text-sm tracking-wider transition-colors shadow-md">
+                {bookStatus === "sending" ? "Sending…" : <>{t("bookTaxi")} <ArrowRight className="w-4 h-4" /></>}
               </button>
             </div>
-          </div>
+
+            <p className="mt-4 text-[13px] text-slate-ink" role="status" aria-live="polite">
+              {bookStatus === "sent" && <span className="text-island font-semibold">Sent to our team — WhatsApp is opening now.</span>}
+              {bookStatus === "email-failed" && <span className="text-sea font-semibold">WhatsApp is opening — please send the message to confirm your ride.</span>}
+              {bookStatus === "idle" && "We confirm every ride on WhatsApp and by email."}
+            </p>
+          </form>
         </div>
       </section>
 
@@ -408,7 +499,7 @@ export default function HomePageClient() {
               <div className="relative">
                 <Image src="/toyota-alphard.jpeg" alt="Zanzione Tours" width={460} height={320} className="rounded-xl object-cover w-full max-w-[460px]" />
                 {/* 10 Years badge */}
-                <div className="absolute -left-4 sm:-left-6 top-1/3 bg-golden text-white rounded-full w-24 h-24 sm:w-28 sm:h-28 flex flex-col items-center justify-center shadow-xl border-4 border-white z-10">
+                <div className="absolute -left-4 sm:-left-6 top-1/3 bg-golden text-ink rounded-full w-24 h-24 sm:w-28 sm:h-28 flex flex-col items-center justify-center shadow-xl border-4 border-white z-10">
                   <span className="text-2xl sm:text-3xl font-black leading-none">10</span>
                   <span className="text-[9px] sm:text-[10px] text-center leading-tight mt-0.5 font-semibold whitespace-pre-line">{t("yearsLabel")}</span>
                 </div>
@@ -417,22 +508,22 @@ export default function HomePageClient() {
 
             {/* Right - text */}
             <div className="animate-on-scroll fade-right" data-delay="200">
-              <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-3">{t("aboutUs")}</p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-gray-900 leading-tight mb-5">
+              <p className="text-sea font-display font-bold tracking-[0.2em] uppercase text-xs mb-3">{t("aboutUs")}</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-ink leading-tight mb-5">
                 {t("aboutTitle1")}<br />
-                <span className="text-golden italic">{t("aboutHighlight")}</span> {t("aboutTitle2")}
+                <span className="text-sea italic">{t("aboutHighlight")}</span> {t("aboutTitle2")}
               </h2>
-              <p className="text-gray-500 text-[13px] sm:text-sm leading-relaxed mb-5">{t("aboutMission")}</p>
+              <p className="text-slate-ink text-[13px] sm:text-sm leading-relaxed mb-5">{t("aboutMission")}</p>
               <ul className="space-y-3 mb-6">
                 {[t("aboutS1"), t("aboutS2"), t("aboutS3"), t("aboutS4")].map((s, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <span className="mt-1.5 w-2.5 h-2.5 bg-golden rounded-full flex-shrink-0"></span>
-                    <span className="text-gray-500 text-[13px] sm:text-sm leading-relaxed">{s}</span>
+                    <span className="text-slate-ink text-[13px] sm:text-sm leading-relaxed">{s}</span>
                   </li>
                 ))}
               </ul>
               <Link href="/about">
-                <button className="bg-golden hover:bg-golden/90 text-white font-black px-6 py-3 rounded-lg flex items-center gap-2 text-sm tracking-wide transition-colors">
+                <button className="bg-golden hover:bg-sand text-ink font-black px-6 py-3 rounded-lg flex items-center gap-2 text-sm tracking-wide transition-colors">
                   {t("discoverMore")} <ArrowRight className="w-4 h-4" />
                 </button>
               </Link>
@@ -442,58 +533,43 @@ export default function HomePageClient() {
       </section>
 
       {/* ═══════ ZANZIBAR DAILY ACTIVITIES ═══════ */}
-      <section className="py-12 sm:py-20 bg-[#f9f9f9]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-20 bg-mist">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14 animate-on-scroll fade-up">
-            <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">{t("zanzTours")}</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-gray-900">{t("dailyAct")}</h2>
-            <div className="flex justify-center gap-1 mt-4">
-              <div className="w-10 h-1.5 bg-blue-season rounded-full"></div>
-              <div className="w-3 h-1.5 bg-golden rounded-full"></div>
-            </div>
+            <p className="text-aqua font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">{t("zanzTours")}</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-ink">{t("dailyAct")}</h2>
+            <div className="zn-rule" aria-hidden="true" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {tours.map((tour, i) => (
-              <div key={i} className="animate-on-scroll fade-up bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1" data-delay={((i % 3) * 100).toString()}>
-                {/* Image container */}
-                <div className="relative p-4 pb-0">
-                  <div className="relative h-52 sm:h-56 rounded-xl overflow-hidden">
-                    <Image src={tour.img} alt={tour.name} fill className="object-cover" sizes="(max-width:768px)100vw,(max-width:1024px)50vw,33vw" />
-                  </div>
-                </div>
-                {/* Content */}
-                <div className="p-5 pt-6 sm:p-6 sm:pt-7">
-                  <h3 className="text-lg font-display font-black text-gray-900 mb-2">{tour.name}</h3>
-                  <p className="text-gray-400 text-[13px] leading-relaxed mb-5 line-clamp-3">{tour.desc}</p>
-                  <Link href={tour.link}>
-                    <button className="bg-golden hover:bg-golden/90 text-white font-bold px-6 py-2.5 rounded-full flex items-center gap-2 text-sm tracking-wide transition-colors">
-                      {t("readMore")} <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
-                  </Link>
-                </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-6">
+            {zanzibarTours.slice(0, 8).map((tour, i) => (
+              <div key={tour.slug} className="animate-on-scroll fade-up" data-delay={((i % 4) * 90).toString()}>
+                <TourCard tour={tour} />
               </div>
             ))}
           </div>
+          <div className="text-center mt-10 animate-on-scroll fade-up" data-delay="300">
+            <Link href="/zanzibar">
+              <button className="bg-navy hover:bg-ocean text-white font-bold px-8 py-3.5 rounded-full inline-flex items-center gap-2.5 text-sm tracking-wide transition-colors shadow-md">
+                See All {zanzibarTours.length} Excursions <ArrowRight className="w-4 h-4" />
+              </button>
+            </Link>
+          </div>
         </div>
       </section>
-
       {/* ═══════ TRANSFER SERVICES ═══════ */}
       <section className="py-12 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14 animate-on-scroll fade-up">
-            <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">TRANSFER SERVICES</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-gray-900">
-              Airport & Hotel <span className="text-golden italic">Transfers</span>
+            <p className="text-aqua font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">TRANSFER SERVICES</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-ink">
+              Airport & Hotel <span className="text-sea italic">Transfers</span>
             </h2>
-            <div className="flex justify-center gap-1 mt-4">
-              <div className="w-10 h-1.5 bg-blue-season rounded-full"></div>
-              <div className="w-3 h-1.5 bg-golden rounded-full"></div>
-            </div>
-            <p className="text-gray-500 text-sm sm:text-base mt-4 max-w-2xl mx-auto">Reliable, comfortable, and affordable transfers across Zanzibar Island with professional drivers and modern vehicles.</p>
+            <div className="zn-rule" aria-hidden="true" />
+            <p className="text-slate-ink text-sm sm:text-base mt-4 max-w-2xl mx-auto">Reliable, comfortable, and affordable transfers across Zanzibar Island with professional drivers and modern vehicles.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
             {highlightTransfers.map((route, i) => (
-              <div key={i} className="animate-on-scroll fade-up group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-1" data-delay={i * 100}>
+              <div key={i} className="animate-on-scroll fade-up group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-border hover:-translate-y-1" data-delay={i * 100}>
                 <div className="relative h-44 sm:h-48 overflow-hidden">
                   <Image src={route.image} alt={`Transfer to ${route.to}`} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width:768px)100vw,(max-width:1024px)50vw,33vw" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
@@ -511,11 +587,11 @@ export default function HomePageClient() {
                 </div>
                 <div className="p-4 flex items-center justify-between">
                   <div>
-                    <p className="text-2xl font-black text-golden">${route.price}</p>
-                    <p className="text-gray-400 text-xs">per vehicle</p>
+                    <p className="text-2xl font-extrabold text-ocean">${route.price}</p>
+                    <p className="text-slate-ink/75 text-xs">per vehicle</p>
                   </div>
                   <BookingModal tourName={`Transfer: ${route.from} → ${route.to}`} trigger={
-                    <button className="bg-golden hover:bg-golden/90 text-white font-bold px-5 py-2.5 rounded-full text-sm transition-colors">
+                    <button className="bg-golden hover:bg-sand text-ink font-bold px-5 py-2.5 rounded-full text-sm transition-colors">
                       Book Now
                     </button>
                   } />
@@ -534,18 +610,15 @@ export default function HomePageClient() {
       </section>
 
       {/* ═══════ WATER SPORTS ═══════ */}
-      <section className="py-12 sm:py-20 bg-[#f0f7ff]">
+      <section className="py-12 sm:py-20 bg-aqua/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14 animate-on-scroll fade-up">
-            <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">WATER SPORTS</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-gray-900">
-              Thrilling <span className="text-golden italic">Ocean Adventures</span>
+            <p className="text-aqua font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">WATER SPORTS</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-ink">
+              Thrilling <span className="text-sea italic">Ocean Adventures</span>
             </h2>
-            <div className="flex justify-center gap-1 mt-4">
-              <div className="w-10 h-1.5 bg-blue-season rounded-full"></div>
-              <div className="w-3 h-1.5 bg-golden rounded-full"></div>
-            </div>
-            <p className="text-gray-500 text-sm sm:text-base mt-4 max-w-2xl mx-auto">Dive into adrenaline-pumping water activities across Zanzibar's crystal-clear turquoise lagoons. From high-speed jet skis to luxury jet cars — make waves on your vacation!</p>
+            <div className="zn-rule" aria-hidden="true" />
+            <p className="text-slate-ink text-sm sm:text-base mt-4 max-w-2xl mx-auto">Dive into adrenaline-pumping water activities across Zanzibar's crystal-clear turquoise lagoons. From high-speed jet skis to luxury jet cars — make waves on your vacation!</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {waterSports.map((sport, i) => (
@@ -556,10 +629,10 @@ export default function HomePageClient() {
                   </div>
                 </div>
                 <div className="p-5 pt-6 sm:p-6 sm:pt-7">
-                  <h3 className="text-lg font-display font-black text-gray-900 mb-2">{sport.name}</h3>
-                  <p className="text-gray-400 text-[13px] leading-relaxed mb-5 line-clamp-3">{sport.desc}</p>
+                  <h3 className="text-lg font-display font-black text-ink mb-2">{sport.name}</h3>
+                  <p className="text-slate-ink/75 text-[13px] leading-relaxed mb-5 line-clamp-3">{sport.desc}</p>
                   <BookingModal tourName={sport.name} trigger={
-                    <button className="bg-golden hover:bg-golden/90 text-white font-bold px-6 py-2.5 rounded-full flex items-center gap-2 text-sm tracking-wide transition-colors">
+                    <button className="bg-golden hover:bg-sand text-ink font-bold px-6 py-2.5 rounded-full flex items-center gap-2 text-sm tracking-wide transition-colors">
                       Book via WhatsApp <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   } />
@@ -574,14 +647,11 @@ export default function HomePageClient() {
       <section className="py-12 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14 animate-on-scroll fade-up">
-            <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">OFF-ROAD ADVENTURE</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-gray-900">
-              Explore Zanzibar by <span className="text-golden italic">Quad 4H</span>
+            <p className="text-aqua font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">OFF-ROAD ADVENTURE</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-ink">
+              Explore Zanzibar by <span className="text-sea italic">Quad 4H</span>
             </h2>
-            <div className="flex justify-center gap-1 mt-4">
-              <div className="w-10 h-1.5 bg-blue-season rounded-full"></div>
-              <div className="w-3 h-1.5 bg-golden rounded-full"></div>
-            </div>
+            <div className="zn-rule" aria-hidden="true" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -598,7 +668,7 @@ export default function HomePageClient() {
 
             {/* Right - Content */}
             <div className="animate-on-scroll fade-right" data-delay="200">
-              <p className="text-gray-500 text-[13px] sm:text-sm leading-relaxed mb-6">
+              <p className="text-slate-ink text-[13px] sm:text-sm leading-relaxed mb-6">
                 Unleash your inner adventurer and conquer Zanzibar's stunning northern coastline on a thrilling 4-hour quad bike expedition! Feel the wind in your hair as you ride through hidden trails, untouched villages, and pristine beaches that most tourists never get to see.
               </p>
 
@@ -608,8 +678,8 @@ export default function HomePageClient() {
                     <span className="text-white font-black text-xs">1</span>
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-gray-900 text-sm mb-1">Private Beach – Kaskazini</h4>
-                    <p className="text-gray-500 text-[13px] leading-relaxed">Escape to a secluded paradise where turquoise waves kiss powdery white sand. Bask in warm sunshine, listen to the soothing melody of the ocean, and let the chirping birds serenade you in this untouched haven of tranquility.</p>
+                    <h4 className="font-display font-bold text-ink text-sm mb-1">Private Beach – Kaskazini</h4>
+                    <p className="text-slate-ink text-[13px] leading-relaxed">Escape to a secluded paradise where turquoise waves kiss powdery white sand. Bask in warm sunshine, listen to the soothing melody of the ocean, and let the chirping birds serenade you in this untouched haven of tranquility.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -617,8 +687,8 @@ export default function HomePageClient() {
                     <span className="text-white font-black text-xs">2</span>
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-gray-900 text-sm mb-1">Authentic Village Experience – Kidotti</h4>
-                    <p className="text-gray-500 text-[13px] leading-relaxed">Immerse yourself in genuine Zanzibari culture! The warm-hearted locals of Kidotti village welcome you like family. Roll up your sleeves and join traditional cooking sessions, savoring authentic dishes that tell the story of generations.</p>
+                    <h4 className="font-display font-bold text-ink text-sm mb-1">Authentic Village Experience – Kidotti</h4>
+                    <p className="text-slate-ink text-[13px] leading-relaxed">Immerse yourself in genuine Zanzibari culture! The warm-hearted locals of Kidotti village welcome you like family. Roll up your sleeves and join traditional cooking sessions, savoring authentic dishes that tell the story of generations.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -626,33 +696,33 @@ export default function HomePageClient() {
                     <span className="text-white font-black text-xs">3</span>
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-gray-900 text-sm mb-1">World-Famous Kendwa Beach</h4>
-                    <p className="text-gray-500 text-[13px] leading-relaxed">Wind down at Kendwa — ranked among the world's most breathtaking beaches. Sip on fresh coconut juice as you watch the sun melt into the horizon, stroll past fishermen hauling their daily catch, and feel the magic of Zanzibar's coastal life.</p>
+                    <h4 className="font-display font-bold text-ink text-sm mb-1">World-Famous Kendwa Beach</h4>
+                    <p className="text-slate-ink text-[13px] leading-relaxed">Wind down at Kendwa — ranked among the world's most breathtaking beaches. Sip on fresh coconut juice as you watch the sun melt into the horizon, stroll past fishermen hauling their daily catch, and feel the magic of Zanzibar's coastal life.</p>
                   </div>
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-4 mb-6 p-4 bg-[#f8f8f8] rounded-xl">
+              <div className="flex flex-wrap items-center gap-4 mb-6 p-4 bg-mist rounded-xl">
                 <div className="flex items-center gap-2">
                   <Clock className="w-5 h-5 text-golden" />
-                  <span className="text-gray-700 text-sm font-semibold">4 Hours</span>
+                  <span className="text-ink/85 text-sm font-semibold">4 Hours</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="w-5 h-5 text-golden" />
-                  <span className="text-gray-700 text-sm font-semibold">Nungwi – Kendwa</span>
+                  <span className="text-ink/85 text-sm font-semibold">Nungwi – Kendwa</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Users className="w-5 h-5 text-golden" />
-                  <span className="text-gray-700 text-sm font-semibold">Up to 2 people per quad</span>
+                  <span className="text-ink/85 text-sm font-semibold">Up to 2 people per quad</span>
                 </div>
               </div>
 
               <div className="flex flex-wrap items-center gap-4">
                 <div className="bg-golden/10 rounded-xl px-5 py-3">
-                  <p className="text-gray-700 text-sm font-semibold">Morning: 9:00 AM – 1:00 PM | Afternoon: 2:00 PM – 6:00 PM</p>
+                  <p className="text-ink/85 text-sm font-semibold">Morning: 9:00 AM – 1:00 PM | Afternoon: 2:00 PM – 6:00 PM</p>
                 </div>
                 <BookingModal tourName="Quad Biking 4H Adventure" trigger={
-                  <button className="bg-golden hover:bg-golden/90 text-white font-bold px-7 py-3.5 rounded-full flex items-center gap-2 text-sm tracking-wide transition-colors shadow-md">
+                  <button className="bg-golden hover:bg-sand text-ink font-bold px-7 py-3.5 rounded-full flex items-center gap-2 text-sm tracking-wide transition-colors shadow-md">
                     Book via WhatsApp <ArrowRight className="w-4 h-4" />
                   </button>
                 } />
@@ -664,10 +734,10 @@ export default function HomePageClient() {
 
       {/* ═══════ TANZANIA SAFARI PACKAGES ═══════ */}
       <section className="py-12 sm:py-20 relative bg-cover bg-center" style={{ backgroundImage: "url(/images/safari-sunset.jpg)" }}>
-        <div className="absolute inset-0 bg-[#0a1628]/92"></div>
+        <div className="absolute inset-0 bg-ink/92"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14 animate-on-scroll fade-up">
-            <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">{t("tanzSafari")}</p>
+            <p className="text-aqua font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">{t("tanzSafari")}</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-white">
               {t("bestPkg")} <span className="text-golden italic">{t("forYou")}</span>
             </h2>
@@ -689,12 +759,12 @@ export default function HomePageClient() {
                   </div>
                   {/* Title & Duration centered */}
                   <div className="text-center px-5 pb-4">
-                    <h3 className="font-display font-black text-gray-900 text-base sm:text-lg tracking-wide">{s.name}</h3>
-                    <p className="text-golden font-semibold text-sm mt-1">{s.dur}</p>
+                    <h3 className="font-display font-black text-ink text-base sm:text-lg tracking-wide">{s.name}</h3>
+                    <p className="text-sea font-semibold text-sm mt-1">{s.dur}</p>
                   </div>
                 </div>
                 {/* BOTTOM: Dark navy section */}
-                <div className="bg-[#1a2332] relative pt-8 pb-5 px-5">
+                <div className="bg-ink relative pt-8 pb-5 px-5">
                   {/* Decorative swirl/wave SVG pattern */}
                   <div className="absolute top-0 left-0 right-0 h-8 overflow-hidden opacity-10">
                     <svg viewBox="0 0 400 30" className="w-full h-full" preserveAspectRatio="none">
@@ -702,9 +772,9 @@ export default function HomePageClient() {
                       <path d="M0,20 Q50,5 100,20 Q150,35 200,20 Q250,5 300,20 Q350,35 400,20" fill="none" stroke="white" strokeWidth="1" />
                     </svg>
                   </div>
-                  <p className="text-gray-300 text-xs leading-relaxed text-center mb-4">{t("pkgIncludes")}</p>
+                  <p className="text-white/60 text-xs leading-relaxed text-center mb-4">{t("pkgIncludes")}</p>
                   <Link href="/itineraries" className="block">
-                    <button className="w-full bg-golden hover:bg-golden/90 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 text-sm tracking-wide transition-colors">
+                    <button className="w-full bg-golden hover:bg-sand text-ink font-bold py-3 rounded-lg flex items-center justify-center gap-2 text-sm tracking-wide transition-colors">
                       {t("viewPkg")} <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </Link>
@@ -722,54 +792,51 @@ export default function HomePageClient() {
             <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-transparent"></div>
             <div className="relative grid grid-cols-1 lg:grid-cols-2 min-h-[280px] sm:min-h-[320px]">
               <div className="p-8 sm:p-10 flex flex-col justify-center">
-                <p className="text-gray-800 font-display font-black text-lg sm:text-xl mb-1">{t("discoverTitle")}</p>
-                <h2 className="text-5xl sm:text-6xl md:text-7xl font-display font-black text-gray-900 tracking-tight mb-2">{t("tanzania")}</h2>
+                <p className="text-ink font-display font-black text-lg sm:text-xl mb-1">{t("discoverTitle")}</p>
+                <h2 className="text-5xl sm:text-6xl md:text-7xl font-display font-black text-ink tracking-tight mb-2">{t("tanzania")}</h2>
                 <div className="bg-golden inline-block px-4 py-1 mb-4 max-w-fit">
                   <span className="text-white text-sm italic tracking-[0.15em]">{t("unforgettable")}</span>
                 </div>
-                <p className="text-gray-500 text-[13px] leading-relaxed max-w-md">{t("discoverDesc")}</p>
+                <p className="text-slate-ink text-[13px] leading-relaxed max-w-md">{t("discoverDesc")}</p>
               </div>
             </div>
             {/* Vertical text */}
             <div className="absolute right-4 top-1/2 -translate-y-1/2 hidden lg:block">
-              <p className="text-gray-300 text-xs tracking-[0.3em] font-bold" style={{ writingMode: "vertical-rl" }}>WWW.ZANZIONETOURS.COM</p>
+              <p className="text-slate-ink text-xs tracking-[0.3em] font-bold" style={{ writingMode: "vertical-rl" }}>WWW.ZANZIONETOURS.COM</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ═══════ CAR HIRE ═══════ */}
-      <section className="py-12 sm:py-20 bg-[#f8fafc]">
+      <section className="py-12 sm:py-20 bg-mist">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14 animate-on-scroll fade-up">
-            <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">RENTAL FLEET</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-gray-900">
-              Car <span className="text-golden italic">Hire</span> Per Day
+            <p className="text-aqua font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">RENTAL FLEET</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-ink">
+              Car <span className="text-sea italic">Hire</span> Per Day
             </h2>
-            <div className="flex justify-center gap-1 mt-4">
-              <div className="w-10 h-1.5 bg-blue-season rounded-full"></div>
-              <div className="w-3 h-1.5 bg-golden rounded-full"></div>
-            </div>
-            <p className="text-gray-500 text-sm sm:text-base mt-4 max-w-2xl mx-auto">Explore Zanzibar at your own pace with our well-maintained, air-conditioned rental fleet. From compact city cars to spacious group vans — we have the perfect ride for every adventure.</p>
+            <div className="zn-rule" aria-hidden="true" />
+            <p className="text-slate-ink text-sm sm:text-base mt-4 max-w-2xl mx-auto">Explore Zanzibar at your own pace with our well-maintained, air-conditioned rental fleet. From compact city cars to spacious group vans — we have the perfect ride for every adventure.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {carHire.map((car, i) => (
               <div key={i} className="animate-on-scroll fade-up bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1" data-delay={((i % 3) * 100).toString()}>
                 <div className="relative p-4 pb-0">
-                  <div className="relative h-48 sm:h-52 rounded-xl overflow-hidden bg-gray-100">
+                  <div className="relative h-48 sm:h-52 rounded-xl overflow-hidden bg-mist">
                     <Image src={car.img} alt={car.name} fill className="object-contain" sizes="(max-width:768px)100vw,(max-width:1024px)50vw,33vw" />
                   </div>
-                  <div className="absolute bottom-0 right-6 translate-y-1/2 w-[64px] h-[64px] bg-golden rounded-full flex flex-col items-center justify-center text-white font-black text-sm shadow-lg z-10 border-[3px] border-white">
+                  <div className="absolute bottom-0 right-6 translate-y-1/2 w-[64px] h-[64px] bg-golden rounded-full flex flex-col items-center justify-center text-ink font-black text-sm shadow-lg z-10 border-[3px] border-white">
                     <span className="text-lg leading-none">${car.price}</span>
                     <span className="text-[9px] font-semibold">/ day</span>
                   </div>
                 </div>
                 <div className="p-5 pt-7 sm:p-6 sm:pt-8">
-                  <h3 className="text-lg font-display font-black text-gray-900 mb-1">{car.name}</h3>
-                  <p className="text-golden text-xs font-semibold mb-3">{car.seats}</p>
-                  <p className="text-gray-400 text-[13px] leading-relaxed mb-5 line-clamp-3">{car.desc}</p>
+                  <h3 className="text-lg font-display font-black text-ink mb-1">{car.name}</h3>
+                  <p className="text-sea text-xs font-semibold mb-3">{car.seats}</p>
+                  <p className="text-slate-ink/75 text-[13px] leading-relaxed mb-5 line-clamp-3">{car.desc}</p>
                   <BookingModal tourName={`Car Hire: ${car.name}`} trigger={
-                    <button className="w-full bg-golden hover:bg-golden/90 text-white font-bold px-6 py-2.5 rounded-full flex items-center justify-center gap-2 text-sm tracking-wide transition-colors">
+                    <button className="w-full bg-golden hover:bg-sand text-ink font-bold px-6 py-2.5 rounded-full flex items-center justify-center gap-2 text-sm tracking-wide transition-colors">
                       Rent This Car <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   } />
@@ -784,12 +851,9 @@ export default function HomePageClient() {
       <section className="py-12 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14 animate-on-scroll fade-up">
-            <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">{t("feature")}</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-gray-900">{t("awesomeFeat")}</h2>
-            <div className="flex justify-center gap-1 mt-4">
-              <div className="w-10 h-1.5 bg-blue-season rounded-full"></div>
-              <div className="w-3 h-1.5 bg-golden rounded-full"></div>
-            </div>
+            <p className="text-aqua font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">{t("feature")}</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-ink">{t("awesomeFeat")}</h2>
+            <div className="zn-rule" aria-hidden="true" />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
             {[
@@ -798,44 +862,57 @@ export default function HomePageClient() {
               { icon: <DollarSign className="w-10 h-10" />, title: t("affordRate"), desc: t("affordRateDesc") },
               { icon: <Headphones className="w-10 h-10" />, title: t("support247"), desc: t("support247Desc") },
             ].map((f, i) => (
-              <div key={i} className="animate-on-scroll fade-up bg-[#f5f5f5] rounded-2xl p-6 sm:p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-delay={(i * 100).toString()}>
-                <div className="w-[80px] h-[80px] mx-auto mb-5 rounded-full border-2 border-gray-800 flex items-center justify-center bg-golden/10 text-gray-800">
+              <div key={i} className="animate-on-scroll fade-up bg-mist rounded-2xl p-6 sm:p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-delay={(i * 100).toString()}>
+                <div className="w-[80px] h-[80px] mx-auto mb-5 rounded-full border-2 border-white/10 flex items-center justify-center bg-golden/10 text-ink">
                   {f.icon}
                 </div>
-                <h3 className="text-lg font-display font-black text-gray-900 mb-3">{f.title}</h3>
-                <p className="text-gray-500 text-[13px] leading-relaxed">{f.desc}</p>
+                <h3 className="text-lg font-display font-black text-ink mb-3">{f.title}</h3>
+                <p className="text-slate-ink text-[13px] leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ═══════ CHECKERED CTA ═══════ */}
-      <section className="relative bg-[#2d3a4a] py-14 sm:py-20">
-        {/* Checkered top border */}
-        <div className="absolute top-0 left-0 right-0 h-5 overflow-hidden">
-          <div className="w-full h-full" style={{ backgroundImage: "repeating-conic-gradient(#1a1a1a 0% 25%, transparent 0% 50%)", backgroundSize: "20px 20px" }}></div>
-        </div>
-        {/* Checkered bottom border */}
-        <div className="absolute bottom-0 left-0 right-0 h-5 overflow-hidden">
-          <div className="w-full h-full" style={{ backgroundImage: "repeating-conic-gradient(#1a1a1a 0% 25%, transparent 0% 50%)", backgroundSize: "20px 20px" }}></div>
-        </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
+      {/* ═══════ BOOKING CTA ═══════ */}
+      <section className="relative bg-gradient-ocean py-14 sm:py-20 overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-[0.08]"
+          style={{
+            backgroundImage: "radial-gradient(circle at center, #ffffff 1px, transparent 1px)",
+            backgroundSize: "22px 22px",
+          }}
+        />
+        {/* Soft aqua glow anchoring the right side */}
+        <div
+          aria-hidden="true"
+          className="absolute -right-40 -top-32 w-[520px] h-[520px] rounded-full opacity-25 blur-3xl"
+          style={{ background: "radial-gradient(circle, var(--zn-lagoon) 0%, transparent 70%)" }}
+        />
+        <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 items-center">
             <div className="lg:col-span-3">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-white leading-tight mb-4">{t("bookCta1")}</h2>
-              <p className="text-gray-400 text-sm leading-relaxed">{t("bookCtaDesc")}</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold text-white leading-tight mb-4">
+                {t("bookCta1")}
+              </h2>
+              <p className="text-white/70 text-sm sm:text-[15px] leading-relaxed max-w-xl">{t("bookCtaDesc")}</p>
             </div>
             <div className="lg:col-span-2 flex flex-col sm:flex-row items-start sm:items-center gap-5 lg:justify-end">
-              <div className="flex items-center gap-3 border-l-2 border-gray-500 pl-4">
-                <Headphones className="w-7 h-7 text-white" />
-                <span className="text-white text-xl sm:text-2xl font-black">+255 710 885 320</span>
-              </div>
-              <BookingModal tourName="Airport Taxi Booking" trigger={
-                <button className="border-2 border-white text-white font-bold px-5 py-3 rounded-full hover:bg-white hover:text-[#2d3a4a] transition-colors flex items-center gap-2 text-xs sm:text-sm tracking-wider whitespace-nowrap">
-                  {t("bookAirport")} <ArrowRight className="w-4 h-4" />
-                </button>
-              } />
+              <a href="tel:+255710885320" className="flex items-center gap-3 border-l-2 border-lagoon pl-4 group">
+                <Headphones className="w-7 h-7 text-lagoon" />
+                <span className="text-white text-xl sm:text-2xl font-display font-extrabold group-hover:text-lagoon transition-colors">
+                  +255 710 885 320
+                </span>
+              </a>
+              <BookingModal
+                tourName="Airport Taxi Booking"
+                trigger={
+                  <button className="bg-golden hover:bg-sand text-ink font-bold px-6 py-3.5 rounded-full transition-colors flex items-center gap-2 text-xs sm:text-sm tracking-wider whitespace-nowrap shadow-lg shadow-black/10">
+                    {t("bookAirport")} <ArrowRight className="w-4 h-4" />
+                  </button>
+                }
+              />
             </div>
           </div>
         </div>
@@ -845,12 +922,9 @@ export default function HomePageClient() {
       <section className="py-12 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14 animate-on-scroll fade-up">
-            <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">{t("drivers")}</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-gray-900">{t("expertTeam")}</h2>
-            <div className="flex justify-center gap-1 mt-4">
-              <div className="w-10 h-1.5 bg-blue-season rounded-full"></div>
-              <div className="w-3 h-1.5 bg-golden rounded-full"></div>
-            </div>
+            <p className="text-aqua font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">{t("drivers")}</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-ink">{t("expertTeam")}</h2>
+            <div className="zn-rule" aria-hidden="true" />
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {drivers.map((d, i) => (
@@ -858,12 +932,12 @@ export default function HomePageClient() {
                 <div className="relative w-full aspect-square rounded-xl overflow-hidden border-[3px] border-golden/40 mb-4">
                   <Image src={d.img} alt={d.name} fill className="object-cover" sizes="(max-width:640px)50vw,25vw" />
                 </div>
-                <h3 className="font-display font-black text-gray-900 text-sm sm:text-base">{d.name}</h3>
-                <p className="text-golden text-xs sm:text-sm mb-3">{t("expertDriver")}</p>
+                <h3 className="font-display font-black text-ink text-sm sm:text-base">{d.name}</h3>
+                <p className="text-sea text-xs sm:text-sm mb-3">{t("expertDriver")}</p>
                 <div className="flex justify-center gap-1.5 sm:gap-2">
                   {[Facebook, Twitter, Linkedin, Youtube].map((Icon, j) => (
                     <Link key={j} href="/">
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-golden rounded-full flex items-center justify-center text-white hover:bg-golden/80 transition-colors">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-golden rounded-full flex items-center justify-center text-ink hover:bg-golden/80 transition-colors">
                         <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                       </div>
                     </Link>
@@ -876,32 +950,32 @@ export default function HomePageClient() {
       </section>
 
       {/* ═══════ FAQ ═══════ */}
-      <section className="py-12 sm:py-20 bg-[#f8f8f8]">
+      <section className="py-12 sm:py-20 bg-mist">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
             <div>
-              <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-3 animate-on-scroll fade-left">{t("faqLabel")}</p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-gray-900 leading-tight mb-5">
-                {t("faqTitle")} <span className="text-golden">{t("faqHighlight")}</span><br />{t("faqTitle2")}
+              <p className="text-sea font-display font-bold tracking-[0.2em] uppercase text-xs mb-3 animate-on-scroll fade-left">{t("faqLabel")}</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-ink leading-tight mb-5">
+                {t("faqTitle")} <span className="text-sea">{t("faqHighlight")}</span><br />{t("faqTitle2")}
               </h2>
-              <p className="text-gray-500 text-[13px] sm:text-sm leading-relaxed mb-6">{t("faqDesc")}</p>
+              <p className="text-slate-ink text-[13px] sm:text-sm leading-relaxed mb-6">{t("faqDesc")}</p>
               <div className="relative h-48 sm:h-56 rounded-xl overflow-hidden">
                 <Image src="/toyota-alphard.jpeg" alt="Taxi service" fill className="object-cover" sizes="(max-width:1024px)100vw,50vw" />
               </div>
             </div>
             <div className="space-y-3">
               {faqs.map((faq, i) => (
-                <div key={i} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex items-center gap-3 sm:gap-4 p-4 sm:p-5 text-left hover:bg-gray-50/50 transition-colors">
+                <div key={i} className="bg-white rounded-xl shadow-sm border border-border overflow-hidden">
+                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex items-center gap-3 sm:gap-4 p-4 sm:p-5 text-left hover:bg-mist/50 transition-colors">
                     <div className="w-9 h-9 sm:w-10 sm:h-10 bg-golden rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-white font-black text-sm">?</span>
                     </div>
-                    <span className="font-display font-bold text-gray-900 text-sm sm:text-base flex-1">{faq.q}</span>
-                    {openFaq === i ? <ChevronUp className="w-5 h-5 text-gray-400 flex-shrink-0" /> : <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />}
+                    <span className="font-display font-bold text-ink text-sm sm:text-base flex-1">{faq.q}</span>
+                    {openFaq === i ? <ChevronUp className="w-5 h-5 text-slate-ink/75 flex-shrink-0" /> : <ChevronDown className="w-5 h-5 text-slate-ink/75 flex-shrink-0" />}
                   </button>
                   {openFaq === i && (
                     <div className="px-4 sm:px-5 pb-4 sm:pb-5 ml-12 sm:ml-14">
-                      <p className="text-gray-500 text-[13px] sm:text-sm leading-relaxed">{faq.a}</p>
+                      <p className="text-slate-ink text-[13px] sm:text-sm leading-relaxed">{faq.a}</p>
                     </div>
                   )}
                 </div>
@@ -916,7 +990,7 @@ export default function HomePageClient() {
         <div className="absolute inset-0 bg-black/85"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14 animate-on-scroll fade-up">
-            <p className="text-golden font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">{t("testimonials")}</p>
+            <p className="text-aqua font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">{t("testimonials")}</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-white">
               What Our Client <span className="text-golden italic">Say&apos;s</span>
             </h2>
@@ -927,14 +1001,14 @@ export default function HomePageClient() {
                 <div className="flex items-center gap-3 mb-4">
                   <Image src="/images/logo-zanzione.png" alt="" width={32} height={32} className="rounded-full" />
                   <div>
-                    <p className="font-display font-black text-gray-900 text-sm">{r.name}</p>
-                    <p className="text-golden text-xs">{t("customer")}</p>
+                    <p className="font-display font-black text-ink text-sm">{r.name}</p>
+                    <p className="text-sea text-xs">{t("customer")}</p>
                   </div>
                 </div>
-                <p className="text-gray-500 text-xs leading-relaxed mb-4 line-clamp-[8]">{r.text}</p>
+                <p className="text-slate-ink text-xs leading-relaxed mb-4 line-clamp-[8]">{r.text}</p>
                 <div className="flex items-center gap-0.5">
                   {[...Array(r.rating)].map((_, j) => <Star key={j} className="w-4 h-4 text-golden fill-golden" />)}
-                  <span className="text-gray-400 text-xs ml-1.5">({r.rating})</span>
+                  <span className="text-slate-ink/75 text-xs ml-1.5">({r.rating})</span>
                 </div>
               </div>
             ))}

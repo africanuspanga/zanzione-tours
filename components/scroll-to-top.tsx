@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 
 export default function ScrollToTop() {
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' })
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
   }, [])
 
   return null

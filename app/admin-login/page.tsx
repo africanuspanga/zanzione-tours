@@ -56,7 +56,7 @@ export default function AdminLoginPage() {
             <div className="space-y-2">
               <Label htmlFor="email">Email Address</Label>
               <div className="relative">
-                <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                <Mail className="absolute left-3 top-3 h-5 w-5 text-slate-ink/75" />
                 <Input
                   id="email"
                   type="email"
@@ -72,7 +72,7 @@ export default function AdminLoginPage() {
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
               <div className="relative">
-                <Lock className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                <Lock className="absolute left-3 top-3 h-5 w-5 text-slate-ink/75" />
                 <Input
                   id="password"
                   type={showPassword ? "text" : "password"}
@@ -85,7 +85,7 @@ export default function AdminLoginPage() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-3 text-slate-ink/75 hover:text-slate-ink"
                 >
                   {showPassword ? (
                     <EyeOff className="h-5 w-5" />

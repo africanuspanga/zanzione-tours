@@ -1,6 +1,5 @@
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Clock, MapPin, Users, Check, Star, ArrowLeft } from 'lucide-react'
@@ -52,7 +51,7 @@ export default function SelousDayTripPage() {
       </section>
 
       {/* Quick Info */}
-      <section className="py-8 bg-gray-50 border-b">
+      <section className="py-8 bg-mist border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
@@ -61,11 +60,11 @@ export default function SelousDayTripPage() {
                   <Star key={i} className="w-5 h-5 fill-current" />
                 ))}
               </div>
-              <span className="text-gray-600">5 Stars Rated</span>
+              <span className="text-slate-ink">5 Stars Rated</span>
             </div>
             <div className="text-center sm:text-right">
               <p className="text-lg font-semibold text-blue-season">Contact for Current Pricing</p>
-              <p className="text-gray-600">Price on request</p>
+              <p className="text-slate-ink">Price on request</p>
             </div>
           </div>
         </div>
@@ -80,7 +79,7 @@ export default function SelousDayTripPage() {
               {/* Overview */}
               <div>
                 <h2 className="text-3xl sm:text-4xl font-display font-bold text-blue-season mb-4">Overview</h2>
-                <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed space-y-4">
+                <div className="prose prose-lg max-w-none text-slate-ink leading-relaxed space-y-4">
                   <p>
                     Embark on an unforgettable day trip from Zanzibar to Selous Game Reserve, a thrilling adventure
                     that comes with a lot of wonders. Selous Game Reserve, also known as Nyerere National Park located
@@ -103,7 +102,7 @@ export default function SelousDayTripPage() {
                   <Card className="overflow-hidden border-l-4 border-l-golden">
                     <CardContent className="p-6">
                       <h3 className="text-xl font-bold text-blue-season mb-2">Early Morning Departure (5:00 AM)</h3>
-                      <p className="text-gray-600 leading-relaxed">
+                      <p className="text-slate-ink leading-relaxed">
                         Your day begins with an early morning flight from Zanzibar to Selous Game Reserve. Our driver
                         will pick you up from your hotel in Zanzibar and drive you to Zanzibar Airport.
                       </p>
@@ -115,7 +114,7 @@ export default function SelousDayTripPage() {
                       <h3 className="text-xl font-bold text-blue-season mb-2">
                         Arrival at Zanzibar Airport (6:00 AM)
                       </h3>
-                      <p className="text-gray-600 leading-relaxed">
+                      <p className="text-slate-ink leading-relaxed">
                         Upon your arrival at the airport, complete the check-in process and board your flight to Selous
                         Game Reserve.
                       </p>
@@ -127,7 +126,7 @@ export default function SelousDayTripPage() {
                       <h3 className="text-xl font-bold text-blue-season mb-2">
                         Arrival at Selous Game Reserve (7:20 AM)
                       </h3>
-                      <p className="text-gray-600 leading-relaxed">
+                      <p className="text-slate-ink leading-relaxed">
                         Upon landing at Selous, your experienced guide will lead you on a safari game drive through the
                         reserve. Selous Game Reserve is known for its remarkable wildlife diversity, including lions,
                         elephants, zebras, giraffes, and a multitude of bird species. Be prepared to witness the
@@ -139,7 +138,7 @@ export default function SelousDayTripPage() {
                   <Card className="overflow-hidden border-l-4 border-l-golden">
                     <CardContent className="p-6">
                       <h3 className="text-xl font-bold text-blue-season mb-2">Lunch Amidst Nature</h3>
-                      <p className="text-gray-600 leading-relaxed">
+                      <p className="text-slate-ink leading-relaxed">
                         Recharge with a delicious lunch served amidst the beauty of the reserve, providing you with the
                         opportunity to relax and refuel before continuing your safari adventure.
                       </p>
@@ -149,7 +148,7 @@ export default function SelousDayTripPage() {
                   <Card className="overflow-hidden border-l-4 border-l-golden">
                     <CardContent className="p-6">
                       <h3 className="text-xl font-bold text-blue-season mb-2">Return to Zanzibar</h3>
-                      <p className="text-gray-600 leading-relaxed">
+                      <p className="text-slate-ink leading-relaxed">
                         After a day filled with exploration and wildlife encounters, you'll catch an evening flight back
                         to Zanzibar, concluding your Selous Day Trip. Selous Game Reserve's landscapes are stunning,
                         with vast plains, lush woodlands, and the enchanting backdrop of the Rufiji River. Don't forget
@@ -165,7 +164,7 @@ export default function SelousDayTripPage() {
                 <h2 className="text-3xl sm:text-4xl font-display font-bold text-blue-season mb-4">
                   About Selous Game Reserve
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed space-y-4">
+                <div className="prose prose-lg max-w-none text-slate-ink leading-relaxed space-y-4">
                   <p>
                     Selous Game Reserve, the largest game reserve in Africa, boasts incredible biodiversity including
                     Rufiji River. Selous is known for its remote and pristine wilderness, located just a short flight
@@ -189,11 +188,11 @@ export default function SelousDayTripPage() {
                     <h3 className="text-2xl font-bold text-blue-season mb-4">Tour Pricing</h3>
                     <div className="text-center mb-6">
                       <p className="text-lg font-semibold text-blue-season mb-2">Contact for Current Pricing</p>
-                      <p className="text-gray-600">Price on request</p>
+                      <p className="text-slate-ink">Price on request</p>
                     </div>
                     <BookingModal
                       tourName="Selous Day Trip Safari"
-                      className="w-full bg-green-600 hover:bg-green-700 text-white text-lg py-6"
+                      className="w-full bg-golden hover:bg-sand text-ink text-lg py-6"
                     />
                   </CardContent>
                 </Card>
@@ -214,8 +213,8 @@ export default function SelousDayTripPage() {
                         "All Taxes/VAT",
                       ].map((item, idx) => (
                         <li key={idx} className="flex items-start gap-3">
-                          <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-600">{item}</span>
+                          <Check className="w-5 h-5 text-island flex-shrink-0 mt-0.5" />
+                          <span className="text-slate-ink">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -231,19 +230,19 @@ export default function SelousDayTripPage() {
       <section className="py-12 sm:py-20 bg-blue-season text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6">Ready for Your Safari?</h2>
-          <p className="text-lg sm:text-xl text-blue-100 mb-8 leading-relaxed">
+          <p className="text-lg sm:text-xl text-white/75 mb-8 leading-relaxed">
             Book your Selous day trip today and experience Africa's largest game reserve in all its glory.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <BookingModal 
               tourName="Selous Day Trip Safari" 
-              className="bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-4"
+              className="bg-golden hover:bg-sand text-ink font-semibold px-8 py-4"
             />
             <Link href="/itineraries">
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-white text-blue-season hover:bg-gray-100 font-semibold px-8 py-4"
+                className="bg-white text-blue-season hover:bg-mist font-semibold px-8 py-4"
               >
                 <ArrowLeft className="w-5 h-5 mr-2" />
                 View All Packages
@@ -254,7 +253,6 @@ export default function SelousDayTripPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

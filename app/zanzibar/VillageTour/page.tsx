@@ -1,5 +1,4 @@
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -19,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function VillageTourPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-mist">
       <Navigation />
 
       {/* Hero Section */}
@@ -69,9 +68,9 @@ export default function VillageTourPage() {
             <CardContent className="p-8">
               <div className="text-center">
                 <h2 className="text-3xl font-display font-bold text-ocean mb-4">Book Your Village Tour</h2>
-                <p className="text-gray-600 mb-6 text-lg">Experience the real Zanzibar through its people and traditions</p>
+                <p className="text-slate-ink mb-6 text-lg">Experience the real Zanzibar through its people and traditions</p>
                 <BookingModal tourName="Village Tour Zanzibar" />
-                <p className="text-sm text-gray-500 mt-4">
+                <p className="text-sm text-slate-ink mt-4">
                   ✓ Best Price Guarantee | ✓ Easy Online Booking | ✓ Book Now & Pay Later
                 </p>
               </div>
@@ -82,7 +81,7 @@ export default function VillageTourPage() {
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">Overview & Experience</h2>
             <h3 className="text-2xl font-bold text-blue-season mb-4">A Village Tour in Zanzibar</h3>
-            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
+            <div className="prose prose-lg max-w-none text-ink/85 leading-relaxed space-y-4">
               <p>
                 A Village Tour in Zanzibar offers an authentic glimpse into local island life, taking you beyond the
                 beaches to experience the rich culture and traditions of Zanzibar communities.
@@ -111,9 +110,9 @@ export default function VillageTourPage() {
                 "Interact with villagers: meet the elders, chat with the kids, and feel genuine island hospitality.",
                 "Explore local crafts: see how artisans make baskets, pottery, and handmade mats—great for souvenirs!",
               ].map((highlight, index) => (
-                <div key={index} className="flex items-start gap-3 p-4 bg-amber-50 rounded-lg">
-                  <Check className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                  <span className="text-gray-700">{highlight}</span>
+                <div key={index} className="flex items-start gap-3 p-4 bg-golden/10 rounded-lg">
+                  <Check className="w-6 h-6 text-island flex-shrink-0 mt-1" />
+                  <span className="text-ink/85">{highlight}</span>
                 </div>
               ))}
             </div>
@@ -122,7 +121,7 @@ export default function VillageTourPage() {
           {/* Best Villages */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">Which Villages Are Best?</h2>
-            <p className="text-gray-700 mb-6 leading-relaxed">
+            <p className="text-ink/85 mb-6 leading-relaxed">
               Zanzibar has many villages, but not all are suitable for respectful tourism. The best village tours
               happen in communities already open to visitors and guided by locals.
             </p>
@@ -133,13 +132,13 @@ export default function VillageTourPage() {
                 "Nungwi – Fishing traditions and dhow building",
                 "Villages near Stone Town – Urban-local lifestyle mix",
               ].map((village, index) => (
-                <div key={index} className="flex items-start gap-3 p-4 bg-orange-50 rounded-lg">
-                  <Check className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                  <span className="text-gray-700">{village}</span>
+                <div key={index} className="flex items-start gap-3 p-4 bg-golden/10 rounded-lg">
+                  <Check className="w-6 h-6 text-island flex-shrink-0 mt-1" />
+                  <span className="text-ink/85">{village}</span>
                 </div>
               ))}
             </div>
-            <p className="text-gray-700 mt-6 leading-relaxed">
+            <p className="text-ink/85 mt-6 leading-relaxed">
               We select villages where tourism benefits locals and avoids disrupting daily life.
             </p>
           </div>
@@ -183,12 +182,12 @@ export default function VillageTourPage() {
                 },
               ].map((step, index) => (
                 <div key={index} className="flex gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-golden rounded-full flex items-center justify-center text-white font-black">
+                  <div className="flex-shrink-0 w-10 h-10 bg-golden rounded-full flex items-center justify-center text-ink font-black">
                     {index + 1}
                   </div>
                   <div>
                     <h4 className="font-bold text-blue-season mb-1">{step.title}</h4>
-                    <p className="text-gray-700 text-sm leading-relaxed">{step.desc}</p>
+                    <p className="text-ink/85 text-sm leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
               ))}
@@ -198,7 +197,7 @@ export default function VillageTourPage() {
           {/* Packages */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">Village Tour Packages</h2>
-            <p className="text-gray-700 mb-6 leading-relaxed">
+            <p className="text-ink/85 mb-6 leading-relaxed">
               Village tour packages in Zanzibar range from basic half-day outings to full immersions with add-ons.
               The best ones balance authenticity, comfort, and value. Contact us for current pricing tailored to your
               group size and interests.
@@ -211,9 +210,9 @@ export default function VillageTourPage() {
                 "Private custom packages: flexible durations and personalized itineraries",
                 "Community-focused packages: include donations to the village",
               ].map((pkg, index) => (
-                <div key={index} className="flex items-start gap-3 p-4 bg-green-50 rounded-lg">
-                  <Check className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                  <span className="text-gray-700">{pkg}</span>
+                <div key={index} className="flex items-start gap-3 p-4 bg-island/8 rounded-lg">
+                  <Check className="w-6 h-6 text-island flex-shrink-0 mt-1" />
+                  <span className="text-ink/85">{pkg}</span>
                 </div>
               ))}
             </div>
@@ -231,9 +230,9 @@ export default function VillageTourPage() {
                 "Tip your guide for great service.",
                 "Bring small bills for souvenirs or donations; ATMs are rare.",
               ].map((tip, index) => (
-                <div key={index} className="flex items-start gap-3 p-4 bg-red-50 rounded-lg">
-                  <Check className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                  <span className="text-gray-700">{tip}</span>
+                <div key={index} className="flex items-start gap-3 p-4 bg-destructive/8 rounded-lg">
+                  <Check className="w-6 h-6 text-island flex-shrink-0 mt-1" />
+                  <span className="text-ink/85">{tip}</span>
                 </div>
               ))}
             </div>
@@ -242,14 +241,14 @@ export default function VillageTourPage() {
           {/* Booking & Transport */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">Booking & Transportation</h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-ink/85 leading-relaxed mb-4">
               We make it super easy to book your Village Tour in Zanzibar! You can reserve your spot online, via
               WhatsApp, or just give us a quick call. We offer flexible payment options including credit cards, bank
               transfers, or cash. To keep things hassle-free, we provide comfortable transportation to and from your
               hotel.
             </p>
             <Link href="/contact" className="inline-block">
-              <Button className="bg-golden hover:bg-golden/90 text-white font-semibold px-8">
+              <Button className="bg-golden hover:bg-sand text-ink font-semibold px-8">
                 Contact Us
               </Button>
             </Link>
@@ -261,13 +260,13 @@ export default function VillageTourPage() {
             <div className="space-y-4">
               <div>
                 <h4 className="font-bold text-blue-season mb-2">How long does the village tour last?</h4>
-                <p className="text-gray-700 text-sm leading-relaxed">
+                <p className="text-ink/85 text-sm leading-relaxed">
                   Half-day tour: approximately 4-5 hours. Full-day tour: around 6-7 hours (includes a traditional local lunch).
                 </p>
               </div>
               <div>
                 <h4 className="font-bold text-blue-season mb-2">Is this tour suitable for families with kids?</h4>
-                <p className="text-gray-700 text-sm leading-relaxed">
+                <p className="text-ink/85 text-sm leading-relaxed">
                   Yes, village tours are very family-friendly and offer meaningful cultural learning for all ages.
                 </p>
               </div>
@@ -275,7 +274,7 @@ export default function VillageTourPage() {
           </div>
 
           {/* Final CTA */}
-          <div className="bg-blue-600 text-white shadow-2xl rounded-lg p-10 text-center">
+          <div className="bg-ocean text-white shadow-2xl rounded-lg p-10 text-center">
             <h2 className="text-3xl font-display font-bold mb-4">Ready for an Authentic Village Experience?</h2>
             <p className="text-xl text-white mb-8">Book your Village Tour today and connect with the heart of Zanzibar</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -295,7 +294,6 @@ export default function VillageTourPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

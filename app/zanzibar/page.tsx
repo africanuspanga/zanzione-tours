@@ -1,306 +1,41 @@
-import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
-import Footer from "@/components/footer"
-import BookingModal from "@/components/booking-modal"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Clock, Users } from 'lucide-react'
-import Link from "next/link"
-import Image from "next/image"
 import type { Metadata } from "next"
-
-const zanzibarTours = [
-  {
-    id: 1,
-    title: "Safari Blue Day Trip",
-    image: "/images/tours/safari-blue-day.jpg",
-    duration: "Full Day",
-    groupSize: "4-20 people",
-    slug: "SafariBlueTour",
-    description:
-      "Sail on traditional dhows to pristine sandbanks and enjoy the ultimate marine adventure with snorkeling, swimming, and a seafood feast.",
-    highlights: [
-      "Traditional dhow sailing",
-      "Sandbank exploration",
-      "Snorkeling adventures",
-      "Fresh seafood feast",
-      "Sunset sailing",
-    ],
-  },
-  {
-    id: 2,
-    title: "Stone Town Tour",
-    image: "/images/tours/stone-town-tour.jpg",
-    duration: "Half Day",
-    groupSize: "2-12 people",
-    slug: "StoneTownTour",
-    description:
-      "Explore the UNESCO World Heritage site with its narrow alleys, historic buildings, and vibrant markets. Discover the cultural heart of Zanzibar.",
-    highlights: [
-      "UNESCO World Heritage exploration",
-      "Historic architecture",
-      "Spice market visits",
-      "Cultural storytelling",
-      "Local artisan workshops",
-    ],
-  },
-  {
-    id: 3,
-    title: "Prison Island Boat Trip",
-    image: "/new-zanzi-tours-images/prison-island.jpeg",
-    duration: "Half Day",
-    groupSize: "2-15 people",
-    slug: "PrisonIslandTour",
-    description:
-      "Visit the historic Changuu Island to learn about its fascinating past and meet the famous giant Aldabra tortoises, some over 100 years old.",
-    highlights: [
-      "Giant tortoise encounters",
-      "Historical prison ruins",
-      "Peacock spotting",
-      "Island beach time",
-      "Cultural history lessons",
-    ],
-  },
-  {
-    id: 4,
-    title: "Nakupenda Sandbank Tour",
-    image: "/new-zanzi-tours-images/nakupenda-island.jpeg",
-    duration: "Half Day",
-    groupSize: "4-20 people",
-    slug: "NakupendaSandbankTour",
-    description:
-      "Escape to a pristine white sand paradise in the middle of the ocean. Perfect for relaxation, swimming, and enjoying fresh seafood.",
-    highlights: [
-      "Pristine white sandbank",
-      "Crystal-clear waters",
-      "Snorkeling opportunities",
-      "Fresh seafood barbecue",
-      "Tropical paradise experience",
-    ],
-  },
-  {
-    id: 5,
-    title: "Spice Farm Tour",
-    image: "/new-zanzi-tours-images/spice-farm.jpeg",
-    duration: "Half Day",
-    groupSize: "2-15 people",
-    slug: "SpiceFarmTour",
-    description:
-      "Discover why Zanzibar is called the 'Spice Island' with visits to working spice plantations where you'll see, smell, and taste exotic spices.",
-    highlights: [
-      "Exotic spice tasting",
-      "Plantation walks",
-      "Traditional farming methods",
-      "Spice cooking demonstrations",
-      "Fresh tropical fruits",
-    ],
-  },
-  {
-    id: 6,
-    title: "Jozani Forest Tour",
-    image: "/images/tours/jozani-forest.jpg",
-    duration: "Half Day",
-    groupSize: "2-15 people",
-    slug: "JozaniForestTour",
-    description:
-      "Explore Zanzibar's indigenous forest and meet the rare Red Colobus monkeys found nowhere else on Earth. A nature lover's paradise with guided forest walks.",
-    highlights: [
-      "Red Colobus monkey encounters",
-      "Indigenous forest exploration",
-      "Medicinal plant learning",
-      "Bird watching",
-      "Nature photography",
-    ],
-  },
-  {
-    id: 7,
-    title: "Salaam Cave",
-    image: "/new-zanzi-tours-images/salaam-cave.jpeg",
-    duration: "Half Day",
-    groupSize: "2-25 people",
-    slug: "SalaamCave",
-    description:
-      "Experience the unique sea turtle sanctuary in this natural coral grotto. Swim alongside rescued sea turtles in crystal-clear saltwater pools and support vital conservation efforts.",
-    highlights: [
-      "Swim with sea turtles",
-      "Turtle interaction & feeding",
-      "Conservation education",
-      "Natural cave pool",
-      "Marine sanctuary experience",
-    ],
-  },
-  {
-    id: 8,
-    title: "Kizimkazi Dolphins Tour",
-    image: "/new-zanzi-tours-images/kizimkazi-dolphins.jpeg",
-    duration: "Half Day",
-    groupSize: "2-12 people",
-    slug: "KizimkaziDolphinsTour",
-    description:
-      "Swim with wild dolphins in their natural habitat at Kizimkazi. An unforgettable wildlife encounter in the warm waters of the Indian Ocean.",
-    highlights: [
-      "Wild dolphin swimming",
-      "Marine wildlife encounters",
-      "Kizimkazi village visit",
-      "Snorkeling opportunities",
-      "Wildlife photography",
-    ],
-  },
-  {
-    id: 9,
-    title: "Mtende Beach",
-    image: "/new-zanzi-tours-images/mtende-beach.jpeg",
-    duration: "Half Day",
-    groupSize: "2-25 people",
-    slug: "MtendeBeach",
-    description:
-      "Discover Zanzibar's secret, picturesque cove with dramatic rock formations and extreme tidal displays. Perfect for those seeking authentic, tranquil atmosphere away from the crowds.",
-    highlights: [
-      "Dramatic rock formations & scenery",
-      "Tide pool exploration",
-      "High tide swimming",
-      "The iconic rock swing",
-      "Authentic local village culture",
-    ],
-  },
-  {
-    id: 10,
-    title: "Maalum Cave",
-    image: "/new-zanzi-tours-images/maalum-cave.jpeg",
-    duration: "Half Day",
-    groupSize: "2-25 people",
-    slug: "MaalumCave",
-    description:
-      "Discover Zanzibar's hidden oasis featuring a stunning natural limestone cave with crystal-clear freshwater pools. Perfect for swimming and geological exploration in a serene jungle setting.",
-    highlights: [
-      "Natural cave pool swimming",
-      "Crystal-clear mineral waters",
-      "Stunning stalactites & stalagmites",
-      "Lounge and relaxation area",
-      "Local legends and stories",
-    ],
-  },
-  {
-    id: 11,
-    title: "The Rock Restaurant",
-    image: "/new-zanzi-tours-images/the-rock.jpeg",
-    duration: "Half Day",
-    groupSize: "2-8 people",
-    slug: "TheRockRestaurant",
-    description:
-      "Dine at the world-famous restaurant built on a rock in the Indian Ocean. An iconic Zanzibar experience combining great food with stunning views.",
-    highlights: [
-      "Iconic rock restaurant",
-      "Ocean dining experience",
-      "Fresh seafood cuisine",
-      "Stunning photo opportunities",
-      "Unique architectural marvel",
-    ],
-  },
-  {
-    id: 12,
-    title: "Mnemba Island Tour",
-    image: "/new-zanzi-tours-images/mnemba-islandd.jpeg",
-    duration: "Half Day",
-    groupSize: "2-12 people",
-    slug: "MnembaIslandTour",
-    description:
-      "Discover pristine coral reefs and swim in crystal-clear waters around this protected marine sanctuary. Perfect for snorkeling enthusiasts and marine life lovers.",
-    highlights: [
-      "Pristine coral reef snorkeling",
-      "Tropical fish encounters",
-      "Dolphin spotting",
-      "Beach relaxation",
-      "Marine sanctuary experience",
-    ],
-  },
-  {
-    id: 13,
-    title: "Sunset Dhow Cruise",
-    image: "/images/tours/sunset-dhow.jpg",
-    duration: "Half Day",
-    groupSize: "2-20 people",
-    slug: "SunsetDhowCruise",
-    description:
-      "Sail into the golden hour aboard a traditional dhow and watch the spectacular Zanzibar sunset paint the sky in brilliant colors.",
-    highlights: [
-      "Traditional dhow sailing",
-      "Spectacular sunset views",
-      "Romantic atmosphere",
-      "Light refreshments",
-      "Photography opportunities",
-    ],
-  },
-  {
-    id: 14,
-    title: "Village Tour",
-    image: "/village-tour-zanzibar.jpeg",
-    duration: "Half Day / Full Day",
-    groupSize: "2-20 people",
-    slug: "VillageTour",
-    description:
-      "Experience authentic Swahili village life beyond the beaches. Meet locals, learn traditional crafts, cooking, and daily customs in a respectful, meaningful cultural immersion.",
-    highlights: [
-      "Authentic village walking tour",
-      "Visit a local Swahili home",
-      "Traditional cooking and crafts",
-      "Coconut husking and weaving",
-      "Support local communities",
-    ],
-  },
-  {
-    id: 15,
-    title: "Kendwa Sea Walk",
-    image: "/kendwa-seawalk.jpeg",
-    duration: "1 Hour",
-    groupSize: "Ages 10+",
-    slug: "KendwaSeawalk",
-    description:
-      "Walk on the ocean floor with a specially designed underwater helmet. No swimming or diving needed — perfect for non-swimmers, families, and couples to explore Zanzibar's marine life.",
-    highlights: [
-      "Underwater helmet walk",
-      "No swimming experience needed",
-      "Safe for families and non-swimmers",
-      "See colorful fish and coral",
-      "Keep glasses or contacts on",
-    ],
-  },
-  {
-    id: 16,
-    title: "Traditional Cooking Class",
-    image: "/cooking-class-zanzibar.jpeg",
-    duration: "3-4 Hours",
-    groupSize: "All ages welcome",
-    slug: "CookingClass",
-    description:
-      "Cook authentic Swahili dishes in Dole village. Tour Darajani market, harvest organic spices and vegetables from the farm, and prepare a 4-course meal with a professional chef.",
-    highlights: [
-      "Darajani market tour",
-      "Spice farm harvesting",
-      "Hands-on Swahili cooking",
-      "4-course meal included",
-      "Learn medicinal uses of spices",
-    ],
-  },
-]
+import Link from "next/link"
+import Navigation from "@/components/navigation"
+import Footer from "@/components/footer"
+import TourCard from "@/components/tour-card"
+import { Breadcrumbs } from "@/components/structured-data"
+import { zanzibarTours } from "@/lib/tours"
+import { ArrowRight, MapPin, ShieldCheck, Users } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Zanzibar Island Tours - Stone Town, Safari Blue, Spice Tours & Dolphin Adventures",
+  title: "Zanzibar Island Tours — Stone Town, Safari Blue, Spice Tours & Dolphin Adventures",
   description:
-    "Explore Zanzibar's best experiences: UNESCO Stone Town tours, Safari Blue trips, pristine sandbanks, dolphin swimming, spice farm visits, Jozani Forest, and sunset dhow cruises. Book authentic island adventures with local expert guides.",
-  keywords:
-    "Zanzibar tours, Stone Town tour, Safari Blue, Nakupenda sandbank, Prison Island, spice tour, Jozani Forest, Kizimkazi dolphins, sunset cruise, Mnemba Island snorkeling, The Rock Restaurant",
+    "Explore Zanzibar's best excursions from $25: UNESCO Stone Town tours, Safari Blue, Nakupenda sandbank, dolphin swimming, spice farms, Jozani Forest and sunset dhow cruises. Book with expert local guides.",
+  keywords: [
+    "Zanzibar tours",
+    "Zanzibar excursions",
+    "Stone Town tour",
+    "Safari Blue",
+    "Nakupenda sandbank",
+    "Prison Island",
+    "spice farm tour",
+    "Jozani Forest",
+    "Kizimkazi dolphins",
+    "sunset dhow cruise",
+    "Mnemba Island snorkeling",
+    "The Rock Restaurant",
+  ],
   openGraph: {
-    title: "Zanzibar Island Tours - Experience the Spice Island",
+    title: "Zanzibar Island Tours — Experience the Spice Island",
     description:
-      "From Stone Town's historic alleys to pristine beaches and vibrant marine life - discover authentic Zanzibar experiences.",
+      "From Stone Town's historic alleys to pristine sandbanks and vibrant marine life — discover authentic Zanzibar excursions with Zanzione.",
     url: "https://www.zanzionetours.com/zanzibar",
     images: [
       {
-        url: "/images/zanzibar-beach.jpg",
+        url: "/new-zanzi-tours-images/nakupenda-island.jpeg",
         width: 1200,
         height: 630,
-        alt: "Zanzibar Island Paradise",
+        alt: "Nakupenda sandbank surrounded by turquoise water in Zanzibar",
       },
     ],
   },
@@ -309,138 +44,124 @@ export const metadata: Metadata = {
   },
 }
 
+const assurances = [
+  { Icon: MapPin, title: "Local guides", copy: "Born-and-raised Zanzibari guides who know every alley and reef." },
+  { Icon: ShieldCheck, title: "No hidden fees", copy: "Entrance fees, permits and hotel transfers quoted up front." },
+  { Icon: Users, title: "Private or shared", copy: "Every excursion runs as a private trip or a small shared group." },
+]
+
 export default function ZanzibarPage() {
   return (
     <div className="min-h-screen">
       <Navigation />
+      <Breadcrumbs trail={[{ name: "Zanzibar Excursions", href: "/zanzibar" }]} />
 
-      {/* Hero Section */}
-      <section className="relative h-96 bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url(/background-images/bg-safari-sunset.jpg)" }}>
-        <div className="absolute inset-0 bg-black/40"></div>
-        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h1 className="text-5xl md:text-6xl font-display font-bold mb-6">Zanzibar Island Tours</h1>
-          <p className="text-xl md:text-2xl leading-relaxed">
-            Discover the magic of the Spice Island with our carefully curated experiences
-          </p>
+      {/* ═══════ HERO ═══════ */}
+      <section className="relative bg-ink overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url(/background-images/bg-safari-sunset.jpg)" }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0"
+          aria-hidden="true"
+          style={{
+            background: "linear-gradient(100deg, rgba(2,47,106,0.94) 0%, rgba(2,47,106,0.72) 45%, rgba(7,29,53,0.45) 100%)",
+          }}
+        />
+        <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+          <div className="max-w-3xl">
+            <p className="inline-flex items-center gap-2 text-white/90 font-display font-semibold tracking-[0.22em] uppercase text-[11px] mb-5 bg-white/10 border border-white/20 rounded-full px-4 py-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-lagoon" aria-hidden="true" />
+              Zanzibar Excursions
+            </p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-white mb-5 leading-[1.08]">
+              Zanzibar Island Tours
+            </h1>
+            <p className="text-lg sm:text-xl text-white/75 leading-relaxed max-w-2xl">
+              Discover the magic of the Spice Island with {zanzibarTours.length} carefully curated day trips — from
+              UNESCO Stone Town to sandbanks that only exist at low tide.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Tours Grid */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-display font-bold text-blue-season mb-6">Unique Zanzibar Experiences</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From pristine beaches to cultural treasures, each tour offers a unique window into Zanzibar's incredible
-              diversity.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {zanzibarTours.map((tour) => (
-              <Card key={tour.id} className="overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="relative h-48 w-full">
-                  <Image
-                    src={tour.image || "/placeholder.svg"}
-                    alt={tour.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
+      {/* ═══════ ASSURANCES ═══════ */}
+      <section className="bg-mist border-b border-border">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {assurances.map(({ Icon, title, copy }) => (
+              <div key={title} className="flex items-start gap-3.5">
+                <span className="w-10 h-10 rounded-full bg-aqua/12 text-ocean flex items-center justify-center flex-shrink-0">
+                  <Icon className="w-5 h-5" />
+                </span>
+                <div>
+                  <p className="font-display font-bold text-ink text-[15px]">{title}</p>
+                  <p className="text-slate-ink text-[13.5px] leading-relaxed mt-0.5">{copy}</p>
                 </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-display font-bold text-blue-season mb-3">{tour.title}</h3>
-                  <div className="flex items-center gap-4 mb-3 text-sm text-gray-600">
-                    <div className="flex items-center gap-1">
-                      <Clock className="w-4 h-4" />
-                      <span>{tour.duration}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Users className="w-4 h-4" />
-                      <span>{tour.groupSize}</span>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">{tour.description}</p>
-
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-blue-season mb-2 text-sm">Highlights:</h4>
-                    <ul className="text-xs text-gray-600 space-y-1">
-                      {tour.highlights.slice(0, 3).map((highlight, index) => (
-                        <li key={index} className="flex items-center gap-2">
-                          <div className="w-1.5 h-1.5 bg-golden rounded-full"></div>
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex gap-2">
-                    {tour.slug ? (
-                      <>
-                        <Link href={`/zanzibar/${tour.slug}`} scroll={true} className="flex-1">
-                          <Button variant="outline" className="w-full border-ocean text-ocean hover:bg-ocean hover:text-white">
-                            View Details
-                          </Button>
-                        </Link>
-                        <div className="flex-1">
-                          <BookingModal 
-                            tourName={tour.title} 
-                            trigger={
-                              <Button className="w-full bg-[#F5A623] hover:bg-[#F5A623]/90 text-white font-bold">
-                                BOOK NOW
-                              </Button>
-                            }
-                          />
-                        </div>
-                      </>
-                    ) : (
-                      <div className="w-full">
-                        <BookingModal 
-                          tourName={tour.title} 
-                          trigger={
-                            <Button className="w-full bg-[#F5A623] hover:bg-[#F5A623]/90 text-white font-bold">
-                              BOOK NOW
-                            </Button>
-                          }
-                        />
-                      </div>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-blue-season text-white">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-display font-bold mb-6">Ready to Explore Zanzibar?</h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Let us create a personalized Zanzibar experience that matches your interests and schedule.
+      {/* ═══════ TOURS GRID ═══════ */}
+      <section className="py-14 sm:py-20 bg-white">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-14">
+            <p className="text-aqua font-display font-bold tracking-[0.2em] uppercase text-xs mb-3">Our Excursions</p>
+            <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-ink mb-4">
+              Unique Zanzibar Experiences
+            </h2>
+            <p className="text-[15px] sm:text-base text-slate-ink max-w-2xl mx-auto leading-relaxed">
+              From pristine beaches to cultural treasures, each tour is a different window into the island.
+            </p>
+            <div className="zn-rule" aria-hidden="true" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-6">
+            {zanzibarTours.map((tour, i) => (
+              <TourCard key={tour.slug} tour={tour} priority={i < 4} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════ CTA ═══════ */}
+      <section className="relative py-16 sm:py-20 bg-gradient-ocean text-white overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-[0.08]"
+          style={{
+            backgroundImage: "radial-gradient(circle at center, #ffffff 1px, transparent 1px)",
+            backgroundSize: "22px 22px",
+          }}
+        />
+        <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-display font-extrabold mb-5 text-white">Ready to Explore Zanzibar?</h2>
+          <p className="text-lg text-white/75 mb-9 leading-relaxed">
+            Tell us what you want to see and we&apos;ll build a day-by-day plan around your dates, your pace and your
+            hotel.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
-              <Button size="lg" className="bg-golden hover:bg-golden/90 text-white font-semibold px-8 py-4">
-                Customize Your Tour
-              </Button>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 bg-golden hover:bg-sand text-ink font-bold px-8 py-4 rounded-full transition-colors shadow-lg shadow-black/10"
+            >
+              Customise Your Tour <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link href="/contact">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-blue-season font-semibold px-8 py-4 bg-transparent"
-              >
-                Contact Our Experts
-              </Button>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 border border-white/40 hover:bg-white hover:text-navy text-white font-bold px-8 py-4 rounded-full transition-colors"
+            >
+              Contact Our Experts
             </Link>
           </div>
         </div>
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

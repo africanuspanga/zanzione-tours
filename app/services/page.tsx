@@ -1,5 +1,38 @@
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Our Services — Tours, Transfers, Car Hire & Water Sports",
+  description:
+    "Everything Zanzione offers in one place: Zanzibar day excursions, Tanzania safaris, Kilimanjaro climbs, airport and hotel transfers, private car hire, water sports and quad biking.",
+  keywords: [
+    "Zanzibar services",
+    "Zanzibar airport transfer",
+    "Zanzibar car hire",
+    "Zanzibar water sports",
+    "quad biking Zanzibar",
+    "Zanzibar taxi service",
+    "Tanzania safari booking",
+  ],
+  openGraph: {
+    title: "Our Services — Tours, Transfers, Car Hire & Water Sports | Zanzione Tours & Safaris",
+    description:
+      "Everything Zanzione offers in one place: Zanzibar day excursions, Tanzania safaris, Kilimanjaro climbs, airport and hotel transfers, private car hire, water sports and quad biking.",
+    url: "https://www.zanzionetours.com/services",
+    images: [
+      {
+        url: "/images/tours/safari-blue-day.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Zanzione Tours services in Zanzibar",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://www.zanzionetours.com/services",
+  },
+}
+
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -73,7 +106,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold text-blue-season mb-6">Complete Travel Solutions</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-ink max-w-3xl mx-auto">
               From the moment you land until your departure, we handle every detail so you can focus on creating
               memories.
             </p>
@@ -90,13 +123,13 @@ export default function ServicesPage() {
                 </div>
                 <CardContent className="p-8 flex flex-col flex-grow">
                   <h3 className="text-2xl font-display font-bold text-blue-season mb-4">{service.title}</h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+                  <p className="text-slate-ink mb-6 leading-relaxed">{service.description}</p>
 
                   <div className="mb-6 flex-grow">
                     <h4 className="font-semibold text-blue-season mb-3">What's Included:</h4>
                     <ul className="space-y-2">
                       {service.features.map((feature, index) => (
-                        <li key={index} className="flex items-center gap-2 text-sm text-gray-600">
+                        <li key={index} className="flex items-center gap-2 text-sm text-slate-ink">
                           <CheckCircle className="w-4 h-4 text-golden" />
                           {feature}
                         </li>
@@ -106,7 +139,7 @@ export default function ServicesPage() {
 
                   <div className="mt-auto">
                     <Link href="/contact" className="block">
-                      <Button className="w-full bg-golden hover:bg-golden/90 text-white">LEARN MORE</Button>
+                      <Button className="w-full bg-golden hover:bg-sand text-ink">LEARN MORE</Button>
                     </Link>
                   </div>
                 </CardContent>
@@ -117,11 +150,11 @@ export default function ServicesPage() {
       </section>
 
       {/* Why Choose Our Services */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-mist">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold text-blue-season mb-6">Why Choose Our Services?</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-ink max-w-3xl mx-auto">
               We go beyond basic transportation and insurance to provide exceptional service that enhances your entire
               travel experience.
             </p>
@@ -133,7 +166,7 @@ export default function ServicesPage() {
                 <Clock className="w-8 h-8 text-golden" />
               </div>
               <h3 className="text-xl font-display font-semibold text-blue-season mb-3">Punctual & Reliable</h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-slate-ink text-sm">
                 We understand the importance of timing in travel. Our services are always on time, every time.
               </p>
             </div>
@@ -143,7 +176,7 @@ export default function ServicesPage() {
                 <Users className="w-8 h-8 text-golden" />
               </div>
               <h3 className="text-xl font-display font-semibold text-blue-season mb-3">Professional Staff</h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-slate-ink text-sm">
                 Our drivers and staff are trained professionals who prioritize your safety and comfort.
               </p>
             </div>
@@ -153,7 +186,7 @@ export default function ServicesPage() {
                 <Car className="w-8 h-8 text-golden" />
               </div>
               <h3 className="text-xl font-display font-semibold text-blue-season mb-3">Fully Insured</h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-slate-ink text-sm">
                 All our vehicles and services are fully insured for your peace of mind and protection.
               </p>
             </div>
@@ -163,7 +196,7 @@ export default function ServicesPage() {
                 <MapPin className="w-8 h-8 text-golden" />
               </div>
               <h3 className="text-xl font-display font-semibold text-blue-season mb-3">Local Knowledge</h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-slate-ink text-sm">
                 Our team knows Zanzibar inside out, providing valuable local insights during your transfers.
               </p>
             </div>
@@ -180,28 +213,28 @@ export default function ServicesPage() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-display font-semibold text-blue-season mb-2">Zanzibar Island</h3>
-                  <p className="text-gray-600">
+                  <p className="text-slate-ink">
                     Complete coverage across Zanzibar Island including Stone Town, Nungwi, Kendwa, Paje, Jambiani, and
                     all major hotels and resorts.
                   </p>
                 </div>
                 <div>
                   <h3 className="text-xl font-display font-semibold text-blue-season mb-2">Airport Services</h3>
-                  <p className="text-gray-600">
+                  <p className="text-slate-ink">
                     Abeid Amani Karume International Airport (ZNZ) pickup and drop-off services with flight monitoring
                     and meet & greet options.
                   </p>
                 </div>
                 <div>
                   <h3 className="text-xl font-display font-semibold text-blue-season mb-2">Tour Destinations</h3>
-                  <p className="text-gray-600">
+                  <p className="text-slate-ink">
                     Transportation to all major tour destinations including spice farms, Jozani Forest, Prison Island
                     departure points, and cultural sites.
                   </p>
                 </div>
                 <div>
                   <h3 className="text-xl font-display font-semibold text-blue-season mb-2">Taxi Services</h3>
-                  <p className="text-gray-600">
+                  <p className="text-slate-ink">
                     Reliable taxi services for all your transportation needs throughout Zanzibar at competitive rates.
                   </p>
                 </div>
@@ -224,7 +257,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold mb-6">Simple Booking Process</h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl text-white/75 max-w-3xl mx-auto">
               Booking our services is quick and easy. Here's how it works:
             </p>
           </div>
@@ -235,7 +268,7 @@ export default function ServicesPage() {
                 <span className="text-2xl font-bold text-white">1</span>
               </div>
               <h3 className="text-xl font-display font-semibold mb-3">Contact Us</h3>
-              <p className="text-blue-100 text-sm">
+              <p className="text-white/75 text-sm">
                 Reach out via WhatsApp, email, or phone with your travel details and service needs.
               </p>
             </div>
@@ -245,7 +278,7 @@ export default function ServicesPage() {
                 <span className="text-2xl font-bold text-white">2</span>
               </div>
               <h3 className="text-xl font-display font-semibold mb-3">Get Quote</h3>
-              <p className="text-blue-100 text-sm">
+              <p className="text-white/75 text-sm">
                 Receive a detailed quote with transparent pricing and service inclusions within hours.
               </p>
             </div>
@@ -255,7 +288,7 @@ export default function ServicesPage() {
                 <span className="text-2xl font-bold text-white">3</span>
               </div>
               <h3 className="text-xl font-display font-semibold mb-3">Confirm Booking</h3>
-              <p className="text-blue-100 text-sm">
+              <p className="text-white/75 text-sm">
                 Confirm your booking with a simple deposit and receive confirmation details.
               </p>
             </div>
@@ -265,7 +298,7 @@ export default function ServicesPage() {
                 <span className="text-2xl font-bold text-white">4</span>
               </div>
               <h3 className="text-xl font-display font-semibold mb-3">Enjoy Service</h3>
-              <p className="text-blue-100 text-sm">
+              <p className="text-white/75 text-sm">
                 Relax and enjoy professional, punctual service throughout your stay in Zanzibar.
               </p>
             </div>
@@ -291,7 +324,7 @@ export default function ServicesPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-golden font-semibold px-8 py-4 bg-transparent"
+                className="border-white text-white hover:bg-white hover:text-sea font-semibold px-8 py-4 bg-transparent"
               >
                 Call Us Direct
               </Button>
@@ -301,7 +334,6 @@ export default function ServicesPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

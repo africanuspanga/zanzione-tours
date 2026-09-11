@@ -1,5 +1,4 @@
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -22,7 +21,7 @@ export default function MaalumCavePage() {
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hi, I'm interested in booking the Maalum Cave tour. Can you provide more details?`
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-mist">
       <Navigation />
 
       {/* Hero Section */}
@@ -72,9 +71,9 @@ export default function MaalumCavePage() {
             <CardContent className="p-8">
               <div className="text-center">
                 <h2 className="text-3xl font-display font-bold text-ocean mb-4">Book Your Maalum Cave Adventure</h2>
-                <p className="text-gray-600 mb-6 text-lg">Experience Zanzibar's hidden natural swimming pool</p>
+                <p className="text-slate-ink mb-6 text-lg">Experience Zanzibar's hidden natural swimming pool</p>
                 <BookingModal tourName="Maalum Cave Tour" />
-                <p className="text-sm text-gray-500 mt-4">
+                <p className="text-sm text-slate-ink mt-4">
                   ✓ Best Price Guarantee | ✓ Easy Online Booking | ✓ Book Now & Pay Later
                 </p>
               </div>
@@ -85,7 +84,7 @@ export default function MaalumCavePage() {
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">Overview & Experience</h2>
             <h3 className="text-2xl font-bold text-blue-season mb-4">The Hidden Oasis of Paje</h3>
-            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
+            <div className="prose prose-lg max-w-none text-ink/85 leading-relaxed space-y-4">
               <p>
                 Located just minutes from Paje on the southeast coast, <strong>Maalum Cave</strong> is a unique natural
                 phenomenon featuring a beautiful, <strong>clear-water swimming pool inside a limestone grotto</strong>.
@@ -113,8 +112,8 @@ export default function MaalumCavePage() {
                 "Enjoy the peaceful jungle surroundings",
               ].map((highlight, index) => (
                 <div key={index} className="flex items-start gap-3 p-4 bg-emerald-50 rounded-lg">
-                  <Check className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                  <span className="text-gray-700">{highlight}</span>
+                  <Check className="w-6 h-6 text-island flex-shrink-0 mt-1" />
+                  <span className="text-ink/85">{highlight}</span>
                 </div>
               ))}
             </div>
@@ -123,11 +122,11 @@ export default function MaalumCavePage() {
           {/* Pricing Section */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">Pricing Overview</h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-slate-ink mb-6">
               Please contact us for current pricing. We offer excellent value for shared experiences.
             </p>
             <Link href="/contact" className="inline-block">
-              <Button className="bg-golden hover:bg-golden/90 text-white font-semibold px-8">
+              <Button className="bg-golden hover:bg-sand text-ink font-semibold px-8">
                 Contact Us
               </Button>
             </Link>
@@ -148,26 +147,26 @@ export default function MaalumCavePage() {
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <div className="w-2 h-2 bg-golden rounded-full"></div>
-                      <span className="text-gray-700">{item}</span>
+                      <span className="text-ink/85">{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
               <div className="space-y-4">
-                <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-ocean">
+                <div className="bg-aqua/5 p-6 rounded-lg border-l-4 border-ocean">
                   <h3 className="font-bold text-ocean mb-3">What to Bring</h3>
-                  <ul className="text-gray-700 text-sm space-y-2">
+                  <ul className="text-ink/85 text-sm space-y-2">
                     <li>• Swimwear</li>
                     <li>• Towel</li>
                     <li>• Water shoes (recommended)</li>
                   </ul>
-                  <p className="text-gray-600 text-xs mt-3">
+                  <p className="text-slate-ink text-xs mt-3">
                     Note: Sunscreen is often not allowed in the pool to protect natural water quality.
                   </p>
                 </div>
-                <div className="bg-amber-50 p-6 rounded-lg border-l-4 border-golden">
+                <div className="bg-golden/10 p-6 rounded-lg border-l-4 border-golden">
                   <h3 className="font-bold text-ocean mb-3">Duration</h3>
-                  <p className="text-gray-700 text-sm leading-relaxed">
+                  <p className="text-ink/85 text-sm leading-relaxed">
                     The experience slot is typically <strong>90 minutes to 2 hours</strong> inside the cave area.
                   </p>
                 </div>
@@ -178,7 +177,7 @@ export default function MaalumCavePage() {
           {/* Geological Wonder */}
           <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">A Geological Wonder</h2>
-            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
+            <div className="prose prose-lg max-w-none text-ink/85 leading-relaxed space-y-4">
               <p>
                 Maalum Cave is a <strong>natural limestone phenomenon</strong> formed over thousands of years by
                 filtering water that has created spectacular stalactites hanging from above and stalagmites rising from
@@ -197,7 +196,7 @@ export default function MaalumCavePage() {
           </div>
 
           {/* Final CTA */}
-          <div className="bg-blue-600 text-white shadow-2xl rounded-lg p-10 text-center">
+          <div className="bg-ocean text-white shadow-2xl rounded-lg p-10 text-center">
             <h2 className="text-3xl font-display font-bold mb-4">Ready to Discover This Hidden Oasis?</h2>
             <p className="text-xl text-white mb-8">Book your Maalum Cave experience and dive into natural beauty</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -217,7 +216,6 @@ export default function MaalumCavePage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

@@ -1,5 +1,4 @@
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import ScrollToTop from "@/components/scroll-to-top"
 import { Button } from "@/components/ui/button"
@@ -76,7 +75,7 @@ export default function MnembaIslandTourPage() {
               {/* Overview Section */}
               <div>
                 <h2 className="text-3xl font-display font-bold text-blue-season mb-6">Overview & Experience</h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-lg max-w-none text-ink/85">
                   <p className="text-lg leading-relaxed mb-4">
                     Mnemba Island (sometimes called Mnemba Atoll) is renowned as one of the very best snorkeling spots
                     in all of Zanzibar. Located off the northeast coast, this day trip is the easiest way to explore a
@@ -103,7 +102,7 @@ export default function MnembaIslandTourPage() {
               {/* About Mnemba */}
               <div>
                 <h2 className="text-3xl font-display font-bold text-blue-season mb-6">About Mnemba Island</h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-lg max-w-none text-ink/85">
                   <p className="text-lg leading-relaxed">
                     Mnemba is a small private island located about 3 km off Matemwe Beach on the northeast coast of
                     Unguja (Zanzibar's main island). The island is surrounded by an oval reef, making it a conserved
@@ -116,23 +115,23 @@ export default function MnembaIslandTourPage() {
               <div>
                 <h2 className="text-3xl font-display font-bold text-blue-season mb-6">Tour Inclusions</h2>
 
-                <Card className="bg-blue-50 border-blue-200 mb-6">
+                <Card className="bg-aqua/5 border-aqua/25 mb-6">
                   <CardContent className="p-6">
                     <p className="text-lg font-semibold text-blue-season mb-4">Tour Pricing:</p>
-                    <Card className="bg-blue-50 border-blue-200 mb-4">
+                    <Card className="bg-aqua/5 border-aqua/25 mb-4">
                       <CardContent className="p-6">
-                        <p className="text-gray-700">Please contact us for current pricing.</p>
+                        <p className="text-ink/85">Please contact us for current pricing.</p>
                       </CardContent>
                     </Card>
-                    <div className="mt-4 p-3 bg-amber-50 border border-amber-200 rounded">
-                      <p className="text-sm text-gray-600">
+                    <div className="mt-4 p-3 bg-golden/10 border border-golden/30 rounded">
+                      <p className="text-sm text-slate-ink">
                         <strong>Note:</strong> Transport costs to the departure point are excluded. Contact us with your hotel location for the final price.
                       </p>
                     </div>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-blue-50 border-blue-200">
+                <Card className="bg-aqua/5 border-aqua/25">
                   <CardContent className="p-6">
                     <p className="text-lg font-semibold text-blue-season mb-4">The tour price includes:</p>
                     <ul className="space-y-3">
@@ -144,12 +143,12 @@ export default function MnembaIslandTourPage() {
                       ].map((item, index) => (
                         <li key={index} className="flex items-start gap-3">
                           <Check className="w-5 h-5 text-golden flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-700">{item}</span>
+                          <span className="text-ink/85">{item}</span>
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-4 pt-4 border-t border-blue-200">
-                      <p className="text-sm text-gray-600">
+                    <div className="mt-4 pt-4 border-t border-aqua/25">
+                      <p className="text-sm text-slate-ink">
                         <strong>Lunch Option (Extra Cost):</strong> Seafood BBQ Lunch (Octopus, Lobsters, Squids,
                         Prawns, etc.) is available at an extra cost.
                       </p>
@@ -161,12 +160,12 @@ export default function MnembaIslandTourPage() {
               {/* Important Note */}
               <div>
                 <h2 className="text-3xl font-display font-bold text-blue-season mb-6">Important Note on Pricing</h2>
-                <Card className="bg-amber-50 border-amber-200">
+                <Card className="bg-golden/10 border-golden/30">
                   <CardContent className="p-6 flex gap-4">
-                    <AlertCircle className="w-6 h-6 text-amber-600 flex-shrink-0" />
+                    <AlertCircle className="w-6 h-6 text-golden flex-shrink-0" />
                     <div>
-                      <p className="font-semibold text-amber-900 mb-2">TRANSPORT IS EXCLUDED</p>
-                      <p className="text-gray-700 leading-relaxed">
+                      <p className="font-semibold text-ink mb-2">TRANSPORT IS EXCLUDED</p>
+                      <p className="text-ink/85 leading-relaxed">
                         The displayed price is <strong>exclusive of transport costs</strong> to the departure point
                         (usually Matemwe/Muyuni). Please contact us with your hotel location, and we will provide you
                         with the full, final price including hotel transfers.
@@ -179,7 +178,7 @@ export default function MnembaIslandTourPage() {
               {/* Booking Section */}
               <div>
                 <h2 className="text-3xl font-display font-bold text-blue-season mb-6">Book Your Mnemba Adventure!</h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-lg max-w-none text-ink/85">
                   <p className="text-lg leading-relaxed mb-4">
                     If you are looking for the best snorkeling experience in Zanzibar, look no further. Snorkeling near
                     Mnemba is "insane" due to the high density of colorful fish species and healthy corals.
@@ -204,20 +203,20 @@ export default function MnembaIslandTourPage() {
                 <CardContent className="p-6 space-y-6">
                   <div>
                     <h3 className="text-2xl font-display font-bold text-blue-season mb-2">Book This Experience</h3>
-                    <div className="text-2xl font-bold text-golden mb-2">Contact for Pricing</div>
-                    <p className="text-gray-600 text-sm">per person (transport extra)</p>
+                    <div className="text-2xl font-bold text-ocean mb-2">Contact for Pricing</div>
+                    <p className="text-slate-ink text-sm">per person (transport extra)</p>
                   </div>
 
                   <div className="space-y-3 text-sm">
-                    <div className="flex items-center gap-2 text-gray-600">
+                    <div className="flex items-center gap-2 text-slate-ink">
                       <Clock className="w-4 h-4" />
                       <span>Half Day</span>
                     </div>
-                    <div className="flex items-center gap-2 text-gray-600">
+                    <div className="flex items-center gap-2 text-slate-ink">
                       <Users className="w-4 h-4" />
                       <span>2-12 people</span>
                     </div>
-                    <div className="flex items-center gap-2 text-gray-600">
+                    <div className="flex items-center gap-2 text-slate-ink">
                       <MapPin className="w-4 h-4" />
                       <span>Matemwe/Muyuni</span>
                     </div>
@@ -227,7 +226,7 @@ export default function MnembaIslandTourPage() {
                     <BookingModal
                       tourName="Mnemba Island Snorkeling Tour"
                       trigger={
-                        <Button className="w-full bg-golden hover:bg-golden/90 text-white font-semibold py-6 text-lg">
+                        <Button className="w-full bg-golden hover:bg-sand text-ink font-semibold py-6 text-lg">
                           BOOK VIA WHATSAPP
                         </Button>
                       }
@@ -243,7 +242,7 @@ export default function MnembaIslandTourPage() {
                   </div>
 
                   <div className="pt-4 border-t">
-                    <p className="text-xs text-gray-500 text-center">
+                    <p className="text-xs text-slate-ink text-center">
                       Contact us for final pricing including hotel transfers
                     </p>
                   </div>
@@ -255,7 +254,7 @@ export default function MnembaIslandTourPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600 text-white">
+      <section className="py-16 bg-ocean text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
             Ready to Explore the Underwater Paradise?
@@ -267,7 +266,7 @@ export default function MnembaIslandTourPage() {
             <BookingModal
               tourName="Mnemba Island Snorkeling Tour"
               trigger={
-                <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white font-semibold px-8">
+                <Button size="lg" className="bg-golden hover:bg-sand text-ink font-semibold px-8">
                   Book Now on WhatsApp
                 </Button>
               }
@@ -286,7 +285,6 @@ export default function MnembaIslandTourPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

@@ -40,7 +40,7 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-mist">
       <Navigation />
 
       {/* Admin Header */}
@@ -49,7 +49,7 @@ export default function AdminDashboard() {
           <div className="flex justify-between items-center">
             <div>
               <h1 className="text-3xl font-display font-bold">Admin Dashboard</h1>
-              <p className="text-blue-100 mt-1">Welcome back, {adminEmail}</p>
+              <p className="text-white/75 mt-1">Welcome back, {adminEmail}</p>
             </div>
             <Button
               onClick={handleLogout}
@@ -73,7 +73,7 @@ export default function AdminDashboard() {
                 <div>
                   <p className="text-sm text-muted-foreground">Total Bookings</p>
                   <p className="text-3xl font-bold text-blue-season">234</p>
-                  <p className="text-xs text-green-600 mt-1">+12% from last month</p>
+                  <p className="text-xs text-island mt-1">+12% from last month</p>
                 </div>
                 <div className="w-12 h-12 bg-blue-season/10 rounded-full flex items-center justify-center">
                   <Calendar className="w-6 h-6 text-blue-season" />
@@ -88,7 +88,7 @@ export default function AdminDashboard() {
                 <div>
                   <p className="text-sm text-muted-foreground">Revenue</p>
                   <p className="text-3xl font-bold text-blue-season">$45,678</p>
-                  <p className="text-xs text-green-600 mt-1">+8% from last month</p>
+                  <p className="text-xs text-island mt-1">+8% from last month</p>
                 </div>
                 <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center">
                   <DollarSign className="w-6 h-6 text-golden" />
@@ -103,10 +103,10 @@ export default function AdminDashboard() {
                 <div>
                   <p className="text-sm text-muted-foreground">Active Tours</p>
                   <p className="text-3xl font-bold text-blue-season">18</p>
-                  <p className="text-xs text-blue-600 mt-1">3 scheduled today</p>
+                  <p className="text-xs text-ocean mt-1">3 scheduled today</p>
                 </div>
-                <div className="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-blue-500" />
+                <div className="w-12 h-12 bg-aqua/10 rounded-full flex items-center justify-center">
+                  <MapPin className="w-6 h-6 text-ocean" />
                 </div>
               </div>
             </CardContent>
@@ -118,7 +118,7 @@ export default function AdminDashboard() {
                 <div>
                   <p className="text-sm text-muted-foreground">New Customers</p>
                   <p className="text-3xl font-bold text-blue-season">89</p>
-                  <p className="text-xs text-green-600 mt-1">+24% from last month</p>
+                  <p className="text-xs text-island mt-1">+24% from last month</p>
                 </div>
                 <div className="w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center">
                   <Users className="w-6 h-6 text-purple-500" />
@@ -152,7 +152,7 @@ export default function AdminDashboard() {
                       <p className="text-sm text-muted-foreground">{booking.tour}</p>
                     </div>
                     <div className="text-right">
-                      <p className="font-semibold text-golden">{booking.amount}</p>
+                      <p className="font-semibold text-ocean">{booking.amount}</p>
                       <p className="text-xs text-muted-foreground">{booking.date}</p>
                     </div>
                   </div>
@@ -214,7 +214,7 @@ export default function AdminDashboard() {
                 { name: "Spice Farm Tour", bookings: 38, revenue: "$1,900" },
                 { name: "Stone Town Walking", bookings: 32, revenue: "$1,600" },
               ].map((tour, index) => (
-                <div key={index} className="p-4 bg-gray-50 rounded-lg">
+                <div key={index} className="p-4 bg-mist rounded-lg">
                   <h4 className="font-semibold text-blue-season mb-2">{tour.name}</h4>
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Bookings:</span>
@@ -222,7 +222,7 @@ export default function AdminDashboard() {
                   </div>
                   <div className="flex justify-between text-sm mt-1">
                     <span className="text-muted-foreground">Revenue:</span>
-                    <span className="font-semibold text-golden">{tour.revenue}</span>
+                    <span className="font-semibold text-ocean">{tour.revenue}</span>
                   </div>
                 </div>
               ))}
@@ -231,8 +231,8 @@ export default function AdminDashboard() {
         </Card>
 
         {/* Disclaimer */}
-        <div className="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-          <p className="text-sm text-yellow-800">
+        <div className="mt-8 p-4 bg-golden/10 border border-golden/30 rounded-lg">
+          <p className="text-sm text-ink/85">
             <strong>Note:</strong> This is a demonstration admin dashboard. All data shown is sample data for display
             purposes only. No actual booking or customer data is being stored or processed.
           </p>

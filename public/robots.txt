@@ -1,34 +1,13 @@
 # robots.txt for www.zanzionetours.com
+# Zanzione Tours & Safaris — Zanzibar excursions, Tanzania safaris, transfers
 
-# Allow all search engines to crawl all pages
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Admin surfaces carry no public content
+Disallow: /admin
+Disallow: /admin/
+Disallow: /admin-login
+Disallow: /admin-login/
+
 Sitemap: https://www.zanzionetours.com/sitemap.xml
-
-# Crawl delay (optional, helps prevent server overload)
-Crawl-delay: 1
-
-# Block access to admin/private areas (if any)
-# Disallow: /admin/
-# Disallow: /private/
-
-# Allow access to CSS, JS, and images for better rendering
-User-agent: Googlebot
-Allow: /*.css$
-Allow: /*.js$
-Allow: /*.jpg$
-Allow: /*.jpeg$
-Allow: /*.png$
-Allow: /*.gif$
-Allow: /*.webp$
-Allow: /*.svg$
-
-# Mobile-friendly crawling
-User-agent: Googlebot-Mobile
-Allow: /
-
-# Image crawling
-User-agent: Googlebot-Image
-Allow: /

@@ -1,5 +1,4 @@
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import ScrollToTop from "@/components/scroll-to-top"
 import { Button } from "@/components/ui/button"
@@ -76,7 +75,7 @@ export default function SunsetDhowCruisePage() {
               {/* Overview Section */}
               <div>
                 <h2 className="text-3xl font-display font-bold text-blue-season mb-6">Overview & Experience</h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-lg max-w-none text-ink/85">
                   <p className="text-lg leading-relaxed mb-4">
                     A Sunset Dhow Cruise is one of the best and most romantic activities to do during your Zanzibar
                     holiday. Experience the breathtaking coastal views in the evening while sailing on a traditional
@@ -98,7 +97,7 @@ export default function SunsetDhowCruisePage() {
                   <Card className="border-l-4 border-golden">
                     <CardContent className="p-6">
                       <h3 className="font-semibold text-lg text-blue-season mb-2">Sunset Views</h3>
-                      <p className="text-gray-600">
+                      <p className="text-slate-ink">
                         Witness the lovely, vibrant sunset from the water, the best way to view the coasts of Stone
                         Town, Kendwa, and Nungwi.
                       </p>
@@ -107,13 +106,13 @@ export default function SunsetDhowCruisePage() {
                   <Card className="border-l-4 border-golden">
                     <CardContent className="p-6">
                       <h3 className="font-semibold text-lg text-blue-season mb-2">Traditional Sailing</h3>
-                      <p className="text-gray-600">Sail aboard an authentic wooden traditional Arabian Dhow.</p>
+                      <p className="text-slate-ink">Sail aboard an authentic wooden traditional Arabian Dhow.</p>
                     </CardContent>
                   </Card>
                   <Card className="border-l-4 border-golden">
                     <CardContent className="p-6">
                       <h3 className="font-semibold text-lg text-blue-season mb-2">Local Delights</h3>
-                      <p className="text-gray-600">
+                      <p className="text-slate-ink">
                         Enjoy delicious, locally prepared snacks and refreshing drinks included in the trip.
                       </p>
                     </CardContent>
@@ -121,7 +120,7 @@ export default function SunsetDhowCruisePage() {
                   <Card className="border-l-4 border-golden">
                     <CardContent className="p-6">
                       <h3 className="font-semibold text-lg text-blue-season mb-2">Entertainment</h3>
-                      <p className="text-gray-600">Experience a Traditional Music Performance while sailing.</p>
+                      <p className="text-slate-ink">Experience a Traditional Music Performance while sailing.</p>
                     </CardContent>
                   </Card>
                 </div>
@@ -133,14 +132,14 @@ export default function SunsetDhowCruisePage() {
 
                 <div className="mb-6">
                   <h3 className="text-xl font-bold text-blue-season mb-4">Cruise Pricing</h3>
-                  <Card className="bg-blue-50 border-blue-200">
+                  <Card className="bg-aqua/5 border-aqua/25">
                     <CardContent className="p-6">
-                      <p className="text-gray-700">Please contact us for current cruise pricing based on your group size and hotel location.</p>
+                      <p className="text-ink/85">Please contact us for current cruise pricing based on your group size and hotel location.</p>
                     </CardContent>
                   </Card>
                 </div>
 
-                <Card className="bg-blue-50 border-blue-200">
+                <Card className="bg-aqua/5 border-aqua/25">
                   <CardContent className="p-6">
                     <p className="text-lg font-semibold text-blue-season mb-4">
                       The cruise price is comprehensive and includes:
@@ -155,7 +154,7 @@ export default function SunsetDhowCruisePage() {
                       ].map((item, index) => (
                         <li key={index} className="flex items-start gap-3">
                           <Check className="w-5 h-5 text-golden flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-700">{item}</span>
+                          <span className="text-ink/85">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -166,7 +165,7 @@ export default function SunsetDhowCruisePage() {
               {/* History Section */}
               <div>
                 <h2 className="text-3xl font-display font-bold text-blue-season mb-6">Explore the Traditional Dhow</h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-lg max-w-none text-ink/85">
                   <p className="text-lg leading-relaxed mb-4">
                     The history of these traditional dhows dates back many centuries when Arab and Indian merchants
                     began exploring East Africa for trade and religion, relying on the monsoon winds for transport.
@@ -186,20 +185,20 @@ export default function SunsetDhowCruisePage() {
                 <CardContent className="p-6 space-y-6">
                   <div>
                     <h3 className="text-2xl font-display font-bold text-blue-season mb-2">Book This Experience</h3>
-                    <div className="text-2xl font-bold text-golden mb-2">Contact for Pricing</div>
-                    <p className="text-gray-600 text-sm">per person</p>
+                    <div className="text-2xl font-bold text-ocean mb-2">Contact for Pricing</div>
+                    <p className="text-slate-ink text-sm">per person</p>
                   </div>
 
                   <div className="space-y-3 text-sm">
-                    <div className="flex items-center gap-2 text-gray-600">
+                    <div className="flex items-center gap-2 text-slate-ink">
                       <Clock className="w-4 h-4" />
                       <span>Evening departure</span>
                     </div>
-                    <div className="flex items-center gap-2 text-gray-600">
+                    <div className="flex items-center gap-2 text-slate-ink">
                       <Users className="w-4 h-4" />
                       <span>2-20 people</span>
                     </div>
-                    <div className="flex items-center gap-2 text-gray-600">
+                    <div className="flex items-center gap-2 text-slate-ink">
                       <MapPin className="w-4 h-4" />
                       <span>Multiple departure points</span>
                     </div>
@@ -209,7 +208,7 @@ export default function SunsetDhowCruisePage() {
                     <BookingModal
                       tourName="Sunset Dhow Cruise"
                       trigger={
-                        <Button className="w-full bg-golden hover:bg-golden/90 text-white font-semibold py-6 text-lg">
+                        <Button className="w-full bg-golden hover:bg-sand text-ink font-semibold py-6 text-lg">
                           BOOK VIA WHATSAPP
                         </Button>
                       }
@@ -225,7 +224,7 @@ export default function SunsetDhowCruisePage() {
                   </div>
 
                   <div className="pt-4 border-t">
-                    <p className="text-xs text-gray-500 text-center">
+                    <p className="text-xs text-slate-ink text-center">
                       Available daily from Stone Town, Nungwi, and Kendwa Beach
                     </p>
                   </div>
@@ -237,7 +236,7 @@ export default function SunsetDhowCruisePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600 text-white">
+      <section className="py-16 bg-ocean text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">Ready for a Romantic Evening?</h2>
           <p className="text-xl text-white mb-8">
@@ -247,7 +246,7 @@ export default function SunsetDhowCruisePage() {
             <BookingModal
               tourName="Sunset Dhow Cruise"
               trigger={
-                <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white font-semibold px-8">
+                <Button size="lg" className="bg-golden hover:bg-sand text-ink font-semibold px-8">
                   Book Now on WhatsApp
                 </Button>
               }
@@ -266,7 +265,6 @@ export default function SunsetDhowCruisePage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

@@ -1,6 +1,5 @@
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Clock, MapPin, Users, Check, Star, ArrowLeft } from 'lucide-react'
@@ -52,7 +51,7 @@ export default function SerengetiBalloonSafariPage() {
       </section>
 
       {/* Quick Info */}
-      <section className="py-8 bg-gray-50 border-b">
+      <section className="py-8 bg-mist border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
@@ -61,11 +60,11 @@ export default function SerengetiBalloonSafariPage() {
                   <Star key={i} className="w-5 h-5 fill-current" />
                 ))}
               </div>
-              <span className="text-gray-600">5 Stars Rated</span>
+              <span className="text-slate-ink">5 Stars Rated</span>
             </div>
             <div className="text-center sm:text-right">
               <p className="text-lg font-semibold text-blue-season">Contact for Current Pricing</p>
-              <p className="text-gray-600">Price on request</p>
+              <p className="text-slate-ink">Price on request</p>
             </div>
           </div>
         </div>
@@ -80,7 +79,7 @@ export default function SerengetiBalloonSafariPage() {
               {/* Overview */}
               <div>
                 <h2 className="text-3xl sm:text-4xl font-display font-bold text-blue-season mb-4">Overview</h2>
-                <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed space-y-4">
+                <div className="prose prose-lg max-w-none text-slate-ink leading-relaxed space-y-4">
                   <p>
                     Join our 3 days safari to Serengeti National Park which starts from Zanzibar, this safari is filled
                     with unforgettable wildlife encounters and a unique hot air balloon experience. From exciting game
@@ -103,7 +102,7 @@ export default function SerengetiBalloonSafariPage() {
                       <h3 className="text-xl font-bold text-blue-season mb-2">
                         Day 1: Arrival & Start Serengeti Safari
                       </h3>
-                      <ul className="space-y-2 text-gray-600 leading-relaxed">
+                      <ul className="space-y-2 text-slate-ink leading-relaxed">
                         <li>• Early morning pick-up from your hotel in Zanzibar</li>
                         <li>
                           • Transfer to Zanzibar Airport for a domestic flight to Serengeti, Seronera airstrip
@@ -126,7 +125,7 @@ export default function SerengetiBalloonSafariPage() {
                   <Card className="overflow-hidden border-l-4 border-l-golden">
                     <CardContent className="p-6">
                       <h3 className="text-xl font-bold text-blue-season mb-2">Day 2: Full-Day Serengeti Safari</h3>
-                      <ul className="space-y-2 text-gray-600 leading-relaxed">
+                      <ul className="space-y-2 text-slate-ink leading-relaxed">
                         <li>
                           • Enjoy a leisurely breakfast before setting off for another exciting day of game driving in a
                           different area of the Serengeti, where new wildlife and landscapes await
@@ -145,7 +144,7 @@ export default function SerengetiBalloonSafariPage() {
                       <h3 className="text-xl font-bold text-blue-season mb-2">
                         Day 3: Serengeti Hot Air Balloon Safari & Return
                       </h3>
-                      <ul className="space-y-2 text-gray-600 leading-relaxed">
+                      <ul className="space-y-2 text-slate-ink leading-relaxed">
                         <li>
                           • Early morning pick-up for a magical hot air balloon safari over the Serengeti. Soar above
                           the plains at sunrise, witnessing wildlife from a unique and breathtaking perspective
@@ -172,11 +171,11 @@ export default function SerengetiBalloonSafariPage() {
                     <h3 className="text-2xl font-bold text-blue-season mb-4">Tour Pricing</h3>
                     <div className="text-center mb-6">
                       <p className="text-lg font-semibold text-blue-season mb-2">Contact for Current Pricing</p>
-                      <p className="text-gray-600">Price on request</p>
+                      <p className="text-slate-ink">Price on request</p>
                     </div>
                     <BookingModal
                       tourName="3 Days Serengeti Safari & Hot Air Balloon"
-                      className="w-full bg-green-600 hover:bg-green-700 text-white text-lg py-6"
+                      className="w-full bg-golden hover:bg-sand text-ink text-lg py-6"
                     />
                   </CardContent>
                 </Card>
@@ -198,8 +197,8 @@ export default function SerengetiBalloonSafariPage() {
                         "All Taxes/VAT",
                       ].map((item, idx) => (
                         <li key={idx} className="flex items-start gap-3">
-                          <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-600">{item}</span>
+                          <Check className="w-5 h-5 text-island flex-shrink-0 mt-0.5" />
+                          <span className="text-slate-ink">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -217,19 +216,19 @@ export default function SerengetiBalloonSafariPage() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6">
             Ready for the Ultimate Serengeti Experience?
           </h2>
-          <p className="text-lg sm:text-xl text-blue-100 mb-8 leading-relaxed">
+          <p className="text-lg sm:text-xl text-white/75 mb-8 leading-relaxed">
             Book your Serengeti safari with hot air balloon today and experience the park from both land and sky in this once-in-a-lifetime adventure.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <BookingModal 
               tourName="3 Days Serengeti Safari & Hot Air Balloon" 
-              className="bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-4"
+              className="bg-golden hover:bg-sand text-ink font-semibold px-8 py-4"
             />
             <Link href="/itineraries">
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-white text-blue-season hover:bg-gray-100 font-semibold px-8 py-4"
+                className="bg-white text-blue-season hover:bg-mist font-semibold px-8 py-4"
               >
                 <ArrowLeft className="w-5 h-5 mr-2" />
                 View All Packages
@@ -240,7 +239,6 @@ export default function SerengetiBalloonSafariPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

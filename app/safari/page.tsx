@@ -1,5 +1,4 @@
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -153,7 +152,7 @@ export default function SafariPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold text-blue-season mb-6">Premier Safari Destinations</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-ink max-w-3xl mx-auto">
               Explore Tanzania's world-renowned national parks and game reserves, each offering unique wildlife
               experiences and breathtaking landscapes.
             </p>
@@ -172,7 +171,7 @@ export default function SafariPage() {
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-2xl font-display font-bold text-blue-season mb-3">{destination.name}</h3>
-                  <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-600">
+                  <div className="flex flex-wrap gap-4 mb-4 text-sm text-slate-ink">
                     <div className="flex items-center gap-1">
                       <MapPin className="w-4 h-4" />
                       <span>{destination.location}</span>
@@ -182,11 +181,11 @@ export default function SafariPage() {
                       <span>Best: {destination.bestTime}</span>
                     </div>
                   </div>
-                  <p className="text-gray-600 mb-4 leading-relaxed">{destination.description}</p>
+                  <p className="text-slate-ink mb-4 leading-relaxed">{destination.description}</p>
 
                   <div className="mb-6">
                     <h4 className="font-semibold text-blue-season mb-3">Experience Highlights:</h4>
-                    <ul className="text-sm text-gray-600 space-y-2">
+                    <ul className="text-sm text-slate-ink space-y-2">
                       {destination.highlights.map((highlight, index) => (
                         <li key={index} className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-golden rounded-full"></div>
@@ -197,7 +196,7 @@ export default function SafariPage() {
                   </div>
 
                   <Link href="/contact">
-                    <Button className="w-full bg-golden hover:bg-golden/90 text-white">Plan Safari Here</Button>
+                    <Button className="w-full bg-golden hover:bg-sand text-ink">Plan Safari Here</Button>
                   </Link>
                 </CardContent>
               </Card>
@@ -210,13 +209,13 @@ export default function SafariPage() {
       <section className="py-20 bg-blue-season text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-display font-bold mb-6">Begin Your Safari Adventure</h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-white/75 mb-8">
             Let our expert guides show you the wonders of Tanzania's wilderness. Every safari is tailored to your
             interests and comfort level.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
-              <Button size="lg" className="bg-golden hover:bg-golden/90 text-white font-semibold px-8 py-4">
+              <Button size="lg" className="bg-golden hover:bg-sand text-ink font-semibold px-8 py-4">
                 Plan My Safari
               </Button>
             </Link>
@@ -234,7 +233,6 @@ export default function SafariPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

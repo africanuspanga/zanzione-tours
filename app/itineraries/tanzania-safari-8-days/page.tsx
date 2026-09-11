@@ -1,6 +1,5 @@
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Clock, Users, MapPin, Check, ArrowLeft } from 'lucide-react'
@@ -41,28 +40,28 @@ export default function TanzaniaSafari8Days() {
       </section>
 
       {/* Quick Info */}
-      <section className="py-8 bg-gray-50 border-b">
+      <section className="py-8 bg-mist border-b">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
             <div className="flex flex-col items-center">
               <Clock className="w-8 h-8 text-blue-season mb-2" />
-              <p className="font-semibold text-gray-900">Duration</p>
-              <p className="text-gray-600">8 Days / 7 Nights</p>
+              <p className="font-semibold text-ink">Duration</p>
+              <p className="text-slate-ink">8 Days / 7 Nights</p>
             </div>
             <div className="flex flex-col items-center">
               <Users className="w-8 h-8 text-blue-season mb-2" />
-              <p className="font-semibold text-gray-900">Group Size</p>
-              <p className="text-gray-600">Private Safari</p>
+              <p className="font-semibold text-ink">Group Size</p>
+              <p className="text-slate-ink">Private Safari</p>
             </div>
             <div className="flex flex-col items-center">
               <MapPin className="w-8 h-8 text-blue-season mb-2" />
-              <p className="font-semibold text-gray-900">Parks Visited</p>
-              <p className="text-gray-600">4 Parks + Cultural Tour</p>
+              <p className="font-semibold text-ink">Parks Visited</p>
+              <p className="text-slate-ink">4 Parks + Cultural Tour</p>
             </div>
             <div className="flex flex-col items-center">
               <p className="text-lg font-semibold text-blue-season mb-1">Contact for Pricing</p>
-              <p className="font-semibold text-gray-900">Price</p>
-              <p className="text-gray-600">On Request</p>
+              <p className="font-semibold text-ink">Price</p>
+              <p className="text-slate-ink">On Request</p>
             </div>
           </div>
         </div>
@@ -81,7 +80,7 @@ export default function TanzaniaSafari8Days() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-blue-season mb-6">Safari Overview</h2>
-          <div className="prose max-w-none text-gray-600 leading-relaxed space-y-4">
+          <div className="prose max-w-none text-slate-ink leading-relaxed space-y-4">
             <p className="text-lg">
               Book your 8-day Tanzania safari adventure directly with the locals for an authentic experience. This
               thrilling journey will take you through Tanzania's most iconic national parks, including Tarangire, the
@@ -94,7 +93,7 @@ export default function TanzaniaSafari8Days() {
       </section>
 
       {/* Detailed Itinerary */}
-      <section className="py-12 sm:py-16 bg-gray-50">
+      <section className="py-12 sm:py-16 bg-mist">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-blue-season mb-8 text-center">
             Day-by-Day Itinerary
@@ -104,7 +103,7 @@ export default function TanzaniaSafari8Days() {
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-2xl font-bold text-blue-season mb-4">Day 1: Arrival in Tanzania</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-slate-ink leading-relaxed">
                   Upon your arrival at Kilimanjaro International Airport, your friendly guide will meet you with a big
                   welcome! From there, you'll be picked up from the Airport to your hotel, where you can unwind and immerse
                   yourself in the vibrant atmosphere of Africa. Next day marks the beginning of your safari adventure!
@@ -115,7 +114,7 @@ export default function TanzaniaSafari8Days() {
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-2xl font-bold text-blue-season mb-4">Day 2: Tarangire National Park</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-slate-ink leading-relaxed">
                   Your adventure begins with a visit to Tarangire National Park, famous for its massive elephant herds and
                   ancient baobab trees. As you explore, you'll see elephants using the baobab trunks as water sources and
                   witness wildlife flocking to the Tarangire River, especially during the dry season.
@@ -126,7 +125,7 @@ export default function TanzaniaSafari8Days() {
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-2xl font-bold text-blue-season mb-4">Day 3: Serengeti National Park</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-slate-ink leading-relaxed">
                   Around day time you will arrive at Serengeti National Park. Enjoy an exhilarating half day game drive as
                   you drive to the park's breathtaking landscapes. Known for its incredible wildlife spectacle, the
                   Serengeti is known for its migration of over 1.5 million wildebeest and countless zebras.
@@ -137,7 +136,7 @@ export default function TanzaniaSafari8Days() {
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-2xl font-bold text-blue-season mb-4">Day 4: Serengeti National Park (Full Day)</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-slate-ink leading-relaxed">
                   Following another delicious african breakfast, dive deeper into the wilderness with a full day of game
                   driving along the Great Migration trails. Your knowledgeable driver-guide will share captivating insights
                   into this extraordinary phenomenon, solidifying Tanzania's reputation as Africa's best safari destination.
@@ -148,7 +147,7 @@ export default function TanzaniaSafari8Days() {
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-2xl font-bold text-blue-season mb-4">Day 5: Serengeti to Ngorongoro Crater</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-slate-ink leading-relaxed">
                   Wake up early for a sunrise game drive, catching the Serengeti's wildlife at its most active time.
                   Afterward, return to camp for brunch before heading to Ngorongoro Crater. This UNESCO World Heritage Site
                   is home to nearly all of East Africa's wildlife, including the elusive black rhino. Spend the night near
@@ -160,7 +159,7 @@ export default function TanzaniaSafari8Days() {
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-2xl font-bold text-blue-season mb-4">Day 6: Ngorongoro Crater</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-slate-ink leading-relaxed">
                   Travel to the worldwide known Ngorongoro Crater, a UNESCO World Heritage Site and one of Africa's greatest
                   wildlife havens. Descend into the crater, home to a rich variety of animals including lions, zebras,
                   buffalo, and the rare black rhino. With its stunning scenery and dense concentration of wildlife.
@@ -171,7 +170,7 @@ export default function TanzaniaSafari8Days() {
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-2xl font-bold text-blue-season mb-4">Day 7: Lake Eyasi & The Hadzabe Tribe</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-slate-ink leading-relaxed">
                   Rise early for an extraordinary day with the Hadzabe tribe, one of Africa's last true hunter gatherer
                   communities. Immerse yourself in their daily activities, whether it's joining the men in hunting or the
                   women in foraging. After this incredible cultural experience, visit the tranquil Lake Eyasi before
@@ -183,7 +182,7 @@ export default function TanzaniaSafari8Days() {
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-2xl font-bold text-blue-season mb-4">Day 8: Departure</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-slate-ink leading-relaxed">
                   After breakfast and some leisure time at the lodge, your guide will escort you to Kilimanjaro
                   International Airport for your journey home. If you're not ready to leave yet, consider extending your
                   adventure with a trip to the pristine beaches of Zanzibar Islands for a relaxing island escape.
@@ -206,8 +205,8 @@ export default function TanzaniaSafari8Days() {
               <CardContent className="p-6 text-center">
                 <h3 className="text-xl font-bold text-blue-season mb-4">Lodge Safari</h3>
                 <p className="text-lg font-semibold text-blue-season mb-2">Contact for Current Pricing</p>
-                <p className="text-gray-600 mb-4">Price on request</p>
-                <p className="text-sm text-gray-500 italic">
+                <p className="text-slate-ink mb-4">Price on request</p>
+                <p className="text-sm text-slate-ink italic">
                   Rates vary by group size and season. Contact us for a personalized quote.
                 </p>
               </CardContent>
@@ -217,8 +216,8 @@ export default function TanzaniaSafari8Days() {
               <CardContent className="p-6 text-center">
                 <h3 className="text-xl font-bold text-blue-season mb-4">Camping Safari</h3>
                 <p className="text-lg font-semibold text-blue-season mb-2">Contact for Current Pricing</p>
-                <p className="text-gray-600 mb-4">Price on request</p>
-                <p className="text-sm text-gray-500 italic">
+                <p className="text-slate-ink mb-4">Price on request</p>
+                <p className="text-sm text-slate-ink italic">
                   Rates vary by group size and season. Contact us for a personalized quote.
                 </p>
               </CardContent>
@@ -228,7 +227,7 @@ export default function TanzaniaSafari8Days() {
       </section>
 
       {/* What's Included */}
-      <section className="py-12 sm:py-16 bg-gray-50">
+      <section className="py-12 sm:py-16 bg-mist">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-blue-season mb-8 text-center">
             What's Included
@@ -250,8 +249,8 @@ export default function TanzaniaSafari8Days() {
                     "All Taxes/VAT",
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-600">{item}</span>
+                      <Check className="w-5 h-5 text-island flex-shrink-0 mt-0.5" />
+                      <span className="text-slate-ink">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -271,8 +270,8 @@ export default function TanzaniaSafari8Days() {
                     "Additional accommodation before/after safari",
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <span className="text-red-500 flex-shrink-0 mt-0.5">✗</span>
-                      <span className="text-gray-600">{item}</span>
+                      <span className="text-destructive flex-shrink-0 mt-0.5">✗</span>
+                      <span className="text-slate-ink">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -286,20 +285,20 @@ export default function TanzaniaSafari8Days() {
       <section className="py-12 sm:py-20 bg-blue-season text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6">Ready to Book Your Safari?</h2>
-          <p className="text-lg sm:text-xl text-blue-100 mb-8 leading-relaxed">
+          <p className="text-lg sm:text-xl text-white/75 mb-8 leading-relaxed">
             Contact us today to reserve your 8-day Tanzania Safari adventure with Hadzabe tribe experience. Our team is
             ready to help you plan the perfect cultural and wildlife journey.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <BookingModal 
               tourName="8 Days Tanzania Safari Package" 
-              className="bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-4 w-full sm:w-auto"
+              className="bg-golden hover:bg-sand text-ink font-semibold px-8 py-4 w-full sm:w-auto"
             />
             <Link href="/itineraries">
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-white text-blue-season hover:bg-gray-100 font-semibold px-8 py-4 w-full sm:w-auto"
+                className="bg-white text-blue-season hover:bg-mist font-semibold px-8 py-4 w-full sm:w-auto"
               >
                 View All Packages
               </Button>
@@ -309,7 +308,6 @@ export default function TanzaniaSafari8Days() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

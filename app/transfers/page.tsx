@@ -3,7 +3,6 @@ import Image from "next/image"
 import Link from "next/link"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import BookingModal from "@/components/booking-modal"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -84,10 +83,10 @@ export default function TransfersPage() {
       {/* Introduction Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-ink mb-6">
             Comfortable Rides to Any Destination
           </h2>
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-lg text-ink/85 leading-relaxed">
             Experience hassle-free transportation with our professional transfer services. We offer reliable airport
             transfers, ferry connections, and hotel-to-hotel transfers across all of Zanzibar's popular destinations.
             Our modern fleet and experienced drivers ensure a smooth and comfortable journey.
@@ -101,14 +100,14 @@ export default function TransfersPage() {
               <MapPin className="w-8 h-8 text-golden" />
             </div>
             <h3 className="text-xl font-semibold mb-2">All Destinations</h3>
-            <p className="text-gray-600">Covering every corner of Zanzibar Island</p>
+            <p className="text-slate-ink">Covering every corner of Zanzibar Island</p>
           </div>
           <div className="text-center p-6">
             <div className="w-16 h-16 bg-golden/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <DollarSign className="w-8 h-8 text-golden" />
             </div>
             <h3 className="text-xl font-semibold mb-2">Transparent Pricing</h3>
-            <p className="text-gray-600">Fixed rates with no hidden charges</p>
+            <p className="text-slate-ink">Fixed rates with no hidden charges</p>
           </div>
           <div className="text-center p-6">
             <div className="w-16 h-16 bg-golden/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -128,14 +127,14 @@ export default function TransfersPage() {
               </svg>
             </div>
             <h3 className="text-xl font-semibold mb-2">24/7 Available</h3>
-            <p className="text-gray-600">Round-the-clock service for your convenience</p>
+            <p className="text-slate-ink">Round-the-clock service for your convenience</p>
           </div>
         </div>
       </section>
 
       {/* Transfer Routes Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-8 text-center">
+        <h2 className="text-3xl md:text-4xl font-display font-bold text-ink mb-8 text-center">
           Our Transfer Routes & Prices
         </h2>
 
@@ -153,19 +152,19 @@ export default function TransfersPage() {
               <CardContent className="p-6">
                 <div className="space-y-3">
                   <div>
-                    <p className="text-sm text-gray-500 mb-1">From</p>
-                    <p className="font-semibold text-gray-900">{route.from}</p>
+                    <p className="text-sm text-slate-ink mb-1">From</p>
+                    <p className="font-semibold text-ink">{route.from}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500 mb-1">To</p>
-                    <p className="font-semibold text-gray-900">{route.to}</p>
+                    <p className="text-sm text-slate-ink mb-1">To</p>
+                    <p className="font-semibold text-ink">{route.to}</p>
                   </div>
                   <div className="pt-2 border-t">
-                    <p className="text-2xl font-bold text-golden">${route.price}</p>
-                    <p className="text-sm text-gray-500">Per vehicle</p>
+                    <p className="text-2xl font-bold text-ocean">${route.price}</p>
+                    <p className="text-sm text-slate-ink">Per vehicle</p>
                   </div>
                   <Link href="/contact" className="block">
-                    <Button className="w-full bg-golden hover:bg-golden/90 text-white">Book Now</Button>
+                    <Button className="w-full bg-golden hover:bg-sand text-ink">Book Now</Button>
                   </Link>
                 </div>
               </CardContent>
@@ -178,13 +177,13 @@ export default function TransfersPage() {
       <section className="bg-gradient-to-r from-blue-600 to-cyan-500 py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">Need a Custom Transfer Route?</h2>
-          <p className="text-xl text-blue-50 mb-8">
+          <p className="text-xl text-white/80 mb-8">
             Contact us for custom transfer arrangements or multi-stop itineraries
           </p>
           <BookingModal
             tourName="Custom Transfer Route"
             trigger={
-              <Button size="lg" className="bg-golden hover:bg-golden/90 text-white px-8 py-6 text-lg">
+              <Button size="lg" className="bg-golden hover:bg-sand text-ink px-8 py-6 text-lg">
                 BOOK A TRANSFER
               </Button>
             }
@@ -192,9 +191,8 @@ export default function TransfersPage() {
         </div>
       </section>
 
-      {/* Footer and WhatsAppFloat Components */}
+      {/* Footer */}
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

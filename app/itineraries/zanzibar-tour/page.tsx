@@ -1,5 +1,4 @@
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import { Star, Clock } from 'lucide-react'
 import Image from "next/image"
@@ -52,7 +51,7 @@ export default function ZanzibarTourPage() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-12">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-forest-dark mb-6">Package Overview</h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p className="text-lg text-ink/85 leading-relaxed">
               Discover the magic of Zanzibar with our comprehensive 5-day tour package. Experience pristine beaches,
               rich history, vibrant culture, and exotic wildlife. This all-inclusive package combines the best of
               Zanzibar's attractions for an unforgettable island adventure.
@@ -66,23 +65,23 @@ export default function ZanzibarTourPage() {
             {/* Day 1 */}
             <div className="border-l-4 border-golden pl-6">
               <h4 className="text-xl font-bold text-forest-dark mb-2">Day 1: Safari Blue Trip</h4>
-              <p className="text-gray-700 mb-4">
+              <p className="text-ink/85 mb-4">
                 Embark on a full-day boat adventure exploring the beautiful Menai Bay Conservation Area. Swim in
                 crystal-clear waters, snorkel among colorful fish, relax on a pristine sandbank, and enjoy a fresh
                 seafood BBQ lunch on Kwale Island. This is Zanzibar's most popular marine excursion.
               </p>
-              <p className="text-sm text-gray-600">Activities: Boat cruise, snorkeling, swimming, seafood lunch</p>
+              <p className="text-sm text-slate-ink">Activities: Boat cruise, snorkeling, swimming, seafood lunch</p>
             </div>
 
             {/* Day 2 */}
             <div className="border-l-4 border-golden pl-6">
               <h4 className="text-xl font-bold text-forest-dark mb-2">Day 2: Jozani Forest Walking Tour</h4>
-              <p className="text-gray-700 mb-4">
+              <p className="text-ink/85 mb-4">
                 Explore the indigenous Jozani Chwaka Bay National Park, home to the rare Red Colobus monkeys found only
                 in Zanzibar. Walk through lush forest trails, spot diverse wildlife, and learn about the unique
                 ecosystem and conservation efforts protecting this natural treasure.
               </p>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-slate-ink">
                 Activities: Guided forest walk, wildlife viewing, nature photography
               </p>
             </div>
@@ -90,12 +89,12 @@ export default function ZanzibarTourPage() {
             {/* Day 3 */}
             <div className="border-l-4 border-golden pl-6">
               <h4 className="text-xl font-bold text-forest-dark mb-2">Day 3: Stone Town Walking Tour</h4>
-              <p className="text-gray-700 mb-4">
+              <p className="text-ink/85 mb-4">
                 Discover the UNESCO World Heritage Site of Stone Town with its narrow winding streets, historic
                 buildings, and vibrant bazaars. Visit the House of Wonders, Old Fort, Sultan's Palace, and the famous
                 Freddie Mercury House. Immerse yourself in centuries of Swahili, Arab, Persian, and European influences.
               </p>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-slate-ink">
                 Activities: Historical walking tour, market visits, cultural exploration
               </p>
             </div>
@@ -103,12 +102,12 @@ export default function ZanzibarTourPage() {
             {/* Day 4 */}
             <div className="border-l-4 border-golden pl-6">
               <h4 className="text-xl font-bold text-forest-dark mb-2">Day 4: Prison Island Tour</h4>
-              <p className="text-gray-700 mb-4">
+              <p className="text-ink/85 mb-4">
                 Take a short boat ride to Changuu Island (Prison Island) to meet the giant Aldabra tortoises, some over
                 100 years old. Explore the historical prison ruins, relax on beautiful beaches, and snorkel in the
                 turquoise waters surrounding the island.
               </p>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-slate-ink">
                 Activities: Boat trip, tortoise encounter, snorkeling, beach relaxation
               </p>
             </div>
@@ -116,12 +115,12 @@ export default function ZanzibarTourPage() {
             {/* Day 5 */}
             <div className="border-l-4 border-golden pl-6">
               <h4 className="text-xl font-bold text-forest-dark mb-2">Day 5: Spice Farm Tour + The Rock Restaurant</h4>
-              <p className="text-gray-700 mb-4">
+              <p className="text-ink/85 mb-4">
                 Experience Zanzibar as the "Spice Island" with a guided tour of aromatic spice plantations. See, smell,
                 and taste exotic spices like cloves, vanilla, cinnamon, and nutmeg. End your tour with a memorable lunch
                 at The Rock Restaurant, an iconic dining spot perched on a rock in the Indian Ocean.
               </p>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-slate-ink">
                 Activities: Spice farm tour, tropical fruit tasting, lunch at The Rock Restaurant
               </p>
             </div>
@@ -130,37 +129,37 @@ export default function ZanzibarTourPage() {
           {/* What's Included */}
           <div className="mt-12 bg-sand-light p-8 rounded-lg">
             <h3 className="text-2xl font-display font-bold text-forest-dark mb-6">What's Included</h3>
-            <ul className="grid md:grid-cols-2 gap-4 text-gray-700">
+            <ul className="grid md:grid-cols-2 gap-4 text-ink/85">
               <li className="flex items-start gap-2">
-                <span className="text-golden mt-1">✓</span>
+                <span className="text-island mt-1">✓</span>
                 <span>Professional English-speaking guide</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-golden mt-1">✓</span>
+                <span className="text-island mt-1">✓</span>
                 <span>All entrance fees and park fees</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-golden mt-1">✓</span>
+                <span className="text-island mt-1">✓</span>
                 <span>Transportation throughout the tour</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-golden mt-1">✓</span>
+                <span className="text-island mt-1">✓</span>
                 <span>Lunch at The Rock Restaurant</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-golden mt-1">✓</span>
+                <span className="text-island mt-1">✓</span>
                 <span>BBQ seafood lunch on Safari Blue</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-golden mt-1">✓</span>
+                <span className="text-island mt-1">✓</span>
                 <span>Snorkeling equipment</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-golden mt-1">✓</span>
+                <span className="text-island mt-1">✓</span>
                 <span>Bottled water and refreshments</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-golden mt-1">✓</span>
+                <span className="text-island mt-1">✓</span>
                 <span>Hotel pickup and drop-off</span>
               </li>
             </ul>
@@ -171,7 +170,7 @@ export default function ZanzibarTourPage() {
             <BookingModal 
               tourName="Zanzibar 5-Day Tour Package" 
               trigger={
-                <Button size="lg" className="bg-golden hover:bg-golden/90 text-white text-lg px-12 py-6">
+                <Button size="lg" className="bg-golden hover:bg-sand text-ink text-lg px-12 py-6">
                   BOOK THIS TRIP
                 </Button>
               }
@@ -180,9 +179,8 @@ export default function ZanzibarTourPage() {
         </div>
       </section>
 
-      {/* Footer and WhatsAppFloat components */}
+      {/* Footer */}
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

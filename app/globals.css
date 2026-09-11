@@ -3,83 +3,108 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ═══════════════════════════════════════════════════════════════
+   ZANZIONE TOURS & SAFARIS — Brand Palette
+   ═══════════════════════════════════════════════════════════════ */
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /* ─── Brand palette (source of truth) ─── */
+  --zn-navy: #022f6a;        /* Deep Ocean Blue   — primary navy   */
+  --zn-blue: #025292;        /* Zanzibar Blue     — primary blue   */
+  --zn-sea: #026daf;         /* Indian Ocean Blue — secondary blue */
+  --zn-aqua: #04afdd;        /* Tropical Aqua     — primary cyan   */
+  --zn-lagoon: #05d4e9;      /* Lagoon Cyan       — bright aqua    */
+  --zn-teal: #02867f;        /* Island Teal       — teal accent    */
+  --zn-gold: #fdb320;        /* Zanzibar Gold     — sun accent     */
+  --zn-sand: #f7d460;        /* Sunset Sand       — soft gold      */
+  --zn-white: #ffffff;       /* Pure White        — background     */
+  --zn-mist: #f5fafc;        /* Ocean Mist        — soft bg        */
+  --zn-ink: #071d35;         /* Deep Navy         — main text      */
+  --zn-slate: #647b8f;       /* Slate Blue Gray   — muted text     */
 
-  /* ZANZIONE TOURS & TRAVELS brand colors */
-  --blue-season-primary: #103968;
-  --blue-season-secondary: #f7a10d;
-  --blue-season-light: #f8fafc;
-  --blue-season-dark: #0f172a;
+  /* ─── Legacy brand aliases (kept so existing markup re-skins) ─── */
+  --blue-season-primary: var(--zn-navy);
+  --blue-season-secondary: var(--zn-gold);
+  --blue-season-light: var(--zn-mist);
+  --blue-season-dark: var(--zn-ink);
+
+  /* ─── shadcn/ui semantic tokens, mapped onto the brand ─── */
+  --background: var(--zn-white);
+  --foreground: var(--zn-ink);
+  --card: var(--zn-white);
+  --card-foreground: var(--zn-ink);
+  --popover: var(--zn-white);
+  --popover-foreground: var(--zn-ink);
+  --primary: var(--zn-navy);
+  --primary-foreground: var(--zn-white);
+  --secondary: var(--zn-mist);
+  --secondary-foreground: var(--zn-navy);
+  --muted: var(--zn-mist);
+  --muted-foreground: var(--zn-slate);
+  --accent: #e6f6fb;
+  --accent-foreground: var(--zn-navy);
+  --destructive: #d6453c;
+  --destructive-foreground: #ffffff;
+  --border: #dbe7ef;
+  --input: #dbe7ef;
+  --ring: var(--zn-aqua);
+  --chart-1: var(--zn-aqua);
+  --chart-2: var(--zn-teal);
+  --chart-3: var(--zn-navy);
+  --chart-4: var(--zn-gold);
+  --chart-5: var(--zn-sea);
+  --radius: 0.75rem;
+  --sidebar: var(--zn-mist);
+  --sidebar-foreground: var(--zn-ink);
+  --sidebar-primary: var(--zn-navy);
+  --sidebar-primary-foreground: var(--zn-white);
+  --sidebar-accent: #e6f6fb;
+  --sidebar-accent-foreground: var(--zn-navy);
+  --sidebar-border: #dbe7ef;
+  --sidebar-ring: var(--zn-aqua);
+
+  /* ─── Composed brand effects ─── */
+  --zn-gradient-ocean: linear-gradient(135deg, var(--zn-navy) 0%, var(--zn-blue) 45%, var(--zn-sea) 100%);
+  --zn-gradient-lagoon: linear-gradient(135deg, var(--zn-sea) 0%, var(--zn-aqua) 55%, var(--zn-lagoon) 100%);
+  --zn-gradient-sun: linear-gradient(135deg, var(--zn-gold) 0%, var(--zn-sand) 100%);
+  --zn-shadow-card: 0 1px 2px rgb(7 29 53 / 0.04), 0 8px 24px -8px rgb(7 29 53 / 0.10);
+  --zn-shadow-card-hover: 0 2px 4px rgb(7 29 53 / 0.05), 0 20px 40px -12px rgb(7 29 53 / 0.18);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --background: #051526;
+  --foreground: #eef7fb;
+  --card: #08203a;
+  --card-foreground: #eef7fb;
+  --popover: #08203a;
+  --popover-foreground: #eef7fb;
+  --primary: var(--zn-aqua);
+  --primary-foreground: var(--zn-ink);
+  --secondary: #0d2b4a;
+  --secondary-foreground: #eef7fb;
+  --muted: #0d2b4a;
+  --muted-foreground: #9fb6c8;
+  --accent: #0d2b4a;
+  --accent-foreground: #eef7fb;
+  --destructive: #e5675e;
+  --destructive-foreground: #ffffff;
+  --border: #16395c;
+  --input: #16395c;
+  --ring: var(--zn-aqua);
+  --sidebar: #08203a;
+  --sidebar-foreground: #eef7fb;
+  --sidebar-primary: var(--zn-aqua);
+  --sidebar-primary-foreground: var(--zn-ink);
+  --sidebar-accent: #0d2b4a;
+  --sidebar-accent-foreground: #eef7fb;
+  --sidebar-border: #16395c;
+  --sidebar-ring: var(--zn-aqua);
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   Tailwind theme — registering brand colors here (rather than as
+   plain CSS classes) is what makes `bg-golden/90`, `text-ocean/70`
+   and every other opacity / variant modifier actually generate.
+   ═══════════════════════════════════════════════════════════════ */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -118,9 +143,26 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Added brand color utilities */
+  /* ─── Brand color utilities ─── */
+  --color-navy: var(--zn-navy);
+  --color-ocean: var(--zn-blue);
+  --color-sea: var(--zn-sea);
+  --color-aqua: var(--zn-aqua);
+  --color-lagoon: var(--zn-lagoon);
+  --color-island: var(--zn-teal);
+  --color-golden: var(--zn-gold);
+  --color-sand: var(--zn-sand);
+  --color-sand-light: #fdf4dc;
+  --color-mist: var(--zn-mist);
+  --color-ink: var(--zn-ink);
+  --color-slate-ink: var(--zn-slate);
+  /* legacy alias — `text-blue-season` / `bg-blue-season` stay valid */
+  --color-blue-season: var(--zn-navy);
+
   --font-sans: var(--font-inter);
   --font-display: var(--font-poppins);
+
+  --breakpoint-xs: 30rem;
 }
 
 @layer base {
@@ -131,115 +173,115 @@
     @apply bg-background text-foreground font-sans;
   }
 
-  /* Added smooth scrolling and custom utilities */
   html {
     scroll-behavior: smooth;
   }
 
-  .font-display {
-    font-family: var(--font-poppins);
+  /* Headings default to the brand display face. Colour is deliberately
+     left to inherit — dark sections set it on their container. */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
   }
 
-  .text-blue-season {
-    color: var(--blue-season-primary);
+  ::selection {
+    background: var(--zn-aqua);
+    color: #fff;
   }
 
-  .text-golden {
-    color: var(--blue-season-secondary);
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 
-  .bg-blue-season {
-    background-color: var(--blue-season-primary);
-  }
-
-  .bg-golden {
-    background-color: var(--blue-season-secondary);
-  }
-
-  /* Added mobile-specific optimizations */
   @media (max-width: 640px) {
-    /* Prevent horizontal scrolling on mobile */
-    body {
-      overflow-x: hidden;
-    }
+    body { overflow-x: hidden; }
+    h1, h2, h3, h4, h5, h6 { line-height: 1.2; }
+    img { max-width: 100%; height: auto; }
+  }
+}
 
-    /* Improve text readability on mobile */
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      line-height: 1.2;
-    }
-
-    /* Ensure images don't overflow on mobile */
-    img {
-      max-width: 100%;
-      height: auto;
-    }
+@layer utilities {
+  .font-display {
+    font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
   }
 
-  /* Custom breakpoint for extra small screens */
-  @media (max-width: 480px) {
-    .xs\:hidden {
-      display: none;
-    }
+  /* ─── Brand gradients ─── */
+  .bg-gradient-ocean { background-image: var(--zn-gradient-ocean); }
+  .bg-gradient-lagoon { background-image: var(--zn-gradient-lagoon); }
+  .bg-gradient-sun { background-image: var(--zn-gradient-sun); }
 
-    .xs\:inline {
-      display: inline;
-    }
+  .text-gradient-ocean {
+    background-image: var(--zn-gradient-lagoon);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ─── Section eyebrow + underline rule used across every section ─── */
+  .zn-rule {
+    display: flex;
+    justify-content: center;
+    gap: 0.25rem;
+    margin-top: 1rem;
+  }
+  .zn-rule::before {
+    content: "";
+    width: 2.5rem;
+    height: 0.375rem;
+    border-radius: 9999px;
+    background: var(--zn-gradient-lagoon);
+  }
+  .zn-rule::after {
+    content: "";
+    width: 0.75rem;
+    height: 0.375rem;
+    border-radius: 9999px;
+    background: var(--zn-gold);
+  }
+
+  /* ─── Tour card shadows ─── */
+  .shadow-card { box-shadow: var(--zn-shadow-card); }
+  .shadow-card-hover { box-shadow: var(--zn-shadow-card-hover); }
+
+  .line-clamp-2-safe {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
 
 /* ─── Scroll Reveal Animations ─── */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-.animate-on-scroll {
-  opacity: 0;
+@keyframes znFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
+
+.animate-on-scroll { opacity: 0; }
 
 .animate-on-scroll.is-visible {
   animation-fill-mode: both;
@@ -247,18 +289,11 @@
   animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.animate-on-scroll.fade-up.is-visible {
-  animation-name: fadeInUp;
-}
+.animate-on-scroll.fade-up.is-visible { animation-name: fadeInUp; }
+.animate-on-scroll.fade-left.is-visible { animation-name: fadeInLeft; }
+.animate-on-scroll.fade-right.is-visible { animation-name: fadeInRight; }
+.animate-on-scroll.scale-in.is-visible { animation-name: scaleIn; }
 
-.animate-on-scroll.fade-left.is-visible {
-  animation-name: fadeInLeft;
-}
-
-.animate-on-scroll.fade-right.is-visible {
-  animation-name: fadeInRight;
-}
-
-.animate-on-scroll.scale-in.is-visible {
-  animation-name: scaleIn;
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll { opacity: 1; }
 }

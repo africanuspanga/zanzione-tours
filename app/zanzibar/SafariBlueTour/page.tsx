@@ -1,5 +1,4 @@
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -21,7 +20,7 @@ export default function SafariBlueTourPage() {
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hi, I'm interested in booking the Safari Blue Trip tour. Can you provide more details?`
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-mist">
       <Navigation />
 
       {/* Hero Section */}
@@ -73,11 +72,11 @@ export default function SafariBlueTourPage() {
             <CardContent className="p-8">
               <div className="text-center">
                 <h2 className="text-3xl font-display font-bold text-ocean mb-4">Book Your Safari Blue Adventure</h2>
-                <p className="text-gray-600 mb-6 text-lg">
+                <p className="text-slate-ink mb-6 text-lg">
                   Secure your spot for Zanzibar's most popular marine tour
                 </p>
                 <BookingModal tourName="Safari Blue Trip" />
-                <p className="text-sm text-gray-500 mt-4">✓ Best Price Guarantee | ✓ Easy Online Booking | ✓ Book Now & Pay Later</p>
+                <p className="text-sm text-slate-ink mt-4">✓ Best Price Guarantee | ✓ Easy Online Booking | ✓ Book Now & Pay Later</p>
               </div>
             </CardContent>
           </Card>
@@ -85,7 +84,7 @@ export default function SafariBlueTourPage() {
           {/* Overview Section */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">Overview & Experience</h2>
-            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
+            <div className="prose prose-lg max-w-none text-ink/85 leading-relaxed space-y-4">
               <p>
                 Safari Blue trip is a <strong>full day tour along Menai Bay</strong>, which is one of the best coral reefs in Zanzibar. 
                 Main activities in the tour include visits to naturally occurring sandbanks, swimming & snorkeling in the crystal clear waters, 
@@ -115,9 +114,9 @@ export default function SafariBlueTourPage() {
                 "Visit Kwale Island Natural Lagoon & Sandbank",
                 "Explore the Barrier Reef Ecosystem",
               ].map((highlight, index) => (
-                <div key={index} className="flex items-start gap-3 p-4 bg-blue-50 rounded-lg">
-                  <Check className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                  <span className="text-gray-700">{highlight}</span>
+                <div key={index} className="flex items-start gap-3 p-4 bg-aqua/5 rounded-lg">
+                  <Check className="w-6 h-6 text-island flex-shrink-0 mt-1" />
+                  <span className="text-ink/85">{highlight}</span>
                 </div>
               ))}
             </div>
@@ -126,10 +125,10 @@ export default function SafariBlueTourPage() {
           {/* Pricing Section */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">Pricing</h2>
-            <Card className="bg-blue-50 border-blue-200">
+            <Card className="bg-aqua/5 border-aqua/25">
               <CardContent className="p-6">
-                <p className="text-gray-700 mb-4">Please contact us for current pricing.</p>
-                <p className="text-gray-700 text-sm">
+                <p className="text-ink/85 mb-4">Please contact us for current pricing.</p>
+                <p className="text-ink/85 text-sm">
                   <strong>Note:</strong> Transport costs depend on your hotel location. Please contact us via WhatsApp for a complete quote including transfers.
                 </p>
               </CardContent>
@@ -149,13 +148,13 @@ export default function SafariBlueTourPage() {
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-golden rounded-full"></div>
-                    <span className="text-gray-700">{item}</span>
+                    <span className="text-ink/85">{item}</span>
                   </div>
                 ))}
               </div>
-              <div className="bg-amber-50 p-6 rounded-lg border-l-4 border-golden">
+              <div className="bg-golden/10 p-6 rounded-lg border-l-4 border-golden">
                 <h3 className="font-bold text-ocean mb-3">Important Note on Pricing</h3>
-                <p className="text-gray-700 text-sm leading-relaxed">
+                <p className="text-ink/85 text-sm leading-relaxed">
                   <strong>TRANSPORT IS EXCLUDED:</strong> The final price depends on your hotel location. 
                   Please contact us via WhatsApp and we will provide you with the full price including hotel transfers.
                 </p>
@@ -166,7 +165,7 @@ export default function SafariBlueTourPage() {
           {/* About Menai Bay */}
           <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">About Menai Bay Conservation Area</h2>
-            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
+            <div className="prose prose-lg max-w-none text-ink/85 leading-relaxed space-y-4">
               <p>
                 Safari Blue is one of the most enjoyable things you can do during your Zanzibar vacation. 
                 It is called "Blue Safari" because of the <strong>ocean blueness</strong> that you experience during the tour. 
@@ -185,7 +184,7 @@ export default function SafariBlueTourPage() {
         </div>
       </section>
 
-      <section className="w-full bg-blue-600 text-white py-12">
+      <section className="w-full bg-ocean text-white py-12">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-display font-bold mb-4">Ready for the Best Day of Your Zanzibar Trip?</h2>
           <p className="text-xl text-white mb-8">
@@ -194,7 +193,7 @@ export default function SafariBlueTourPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <BookingModal tourName="Safari Blue Trip" />
             <Link href="/contact" className="w-full sm:w-auto">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600 font-semibold px-8 py-6 bg-transparent w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-ocean font-semibold px-8 py-6 bg-transparent w-full sm:w-auto">
                 Contact Us
               </Button>
             </Link>
@@ -203,7 +202,6 @@ export default function SafariBlueTourPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

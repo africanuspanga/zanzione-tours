@@ -1,5 +1,4 @@
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -61,12 +60,12 @@ export default function SerengetiSafariPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
               <h2 className="text-3xl sm:text-4xl font-display font-bold text-blue-season mb-6">Package Overview</h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-lg text-slate-ink mb-6 leading-relaxed">
                 Experience the magic of Serengeti National Park with our exclusive fly-in safari package. This 2-day
                 adventure takes you from the pristine beaches of Zanzibar to the vast savannah plains of Tanzania's most
                 iconic wildlife destination.
               </p>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-lg text-slate-ink mb-6 leading-relaxed">
                 Witness the legendary Great Migration, spot the Big Five in their natural habitat, and enjoy thrilling
                 game drives across endless plains teeming with wildlife. This package includes round-trip flights,
                 accommodation, meals, and expert guided safaris.
@@ -76,27 +75,27 @@ export default function SerengetiSafariPage() {
                 <h3 className="text-xl font-semibold text-blue-season mb-3">Package Highlights</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>Round-trip flights from Zanzibar to Serengeti</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>Full-day game drives with experienced guides</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>Accommodation in Serengeti National Park</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>All meals included (lunch, dinner, breakfast)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>Possible sightings of the Big Five</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>Park entrance fees included</span>
                   </li>
                 </ul>
@@ -108,27 +107,27 @@ export default function SerengetiSafariPage() {
                 <CardContent className="p-6">
                   <div className="text-center mb-6">
                     <p className="text-lg font-semibold text-blue-season mb-2">Contact for Current Pricing</p>
-                    <p className="text-gray-600">Price on request</p>
+                    <p className="text-slate-ink">Price on request</p>
                   </div>
 
                   <div className="space-y-4 mb-6">
-                    <div className="flex items-center gap-3 text-gray-600">
+                    <div className="flex items-center gap-3 text-slate-ink">
                       <Clock className="w-5 h-5 text-blue-season" />
                       <span>2 Days / 1 Night</span>
                     </div>
-                    <div className="flex items-center gap-3 text-gray-600">
+                    <div className="flex items-center gap-3 text-slate-ink">
                       <Plane className="w-5 h-5 text-blue-season" />
                       <span>Flights Included</span>
                     </div>
-                    <div className="flex items-center gap-3 text-gray-600">
+                    <div className="flex items-center gap-3 text-slate-ink">
                       <Hotel className="w-5 h-5 text-blue-season" />
                       <span>Accommodation Included</span>
                     </div>
-                    <div className="flex items-center gap-3 text-gray-600">
+                    <div className="flex items-center gap-3 text-slate-ink">
                       <Utensils className="w-5 h-5 text-blue-season" />
                       <span>All Meals Included</span>
                     </div>
-                    <div className="flex items-center gap-3 text-gray-600">
+                    <div className="flex items-center gap-3 text-slate-ink">
                       <Camera className="w-5 h-5 text-blue-season" />
                       <span>Game Drives</span>
                     </div>
@@ -137,7 +136,7 @@ export default function SerengetiSafariPage() {
                   <BookingModal 
                     tourName="Serengeti 2 Days 1 Night Safari" 
                     trigger={
-                      <Button className="w-full bg-golden hover:bg-golden/90 text-white font-semibold py-6 text-lg">
+                      <Button className="w-full bg-golden hover:bg-sand text-ink font-semibold py-6 text-lg">
                         BOOK THIS TRIP
                       </Button>
                     }
@@ -150,7 +149,7 @@ export default function SerengetiSafariPage() {
       </section>
 
       {/* Itinerary Section */}
-      <section className="py-12 sm:py-16 bg-gray-50">
+      <section className="py-12 sm:py-16 bg-mist">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-blue-season mb-8 text-center">
             Day-by-Day Itinerary
@@ -169,7 +168,7 @@ export default function SerengetiSafariPage() {
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-semibold text-blue-season mb-2">Early Morning - Departure</h4>
-                    <p className="text-gray-600">
+                    <p className="text-slate-ink">
                       Early morning pick-up from your hotel in Zanzibar and transfer to Zanzibar Airport for a domestic
                       flight to Serengeti (Seronera Airstrip). Enjoy aerial views of Tanzania's stunning landscapes
                       during your flight.
@@ -177,28 +176,28 @@ export default function SerengetiSafariPage() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-blue-season mb-2">Mid-Morning - Arrival & Game Drive</h4>
-                    <p className="text-gray-600">
+                    <p className="text-slate-ink">
                       Upon arrival at Seronera Airstrip, meet your experienced safari guide and embark on your first
                       thrilling game drive. The Serengeti is home to the Big Five and countless other species.
                     </p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-blue-season mb-2">Lunch</h4>
-                    <p className="text-gray-600">
+                    <p className="text-slate-ink">
                       Enjoy a delicious picnic lunch amidst the wildlife, surrounded by the breathtaking scenery of the
                       Serengeti plains.
                     </p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-blue-season mb-2">Afternoon - Continued Safari</h4>
-                    <p className="text-gray-600">
+                    <p className="text-slate-ink">
                       Continue your game drive through different regions of the park, searching for lions, leopards,
                       elephants, buffalo, and more. Your guide will share insights about animal behavior and ecology.
                     </p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-blue-season mb-2">Evening - Check-in</h4>
-                    <p className="text-gray-600">
+                    <p className="text-slate-ink">
                       Late afternoon arrival at your accommodation within or near the park. Enjoy dinner and relax after
                       an exciting day. Overnight stay in Serengeti.
                     </p>
@@ -219,28 +218,28 @@ export default function SerengetiSafariPage() {
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-semibold text-blue-season mb-2">Early Morning - Sunrise Game Drive</h4>
-                    <p className="text-gray-600">
+                    <p className="text-slate-ink">
                       After an early breakfast, set out for a final morning game drive across the vast savannah plains.
                       Early morning is prime time for wildlife viewing as animals are most active.
                     </p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-blue-season mb-2">Mid-Morning - Last Sightings</h4>
-                    <p className="text-gray-600">
+                    <p className="text-slate-ink">
                       Capture final photos and soak in the magnificent landscape one last time. Your guide will ensure
                       you get the most out of your remaining time in the park.
                     </p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-blue-season mb-2">Transfer to Airstrip</h4>
-                    <p className="text-gray-600">
+                    <p className="text-slate-ink">
                       After the game drive, you will be transferred back to the Seronera airstrip for your return flight
                       to Zanzibar.
                     </p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-blue-season mb-2">Afternoon - Return to Zanzibar</h4>
-                    <p className="text-gray-600">
+                    <p className="text-slate-ink">
                       Upon arrival at Zanzibar Airport, you will be transferred back to your hotel with incredible
                       memories and photos from your Serengeti adventure.
                     </p>
@@ -258,7 +257,7 @@ export default function SerengetiSafariPage() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6">
             Ready to Explore the Serengeti?
           </h2>
-          <p className="text-lg sm:text-xl text-blue-100 mb-8 leading-relaxed">
+          <p className="text-lg sm:text-xl text-white/75 mb-8 leading-relaxed">
             Don't miss this opportunity to witness one of the world's greatest wildlife spectacles. Book your Serengeti
             safari today.
           </p>
@@ -266,7 +265,7 @@ export default function SerengetiSafariPage() {
             <BookingModal 
               tourName="Serengeti 2 Days 1 Night Safari" 
               trigger={
-                <Button size="lg" className="bg-golden hover:bg-golden/90 text-white font-semibold px-8 py-6 text-lg">
+                <Button size="lg" className="bg-golden hover:bg-sand text-ink font-semibold px-8 py-6 text-lg">
                   BOOK THIS TRIP
                 </Button>
               }
@@ -285,7 +284,6 @@ export default function SerengetiSafariPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

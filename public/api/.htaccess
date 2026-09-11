@@ -1,0 +1,8 @@
+# Only the mail endpoint is reachable over HTTP.
+# The config file is PHP so it never renders as text, but deny it explicitly.
+<FilesMatch "^mail-config.*\.php$">
+  Require all denied
+</FilesMatch>
+
+# No directory listing here.
+Options -Indexes

@@ -28,3 +28,6 @@ next-env.d.ts
 .DS_Store
 out.zip
 package-lock.json
+
+# Mail credentials — deployed by hand, never committed
+/public/api/mail-config.php

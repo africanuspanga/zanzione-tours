@@ -1,7 +1,9 @@
 import type React from "react"
-import type { Metadata } from "next"
-import { Inter, Poppins } from 'next/font/google'
+import type { Metadata, Viewport } from "next"
+import { Inter, Poppins } from "next/font/google"
 import "./globals.css"
+import WhatsAppFloat from "@/components/whatsapp-float"
+import StructuredData from "@/components/structured-data"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -11,24 +13,59 @@ const inter = Inter({
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
   variable: "--font-poppins",
 })
 
+const SITE_URL = "https://www.zanzionetours.com"
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#022f6a" },
+    { media: "(prefers-color-scheme: dark)", color: "#071d35" },
+  ],
+}
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.zanzionetours.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "ZANZIONE TOURS & TRAVELS - Premium Zanzibar Tours, Tanzania Safari & Kilimanjaro Climbing",
-    template: "%s | ZANZIONE TOURS & TRAVELS",
+    default: "Zanzione Tours & Safaris — Zanzibar Excursions, Tanzania Safaris & Airport Transfers",
+    template: "%s | Zanzione Tours & Safaris",
   },
   description:
-    "Experience authentic East African adventures with ZANZIONE TOURS & TRAVELS. Based in Stone Town, Zanzibar, we offer premium island tours, Tanzania safaris, and Kilimanjaro climbing expeditions. Expert local guides, personalized service, and unforgettable memories.",
-  keywords:
-    "Zanzibar tours, Tanzania safari, Kilimanjaro climbing, Stone Town tours, Shangani, spice tours, Safari Blue, Serengeti safari, Ngorongoro crater, beach tours, dolphin tours, Zanzibar travel, East Africa adventures",
-  authors: [{ name: "ZANZIONE TOURS & TRAVELS" }],
-  creator: "ZANZIONE TOURS & TRAVELS",
-  publisher: "ZANZIONE TOURS & TRAVELS",
+    "Zanzibar tour operator based in Shangani, Stone Town. Book island excursions from $25, Tanzania safaris, Kilimanjaro climbs, airport transfers and taxi services with expert local guides.",
+  applicationName: "Zanzione Tours & Safaris",
+  keywords: [
+    "Zanzibar tours",
+    "Zanzibar excursions",
+    "Zanzibar day trips",
+    "Tanzania safari",
+    "Serengeti safari from Zanzibar",
+    "Kilimanjaro climbing",
+    "Stone Town tour",
+    "Safari Blue Zanzibar",
+    "Nakupenda sandbank",
+    "Prison Island tour",
+    "spice farm tour",
+    "Jozani forest",
+    "Zanzibar airport transfer",
+    "Zanzibar taxi",
+    "Zanzibar tour operator",
+    "Shangani Stone Town",
+  ],
+  authors: [{ name: "Zanzione Tours & Safaris", url: SITE_URL }],
+  creator: "Zanzione Tours & Safaris",
+  publisher: "Zanzione Tours & Travel LTD",
+  category: "travel",
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
+  },
   robots: {
     index: true,
     follow: true,
@@ -43,33 +80,29 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.zanzionetours.com",
-    siteName: "ZANZIONE TOURS & TRAVELS",
-    title: "ZANZIONE TOURS & TRAVELS - Premium Zanzibar Tours & Tanzania Safari",
+    url: SITE_URL,
+    siteName: "Zanzione Tours & Safaris",
+    title: "Zanzione Tours & Safaris — Zanzibar Excursions, Tanzania Safaris & Transfers",
     description:
-      "Experience authentic East African adventures with expert local guides. Zanzibar tours, Tanzania safaris, and Kilimanjaro climbing expeditions.",
+      "Island excursions, Tanzania safaris, Kilimanjaro climbs and airport transfers run by local guides in Stone Town, Zanzibar.",
     images: [
       {
-        url: "/images/hero-bg.jpg",
-        width: 1200,
-        height: 630,
-        alt: "ZANZIONE TOURS & TRAVELS - Zanzibar Beach Paradise",
+        url: "/videos/hero-poster.jpg",
+        width: 1600,
+        height: 900,
+        alt: "Aerial view of turquoise water and an overwater restaurant on the Zanzibar coast",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ZANZIONE TOURS & TRAVELS - Premium Zanzibar Tours & Tanzania Safari",
-    description: "Experience authentic East African adventures with expert local guides based in Stone Town, Zanzibar.",
-    images: ["/images/hero-bg.jpg"],
+    title: "Zanzione Tours & Safaris — Zanzibar Excursions & Tanzania Safaris",
+    description: "Book Zanzibar day tours, Tanzania safaris and airport transfers with expert local guides.",
+    images: ["/videos/hero-poster.jpg"],
   },
   alternates: {
-    canonical: "https://www.zanzionetours.com",
+    canonical: SITE_URL,
   },
-  verification: {
-    google: "your-google-verification-code",
-  },
-  generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -80,10 +113,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable} antialiased`}>
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <StructuredData />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <WhatsAppFloat />
+      </body>
     </html>
   )
 }

@@ -1,5 +1,4 @@
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -22,7 +21,7 @@ export default function SalaamCavePage() {
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hi, I'm interested in booking the Salaam Cave tour. Can you provide more details?`
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-mist">
       <Navigation />
 
       {/* Hero Section */}
@@ -72,9 +71,9 @@ export default function SalaamCavePage() {
             <CardContent className="p-8">
               <div className="text-center">
                 <h2 className="text-3xl font-display font-bold text-ocean mb-4">Book Your Salaam Cave Adventure</h2>
-                <p className="text-gray-600 mb-6 text-lg">Swim with sea turtles and support conservation</p>
+                <p className="text-slate-ink mb-6 text-lg">Swim with sea turtles and support conservation</p>
                 <BookingModal tourName="Salaam Cave Tour" />
-                <p className="text-sm text-gray-500 mt-4">
+                <p className="text-sm text-slate-ink mt-4">
                   ✓ Best Price Guarantee | ✓ Easy Online Booking | ✓ Book Now & Pay Later
                 </p>
               </div>
@@ -85,7 +84,7 @@ export default function SalaamCavePage() {
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">Overview & Experience</h2>
             <h3 className="text-2xl font-bold text-blue-season mb-4">The Sea Turtle Haven of Kizimkazi</h3>
-            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
+            <div className="prose prose-lg max-w-none text-ink/85 leading-relaxed space-y-4">
               <p>
                 Tucked away in the coastal region of <strong>Kizimkazi</strong>, Salaam Cave is a natural coral grotto
                 famous for housing and caring for <strong>sea turtles in a safe, clear-water sanctuary</strong>. It
@@ -111,9 +110,9 @@ export default function SalaamCavePage() {
                 "Explore natural limestone cave structures",
                 "Support vital marine conservation efforts",
               ].map((highlight, index) => (
-                <div key={index} className="flex items-start gap-3 p-4 bg-teal-50 rounded-lg">
-                  <Check className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                  <span className="text-gray-700">{highlight}</span>
+                <div key={index} className="flex items-start gap-3 p-4 bg-island/8 rounded-lg">
+                  <Check className="w-6 h-6 text-island flex-shrink-0 mt-1" />
+                  <span className="text-ink/85">{highlight}</span>
                 </div>
               ))}
             </div>
@@ -122,11 +121,11 @@ export default function SalaamCavePage() {
           {/* Pricing Section */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">Pricing Overview</h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-slate-ink mb-6">
               Please contact us for current pricing. We offer excellent value for families and friends.
             </p>
             <Link href="/contact" className="inline-block">
-              <Button className="bg-golden hover:bg-golden/90 text-white font-semibold px-8">
+              <Button className="bg-golden hover:bg-sand text-ink font-semibold px-8">
                 Contact Us
               </Button>
             </Link>
@@ -145,19 +144,19 @@ export default function SalaamCavePage() {
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-golden rounded-full"></div>
-                    <span className="text-gray-700">{item}</span>
+                    <span className="text-ink/85">{item}</span>
                   </div>
                 ))}
               </div>
-              <div className="bg-amber-50 p-6 rounded-lg border-l-4 border-golden">
+              <div className="bg-golden/10 p-6 rounded-lg border-l-4 border-golden">
                 <h3 className="font-bold text-ocean mb-3">Important Information</h3>
-                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                <p className="text-ink/85 text-sm leading-relaxed mb-3">
                   <strong>Location:</strong> Kizimkazi, South Coast of Unguja Island
                 </p>
-                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                <p className="text-ink/85 text-sm leading-relaxed mb-3">
                   <strong>Duration:</strong> Typically 1-2 hours at the cave site
                 </p>
-                <p className="text-gray-700 text-sm leading-relaxed">
+                <p className="text-ink/85 text-sm leading-relaxed">
                   <strong>TRANSPORT IS EXCLUDED:</strong> Hotel transfers vary by location. Contact us for the full
                   price including transfers from your accommodation.
                 </p>
@@ -168,7 +167,7 @@ export default function SalaamCavePage() {
           {/* Conservation Impact */}
           <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">Conservation Impact</h2>
-            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
+            <div className="prose prose-lg max-w-none text-ink/85 leading-relaxed space-y-4">
               <p>
                 By visiting Salaam Cave, you directly support the <strong>local conservation efforts</strong> that
                 protect and rehabilitate sea turtles in Zanzibar. The sanctuary provides a safe haven for injured or
@@ -182,7 +181,7 @@ export default function SalaamCavePage() {
           </div>
 
           {/* Final CTA */}
-          <div className="bg-blue-600 text-white shadow-2xl rounded-lg p-10 text-center">
+          <div className="bg-ocean text-white shadow-2xl rounded-lg p-10 text-center">
             <h2 className="text-3xl font-display font-bold mb-4">Ready to Meet the Sea Turtles?</h2>
             <p className="text-xl text-white mb-8">Book your unforgettable turtle sanctuary experience today</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -202,7 +201,6 @@ export default function SalaamCavePage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

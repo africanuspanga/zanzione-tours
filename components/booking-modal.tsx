@@ -13,7 +13,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { CalendarIcon } from 'lucide-react'
+import { Loader2, CheckCircle2, AlertTriangle } from "lucide-react"
+import { sendEnquiry, openWhatsApp } from "@/lib/send-enquiry"
 
 interface BookingModalProps {
   tourName: string
@@ -23,6 +24,7 @@ interface BookingModalProps {
 
 export default function BookingModal({ tourName, trigger, className }: BookingModalProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "email-failed">("idle")
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -31,6 +33,7 @@ export default function BookingModal({ tourName, trigger, className }: BookingMo
     date: "",
     country: "",
     specialRequests: "",
+    company: "", // honeypot — hidden from real users
   })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -38,10 +41,10 @@ export default function BookingModal({ tourName, trigger, className }: BookingMo
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
-    const whatsappNumber = "255710885320"
+    setStatus("sending")
+
     const message = `*New Booking Request*
 *Tour:* ${tourName}
 *Name:* ${formData.fullName}
@@ -52,34 +55,51 @@ export default function BookingModal({ tourName, trigger, className }: BookingMo
 *Guests:* ${formData.guests}
 *Special Requests:* ${formData.specialRequests || "None"}`
 
-    const encodedMessage = encodeURIComponent(message)
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`
-    
-    // Open WhatsApp in a new tab
-    window.open(whatsappUrl, '_blank')
-    setIsOpen(false)
+    // Email the office a copy. WhatsApp is the primary channel and opens either
+    // way, so a mail failure is surfaced but never blocks the booking.
+    const result = await sendEnquiry({
+      formType: "Booking Request",
+      tour: tourName,
+      fullName: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
+      preferredDate: formData.date,
+      country: formData.country,
+      guests: formData.guests,
+      specialRequests: formData.specialRequests || "None",
+      company: formData.company,
+    })
+
+    openWhatsApp(message)
+    setStatus(result.ok ? "sent" : "email-failed")
+
+    // Leave the confirmation on screen briefly before closing.
+    setTimeout(() => {
+      setIsOpen(false)
+      setStatus("idle")
+    }, result.ok ? 1800 : 3500)
   }
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         {trigger || (
-          <Button size="lg" className={`bg-green-600 hover:bg-green-700 text-white font-bold text-lg px-12 py-6 w-full sm:w-auto ${className}`}>
+          <Button size="lg" className={`bg-golden hover:bg-sand font-bold text-lg px-12 py-6 w-full sm:w-auto ${className}`}>
             BOOK VIA WHATSAPP
           </Button>
         )}
       </DialogTrigger>
       <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-3xl font-display font-bold text-center text-[#103968]">Book This Tour</DialogTitle>
-          <DialogDescription className="text-center text-lg text-gray-600">
+          <DialogTitle className="text-3xl font-display font-bold text-center text-navy">Book This Tour</DialogTitle>
+          <DialogDescription className="text-center text-base text-slate-ink">
             {tourName}
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-6 mt-4">
+        <form onSubmit={handleSubmit} className="relative space-y-6 mt-4">
           <div className="space-y-2">
             <Label htmlFor="fullName" className="text-base font-semibold">
-              Full Name <span className="text-red-500">*</span>
+              Full Name <span className="text-destructive">*</span>
             </Label>
             <Input
               id="fullName"
@@ -88,13 +108,13 @@ export default function BookingModal({ tourName, trigger, className }: BookingMo
               required
               value={formData.fullName}
               onChange={handleChange}
-              className="h-12 text-lg bg-gray-50"
+              className="h-12 text-base bg-mist"
             />
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="email" className="text-base font-semibold">
-              Email <span className="text-red-500">*</span>
+              Email <span className="text-destructive">*</span>
             </Label>
             <Input
               id="email"
@@ -104,13 +124,13 @@ export default function BookingModal({ tourName, trigger, className }: BookingMo
               required
               value={formData.email}
               onChange={handleChange}
-              className="h-12 text-lg bg-gray-50"
+              className="h-12 text-base bg-mist"
             />
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="phone" className="text-base font-semibold">
-              Phone Number <span className="text-red-500">*</span>
+              Phone Number <span className="text-destructive">*</span>
             </Label>
             <Input
               id="phone"
@@ -120,14 +140,14 @@ export default function BookingModal({ tourName, trigger, className }: BookingMo
               required
               value={formData.phone}
               onChange={handleChange}
-              className="h-12 text-lg bg-gray-50"
+              className="h-12 text-base bg-mist"
             />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="guests" className="text-base font-semibold">
-                Number of People <span className="text-red-500">*</span>
+                Number of People <span className="text-destructive">*</span>
               </Label>
               <Input
                 id="guests"
@@ -138,13 +158,13 @@ export default function BookingModal({ tourName, trigger, className }: BookingMo
                 required
                 value={formData.guests}
                 onChange={handleChange}
-                className="h-12 text-lg bg-gray-50"
+                className="h-12 text-base bg-mist"
               />
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="date" className="text-base font-semibold">
-                Preferred Date <span className="text-red-500">*</span>
+                Preferred Date <span className="text-destructive">*</span>
               </Label>
               <div className="relative">
                 <Input
@@ -154,7 +174,7 @@ export default function BookingModal({ tourName, trigger, className }: BookingMo
                   required
                   value={formData.date}
                   onChange={handleChange}
-                  className="h-12 text-lg bg-gray-50"
+                  className="h-12 text-base bg-mist"
                 />
               </div>
             </div>
@@ -162,7 +182,7 @@ export default function BookingModal({ tourName, trigger, className }: BookingMo
 
           <div className="space-y-2">
             <Label htmlFor="country" className="text-base font-semibold">
-              Country <span className="text-red-500">*</span>
+              Country <span className="text-destructive">*</span>
             </Label>
             <Input
               id="country"
@@ -171,7 +191,7 @@ export default function BookingModal({ tourName, trigger, className }: BookingMo
               required
               value={formData.country}
               onChange={handleChange}
-              className="h-12 text-lg bg-gray-50"
+              className="h-12 text-base bg-mist"
             />
           </div>
 
@@ -185,17 +205,52 @@ export default function BookingModal({ tourName, trigger, className }: BookingMo
               placeholder="Any dietary restrictions, accessibility needs, or special requests..."
               value={formData.specialRequests}
               onChange={handleChange}
-              className="min-h-[100px] text-lg bg-gray-50 resize-y"
+              className="min-h-[100px] text-base bg-mist resize-y"
             />
           </div>
 
-          <Button 
-            type="submit" 
-            size="lg" 
-            className="w-full bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-lg py-6 mt-4"
+          {/* Honeypot — visually hidden, never focusable, bots fill it in */}
+          <div className="absolute -left-[9999px] top-auto w-px h-px overflow-hidden" aria-hidden="true">
+            <label htmlFor="company">Company</label>
+            <input
+              id="company"
+              name="company"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={formData.company}
+              onChange={handleChange}
+            />
+          </div>
+
+          <Button
+            type="submit"
+            size="lg"
+            disabled={status === "sending"}
+            className="w-full bg-navy hover:bg-ocean text-white font-bold text-lg py-6 mt-4 disabled:opacity-70"
           >
-            Submit Booking Request
+            {status === "sending" ? (
+              <>
+                <Loader2 className="w-5 h-5 mr-2 animate-spin" /> Sending…
+              </>
+            ) : (
+              "Submit Booking Request"
+            )}
           </Button>
+
+          <p className="text-center text-[13px] text-slate-ink" role="status" aria-live="polite">
+            {status === "sent" && (
+              <span className="inline-flex items-center gap-1.5 text-island font-semibold">
+                <CheckCircle2 className="w-4 h-4" /> Sent to our team — WhatsApp is opening now.
+              </span>
+            )}
+            {status === "email-failed" && (
+              <span className="inline-flex items-center gap-1.5 text-sea font-semibold">
+                <AlertTriangle className="w-4 h-4" /> WhatsApp is opening — please send the message to confirm.
+              </span>
+            )}
+            {status === "idle" && "We reply on WhatsApp and by email, usually within the hour."}
+          </p>
         </form>
       </DialogContent>
     </Dialog>

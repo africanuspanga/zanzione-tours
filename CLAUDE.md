@@ -17,21 +17,47 @@ A premium tour operator website for **ZANZIONE TOURS & TRAVELS**, based in Shang
 - **Package Manager:** pnpm
 
 ## Brand Identity
-### Colors
-- **Primary Blue:** `#103968` (CSS var: `--blue-season-primary`, class: `.bg-blue-season`, `.text-blue-season`)
-- **Golden/Amber:** `#f7a10d` (CSS var: `--blue-season-secondary`, class: `.bg-golden`, `.text-golden`)
-- **Light:** `#f8fafc` (var: `--blue-season-light`)
-- **Dark:** `#0f172a` (var: `--blue-season-dark`)
+### Colour Palette
+Defined once in `app/globals.css` as `--zn-*` variables and registered in the
+Tailwind `@theme` block, which is what makes opacity modifiers (`bg-golden/90`,
+`text-ocean/70`) generate. Never hardcode these hex values in components.
+
+| Role | Name | Hex | Tailwind class |
+|---|---|---|---|
+| Primary Navy | Deep Ocean Blue | `#022F6A` | `navy` (alias: `blue-season`) |
+| Primary Blue | Zanzibar Blue | `#025292` | `ocean` |
+| Secondary Blue | Indian Ocean Blue | `#026DAF` | `sea` |
+| Primary Cyan | Tropical Aqua | `#04AFDD` | `aqua` |
+| Bright Aqua | Lagoon Cyan | `#05D4E9` | `lagoon` |
+| Teal Accent | Island Teal | `#02867F` | `island` |
+| Sun Accent | Zanzibar Gold | `#FDB320` | `golden` |
+| Soft Gold | Sunset Sand | `#F7D460` | `sand` |
+| Background | Pure White | `#FFFFFF` | `white` |
+| Soft Background | Ocean Mist | `#F5FAFC` | `mist` |
+| Main Text | Deep Navy | `#071D35` | `ink` |
+| Muted Text | Slate Blue Gray | `#647B8F` | `slate-ink` |
+
+**Usage rules**
+- `navy` / `ocean` — headings, primary buttons, dark panels
+- `aqua` — section eyebrows, links, active nav, focus rings
+- `golden` — CTAs and badges only, always with `text-ink` (gold + white fails contrast)
+- `island` — "included" ticks and success states
+- `ink` / `slate-ink` — body copy; `mist` — alternating section backgrounds
+
+Helper utilities: `.bg-gradient-ocean`, `.bg-gradient-lagoon`, `.bg-gradient-sun`,
+`.text-gradient-ocean`, `.zn-rule` (the section divider), `.shadow-card`,
+`.shadow-card-hover`.
 
 ### Typography
-- **Display Font:** Poppins (weights: 300-700), class: `.font-display`
+- **Display Font:** Poppins (300-800), class `.font-display`; applied to all `h1`-`h6` by default
 - **Body Font:** Inter (default sans-serif)
 - Both loaded from Google Fonts via `next/font`
 
 ### Logo
-- Primary: `/images/logo-zanzione.png` (226KB)
-- Alt: `/images/logo.png` (83KB)
-- Admin: `/images/admin-logo.png` (148KB)
+- Full stacked logo: `/images/brand/zanzione-logo.png` (emblem + wordmark)
+- Emblem only: `/images/brand/zanzione-mark.png` (used in nav and footer)
+- Favicons: `app/icon.png` and `app/apple-icon.png` (Next.js file convention)
+- Source files live in `/public/new-media/`
 
 ## Contact Information
 - **Phone:** +255 773 929 583
@@ -92,22 +118,36 @@ A premium tour operator website for **ZANZIONE TOURS & TRAVELS**, based in Shang
 - Airport/Ferry to Paje/Jambiani: $35
 
 ## Navigation Menu Items
-Home | About | Itineraries | Zanzibar Tours | Safari (dropdown: Safari Tours, Kilimanjaro) | Services | Contact
+Two-row sticky header (`components/navigation.tsx`):
+- **Row 1:** logo · site search · "Need Help?" · Book Now
+- **Row 2:** Home | Zanzibar Excursions | Safari (dropdown: Tanzania Safaris, Kilimanjaro Climbing) | Itineraries | Transfers | Services | About | Contact · WhatsApp block
 
 ## Development Commands
 ```bash
 pnpm dev       # Start dev server
-pnpm build     # Build static export
+pnpm build     # Regenerate the sitemap, then build the static export to out/
+pnpm sitemap   # Regenerate public/sitemap.xml only
 pnpm lint      # Run ESLint
-pnpm start     # Start production server
+npx tsc --noEmit   # Typecheck (next.config.mjs ignores TS errors during build)
 ```
 
 ## Important Conventions
-- All pages use the `<Navigation />` + `<Footer />` + `<WhatsAppFloat />` wrapper pattern
-- Booking actions trigger `BookingModal` which sends to WhatsApp (+255710885320)
-- Use `.font-display` for headings (Poppins), default sans for body (Inter)
-- Use `.bg-blue-season` / `.text-blue-season` for primary blue
-- Use `.bg-golden` / `.text-golden` for accent/CTA elements
-- Static export mode: no server-side features, all pages pre-rendered
-- Images use `next/image` with `unoptimized: true` (static export)
-- Mobile-first responsive design with custom `xs` breakpoint (480px)
+- Pages use the `<Navigation />` + page content + `<Footer />` pattern.
+  `<WhatsAppFloat />` is rendered **once in `app/layout.tsx`** — do not add it per page.
+- `<Footer />` also renders the "For More Inquiry" contact band above itself.
+- Tour data lives in `lib/tours.ts` (single source of truth for cards, nav search
+  and JSON-LD). Tours quoted case-by-case carry `price: null` and render as
+  "On Request" — never invent a price.
+- `lib/site-index.ts` powers the navigation search box; add new pages there.
+- Tour cards are `components/tour-card.tsx`. Do not re-implement card markup.
+- Booking actions open `BookingModal`, which sends to WhatsApp **and** emails the
+  office via `lib/send-enquiry.ts` → `public/api/send-booking.php`.
+  See `docs/booking-email-setup.md`. `public/api/mail-config.php` holds live
+  credentials and is git-ignored.
+- Static export mode: no server-side features, no API routes, no server actions.
+- Images use `next/image` with `unoptimized: true`.
+- `public/sitemap.xml` is generated by `scripts/generate-sitemap.mjs` from the
+  route tree — edit the script, not the XML.
+- Structured data (Organisation, WebSite, ItemList) is emitted once from
+  `components/structured-data.tsx`; pages add `<Breadcrumbs />` for their trail.
+- Mobile-first responsive design with an `xs` breakpoint (30rem) registered in `@theme`.

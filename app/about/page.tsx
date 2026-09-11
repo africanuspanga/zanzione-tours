@@ -1,5 +1,37 @@
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "About Zanzione Tours & Safaris",
+  description:
+    "Zanzione Tours & Travel LTD is a Zanzibar-based tour operator in Shangani, Stone Town. Meet the local team behind our island excursions, Tanzania safaris, Kilimanjaro climbs and airport transfers.",
+  keywords: [
+    "about Zanzione Tours",
+    "Zanzibar tour operator",
+    "Stone Town travel agency",
+    "Shangani Zanzibar",
+    "local Zanzibar guides",
+    "Tanzania safari operator",
+  ],
+  openGraph: {
+    title: "About Zanzione Tours & Safaris | Zanzione Tours & Safaris",
+    description:
+      "Zanzione Tours & Travel LTD is a Zanzibar-based tour operator in Shangani, Stone Town. Meet the local team behind our island excursions, Tanzania safaris, Kilimanjaro climbs and airport transfers.",
+    url: "https://www.zanzionetours.com/about",
+    images: [
+      {
+        url: "/videos/hero-poster.jpg",
+        width: 1200,
+        height: 630,
+        alt: "The Zanzibar coastline where Zanzione Tours operates",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://www.zanzionetours.com/about",
+  },
+}
+
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -28,7 +60,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-display font-bold text-blue-season mb-6">Our Story</h2>
-              <div className="space-y-6 text-gray-600 leading-relaxed">
+              <div className="space-y-6 text-slate-ink leading-relaxed">
                 <p>
                   Born in the historic Shangani area of Stone Town, Zanzibar, ZANZIONE TOURS & TRAVELS emerged from a
                   passion for sharing the incredible beauty and rich culture of East Africa with travelers from around
@@ -63,11 +95,11 @@ export default function AboutPage() {
       </section>
 
       {/* Our Values */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-mist">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold text-blue-season mb-6">Our Values</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-ink max-w-3xl mx-auto">
               These core values guide everything we do, from planning your itinerary to ensuring your safety and
               satisfaction.
             </p>
@@ -80,7 +112,7 @@ export default function AboutPage() {
                   <Heart className="w-8 h-8 text-golden" />
                 </div>
                 <h3 className="text-xl font-display font-semibold text-blue-season">Authenticity</h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-slate-ink text-sm">
                   We create genuine experiences that showcase the real East Africa, not tourist facades.
                 </p>
               </CardContent>
@@ -92,7 +124,7 @@ export default function AboutPage() {
                   <Users className="w-8 h-8 text-golden" />
                 </div>
                 <h3 className="text-xl font-display font-semibold text-blue-season">Community</h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-slate-ink text-sm">
                   We support local communities and ensure tourism benefits the people who call this region home.
                 </p>
               </CardContent>
@@ -104,7 +136,7 @@ export default function AboutPage() {
                   <Award className="w-8 h-8 text-golden" />
                 </div>
                 <h3 className="text-xl font-display font-semibold text-blue-season">Excellence</h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-slate-ink text-sm">
                   We strive for perfection in every detail, from planning to execution of your adventure.
                 </p>
               </CardContent>
@@ -116,7 +148,7 @@ export default function AboutPage() {
                   <Globe className="w-8 h-8 text-golden" />
                 </div>
                 <h3 className="text-xl font-display font-semibold text-blue-season">Sustainability</h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-slate-ink text-sm">
                   We're committed to responsible tourism that preserves the environment for future generations.
                 </p>
               </CardContent>
@@ -130,7 +162,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold mb-6">Certifications & Partnerships</h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl text-white/75 max-w-3xl mx-auto">
               We maintain the highest standards through official certifications and partnerships with leading
               organizations.
             </p>
@@ -142,7 +174,7 @@ export default function AboutPage() {
                 <Award className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-display font-semibold mb-2">Licensed Tour Operator</h3>
-              <p className="text-blue-100 text-sm">Fully licensed by Tanzania Tourism Authority</p>
+              <p className="text-white/75 text-sm">Fully licensed by Tanzania Tourism Authority</p>
             </div>
 
             <div className="text-center">
@@ -150,7 +182,7 @@ export default function AboutPage() {
                 <Award className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-display font-semibold mb-2">TATO Member</h3>
-              <p className="text-blue-100 text-sm">Tanzania Association of Tour Operators</p>
+              <p className="text-white/75 text-sm">Tanzania Association of Tour Operators</p>
             </div>
 
             <div className="text-center">
@@ -158,7 +190,7 @@ export default function AboutPage() {
                 <Award className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-display font-semibold mb-2">Safety Certified</h3>
-              <p className="text-blue-100 text-sm">Wilderness first aid and safety protocols</p>
+              <p className="text-white/75 text-sm">Wilderness first aid and safety protocols</p>
             </div>
 
             <div className="text-center">
@@ -166,7 +198,7 @@ export default function AboutPage() {
                 <Award className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-display font-semibold mb-2">Eco-Tourism</h3>
-              <p className="text-blue-100 text-sm">Committed to sustainable tourism practices</p>
+              <p className="text-white/75 text-sm">Committed to sustainable tourism practices</p>
             </div>
           </div>
         </div>
@@ -193,7 +225,6 @@ export default function AboutPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

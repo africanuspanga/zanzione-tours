@@ -1,5 +1,4 @@
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -19,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function KendwaSeawalkPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-mist">
       <Navigation />
 
       {/* Hero Section */}
@@ -69,9 +68,9 @@ export default function KendwaSeawalkPage() {
             <CardContent className="p-8">
               <div className="text-center">
                 <h2 className="text-3xl font-display font-bold text-ocean mb-4">Book Your Sea Walk Adventure</h2>
-                <p className="text-gray-600 mb-6 text-lg">Discover the underwater world without getting your hair wet</p>
+                <p className="text-slate-ink mb-6 text-lg">Discover the underwater world without getting your hair wet</p>
                 <BookingModal tourName="Kendwa Sea Walk" />
-                <p className="text-sm text-gray-500 mt-4">
+                <p className="text-sm text-slate-ink mt-4">
                   ✓ Best Price Guarantee | ✓ Easy Online Booking | ✓ Book Now & Pay Later
                 </p>
               </div>
@@ -82,7 +81,7 @@ export default function KendwaSeawalkPage() {
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">Overview & Experience</h2>
             <h3 className="text-2xl font-bold text-blue-season mb-4">Walk on the Ocean Floor</h3>
-            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
+            <div className="prose prose-lg max-w-none text-ink/85 leading-relaxed space-y-4">
               <p>
                 Discover the underwater world of Zanzibar in a unique and easy way — no swimming, no diving, and no
                 experience needed.
@@ -123,9 +122,9 @@ export default function KendwaSeawalkPage() {
                 "Keep your glasses or contact lenses on",
                 "Professional guides and full safety briefing included",
               ].map((highlight, index) => (
-                <div key={index} className="flex items-start gap-3 p-4 bg-cyan-50 rounded-lg">
-                  <Check className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                  <span className="text-gray-700">{highlight}</span>
+                <div key={index} className="flex items-start gap-3 p-4 bg-aqua/8 rounded-lg">
+                  <Check className="w-6 h-6 text-island flex-shrink-0 mt-1" />
+                  <span className="text-ink/85">{highlight}</span>
                 </div>
               ))}
             </div>
@@ -162,12 +161,12 @@ export default function KendwaSeawalkPage() {
                 },
               ].map((step, index) => (
                 <div key={index} className="flex gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-golden rounded-full flex items-center justify-center text-white font-black">
+                  <div className="flex-shrink-0 w-10 h-10 bg-golden rounded-full flex items-center justify-center text-ink font-black">
                     {index + 1}
                   </div>
                   <div>
                     <h4 className="font-bold text-blue-season mb-1">{step.title}</h4>
-                    <p className="text-gray-700 text-sm leading-relaxed">{step.desc}</p>
+                    <p className="text-ink/85 text-sm leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
               ))}
@@ -189,8 +188,8 @@ export default function KendwaSeawalkPage() {
                     "Use of glasses or contact lenses underwater",
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
-                      <Check className="w-5 h-5 text-green-600" />
-                      <span className="text-gray-700">{item}</span>
+                      <Check className="w-5 h-5 text-island" />
+                      <span className="text-ink/85">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -205,8 +204,8 @@ export default function KendwaSeawalkPage() {
                     "Personal expenses",
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
-                      <X className="w-5 h-5 text-red-500" />
-                      <span className="text-gray-700">{item}</span>
+                      <X className="w-5 h-5 text-destructive" />
+                      <span className="text-ink/85">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -215,9 +214,9 @@ export default function KendwaSeawalkPage() {
           </div>
 
           {/* Important Info */}
-          <div className="bg-blue-50 rounded-lg shadow-lg p-8 mb-8 border-l-4 border-ocean">
+          <div className="bg-aqua/5 rounded-lg shadow-lg p-8 mb-8 border-l-4 border-ocean">
             <h2 className="text-2xl font-display font-bold text-ocean mb-4">Important Information</h2>
-            <ul className="space-y-3 text-gray-700">
+            <ul className="space-y-3 text-ink/85">
               <li><strong>Duration:</strong> Approximately 1 hour total, including 20 minutes underwater.</li>
               <li><strong>Location:</strong> Kendwa / Nungwi area, north coast of Zanzibar.</li>
               <li><strong>Minimum age:</strong> 10 years old.</li>
@@ -227,7 +226,7 @@ export default function KendwaSeawalkPage() {
           </div>
 
           {/* Final CTA */}
-          <div className="bg-blue-600 text-white shadow-2xl rounded-lg p-10 text-center">
+          <div className="bg-ocean text-white shadow-2xl rounded-lg p-10 text-center">
             <h2 className="text-3xl font-display font-bold mb-4">Ready to Walk Underwater?</h2>
             <p className="text-xl text-white mb-8">Book your Kendwa Sea Walk today for a once-in-a-lifetime ocean experience</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -247,7 +246,6 @@ export default function KendwaSeawalkPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

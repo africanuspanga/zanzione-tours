@@ -1,5 +1,4 @@
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -19,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function CookingClassPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-mist">
       <Navigation />
 
       {/* Hero Section */}
@@ -69,9 +68,9 @@ export default function CookingClassPage() {
             <CardContent className="p-8">
               <div className="text-center">
                 <h2 className="text-3xl font-display font-bold text-ocean mb-4">Book Your Cooking Class</h2>
-                <p className="text-gray-600 mb-6 text-lg">A hands-on journey into Swahili cuisine, spices, and local markets</p>
+                <p className="text-slate-ink mb-6 text-lg">A hands-on journey into Swahili cuisine, spices, and local markets</p>
                 <BookingModal tourName="Zanzibar Traditional Cooking Class" />
-                <p className="text-sm text-gray-500 mt-4">
+                <p className="text-sm text-slate-ink mt-4">
                   ✓ Best Price Guarantee | ✓ Easy Online Booking | ✓ Book Now & Pay Later
                 </p>
               </div>
@@ -81,7 +80,7 @@ export default function CookingClassPage() {
           {/* Overview */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">Overview</h2>
-            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
+            <div className="prose prose-lg max-w-none text-ink/85 leading-relaxed space-y-4">
               <p>
                 Warmly welcome to join our Zanzibar traditional cooking class, with originality from our ancestors.
                 All the cooking tools are copied from old times when our grandparents enjoyed good days with food
@@ -113,9 +112,9 @@ export default function CookingClassPage() {
                 "Learn to create delicious Swahili meals from scratch",
                 "Learn about spices, local herbs, origins, and medicinal uses",
               ].map((highlight, index) => (
-                <div key={index} className="flex items-start gap-3 p-4 bg-green-50 rounded-lg">
-                  <Check className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                  <span className="text-gray-700">{highlight}</span>
+                <div key={index} className="flex items-start gap-3 p-4 bg-island/8 rounded-lg">
+                  <Check className="w-6 h-6 text-island flex-shrink-0 mt-1" />
+                  <span className="text-ink/85">{highlight}</span>
                 </div>
               ))}
             </div>
@@ -124,7 +123,7 @@ export default function CookingClassPage() {
           {/* What You Can Expect */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-3xl font-display font-bold text-ocean mb-6">What You Can Expect</h2>
-            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
+            <div className="prose prose-lg max-w-none text-ink/85 leading-relaxed space-y-4">
               <p>
                 Take a tour with your chef through Darajani market and learn about our culture of buying. After
                 shopping, enjoy a private transfer to Dole village in the central part of Zanzibar for the spice tour.
@@ -172,12 +171,12 @@ export default function CookingClassPage() {
                 },
               ].map((step, index) => (
                 <div key={index} className="flex gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-golden rounded-full flex items-center justify-center text-white font-black">
+                  <div className="flex-shrink-0 w-10 h-10 bg-golden rounded-full flex items-center justify-center text-ink font-black">
                     {index + 1}
                   </div>
                   <div>
                     <h4 className="font-bold text-blue-season mb-1">{step.title}</h4>
-                    <p className="text-gray-700 text-sm leading-relaxed">{step.desc}</p>
+                    <p className="text-ink/85 text-sm leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
               ))}
@@ -200,8 +199,8 @@ export default function CookingClassPage() {
                     "All taxes, fuel surcharges, and service fees",
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
-                      <Check className="w-5 h-5 text-green-600" />
-                      <span className="text-gray-700">{item}</span>
+                      <Check className="w-5 h-5 text-island" />
+                      <span className="text-ink/85">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -217,8 +216,8 @@ export default function CookingClassPage() {
                     "Expenses of a personal nature",
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
-                      <X className="w-5 h-5 text-red-500" />
-                      <span className="text-gray-700">{item}</span>
+                      <X className="w-5 h-5 text-destructive" />
+                      <span className="text-ink/85">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -227,9 +226,9 @@ export default function CookingClassPage() {
           </div>
 
           {/* Additional Info */}
-          <div className="bg-amber-50 rounded-lg shadow-lg p-8 mb-8 border-l-4 border-golden">
+          <div className="bg-golden/10 rounded-lg shadow-lg p-8 mb-8 border-l-4 border-golden">
             <h2 className="text-2xl font-display font-bold text-ocean mb-4">Additional Information</h2>
-            <ul className="space-y-3 text-gray-700">
+            <ul className="space-y-3 text-ink/85">
               <li><strong>Location:</strong> Dole, Central Zanzibar (with Darajani market tour in Stone Town).</li>
               <li><strong>Duration:</strong> 3-4 hours.</li>
               <li><strong>Guide:</strong> Tour may be operated by a multi-lingual guide.</li>
@@ -240,7 +239,7 @@ export default function CookingClassPage() {
           </div>
 
           {/* Final CTA */}
-          <div className="bg-blue-600 text-white shadow-2xl rounded-lg p-10 text-center">
+          <div className="bg-ocean text-white shadow-2xl rounded-lg p-10 text-center">
             <h2 className="text-3xl font-display font-bold mb-4">Ready to Cook Swahili Style?</h2>
             <p className="text-xl text-white mb-8">Book your Traditional Cooking Class today and taste the real Zanzibar</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -260,7 +259,6 @@ export default function CookingClassPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

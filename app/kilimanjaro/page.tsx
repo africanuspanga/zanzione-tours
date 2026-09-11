@@ -1,5 +1,4 @@
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -133,7 +132,7 @@ export default function KilimanjaroPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold text-blue-season mb-6">Reach the Roof of Africa</h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-slate-ink max-w-4xl mx-auto leading-relaxed">
               Mount Kilimanjaro stands at 5,895 meters (19,341 feet) as Africa's highest peak and the world's tallest
               free-standing mountain. Our experienced guides and comprehensive support ensure you have the best chance
               of reaching Uhuru Peak safely.
@@ -146,7 +145,7 @@ export default function KilimanjaroPage() {
                 <Mountain className="w-8 h-8 text-golden" />
               </div>
               <h3 className="text-xl font-display font-semibold text-blue-season">5,895m Peak</h3>
-              <p className="text-gray-600">Africa's highest mountain and world's tallest free-standing peak</p>
+              <p className="text-slate-ink">Africa's highest mountain and world's tallest free-standing peak</p>
             </div>
 
             <div className="space-y-4">
@@ -154,7 +153,7 @@ export default function KilimanjaroPage() {
                 <TrendingUp className="w-8 h-8 text-golden" />
               </div>
               <h3 className="text-xl font-display font-semibold text-blue-season">85% Success Rate</h3>
-              <p className="text-gray-600">High success rate with our experienced guides and proper acclimatization</p>
+              <p className="text-slate-ink">High success rate with our experienced guides and proper acclimatization</p>
             </div>
 
             <div className="space-y-4">
@@ -162,7 +161,7 @@ export default function KilimanjaroPage() {
                 <Users className="w-8 h-8 text-golden" />
               </div>
               <h3 className="text-xl font-display font-semibold text-blue-season">Expert Guides</h3>
-              <p className="text-gray-600">Certified mountain guides with years of Kilimanjaro experience</p>
+              <p className="text-slate-ink">Certified mountain guides with years of Kilimanjaro experience</p>
             </div>
 
             <div className="space-y-4">
@@ -170,18 +169,18 @@ export default function KilimanjaroPage() {
                 <Clock className="w-8 h-8 text-golden" />
               </div>
               <h3 className="text-xl font-display font-semibold text-blue-season">5-8 Days</h3>
-              <p className="text-gray-600">Multiple route options to suit different fitness levels and preferences</p>
+              <p className="text-slate-ink">Multiple route options to suit different fitness levels and preferences</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Routes */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-mist">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold text-blue-season mb-6">Choose Your Route</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-ink max-w-3xl mx-auto">
               Each route offers a unique perspective and challenge. Our experts will help you choose the best route
               based on your experience and preferences.
             </p>
@@ -208,24 +207,24 @@ export default function KilimanjaroPage() {
                       {route.successRate}
                     </span>
                   </div>
-                  <p className="text-sm text-gray-500 mb-2">{route.nickname}</p>
+                  <p className="text-sm text-slate-ink mb-2">{route.nickname}</p>
 
                   <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
                     <div>
                       <span className="font-semibold text-blue-season">Duration:</span>
-                      <p className="text-gray-600">{route.duration}</p>
+                      <p className="text-slate-ink">{route.duration}</p>
                     </div>
                     <div>
                       <span className="font-semibold text-blue-season">Difficulty:</span>
-                      <p className="text-gray-600">{route.difficulty}</p>
+                      <p className="text-slate-ink">{route.difficulty}</p>
                     </div>
                   </div>
 
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">{route.description}</p>
+                  <p className="text-slate-ink mb-4 text-sm leading-relaxed">{route.description}</p>
 
                   <div className="mb-6">
                     <h4 className="font-semibold text-blue-season mb-2 text-sm">Route Highlights:</h4>
-                    <ul className="text-xs text-gray-600 space-y-1">
+                    <ul className="text-xs text-slate-ink space-y-1">
                       {route.highlights.map((highlight, index) => (
                         <li key={index} className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 bg-golden rounded-full"></div>
@@ -235,7 +234,7 @@ export default function KilimanjaroPage() {
                     </ul>
                   </div>
 
-                  <Button className="w-full bg-golden hover:bg-golden/90 text-white">Choose This Route</Button>
+                  <Button className="w-full bg-golden hover:bg-sand text-ink">Choose This Route</Button>
                 </CardContent>
               </Card>
             ))}
@@ -248,7 +247,7 @@ export default function KilimanjaroPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold text-blue-season mb-6">Complete Climbing Package</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-ink max-w-3xl mx-auto">
               We provide everything you need for a safe and successful climb, from professional guides to quality
               equipment.
             </p>
@@ -261,7 +260,7 @@ export default function KilimanjaroPage() {
                   <Users className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-display font-semibold text-blue-season">Professional Guides</h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-slate-ink text-sm">
                   Certified mountain guides with extensive Kilimanjaro experience and wilderness first aid training.
                 </p>
               </CardContent>
@@ -273,7 +272,7 @@ export default function KilimanjaroPage() {
                   <Mountain className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-display font-semibold text-blue-season">Quality Equipment</h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-slate-ink text-sm">
                   High-quality tents, sleeping bags, and climbing equipment provided for your safety and comfort.
                 </p>
               </CardContent>
@@ -285,7 +284,7 @@ export default function KilimanjaroPage() {
                   <Clock className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-display font-semibold text-blue-season">Full Support</h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-slate-ink text-sm">
                   Porters, cook, and support staff to handle logistics so you can focus on the climb.
                 </p>
               </CardContent>
@@ -299,7 +298,7 @@ export default function KilimanjaroPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold mb-6">Preparation Guidelines</h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl text-white/75 max-w-3xl mx-auto">
               Proper preparation is key to a successful climb. We provide comprehensive guidance to help you prepare
               physically and mentally.
             </p>
@@ -311,7 +310,7 @@ export default function KilimanjaroPage() {
                 <TrendingUp className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-display font-semibold mb-3">Physical Training</h3>
-              <p className="text-blue-100 text-sm">
+              <p className="text-white/75 text-sm">
                 Build cardiovascular endurance and leg strength with hiking, running, and stair climbing.
               </p>
             </div>
@@ -321,7 +320,7 @@ export default function KilimanjaroPage() {
                 <Mountain className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-display font-semibold mb-3">Altitude Preparation</h3>
-              <p className="text-blue-100 text-sm">
+              <p className="text-white/75 text-sm">
                 Consider altitude training or arrive early to acclimatize in Tanzania's highlands.
               </p>
             </div>
@@ -331,7 +330,7 @@ export default function KilimanjaroPage() {
                 <Users className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-display font-semibold mb-3">Mental Preparation</h3>
-              <p className="text-blue-100 text-sm">
+              <p className="text-white/75 text-sm">
                 Prepare mentally for the challenge with visualization and positive mindset training.
               </p>
             </div>
@@ -341,7 +340,7 @@ export default function KilimanjaroPage() {
                 <Clock className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-display font-semibold mb-3">Gear Preparation</h3>
-              <p className="text-blue-100 text-sm">
+              <p className="text-white/75 text-sm">
                 We provide a comprehensive packing list and can arrange gear rental if needed.
               </p>
             </div>
@@ -367,7 +366,7 @@ export default function KilimanjaroPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-golden font-semibold px-8 py-4 bg-transparent"
+                className="border-white text-white hover:bg-white hover:text-sea font-semibold px-8 py-4 bg-transparent"
               >
                 Climbing Consultation
               </Button>
@@ -377,7 +376,6 @@ export default function KilimanjaroPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

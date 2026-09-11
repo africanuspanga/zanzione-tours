@@ -1,5 +1,4 @@
 import Navigation from "@/components/navigation"
-import WhatsAppFloat from "@/components/whatsapp-float"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -69,7 +68,7 @@ export default function NakupendaSandbankPage() {
               <h2 className="text-3xl sm:text-4xl font-display font-bold text-blue-season mb-6">
                 Overview & Experience
               </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-lg text-slate-ink mb-6 leading-relaxed">
                 The Nakupenda Sandbank is a pristine slice of paradise located just 20 minutes from Stone Town via a
                 traditional local boat. The name "Nakupenda" translates to <strong>"I Love You"</strong> in English,
                 making it the perfect spot for honeymooners and romantics, and it has been listed among Africa's best
@@ -78,7 +77,7 @@ export default function NakupendaSandbankPage() {
 
               <div className="bg-golden/10 border-l-4 border-golden p-6 mb-8">
                 <h3 className="text-xl font-semibold text-blue-season mb-3">What You Will Experience</h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-slate-ink mb-4">
                   This is the ultimate sea and sun escape, offering a spectacular mix of relaxation and marine adventure:
                 </p>
                 <ul className="space-y-2">
@@ -115,35 +114,35 @@ export default function NakupendaSandbankPage() {
               </div>
 
               <h3 className="text-2xl font-display font-bold text-blue-season mb-4">Tour Details & Inclusions</h3>
-              <div className="bg-blue-50 rounded-lg p-6 mb-6">
+              <div className="bg-aqua/5 rounded-lg p-6 mb-6">
                 <h4 className="font-semibold text-blue-season mb-3">The tour price is comprehensive and includes:</h4>
-                <ul className="space-y-2 text-gray-600">
+                <ul className="space-y-2 text-slate-ink">
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>Guide: Services of an English-Speaking Guide</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>Transport: Round-trip boat transfer in a local traditional wooden boat</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>Equipment: Swimming/snorkeling gear</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>Lunch: Seafood BBQ Lunch (Chicken and Vegetarian options available)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-golden mt-1">✓</span>
+                    <span className="text-island mt-1">✓</span>
                     <span>All government taxes and fees</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="bg-amber-50 border-l-4 border-amber-500 p-6 mb-8">
-                <h4 className="font-semibold text-amber-900 mb-2">Important Note on Pricing</h4>
-                <p className="text-amber-800">
+              <div className="bg-golden/10 border-l-4 border-golden p-6 mb-8">
+                <h4 className="font-semibold text-ink mb-2">Important Note on Pricing</h4>
+                <p className="text-ink/85">
                   This tour is very accessible from Stone Town's coast. If you are staying in Stone Town, you may{" "}
                   <strong>not</strong> need to pay for additional transport costs to the departure point. For guests
                   staying outside Stone Town, please inquire for the full price including transfer fees.
@@ -152,7 +151,7 @@ export default function NakupendaSandbankPage() {
 
               <div className="bg-gradient-to-r from-blue-season/10 to-golden/10 rounded-lg p-6">
                 <h3 className="text-xl font-semibold text-blue-season mb-3">Visit Nakupenda Today!</h3>
-                <p className="text-gray-600">
+                <p className="text-slate-ink">
                   Visiting Nakupenda Sandbank is one of the most enjoyable things you can do during your Zanzibar
                   vacation. It provides stunning views and romantic vibes that make it truly worth the trip.
                 </p>
@@ -163,28 +162,28 @@ export default function NakupendaSandbankPage() {
               <Card className="sticky top-24">
                 <CardContent className="p-6">
                   <div className="text-center mb-6">
-                    <p className="text-golden font-bold text-xl mb-2">Contact for Pricing</p>
-                    <p className="text-gray-600 text-sm mb-2">Reach out for current rates</p>
+                    <p className="text-ocean font-bold text-xl mb-2">Contact for Pricing</p>
+                    <p className="text-slate-ink text-sm mb-2">Reach out for current rates</p>
                     <div className="flex items-center justify-center gap-1 mt-2">
                       <div className="flex text-golden">
                         {[...Array(5)].map((_, i) => (
                           <Star key={i} className="w-4 h-4 fill-current" />
                         ))}
                       </div>
-                      <span className="text-sm text-gray-600 ml-1">5-Star Rated</span>
+                      <span className="text-sm text-slate-ink ml-1">5-Star Rated</span>
                     </div>
                   </div>
 
                   <div className="space-y-4 mb-6">
-                    <div className="flex items-center gap-3 text-gray-600">
+                    <div className="flex items-center gap-3 text-slate-ink">
                       <Clock className="w-5 h-5 text-blue-season flex-shrink-0" />
                       <span>Half Day (4-5 hours)</span>
                     </div>
-                    <div className="flex items-center gap-3 text-gray-600">
+                    <div className="flex items-center gap-3 text-slate-ink">
                       <Users className="w-5 h-5 text-blue-season flex-shrink-0" />
                       <span>4-20 People</span>
                     </div>
-                    <div className="flex items-center gap-3 text-gray-600">
+                    <div className="flex items-center gap-3 text-slate-ink">
                       <MapPin className="w-5 h-5 text-blue-season flex-shrink-0" />
                       <span>20 mins from Stone Town</span>
                     </div>
@@ -192,7 +191,7 @@ export default function NakupendaSandbankPage() {
 
                   <BookingModal 
                     tourName="Nakupenda Sandbank Trip" 
-                    className="w-full bg-golden hover:bg-golden/90 text-white font-semibold py-6 text-lg mb-3"
+                    className="w-full bg-golden hover:bg-sand text-ink font-semibold py-6 text-lg mb-3"
                   />
 
                   <Link href="/contact">
@@ -205,12 +204,12 @@ export default function NakupendaSandbankPage() {
                   </Link>
 
                   <div className="mt-6 pt-6 border-t">
-                    <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
-                      <CheckCircle className="w-4 h-4 text-green-600" />
+                    <div className="flex items-center gap-2 text-sm text-slate-ink mb-2">
+                      <CheckCircle className="w-4 h-4 text-island" />
                       <span>Best Price Guarantee</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-green-600" />
+                    <div className="flex items-center gap-2 text-sm text-slate-ink">
+                      <CheckCircle className="w-4 h-4 text-island" />
                       <span>Easy Online Booking</span>
                     </div>
                   </div>
@@ -227,14 +226,14 @@ export default function NakupendaSandbankPage() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6">
             Ready to Experience Paradise?
           </h2>
-          <p className="text-lg sm:text-xl text-blue-100 mb-8 leading-relaxed">
+          <p className="text-lg sm:text-xl text-white/75 mb-8 leading-relaxed">
             Book your Nakupenda Sandbank trip today and create unforgettable memories in one of Africa's most beautiful
             locations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <BookingModal 
               tourName="Nakupenda Sandbank Trip" 
-              className="bg-golden hover:bg-golden/90 text-white font-semibold px-8 py-6 text-lg"
+              className="bg-golden hover:bg-sand text-ink font-semibold px-8 py-6 text-lg"
             />
             <Link href="/zanzibar">
               <Button
@@ -250,7 +249,6 @@ export default function NakupendaSandbankPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }
