@@ -50,9 +50,9 @@ cp public/api/mail-config.example.php public/api/mail-config.php
 WhatsApp stays the primary channel and opens either way. Email is an extra copy
 for the inbox, so a mail failure reports itself but never costs a booking.
 
-Mail lands at both `info@zanzionetours.com` and
-`zanzionetoursandtravel@gmail.com` (edit the `to` array to change that), with
-`Reply-To` set to the traveller — hitting reply answers the customer directly.
+Mail lands at `info@zanzionetours.com` (add more addresses to the `to` array to
+copy the sales team in), with `Reply-To` set to the traveller — hitting reply
+answers the customer directly.
 
 ## Spam protection
 

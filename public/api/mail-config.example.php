@@ -30,7 +30,6 @@ return [
     // Where enquiries land. Add more addresses to copy the sales team in.
     'to' => [
         'info@zanzionetours.com',
-        // 'zanzionetoursandtravel@gmail.com',
     ],
 
     // Origins allowed to POST to the endpoint.

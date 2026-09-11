@@ -25,7 +25,7 @@ export default function StructuredData() {
     description:
       "Zanzibar-based tour operator offering island excursions, Tanzania safaris, Kilimanjaro climbing expeditions, airport transfers and taxi services.",
     telephone: "+255773929583",
-    email: "zanzionetoursandtravel@gmail.com",
+    email: "info@zanzionetours.com",
     priceRange: "$$",
     currenciesAccepted: "USD, TZS",
     paymentAccepted: "Visa, Mastercard, Discover, M-Pesa, Airtel Money, Mixx by Yas, PesaPal, Cash",

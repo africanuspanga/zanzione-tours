@@ -66,7 +66,7 @@ export default function ContactClientPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-display font-semibold text-blue-season mb-1">Email</h3>
-                    <p className="text-slate-ink">zanzionetoursandtravel@gmail.com</p>
+                    <p className="text-slate-ink">info@zanzionetours.com</p>
                     <p className="text-sm text-slate-ink">We respond within 2 hours</p>
                   </div>
                 </div>
@@ -184,7 +184,7 @@ export default function ContactClientPage() {
                 <p className="text-white/75 mb-4">Detailed inquiries and planning</p>
                 <Button
                   className="bg-golden hover:bg-sand text-ink w-full"
-                  onClick={() => (window.location.href = "mailto:zanzionetoursandtravel@gmail.com")}
+                  onClick={() => (window.location.href = "mailto:info@zanzionetours.com")}
                 >
                   Send Email
                 </Button>

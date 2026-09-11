@@ -57,12 +57,12 @@ Helper utilities: `.bg-gradient-ocean`, `.bg-gradient-lagoon`, `.bg-gradient-sun
 - Full stacked logo: `/images/brand/zanzione-logo.png` (emblem + wordmark)
 - Emblem only: `/images/brand/zanzione-mark.png` (used in nav and footer)
 - Favicons: `app/icon.png` and `app/apple-icon.png` (Next.js file convention)
-- Source files live in `/public/new-media/`
+- Original source files live in `/assets/brand-source/` (outside `public/` so they are not deployed)
 
 ## Contact Information
 - **Phone:** +255 773 929 583
 - **WhatsApp:** +255 710 885 320
-- **Email:** zanzionetoursandtravel@gmail.com
+- **Email:** info@zanzionetours.com
 - **Location:** Shangani, Stone Town, Zanzibar, Tanzania
 - **Facebook:** https://www.facebook.com/share/17Wn8GXrd8/
 - **Instagram:** @zanzione_tours

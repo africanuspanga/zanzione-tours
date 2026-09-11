@@ -7,7 +7,7 @@ import { MapPin, Facebook, Instagram, Linkedin, Youtube, Send, Mail, Phone, Mess
 
 const PHONE_PRIMARY = "+255 773 929 583"
 const PHONE_WHATSAPP = "+255 710 885 320"
-const EMAIL = "zanzionetoursandtravel@gmail.com"
+const EMAIL = "info@zanzionetours.com"
 
 const topExcursions = [
   { label: "Safari Blue Day Trip", href: "/zanzibar/SafariBlueTour" },
@@ -282,7 +282,9 @@ export default function Footer() {
 
         {/* ─── Bottom bar ─── */}
         <div className="relative border-t border-white/10">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          {/* Extra bottom/right room so the fixed WhatsApp button cannot sit on
+              top of the last payment logo. */}
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-24 lg:pb-6 lg:pr-28">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
               <p className="text-white/50 text-[13.5px] text-center lg:text-left">
                 &copy; {new Date().getFullYear()} <span className="text-white font-semibold">Zanzione Tours &amp; Safaris</span>{" "}
