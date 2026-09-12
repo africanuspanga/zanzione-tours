@@ -666,7 +666,7 @@ export default function HomePageClient() {
             {/* Left - Images */}
             <div className="animate-on-scroll fade-left relative">
               <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                <Image src="/quad-biking.webp" alt="Quad Biking Zanzibar" width={560} height={380} className="w-full h-auto object-cover" />
+                <Image src="/images/tours/quad-bikes.jpeg" alt="A group of riders lined up on quad bikes on Zanzibar's north coast" width={1200} height={630} sizes="(max-width: 1024px) 100vw, 50vw" className="w-full h-auto object-cover" />
               </div>
               <div className="absolute -bottom-6 -right-6 w-48 h-36 rounded-xl overflow-hidden shadow-xl border-4 border-white hidden lg:block">
                 <Image src="/quad-biking-2.jpg" alt="Quad Biking Adventure" fill className="object-cover" sizes="200px" />
