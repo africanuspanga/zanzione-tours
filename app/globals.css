@@ -22,10 +22,12 @@
   --zn-slate: #647b8f;       /* Slate Blue Gray   — muted text     */
 
   /* ─── Third-party brand colours ───
-     Not part of the Zanzione palette. Used only by the Tripadvisor review
-     block so it reads as a genuine Tripadvisor surface. */
+     Not part of the Zanzione palette. Used only by the Tripadvisor and
+     Google review blocks so each reads as a genuine review surface. */
   --ta-green: #34e0a1;       /* Tripadvisor brand green — CTA      */
   --ta-bubble: #3a823b;      /* Tripadvisor rating bubbles         */
+  --google-blue: #1a73e8;    /* Google brand blue — CTA            */
+  --google-star: #fbbc04;    /* Google review stars                */
 
   /* ─── Legacy brand aliases (kept so existing markup re-skins) ─── */
   --blue-season-primary: var(--zn-navy);
@@ -165,9 +167,11 @@
   /* legacy alias — `text-blue-season` / `bg-blue-season` stay valid */
   --color-blue-season: var(--zn-navy);
 
-  /* ─── Tripadvisor (third-party) ─── */
+  /* ─── Tripadvisor & Google (third-party) ─── */
   --color-ta-green: var(--ta-green);
   --color-ta-bubble: var(--ta-bubble);
+  --color-google-blue: var(--google-blue);
+  --color-google-star: var(--google-star);
 
   --font-sans: var(--font-inter);
   --font-display: var(--font-poppins);

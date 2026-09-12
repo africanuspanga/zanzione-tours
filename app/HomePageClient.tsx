@@ -25,6 +25,7 @@ import Link from "next/link"
 import BookingModal from "@/components/booking-modal"
 import TourCard from "@/components/tour-card"
 import TripAdvisorReviews from "@/components/tripadvisor-reviews"
+import GoogleReviews from "@/components/google-reviews"
 import { zanzibarTours } from "@/lib/tours"
 import { sendEnquiry, openWhatsApp } from "@/lib/send-enquiry"
 import PromoSlider from "@/components/promo-slider"
@@ -967,6 +968,9 @@ export default function HomePageClient() {
 
       {/* ═══════ TRIPADVISOR REVIEWS ═══════ */}
       <TripAdvisorReviews />
+
+      {/* ═══════ GOOGLE REVIEWS ═══════ */}
+      <GoogleReviews />
 
       <Footer />
     </div>
