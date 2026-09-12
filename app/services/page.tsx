@@ -34,11 +34,45 @@ export const metadata: Metadata = {
 
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
+import BookingModal from "@/components/booking-modal"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Plane, MapPin, Car, Clock, Users, CheckCircle } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+
+// Rental fleet. Rates move with fuel and season, so nothing is published here —
+// the office quotes each hire when the guest enquires.
+const rentalFleet = [
+  {
+    name: "Toyota Alphard",
+    seats: "Up to 6 seats",
+    image: "/images/vehicles/alphard-6-seater.jpeg",
+    description:
+      "Executive comfort for families and VIP transfers — plush seating, extra legroom and a smooth, quiet ride.",
+  },
+  {
+    name: "Toyota Hiace",
+    seats: "Up to 10 seats",
+    image: "/images/vehicles/hiace-10-seater.jpeg",
+    description:
+      "Roomy and dependable for small groups travelling together, air-conditioned throughout with space for luggage.",
+  },
+  {
+    name: "Toyota Hiace Commuter",
+    seats: "Up to 14 seats",
+    image: "/images/vehicles/hiace-14-seater.jpeg",
+    description:
+      "High-roof 14-seater that keeps larger families and friend groups in one vehicle for airport runs and full-day trips.",
+  },
+  {
+    name: "Toyota Coaster",
+    seats: "Up to 28 seats",
+    image: "/images/vehicles/coaster-28-seater.jpeg",
+    description:
+      "Our largest vehicle — ideal for group tours, events and corporate travel, with air conditioning and ample luggage space.",
+  },
+]
 
 const services = [
   {
@@ -51,7 +85,7 @@ const services = [
       "Modern, air-conditioned vehicles",
       "Meet & greet service",
       "24/7 availability",
-      "Fixed pricing",
+      "Rate agreed before you travel",
       "Flight monitoring",
     ],
   },
@@ -149,8 +183,47 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Why Choose Our Services */}
+      {/* Car Hire & Rental Fleet */}
       <section className="py-20 bg-mist">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <p className="text-aqua font-display font-bold tracking-[0.2em] uppercase text-xs mb-2">RENTAL FLEET</p>
+            <h2 className="text-4xl font-display font-bold text-blue-season mb-6">Car Hire &amp; Rental Fleet</h2>
+            <p className="text-xl text-slate-ink max-w-3xl mx-auto">
+              Explore Zanzibar at your own pace in a well-maintained, air-conditioned vehicle. From an executive
+              Alphard to a 28-seater Coaster — tell us your group size and dates and we will quote your daily rate.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {rentalFleet.map((vehicle) => (
+              <Card key={vehicle.name} className="overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                <div className="relative h-48 bg-white">
+                  <Image
+                    src={vehicle.image}
+                    alt={vehicle.name}
+                    fill
+                    className="object-contain p-4"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+                <CardContent className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl font-display font-bold text-blue-season mb-1">{vehicle.name}</h3>
+                  <p className="text-sea text-xs font-semibold mb-3">{vehicle.seats}</p>
+                  <p className="text-slate-ink text-sm leading-relaxed mb-6 flex-grow">{vehicle.description}</p>
+                  <BookingModal
+                    tourName={`Car Hire: ${vehicle.name}`}
+                    trigger={<Button className="w-full bg-golden hover:bg-sand text-ink">GET A QUOTE</Button>}
+                  />
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Our Services */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold text-blue-season mb-6">Why Choose Our Services?</h2>
@@ -205,7 +278,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Service Areas */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-mist">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>

@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Zanzibar 3 Days 2 Nights Package",
   description:
-    "Stone Town, a spice farm and beach time packed into a short island break. 2 nights in Zanzibar from $398 per person, including accommodation, breakfast & dinner, transfers and guided excursions.",
+    "Stone Town, a spice farm and beach time packed into a short island break. 2 nights in Zanzibar, including accommodation, breakfast & dinner, transfers and guided excursions.",
   keywords: [
     "Zanzibar 3 days package",
     "Zanzibar 2 nights holiday",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Zanzibar 3 Days 2 Nights Package | Zanzione Tours & Safaris",
     description:
-      "Stone Town, a spice farm and beach time packed into a short island break. 2 nights in Zanzibar from $398 per person, including accommodation, breakfast & dinner, transfers and guided excursions.",
+      "Stone Town, a spice farm and beach time packed into a short island break. 2 nights in Zanzibar, including accommodation, breakfast & dinner, transfers and guided excursions.",
     url: "https://www.zanzionetours.com/itineraries/zanzibar-3-days",
     images: [
       {

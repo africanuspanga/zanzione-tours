@@ -21,6 +21,12 @@
   --zn-ink: #071d35;         /* Deep Navy         — main text      */
   --zn-slate: #647b8f;       /* Slate Blue Gray   — muted text     */
 
+  /* ─── Third-party brand colours ───
+     Not part of the Zanzione palette. Used only by the Tripadvisor review
+     block so it reads as a genuine Tripadvisor surface. */
+  --ta-green: #34e0a1;       /* Tripadvisor brand green — CTA      */
+  --ta-bubble: #3a823b;      /* Tripadvisor rating bubbles         */
+
   /* ─── Legacy brand aliases (kept so existing markup re-skins) ─── */
   --blue-season-primary: var(--zn-navy);
   --blue-season-secondary: var(--zn-gold);
@@ -158,6 +164,10 @@
   --color-slate-ink: var(--zn-slate);
   /* legacy alias — `text-blue-season` / `bg-blue-season` stay valid */
   --color-blue-season: var(--zn-navy);
+
+  /* ─── Tripadvisor (third-party) ─── */
+  --color-ta-green: var(--ta-green);
+  --color-ta-bubble: var(--ta-bubble);
 
   --font-sans: var(--font-inter);
   --font-display: var(--font-poppins);

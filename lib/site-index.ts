@@ -6,13 +6,13 @@
  * can be, so the excursion list only has to be maintained in one place.
  */
 
-import { zanzibarTours, formatPrice } from "./tours"
+import { zanzibarTours } from "./tours"
 
 export type SearchEntry = {
   title: string
   href: string
   category: "Page" | "Zanzibar Tour" | "Safari Package" | "Zanzibar Package" | "Service"
-  /** Shown as the second line of a result — price, duration or a short blurb. */
+  /** Shown as the second line of a result — duration or a short blurb. */
   meta?: string
   /** Extra terms to match on that don't appear in the title. */
   keywords?: string
@@ -31,39 +31,39 @@ const pages: SearchEntry[] = [
 ]
 
 const services: SearchEntry[] = [
-  { title: "Airport Taxi & Transfers", href: "/transfers", category: "Service", meta: "From $15 per vehicle", keywords: "airport ferry taxi transfer shuttle" },
-  { title: "Car Hire & Rental", href: "/services", category: "Service", meta: "From $30 per day", keywords: "rent a car alphard voxy rav4 coaster hire" },
+  { title: "Airport Taxi & Transfers", href: "/transfers", category: "Service", keywords: "airport ferry taxi transfer shuttle" },
+  { title: "Car Hire & Rental", href: "/services", category: "Service", keywords: "rent a car alphard hiace commuter coaster minibus hire fleet" },
   { title: "Water Sports & Jet Ski", href: "/services", category: "Service", keywords: "jet ski kayak jet car drone water sports" },
   { title: "Quad Biking Adventure", href: "/services", category: "Service", keywords: "quad bike atv adventure off road" },
 ]
 
 const safariPackages: SearchEntry[] = [
-  { title: "Mikumi Day Trip Safari", href: "/itineraries/mikumi-day-trip", category: "Safari Package", meta: "1 Day · $430" },
-  { title: "Selous Day Trip Safari", href: "/itineraries/selous-day-trip", category: "Safari Package", meta: "1 Day · $450", keywords: "nyerere national park" },
-  { title: "Serengeti 2 Days Safari", href: "/itineraries/serengeti-safari", category: "Safari Package", meta: "2 Days / 1 Night · $1,676" },
-  { title: "3 Days Serengeti Safari", href: "/itineraries/serengeti-3-days", category: "Safari Package", meta: "3 Days / 2 Nights · $2,048" },
+  { title: "Mikumi Day Trip Safari", href: "/itineraries/mikumi-day-trip", category: "Safari Package", meta: "1 Day" },
+  { title: "Selous Day Trip Safari", href: "/itineraries/selous-day-trip", category: "Safari Package", meta: "1 Day", keywords: "nyerere national park" },
+  { title: "Serengeti 2 Days Safari", href: "/itineraries/serengeti-safari", category: "Safari Package", meta: "2 Days / 1 Night" },
+  { title: "3 Days Serengeti Safari", href: "/itineraries/serengeti-3-days", category: "Safari Package", meta: "3 Days / 2 Nights" },
   { title: "Serengeti Hot Air Balloon Safari", href: "/itineraries/serengeti-balloon-safari", category: "Safari Package", meta: "3 Days / 2 Nights", keywords: "balloon flight sunrise" },
-  { title: "5 Days Tanzania Safari", href: "/itineraries/tanzania-safari-5-days", category: "Safari Package", meta: "5 Days / 4 Nights · $1,770", keywords: "tarangire lake manyara ngorongoro" },
-  { title: "7 Days Tanzania Safari", href: "/itineraries/tanzania-safari-7-days", category: "Safari Package", meta: "7 Days / 6 Nights · $2,480" },
-  { title: "8 Days Tanzania Safari", href: "/itineraries/tanzania-safari-8-days", category: "Safari Package", meta: "8 Days / 7 Nights · $2,600", keywords: "hadzabe tribe" },
-  { title: "10 Days Tanzania Safari", href: "/itineraries/tanzania-safari-10-days", category: "Safari Package", meta: "10 Days / 9 Nights · $3,720", keywords: "northern circuit complete" },
+  { title: "5 Days Tanzania Safari", href: "/itineraries/tanzania-safari-5-days", category: "Safari Package", meta: "5 Days / 4 Nights", keywords: "tarangire lake manyara ngorongoro" },
+  { title: "7 Days Tanzania Safari", href: "/itineraries/tanzania-safari-7-days", category: "Safari Package", meta: "7 Days / 6 Nights" },
+  { title: "8 Days Tanzania Safari", href: "/itineraries/tanzania-safari-8-days", category: "Safari Package", meta: "8 Days / 7 Nights", keywords: "hadzabe tribe" },
+  { title: "10 Days Tanzania Safari", href: "/itineraries/tanzania-safari-10-days", category: "Safari Package", meta: "10 Days / 9 Nights", keywords: "northern circuit complete" },
 ]
 
 const zanzibarPackages: SearchEntry[] = [
-  { title: "Zanzibar 3 Days Package", href: "/itineraries/zanzibar-3-days", category: "Zanzibar Package", meta: "3 Days / 2 Nights · from $398" },
-  { title: "Zanzibar 4 Days Package", href: "/itineraries/zanzibar-4-days", category: "Zanzibar Package", meta: "4 Days / 3 Nights · from $617" },
-  { title: "Zanzibar 5 Days Package", href: "/itineraries/zanzibar-5-days", category: "Zanzibar Package", meta: "5 Days / 4 Nights · from $390" },
-  { title: "Zanzibar 7 Days Package", href: "/itineraries/zanzibar-7-days", category: "Zanzibar Package", meta: "7 Days / 6 Nights · from $1,298" },
-  { title: "Zanzibar 8 Days Package", href: "/itineraries/zanzibar-8-days", category: "Zanzibar Package", meta: "8 Days / 7 Nights · from $1,340" },
-  { title: "Zanzibar 9 Days Package", href: "/itineraries/zanzibar-9-days", category: "Zanzibar Package", meta: "9 Days / 8 Nights · from $1,430" },
-  { title: "Zanzibar 10 Days Package", href: "/itineraries/zanzibar-10-days", category: "Zanzibar Package", meta: "10 Days / 9 Nights · from $1,590" },
+  { title: "Zanzibar 3 Days Package", href: "/itineraries/zanzibar-3-days", category: "Zanzibar Package", meta: "3 Days / 2 Nights" },
+  { title: "Zanzibar 4 Days Package", href: "/itineraries/zanzibar-4-days", category: "Zanzibar Package", meta: "4 Days / 3 Nights" },
+  { title: "Zanzibar 5 Days Package", href: "/itineraries/zanzibar-5-days", category: "Zanzibar Package", meta: "5 Days / 4 Nights" },
+  { title: "Zanzibar 7 Days Package", href: "/itineraries/zanzibar-7-days", category: "Zanzibar Package", meta: "7 Days / 6 Nights" },
+  { title: "Zanzibar 8 Days Package", href: "/itineraries/zanzibar-8-days", category: "Zanzibar Package", meta: "8 Days / 7 Nights" },
+  { title: "Zanzibar 9 Days Package", href: "/itineraries/zanzibar-9-days", category: "Zanzibar Package", meta: "9 Days / 8 Nights" },
+  { title: "Zanzibar 10 Days Package", href: "/itineraries/zanzibar-10-days", category: "Zanzibar Package", meta: "10 Days / 9 Nights" },
 ]
 
 const tourEntries: SearchEntry[] = zanzibarTours.map((tour) => ({
   title: tour.title,
   href: `/zanzibar/${tour.slug}`,
   category: "Zanzibar Tour" as const,
-  meta: `${tour.duration} · ${formatPrice(tour.price)}`,
+  meta: tour.duration,
   keywords: `${tour.location} ${tour.highlights.join(" ")}`,
 }))
 

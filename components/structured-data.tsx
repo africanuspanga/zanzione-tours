@@ -1,4 +1,4 @@
-import { zanzibarTours, formatPrice } from "@/lib/tours"
+import { zanzibarTours } from "@/lib/tours"
 
 const SITE_URL = "https://www.zanzionetours.com"
 
@@ -91,15 +91,6 @@ export default function StructuredData() {
         description: tour.description,
         touristType: "Leisure travellers",
         provider: { "@id": `${SITE_URL}/#organization` },
-        ...(tour.price !== null && {
-          offers: {
-            "@type": "Offer",
-            price: tour.price,
-            priceCurrency: "USD",
-            availability: "https://schema.org/InStock",
-            url: `${SITE_URL}/zanzibar/${tour.slug}/`,
-          },
-        }),
       },
     })),
   }
@@ -136,5 +127,3 @@ export function Breadcrumbs({ trail }: { trail: { name: string; href: string }[]
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
 }
-
-export { formatPrice }

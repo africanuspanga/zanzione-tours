@@ -5,7 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { MapPin, MoveHorizontal, Lightbulb, Plus, Minus, ArrowUpRight, Check } from "lucide-react"
 import BookingModal from "@/components/booking-modal"
-import { formatPrice, type Tour } from "@/lib/tours"
+import { type Tour } from "@/lib/tours"
 
 type Panel = "experience" | "inclusion" | null
 
@@ -104,9 +104,11 @@ export default function TourCard({ tour, priority = false }: { tour: Tour; prior
               </button>
             }
           />
+          {/* Rates move with fuel and season, so every tour is quoted when the
+              guest enquires rather than carrying a figure that goes stale. */}
           <div className="text-right leading-tight">
-            <span className="block text-[12.5px] font-bold text-slate-ink">Per Person</span>
-            <span className="block text-[22px] font-display font-extrabold text-ink">{formatPrice(tour.price)}</span>
+            <span className="block text-[12.5px] font-bold text-slate-ink">Pricing</span>
+            <span className="block text-[19px] font-display font-extrabold text-ink">On Request</span>
           </div>
         </div>
 

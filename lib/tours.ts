@@ -2,9 +2,9 @@
  * Single source of truth for the Zanzibar excursion catalogue.
  *
  * Feeds the tour cards, the navigation search index and the sitemap so the
- * three never drift apart. Prices are the published per-person rates from the
- * company price list; tours that are quoted case-by-case carry `price: null`
- * and render as "On Request" rather than showing an invented figure.
+ * three never drift apart. No prices are published anywhere on the site —
+ * every tour is quoted on request, so the cards read "On Request" and the
+ * office agrees the rate with the guest when they book.
  */
 
 export type Tour = {
@@ -16,8 +16,6 @@ export type Tour = {
   location: string
   duration: string
   groupSize: string
-  /** Per-person price in USD, or null when the tour is quoted on request. */
-  price: number | null
   badge?: "Hot Sale!" | "Best Seller" | "New"
   description: string
   /** Bullet list shown under the card's "Experience" disclosure. */
@@ -42,7 +40,6 @@ export const zanzibarTours: Tour[] = [
     location: "Zanzibar",
     duration: "Full Day",
     groupSize: "4-20 people",
-    price: 40,
     badge: "Hot Sale!",
     description:
       "Sail on traditional dhows to pristine sandbanks and enjoy the ultimate marine adventure with snorkeling, swimming, and a seafood feast.",
@@ -63,7 +60,6 @@ export const zanzibarTours: Tour[] = [
     location: "Zanzibar",
     duration: "Half Day",
     groupSize: "2-12 people",
-    price: 25,
     badge: "Best Seller",
     description:
       "Explore the UNESCO World Heritage site with its narrow alleys, historic buildings, and vibrant markets. Discover the cultural heart of Zanzibar.",
@@ -84,7 +80,6 @@ export const zanzibarTours: Tour[] = [
     location: "Zanzibar",
     duration: "Half Day",
     groupSize: "2-15 people",
-    price: 30,
     badge: "Hot Sale!",
     description:
       "Visit the historic Changuu Island to learn about its fascinating past and meet the famous giant Aldabra tortoises, some over 100 years old.",
@@ -105,7 +100,6 @@ export const zanzibarTours: Tour[] = [
     location: "Zanzibar",
     duration: "Half Day",
     groupSize: "4-20 people",
-    price: 49,
     badge: "Hot Sale!",
     description:
       "Escape to a pristine white sand paradise in the middle of the ocean. Perfect for relaxation, swimming, and enjoying fresh seafood.",
@@ -126,7 +120,6 @@ export const zanzibarTours: Tour[] = [
     location: "Zanzibar",
     duration: "Half Day",
     groupSize: "2-15 people",
-    price: 25,
     description:
       "Discover why Zanzibar is called the 'Spice Island' with visits to working spice plantations where you'll see, smell, and taste exotic spices.",
     highlights: [
@@ -146,7 +139,6 @@ export const zanzibarTours: Tour[] = [
     location: "Zanzibar",
     duration: "Half Day",
     groupSize: "2-15 people",
-    price: 25,
     description:
       "Explore Zanzibar's indigenous forest and meet the rare Red Colobus monkeys found nowhere else on Earth. A nature lover's paradise with guided forest walks.",
     highlights: [
@@ -166,7 +158,6 @@ export const zanzibarTours: Tour[] = [
     location: "Zanzibar",
     duration: "Half Day",
     groupSize: "2-20 people",
-    price: 35,
     badge: "Best Seller",
     description:
       "Discover pristine coral reefs and swim in crystal-clear waters around this protected marine sanctuary. Perfect for snorkeling enthusiasts.",
@@ -187,7 +178,6 @@ export const zanzibarTours: Tour[] = [
     location: "Zanzibar",
     duration: "Half Day",
     groupSize: "2-15 people",
-    price: 40,
     description:
       "Swim with wild dolphins in their natural habitat at Kizimkazi. An unforgettable wildlife encounter in the warm waters of the Indian Ocean.",
     highlights: [
@@ -207,7 +197,6 @@ export const zanzibarTours: Tour[] = [
     location: "Stone Town",
     duration: "2-3 Hours",
     groupSize: "2-20 people",
-    price: 45,
     description:
       "Sail into the golden hour aboard a traditional dhow and watch the spectacular Zanzibar sunset paint the sky in brilliant colors.",
     highlights: [
@@ -227,7 +216,6 @@ export const zanzibarTours: Tour[] = [
     location: "Michamvi",
     duration: "Half Day",
     groupSize: "2-10 people",
-    price: 35,
     description:
       "Visit Zanzibar's iconic restaurant perched on a rock in the ocean. Enjoy fresh seafood and stunning panoramic views of the Indian Ocean.",
     highlights: [
@@ -247,7 +235,6 @@ export const zanzibarTours: Tour[] = [
     location: "Paje",
     duration: "Half Day",
     groupSize: "2-15 people",
-    price: null,
     description:
       "Discover the enchanting natural swimming pool hidden inside a limestone cave. A magical spot surrounded by lush tropical vegetation.",
     highlights: [
@@ -267,7 +254,6 @@ export const zanzibarTours: Tour[] = [
     location: "Zanzibar",
     duration: "Half Day",
     groupSize: "2-25 people",
-    price: null,
     description:
       "Explore the mysterious underground caves of Zanzibar with stunning rock formations and crystal-clear natural pools hidden beneath the surface.",
     highlights: [
@@ -287,7 +273,6 @@ export const zanzibarTours: Tour[] = [
     location: "Mtende",
     duration: "Half Day",
     groupSize: "2-15 people",
-    price: null,
     description:
       "Relax on one of Zanzibar's most serene and untouched beaches. Enjoy crystal-clear waters, soft white sand, and breathtaking coastal views.",
     highlights: [
@@ -307,7 +292,6 @@ export const zanzibarTours: Tour[] = [
     location: "Kendwa",
     duration: "2 Hours",
     groupSize: "1-10 people",
-    price: null,
     badge: "New",
     description:
       "Walk along the ocean floor wearing a specialised helmet and come face to face with Zanzibar's reef life — no diving experience required.",
@@ -328,7 +312,6 @@ export const zanzibarTours: Tour[] = [
     location: "Stone Town",
     duration: "Half Day",
     groupSize: "2-10 people",
-    price: null,
     description:
       "Cook alongside a local family and master the Swahili spice blends behind Zanzibar's best-loved dishes, then share the meal you have made.",
     highlights: [
@@ -348,7 +331,6 @@ export const zanzibarTours: Tour[] = [
     location: "Zanzibar",
     duration: "Half Day",
     groupSize: "2-15 people",
-    price: null,
     description:
       "Meet the people behind the island. Walk through a working Zanzibari village, visit a local school and see daily island life up close.",
     highlights: [
@@ -361,10 +343,6 @@ export const zanzibarTours: Tour[] = [
     inclusions: ["Hotel pick-up & drop-off", "Local guide", "Community contribution", "Bottled water"],
   },
 ]
-
-export function formatPrice(price: number | null): string {
-  return price === null ? "On Request" : `$${price.toFixed(2)}`
-}
 
 export function getTour(slug: string): Tour | undefined {
   return zanzibarTours.find((t) => t.slug === slug)

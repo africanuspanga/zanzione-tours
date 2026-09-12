@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     template: "%s | Zanzione Tours & Safaris",
   },
   description:
-    "Zanzibar tour operator based in Shangani, Stone Town. Book island excursions from $25, Tanzania safaris, Kilimanjaro climbs, airport transfers and taxi services with expert local guides.",
+    "Zanzibar tour operator based in Shangani, Stone Town. Book island excursions, Tanzania safaris, Kilimanjaro climbs, airport transfers and taxi services with expert local guides.",
   applicationName: "Zanzione Tours & Safaris",
   keywords: [
     "Zanzibar tours",

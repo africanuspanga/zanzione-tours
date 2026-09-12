@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Zanzibar 5 Days 4 Nights Package",
   description:
-    "The classic island week in miniature — history, spice farms, sandbanks and reef snorkelling. 4 nights in Zanzibar from $390 per person, including accommodation, breakfast & dinner, transfers and guided excursions.",
+    "The classic island week in miniature — history, spice farms, sandbanks and reef snorkelling. 4 nights in Zanzibar, including accommodation, breakfast & dinner, transfers and guided excursions.",
   keywords: [
     "Zanzibar 5 days package",
     "Zanzibar 4 nights holiday",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Zanzibar 5 Days 4 Nights Package | Zanzione Tours & Safaris",
     description:
-      "The classic island week in miniature — history, spice farms, sandbanks and reef snorkelling. 4 nights in Zanzibar from $390 per person, including accommodation, breakfast & dinner, transfers and guided excursions.",
+      "The classic island week in miniature — history, spice farms, sandbanks and reef snorkelling. 4 nights in Zanzibar, including accommodation, breakfast & dinner, transfers and guided excursions.",
     url: "https://www.zanzionetours.com/itineraries/zanzibar-5-days",
     images: [
       {

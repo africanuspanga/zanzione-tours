@@ -11,7 +11,7 @@ import { MapPin, DollarSign } from "lucide-react"
 export const metadata: Metadata = {
   title: "Airport & Hotel Transfers in Zanzibar - Reliable Transport | ZANZIONE TOURS",
   description:
-    "Book reliable and comfortable transfer services across Zanzibar. Airport transfers starting at $20, hotel transfers, and ferry connections to Stone Town, Nungwi, Paje, Jambiani, and all major destinations. Professional drivers and modern vehicles available 24/7.",
+    "Book reliable and comfortable transfer services across Zanzibar. Airport transfers, hotel transfers, and ferry connections to Stone Town, Nungwi, Paje, Jambiani, and all major destinations. Professional drivers and a modern 6, 10, 14 and 28-seater fleet available 24/7.",
   keywords:
     "Zanzibar transfers, airport transfer, ferry transfer, hotel transfer, Zanzibar transportation, Stone Town transfer, Nungwi transfer",
 }
@@ -19,41 +19,42 @@ export const metadata: Metadata = {
 interface TransferRoute {
   from: string
   to: string
-  price: number
+  /** Vehicle shown on the card — rates are agreed per booking, never published. */
+  vehicle: string
   image: string
 }
 
 const transferRoutes: TransferRoute[] = [
-  { from: "Airport / Ferry", to: "Stone Town", price: 20, image: "/toyota-alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Chuini", price: 25, image: "/toyota-alphard.jpeg" },
-  { from: "Airport / Ferry", to: "M/Pwani", price: 35, image: "/toyota-alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Nungwi - Kendwa", price: 40, image: "/toyota-alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Kiwengwa", price: 35, image: "/toyota-alphard.jpeg" },
-  { from: "Airport / Ferry", to: "P/Mchangani", price: 35, image: "/toyota-alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Matemwe", price: 65, image: "/new-coaster-image.jpeg" },
-  { from: "Airport / Ferry", to: "Bwejuu", price: 40, image: "/toyota-alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Michamvi", price: 40, image: "/toyota-alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Paje", price: 40, image: "/toyota-alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Jambiani", price: 40, image: "/toyota-alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Makunduchi", price: 65, image: "/new-coaster-image.jpeg" },
-  { from: "Airport / Ferry", to: "Kizimkazi", price: 45, image: "/toyota-alphard.jpeg" },
-  { from: "Airport / Ferry", to: "Pongwe", price: 35, image: "/toyota-alphard.jpeg" },
+  { from: "Airport / Ferry", to: "Stone Town", vehicle: "Toyota Alphard · up to 6 seats", image: "/images/vehicles/alphard-6-seater.jpeg" },
+  { from: "Airport / Ferry", to: "Chuini", vehicle: "Toyota Hiace · up to 10 seats", image: "/images/vehicles/hiace-10-seater.jpeg" },
+  { from: "Airport / Ferry", to: "M/Pwani", vehicle: "Toyota Alphard · up to 6 seats", image: "/images/vehicles/alphard-6-seater.jpeg" },
+  { from: "Airport / Ferry", to: "Nungwi - Kendwa", vehicle: "Toyota Hiace · up to 10 seats", image: "/images/vehicles/hiace-10-seater.jpeg" },
+  { from: "Airport / Ferry", to: "Kiwengwa", vehicle: "Toyota Alphard · up to 6 seats", image: "/images/vehicles/alphard-6-seater.jpeg" },
+  { from: "Airport / Ferry", to: "P/Mchangani", vehicle: "Toyota Hiace · up to 10 seats", image: "/images/vehicles/hiace-10-seater.jpeg" },
+  { from: "Airport / Ferry", to: "Matemwe", vehicle: "Toyota Coaster · up to 28 seats", image: "/images/vehicles/coaster-28-seater.jpeg" },
+  { from: "Airport / Ferry", to: "Bwejuu", vehicle: "Toyota Alphard · up to 6 seats", image: "/images/vehicles/alphard-6-seater.jpeg" },
+  { from: "Airport / Ferry", to: "Michamvi", vehicle: "Toyota Hiace · up to 10 seats", image: "/images/vehicles/hiace-10-seater.jpeg" },
+  { from: "Airport / Ferry", to: "Paje", vehicle: "Toyota Alphard · up to 6 seats", image: "/images/vehicles/alphard-6-seater.jpeg" },
+  { from: "Airport / Ferry", to: "Jambiani", vehicle: "Toyota Hiace · up to 10 seats", image: "/images/vehicles/hiace-10-seater.jpeg" },
+  { from: "Airport / Ferry", to: "Makunduchi", vehicle: "Toyota Coaster · up to 28 seats", image: "/images/vehicles/coaster-28-seater.jpeg" },
+  { from: "Airport / Ferry", to: "Kizimkazi", vehicle: "Toyota Alphard · up to 6 seats", image: "/images/vehicles/alphard-6-seater.jpeg" },
+  { from: "Airport / Ferry", to: "Pongwe", vehicle: "Toyota Hiace · up to 10 seats", image: "/images/vehicles/hiace-10-seater.jpeg" },
   {
     from: "Airport / Ferry",
     to: "Uroa / Marumbi / Chwaka",
-    price: 35,
-    image: "/toyota-alphard.jpeg",
+    vehicle: "Toyota Alphard · up to 6 seats",
+    image: "/images/vehicles/alphard-6-seater.jpeg",
   },
-  { from: "Jambiani", to: "Paje / Bwejuu / Dongwe", price: 20, image: "/toyota-alphard.jpeg" },
-  { from: "Jambiani", to: "Michamvi", price: 25, image: "/toyota-alphard.jpeg" },
-  { from: "Jambiani", to: "Makunduchi", price: 20, image: "/toyota-alphard.jpeg" },
-  { from: "Jambiani", to: "Kizimkazi", price: 25, image: "/toyota-alphard.jpeg" },
-  { from: "Jambiani", to: "Stone Town", price: 65, image: "/images/vehicles/coaster-28seat.jpeg" },
-  { from: "Jambiani", to: "Uroa / Pongwe", price: 45, image: "/toyota-alphard.jpeg" },
-  { from: "Jambiani", to: "Kiwengwa / P'Mchangani", price: 45, image: "/toyota-alphard.jpeg" },
-  { from: "Jambiani", to: "Nungwi / Kendwa", price: 50, image: "/toyota-alphard.jpeg" },
-  { from: "Jambiani", to: "Nungwi", price: 75, image: "/new-coaster-image.jpeg" },
-  { from: "Airport / Ferry", to: "Nungwi", price: 55, image: "/new-van-image.jpeg" },
+  { from: "Jambiani", to: "Paje / Bwejuu / Dongwe", vehicle: "Toyota Alphard · up to 6 seats", image: "/images/vehicles/alphard-6-seater.jpeg" },
+  { from: "Jambiani", to: "Michamvi", vehicle: "Toyota Hiace · up to 10 seats", image: "/images/vehicles/hiace-10-seater.jpeg" },
+  { from: "Jambiani", to: "Makunduchi", vehicle: "Toyota Alphard · up to 6 seats", image: "/images/vehicles/alphard-6-seater.jpeg" },
+  { from: "Jambiani", to: "Kizimkazi", vehicle: "Toyota Hiace · up to 10 seats", image: "/images/vehicles/hiace-10-seater.jpeg" },
+  { from: "Jambiani", to: "Stone Town", vehicle: "Toyota Coaster · up to 28 seats", image: "/images/vehicles/coaster-28-seater.jpeg" },
+  { from: "Jambiani", to: "Uroa / Pongwe", vehicle: "Toyota Alphard · up to 6 seats", image: "/images/vehicles/alphard-6-seater.jpeg" },
+  { from: "Jambiani", to: "Kiwengwa / P'Mchangani", vehicle: "Toyota Hiace · up to 10 seats", image: "/images/vehicles/hiace-10-seater.jpeg" },
+  { from: "Jambiani", to: "Nungwi / Kendwa", vehicle: "Toyota Alphard · up to 6 seats", image: "/images/vehicles/alphard-6-seater.jpeg" },
+  { from: "Jambiani", to: "Nungwi", vehicle: "Toyota Coaster · up to 28 seats", image: "/images/vehicles/coaster-28-seater.jpeg" },
+  { from: "Airport / Ferry", to: "Nungwi", vehicle: "Toyota Hiace · up to 14 seats", image: "/images/vehicles/hiace-14-seater.jpeg" },
 ]
 
 export default function TransfersPage() {
@@ -65,7 +66,7 @@ export default function TransfersPage() {
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center">
         <Image
-          src="/toyota-alphard.jpeg"
+          src="/images/vehicles/hiace-14-seater.jpeg"
           alt="Zanzibar Transfers"
           fill
           className="object-cover"
@@ -75,7 +76,7 @@ export default function TransfersPage() {
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="text-4xl md:text-6xl font-display font-bold mb-4">Zanzibar Transfer Services</h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-            Reliable, comfortable, and affordable transfers across Zanzibar Island
+            Reliable and comfortable transfers across Zanzibar Island
           </p>
         </div>
       </section>
@@ -107,7 +108,7 @@ export default function TransfersPage() {
               <DollarSign className="w-8 h-8 text-golden" />
             </div>
             <h3 className="text-xl font-semibold mb-2">Transparent Pricing</h3>
-            <p className="text-slate-ink">Fixed rates with no hidden charges</p>
+            <p className="text-slate-ink">Your rate is agreed up front — no hidden charges</p>
           </div>
           <div className="text-center p-6">
             <div className="w-16 h-16 bg-golden/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -135,7 +136,7 @@ export default function TransfersPage() {
       {/* Transfer Routes Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <h2 className="text-3xl md:text-4xl font-display font-bold text-ink mb-8 text-center">
-          Our Transfer Routes & Prices
+          Our Transfer Routes
         </h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -160,8 +161,8 @@ export default function TransfersPage() {
                     <p className="font-semibold text-ink">{route.to}</p>
                   </div>
                   <div className="pt-2 border-t">
-                    <p className="text-2xl font-bold text-ocean">${route.price}</p>
-                    <p className="text-sm text-slate-ink">Per vehicle</p>
+                    <p className="text-base font-bold text-ocean">Price on request</p>
+                    <p className="text-sm text-slate-ink">{route.vehicle}</p>
                   </div>
                   <Link href="/contact" className="block">
                     <Button className="w-full bg-golden hover:bg-sand text-ink">Book Now</Button>

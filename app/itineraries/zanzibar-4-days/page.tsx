@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Zanzibar 4 Days 3 Nights Package",
   description:
-    "Stone Town heritage, Prison Island and a full beach day on Zanzibar's north coast. 3 nights in Zanzibar from $617 per person, including accommodation, breakfast & dinner, transfers and guided excursions.",
+    "Stone Town heritage, Prison Island and a full beach day on Zanzibar's north coast. 3 nights in Zanzibar, including accommodation, breakfast & dinner, transfers and guided excursions.",
   keywords: [
     "Zanzibar 4 days package",
     "Zanzibar 3 nights holiday",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Zanzibar 4 Days 3 Nights Package | Zanzione Tours & Safaris",
     description:
-      "Stone Town heritage, Prison Island and a full beach day on Zanzibar's north coast. 3 nights in Zanzibar from $617 per person, including accommodation, breakfast & dinner, transfers and guided excursions.",
+      "Stone Town heritage, Prison Island and a full beach day on Zanzibar's north coast. 3 nights in Zanzibar, including accommodation, breakfast & dinner, transfers and guided excursions.",
     url: "https://www.zanzionetours.com/itineraries/zanzibar-4-days",
     images: [
       {

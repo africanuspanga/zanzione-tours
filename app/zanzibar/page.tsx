@@ -10,7 +10,7 @@ import { ArrowRight, MapPin, ShieldCheck, Users } from "lucide-react"
 export const metadata: Metadata = {
   title: "Zanzibar Island Tours — Stone Town, Safari Blue, Spice Tours & Dolphin Adventures",
   description:
-    "Explore Zanzibar's best excursions from $25: UNESCO Stone Town tours, Safari Blue, Nakupenda sandbank, dolphin swimming, spice farms, Jozani Forest and sunset dhow cruises. Book with expert local guides.",
+    "Explore Zanzibar's best excursions: UNESCO Stone Town tours, Safari Blue, Nakupenda sandbank, dolphin swimming, spice farms, Jozani Forest and sunset dhow cruises. Book with expert local guides.",
   keywords: [
     "Zanzibar tours",
     "Zanzibar excursions",
